@@ -4,29 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum PlayerState
-    {
-        Idle,
-        Walking,
-        Punching,
-        Kicking,
-        Ducking,
-        KnockedDown,
-        GettingUp,
-        Winning
-    }
-    public PlayerState state;
-
-    public bool stateComplete = true; 
-
     Rigidbody rb;
     Animator animator;
 
-    public float speed;
+    public float moveSpeed;
+    float inputHorizontal;
 
-    float xInput;
+    public float punchCoolDown = 0.5f;
+    public float punchTimeCycle = 1f;
+    private float lastPunchTime = 0;
+    public bool isPunching = false;
+    public bool punchLeft = false;
 
-    int isTouched = 0;
+    public bool isBlocking = false;
 
     void Start()
     {
@@ -34,163 +24,102 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     void Update()
     {
-        CheckState();
+        PerformMove();
 
-        Moving();
-        UpdateState();
+        CheckInput();
     }
 
-    void Moving()
+
+    void PerformMove()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-        this.transform.position += transform.forward * xInput * speed * Time.deltaTime;
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        this.transform.position += transform.forward * inputHorizontal * moveSpeed * Time.deltaTime;
 
         FlipCharacter();
     }
 
     void FlipCharacter()
     {
-        if (xInput > 0)
+        if (inputHorizontal > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (xInput < 0)
+        else if (inputHorizontal < 0)
         {
             transform.localScale = new Vector3(1, 1, -1);
         }
     }
 
-    void CheckState()
-    {
-        if (stateComplete)
-        {
-            CheckInput();
-        }
-    }
-
+    //Kiem tra nguoi choi bam phim
     void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            state = PlayerState.Punching;
-            StartPunching();
-            return;
+            PerformPunch();
         }
 
-        else if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            state = PlayerState.Kicking;
-            StartKicking();
-            return;
+            PerformKick();
         }
+    }
 
-        else if (xInput != 0) 
+    void PerformPunch()
+    {
+        if (Time.time - lastPunchTime > punchTimeCycle)
         {
-            state = PlayerState.Walking;
-            StartWalking();
+            punchLeft = true;
         }
 
-        else
+        if (!isPunching)
         {
-            state = PlayerState.Idle;
-            StartIdle();
+            isPunching = true;
+            if (punchLeft)
+            {
+                animator.Play("PunchLeft");
+            }
+            else
+            {
+                animator.Play("PunchRight");
+            }
+
+            punchLeft = !punchLeft;
+
+            lastPunchTime = Time.time;
+
+            Invoke("ResetPunching", punchCoolDown);
         }
+
+
     }
 
-    void UpdateState()
+    void ResetPunching()
     {
-        switch (state)
-        {
-            case PlayerState.Idle:
-                UpdateIdle();
-                break;
-            case PlayerState.Walking:
-                UpdateWalking();
-                break;
-            case PlayerState.Punching:
-                StartCoroutine(UpdatePunching());
-                break;
-            case PlayerState.Kicking:
-                StartCoroutine(UpdateKicking());
-                break;
-        }
+        isPunching = false;
     }
 
-
-    void StartIdle()
+    void PerformKick()
     {
-        animator.Play("Idle");
-        Debug.Log("Idle");
-    }
-
-    void StartWalking()
-    {
-        animator.Play("Walk");
-        Debug.Log("Walk");
-    }
-
-    void StartPunching()
-    {
-        stateComplete = false; 
-        
-        Debug.Log("PunchLeft");
-    }
-
-    void StartKicking()
-    {
-        stateComplete = false;
         animator.Play("Kick");
-        Debug.Log("Kick");
     }
 
-    void UpdateIdle()
+    private void OnTriggerEnter(Collider other)
     {
-        if (xInput != 0)
+        if (other.gameObject.CompareTag("Hand") && !isBlocking)
         {
-            stateComplete = true;
+            StartCoroutine(BlockDamage());
         }
     }
 
-    void UpdateWalking()
+    IEnumerator BlockDamage()
     {
-        if (xInput == 0)
-        {
-            stateComplete = true;
-        }
-    }
-
-    void InputPunch()
-    {
-        if(isTouched == 0)
-        {
-            isTouched = 1;
-            animator.Play("PunchLeft");
-        }
-        else if (isTouched == 1)
-        {
-            isTouched = 0;
-            animator.Play("PunchRight");
-        }
-    }
-
-    IEnumerator UpdatePunching()
-    {
-        yield return new WaitForSeconds(0.2f);
-        Debug.Log("ket thuc");
-        stateComplete = true;
-    }
-
-    IEnumerator CountTouched()    
-    {
-        yield return new WaitForSeconds(1f);
-        isTouched = 0;
-    }
-
-    IEnumerator UpdateKicking()
-    {
-        yield return new WaitForSeconds(0.4f); 
-        stateComplete = true;
+        isBlocking = true;
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+        isBlocking = false;
     }
 }
