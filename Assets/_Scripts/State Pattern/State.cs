@@ -6,16 +6,16 @@ namespace StateTest
 {
     public class IdleState : IState
     {
-        private TestPlayerController controller;
+        private PlayerController controller;
 
-        public IdleState(TestPlayerController controller)
+        public IdleState(PlayerController controller)
         {
             this.controller = controller;
         }
 
         public void Enter()
         {
-            Debug.Log("Idle Enter State");
+            
         }
 
         public void Execute()
@@ -31,9 +31,9 @@ namespace StateTest
 
     public class MovingState : IState
     {
-        private TestPlayerController controller;
+        private PlayerController controller;
 
-        public MovingState(TestPlayerController controller)
+        public MovingState(PlayerController controller)
         {
             this.controller = controller;
         }
@@ -45,8 +45,7 @@ namespace StateTest
 
         public void Execute()
         {
-            float inputHorizontal = Input.GetAxisRaw("Horizontal");
-            controller.transform.position += controller.transform.forward * inputHorizontal * controller.moveSpeed * Time.deltaTime;
+            
         }
 
         public void Exit()
@@ -55,57 +54,24 @@ namespace StateTest
         }
     }
 
-    public class JumpingState : IState
-    {
-        private TestPlayerController controller;
-
-        public JumpingState(TestPlayerController controller)
-        {
-            this.controller = controller;
-        }
-
-        public void Enter()
-        {
-            Debug.Log("Jumping Enter State");
-            controller.PerformJump();
-        }
-
-        public void Execute()
-        {
-            if (controller.isGrounded)
-            {
-                controller.stateManager.ChangeState(new IdleState(controller));
-            }
-        }
-
-        public void Exit()
-        {
-            Debug.Log("Jumping Exit State");
-        }
-    }
-
     public class AttackingState : IState
     {
-        private TestPlayerController controller;
-        private bool isAttacking;
+        private PlayerController controller;
 
-        public AttackingState(TestPlayerController controller)
+        public AttackingState(PlayerController controller)
         {
             this.controller = controller;
         }
 
         public void Enter()
         {
-            Debug.Log("Attacking Enter State");
-            isAttacking = true;
+            
 
-            // Thực hiện tấn công (bạn có thể thêm hoạt ảnh tại đây)
-            controller.StartCoroutine(Attack());
         }
 
         public void Execute()
         {
-            // Trạng thái đánh sẽ quay về Idle sau khi hoàn tất
+            
         }
 
         public void Exit()
@@ -113,22 +79,6 @@ namespace StateTest
             Debug.Log("Attacking Exit State");
         }
 
-        private IEnumerator Attack()
-        {
-            // Thời gian thực hiện đòn đánh (giả định là 0.5 giây)
-            yield return new WaitForSeconds(0.5f);
-            isAttacking = false;
-
-            // Quay lại trạng thái phù hợp
-            if (controller.isGrounded)
-            {
-                controller.stateManager.ChangeState(new IdleState(controller));
-            }
-            else
-            {
-                controller.stateManager.ChangeState(new JumpingState(controller));
-            }
-        }
     }
 
 }

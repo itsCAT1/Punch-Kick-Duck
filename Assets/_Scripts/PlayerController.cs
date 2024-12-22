@@ -4,41 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody rigid;
     Animator animator;
+    StateManager stateManager;
 
     public float moveSpeed;
     float inputHorizontal;
 
     public float punchCoolDown = 0.5f;
-    public float punchTimeCycle = 1f;
-    private float lastPunchTime = 0;
+    public float resetPunchTime = 1f;
+    public float lastPunchTime = 0;
     public bool isPunching = false;
-    public bool punchLeft = false;
+    public bool punchLeft = true;
 
     public bool isBlocking = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        stateManager = gameObject.GetComponent<StateManager>();
     }
 
 
     void Update()
     {
-        PerformMove();
-
         CheckInput();
+        FlipCharacter();
+
+
     }
 
-
-    void PerformMove()
+    private void FixedUpdate()
     {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        this.transform.position += transform.forward * inputHorizontal * moveSpeed * Time.deltaTime;
-
-        FlipCharacter();
+        PerformMove();
     }
 
     void FlipCharacter()
@@ -53,23 +52,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Kiem tra nguoi choi bam phim
+    void PerformMove()
+    {
+        this.rigid.velocity = new Vector3(inputHorizontal * moveSpeed, rigid.velocity.y, rigid.velocity.z);
+    }
+
     void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+
+        
+
+        if (Input.GetKey(KeyCode.Z))
         {
             PerformPunch();
         }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            PerformKick();
-        }
+        
     }
 
     void PerformPunch()
     {
-        if (Time.time - lastPunchTime > punchTimeCycle)
+        if (Time.time - lastPunchTime > resetPunchTime)
         {
             punchLeft = true;
         }
@@ -99,27 +102,5 @@ public class PlayerController : MonoBehaviour
     void ResetPunching()
     {
         isPunching = false;
-    }
-
-    void PerformKick()
-    {
-        animator.Play("Kick");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Hand") && !isBlocking)
-        {
-            StartCoroutine(BlockDamage());
-        }
-    }
-
-    IEnumerator BlockDamage()
-    {
-        isBlocking = true;
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1);
-        Time.timeScale = 1;
-        isBlocking = false;
     }
 }

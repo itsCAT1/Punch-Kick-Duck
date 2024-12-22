@@ -9,7 +9,6 @@ namespace StateTest
 
         private IdleState idleState;
         private MovingState movingState;
-        private JumpingState jumpingState;
         private AttackingState attackingState;
 
         public float moveSpeed = 5f;
@@ -23,10 +22,6 @@ namespace StateTest
             stateManager = this.GetComponent<StateManager>();
             rb = this.GetComponent<Rigidbody>();
 
-            idleState = new IdleState(this);
-            movingState = new MovingState(this);
-            jumpingState = new JumpingState(this);
-            attackingState = new AttackingState(this);
 
             stateManager.ChangeState(idleState); // Bắt đầu với trạng thái Idle
         }
@@ -44,11 +39,7 @@ namespace StateTest
 
         void CheckInput()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            {
-                stateManager.ChangeState(jumpingState);
-            }
-            else if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 stateManager.ChangeState(attackingState);
             }
