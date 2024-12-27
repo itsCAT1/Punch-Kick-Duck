@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody rigid;
     Animator animator;
 
     public float moveSpeed;
@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 sizeHand;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 

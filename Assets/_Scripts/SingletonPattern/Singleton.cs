@@ -21,9 +21,14 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private void Awake()
     {
-        if( _instance == null)
+        if (_instance == null)
         {
+            RegisterInstance((T)(MonoBehaviour)this);
+        }
 
+        else if (_instance != this)
+        {
+            Destroy(_instance);
         }
     }
 
