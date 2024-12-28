@@ -8,32 +8,20 @@ public class StateManager : MonoBehaviour
 
     public void ChangeState(IState state)
     {
-        if(currentState != null && currentState.GetType() == state.GetType())
+        /*if(currentState != null && currentState.GetType() == state.GetType())
         {
             return;
-        }
+        }*/
 
-        if (currentState != null)
-        {
-            currentState.Exit();
-        }
+        currentState?.Exit();
 
-        if (currentState != null)
-        {
-            currentState = state;
-        }
+        currentState = state;
 
-        if (currentState != null)
-        {
-            currentState.Enter();
-        }
+        currentState?.Enter();
     }
 
     private void Update()
     {
-        if (currentState != null)
-        {
-            currentState.Execute();
-        }
+        currentState?.Execute();
     }
 }

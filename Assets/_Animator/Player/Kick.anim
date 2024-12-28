@@ -13348,7 +13348,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.56666666
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -25452,9 +25452,9 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
-  - time: 0
-    functionName: ChangeSpeed
-    data: 
+  - time: 0.13333334
+    functionName: DealDamage
+    data: Leg
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -25462,13 +25462,6 @@ AnimationClip:
   - time: 0.13333334
     functionName: EnableDamage
     data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.13333334
-    functionName: DealDamage
-    data: Leg
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -25521,18 +25514,4 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
-    messageOptions: 0
-  - time: 0.56666666
-    functionName: ChangeDirection
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0.56666666
-    functionName: ChangeSpeed
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 2
     messageOptions: 0
