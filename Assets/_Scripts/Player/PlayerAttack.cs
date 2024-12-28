@@ -1,6 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+
+
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -10,7 +13,10 @@ public class PlayerAttack : MonoBehaviour
     public bool isPunching = false;
     public bool punchLeft = true;
 
-    public void PerformPunch(int attackDirection)
+    public float interval = 0.5f;
+    public bool attackCoolDown => Time.time - lastPunchTime >= interval;
+
+    public void PerformPunch()
     {
         if (Time.time - lastPunchTime > resetPunchTime)
         {
@@ -19,15 +25,14 @@ public class PlayerAttack : MonoBehaviour
 
         if (!isPunching)
         {
-            Player.Instance.controller.facingDirection = attackDirection;
             isPunching = true;
             if (punchLeft)
             {
-                Player.Instance.controller.anim.Play("PunchLeft");
+                Player.Instance.controller.animator.Play("PunchLeft");
             }
             else
             {
-                Player.Instance.controller.anim.Play("PunchRight");
+                Player.Instance.controller.animator.Play("PunchRight");
             }
 
             punchLeft = !punchLeft;
@@ -43,15 +48,22 @@ public class PlayerAttack : MonoBehaviour
         isPunching = false;
     }
 
-    public void PerformKick(int attackDirection)
+    public void PerformKick()
     {
-        Player.Instance.controller.facingDirection = attackDirection;
-        Player.Instance.controller.anim.Play("Kick");
+        
+        if (attackCoolDown)
+        {
+            Player.Instance.stateManager.ChangeState(new KickState());
+            lastPunchTime = Time.time;
+        }
     }
 
-    public void PerformDuck(int attackDirection)
+    public void PerformDuck()
     {
-        Player.Instance.controller.facingDirection = attackDirection;
-        Player.Instance.controller.anim.Play("Duck");
+        if (attackCoolDown)
+        {
+            Player.Instance.stateManager.ChangeState(new DuckState());
+            lastPunchTime = Time.time;
+        }
     }
 }

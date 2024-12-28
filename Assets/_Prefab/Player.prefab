@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 919699129071811971}
   - component: {fileID: 1505556671728335203}
   - component: {fileID: 8658453273462167619}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3500218622881655207}
   - component: {fileID: 8914612302422188170}
   - component: {fileID: 7365670521793023841}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2349396938742640112}
   - component: {fileID: 7869137350853404175}
   - component: {fileID: 1436477748531859910}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Kick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformKick
         m_Mode: 3
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 272747714026223751}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AttackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 723063316661949798}
   - component: {fileID: 4700410060525189258}
   - component: {fileID: 1743111435303701400}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformPunch
         m_Mode: 3
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8951399706190410628}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AttackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 2160554584908753577}
   - component: {fileID: 4362311744805395038}
   - component: {fileID: 2250895450993491600}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformDuck
         m_Mode: 3
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2484124526143886204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thigh_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8343820375823802078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thigh_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3316296715893111244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5608928764983200987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForeArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4526803839772800039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toe_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 5970562148155832810}
   - component: {fileID: 6199127857653652271}
   - component: {fileID: 4606471254158958797}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformPunch
         m_Mode: 3
@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 6394637546711455033}
   - component: {fileID: 2737591426678147768}
   - component: {fileID: 4998298834487703169}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Kick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformKick
         m_Mode: 3
@@ -1069,7 +1069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4408676571936995257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7656734125929658856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1132,7 +1132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2202532852011250292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2273374451828320510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoulder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4929090142183284373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2555979280965091841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1259,7 +1259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 464054478290195259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toe_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3238651359454386187}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collar_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 117338804417864021}
   - component: {fileID: 2263107565280777223}
   - component: {fileID: 1355857628498156242}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AttackUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258236089473749908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5536295019530368200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3017696145827282644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 6268971401835068380}
   - component: {fileID: 1511261215016884735}
   - component: {fileID: 4854287937561267780}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,7 +1603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4363951658503805183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1635,7 +1635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665458136586794219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collar_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 8383375145043617418}
   - component: {fileID: 3477705296252299070}
   - component: {fileID: 6438172647972490238}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformDuck
         m_Mode: 3
@@ -1802,7 +1802,7 @@ GameObject:
   - component: {fileID: 8107294270400033617}
   - component: {fileID: 8073175300776365201}
   - component: {fileID: 8896766111680202720}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1881,7 +1881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8639771503895272798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,7 +1913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493634567215209787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForeArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,7 +1951,8 @@ GameObject:
   - component: {fileID: 6108890442385910487}
   - component: {fileID: 1788879238027970673}
   - component: {fileID: 3496487302655307145}
-  m_Layer: 0
+  - component: {fileID: 7856676765833840455}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2059,9 +2060,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495b6ac6c49555d4bb8ce5643ec47ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  animator: {fileID: 0}
   moveSpeed: 2
   facingDirection: 1
+  inputHorizontal: 0
+  leftHandPos: {fileID: 0}
+  rightHandPos: {fileID: 0}
+  legPos: {fileID: 0}
 --- !u!114 &1788879238027970673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,6 +2098,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   performAttack: {fileID: 1788879238027970673}
   controller: {fileID: 6108890442385910487}
+--- !u!114 &7856676765833840455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091296727010404578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea0f11e812104046a7ae3ea9d5d5a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  sizeAttack: 0.12
+  maxSizeAttack: 1
 --- !u!1 &7152186699789286042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3546138471355510991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shin_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2135,7 +2157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490498208344396344}
   - component: {fileID: 3610791821013941968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueGuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2264,7 @@ GameObject:
   - component: {fileID: 1610173373492566910}
   - component: {fileID: 1231270946752600551}
   - component: {fileID: 6781978913400526773}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2319,7 +2341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344213844632045763}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shin_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2375,7 @@ GameObject:
   - component: {fileID: 9170386646152766012}
   - component: {fileID: 814838623665618591}
   - component: {fileID: 6442787256694244300}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

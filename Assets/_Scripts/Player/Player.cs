@@ -6,4 +6,5 @@ public class Player : Singleton<Player>
 {
     public PlayerAttack performAttack;
     public PlayerController controller;
+    public StateManager stateManager;
 }

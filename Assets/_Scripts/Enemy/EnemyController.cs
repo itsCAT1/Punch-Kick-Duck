@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +8,14 @@ public class EnemyController : MonoBehaviour
     Animator animator;
 
     public float moveSpeed;
-    public Transform playerPos;
-
     public float attackDistance = 1f;
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
 
     public Transform handPos;
-    public Vector3 sizeHand;
+    public LayerMask playerLayer;
+    public float sizeHand;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
     void CheckAttack()
     {
-        if (Vector3.Distance(transform.position, playerPos.position) <= attackDistance)
+        if (Vector3.Distance(transform.position, Player.Instance.transform.position) <= attackDistance)
         {
             animator.SetBool("Walking", false);
             PerformAttack();
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
 
     void PerformMove()
     {
-        var direction = (playerPos.position - transform.position).normalized;
+        var direction = (Player.Instance.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
 
         this.transform.position += direction * moveSpeed * Time.deltaTime;
@@ -64,6 +64,6 @@ public class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(handPos.position, sizeHand);
+        Gizmos.DrawSphere(handPos.position, sizeHand);
     }
 }

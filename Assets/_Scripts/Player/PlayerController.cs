@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rigid;
-    public Animator anim;
+    public Animator animator;
     StateManager stateManager;
 
     public float moveSpeed;
     public int facingDirection = 1;
     
-    bool isBlocking = false;
+    public float inputHorizontal;
+
+    public Transform handPos;
+    public float sizeHand;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         stateManager = gameObject.GetComponent<StateManager>();
     }
 
@@ -37,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void PerformMove()
     {
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
         this.rigid.velocity = new Vector3(moveSpeed, rigid.velocity.y, rigid.velocity.z);
     }
 
@@ -49,5 +54,11 @@ public class PlayerController : MonoBehaviour
     public void ChangeDirection(int direction)
     {
         facingDirection = direction;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(handPos.position, sizeHand);
     }
 }
