@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public float punchCoolDown = 0.5f;
-    public float resetPunchTime = 1f;
     public float lastAttackTime = 0;
-    public bool isPunching = false;
     public bool punchLeft = true;
 
     public float interval = 0.5f;
@@ -21,11 +18,6 @@ public class PlayerAttack : MonoBehaviour
             lastAttackTime = Time.time;
             Player.Instance.stateManager.ChangeState(new PunchState());
         }
-    }
-
-    private void ResetPunching()
-    {
-        isPunching = false;
     }
 
     public void PerformKick()

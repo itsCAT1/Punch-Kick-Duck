@@ -9,7 +9,7 @@ public class IdleState : IState
 
     public void Enter()
     {
-        Player.Instance.controller.moveSpeed = 0;
+        Player.Instance.controller.moveSpeed = 2;
         Player.Instance.controller.animator.Play("Idle");
     }
 
@@ -52,7 +52,7 @@ public class PunchState : IState
     private bool changeStateTime => Time.time - lastAttackTime >= 2f;
     public void Enter()
     {
-        Player.Instance.controller.moveSpeed = 0;
+        Player.Instance.controller.moveSpeed = 2;
 
         OnPerformPunch();
     }
@@ -93,7 +93,7 @@ public class KickState : IState
 
     public void Enter()
     {
-        Player.Instance.controller.moveSpeed = 0;
+        Player.Instance.controller.moveSpeed = 2;
         Player.Instance.controller.animator.Play("Kick");
         lastAttackTime = Time.time;
     }
@@ -118,7 +118,7 @@ public class DuckState : IState
 
     public void Enter()
     {
-        Player.Instance.controller.moveSpeed = 0;
+        Player.Instance.controller.moveSpeed = 2;
         Player.Instance.controller.animator.Play("Duck");
         lastAttackTime = Time.time;
     }

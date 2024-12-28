@@ -282,6 +282,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformKick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -453,6 +465,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformPunch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -624,6 +648,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformDuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -918,6 +954,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformPunch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1051,6 +1099,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformKick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1782,6 +1842,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1788879238027970673}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: PerformDuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108890442385910487}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeDirection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1952,6 +2024,7 @@ GameObject:
   - component: {fileID: 1788879238027970673}
   - component: {fileID: 3496487302655307145}
   - component: {fileID: 7856676765833840455}
+  - component: {fileID: 3894676319477833254}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -2044,7 +2117,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.21
+  m_Radius: 0.3
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
@@ -2064,9 +2137,8 @@ MonoBehaviour:
   moveSpeed: 2
   facingDirection: 1
   inputHorizontal: 0
-  leftHandPos: {fileID: 0}
-  rightHandPos: {fileID: 0}
-  legPos: {fileID: 0}
+  handPos: {fileID: 3017696145827282644}
+  sizeHand: 0.3
 --- !u!114 &1788879238027970673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,9 +2153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchCoolDown: 0.5
   resetPunchTime: 1
-  lastPunchTime: 0
+  lastAttackTime: 0
   isPunching: 0
   punchLeft: 1
+  interval: 0.5
 --- !u!114 &3496487302655307145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,6 +2171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   performAttack: {fileID: 1788879238027970673}
   controller: {fileID: 6108890442385910487}
+  stateManager: {fileID: 3894676319477833254}
 --- !u!114 &7856676765833840455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,11 +2184,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea0f11e812104046a7ae3ea9d5d5a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeAttack: 0.3
   hitLayer:
     serializedVersion: 2
-    m_Bits: 0
-  sizeAttack: 0.12
-  maxSizeAttack: 1
+    m_Bits: 128
+  attackPointList:
+  - name: RightHand
+    point: {fileID: 3017696145827282644}
+  - name: LeftHand
+    point: {fileID: 7656734125929658856}
+  - name: Leg
+    point: {fileID: 4526803839772800039}
+  canDealDamage: 0
+  hasDealDamage: []
+--- !u!114 &3894676319477833254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091296727010404578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97ea780f8ebc4640afafed5b104a362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7152186699789286042
 GameObject:
   m_ObjectHideFlags: 0
