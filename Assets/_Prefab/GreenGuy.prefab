@@ -695,8 +695,8 @@ GameObject:
   - component: {fileID: 2700452422032804508}
   - component: {fileID: -6283427527482199579}
   - component: {fileID: 6511431914359569453}
-  - component: {fileID: 8414264819039310972}
   - component: {fileID: 105291864202337220}
+  - component: {fileID: 8250453088374694789}
   m_Layer: 7
   m_Name: GreenGuy
   m_TagString: Enemy
@@ -812,26 +812,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   sizeDetect: 1.1
---- !u!114 &8414264819039310972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736096731338259893}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea0f11e812104046a7ae3ea9d5d5a70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeAttack: 0.2
-  hitLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  attackList: []
-  canDealDamage: 0
-  hasDealDamage: []
-  isBlocking: 0
 --- !u!114 &105291864202337220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +826,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   timeCoolDown: 1
-  currentAttackType: 1
+--- !u!114 &8250453088374694789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736096731338259893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f4bbcdac3eec9479422e8fa1bc41ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 0
 --- !u!1 &6799659852072149784
 GameObject:
   m_ObjectHideFlags: 0

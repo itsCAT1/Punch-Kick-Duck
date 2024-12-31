@@ -5,19 +5,20 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Lean.Pool;
+using static UnityEngine.GraphicsBuffer;
 
 public enum AttackType
 {
-    punch,
-    kick,
-    duck,
+    Punch,
+    Kick,
+    Duck,
 }
 
 [Serializable]
 public class AttackMapper
 {
-    public AttackType attackType;
     public Transform point;
+    public AttackType attackType;
 }
 
 public class OnAttack : MonoBehaviour
@@ -29,6 +30,9 @@ public class OnAttack : MonoBehaviour
     public bool canDealDamage;
     public List<GameObject> hasDealDamage;
     public bool isBlocking = false;
+    public float maxDistance;
+
+    public Transform ray;
 
     private void Start()
     {
@@ -38,33 +42,71 @@ public class OnAttack : MonoBehaviour
 
     public void DealDamage(AttackType type)
     {
-        //if (!canDealDamage) return;
+        if (!canDealDamage) return;
 
-        AttackMapper attack = attackList.Find(ap => ap.attackType == type);
-        Debug.Log(attack.attackType);
-
+        AttackMapper attack = attackList.Find(at => at.attackType == type);
+        
         if (attack == null) return;
 
-        DetectCharactor(attack);
+        bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward, out RaycastHit hitInfo, maxDistance, hitLayer);
+
+        if (hasCollided && !hasDealDamage.Contains(hitInfo.collider.gameObject))
+        {
+            hasDealDamage.Add(hitInfo.collider.gameObject);
+            Debug.Log(attack.attackType);
+            //Destroy(hitInfo.collider.gameObject);
+            Blocking(attack, hitInfo);
+
+            canDealDamage = false;
+        }
     }
 
-    void DetectCharactor(AttackMapper attackPoint)
-    {
-        Collider[] hits = Physics.OverlapSphere(attackPoint.point.position, sizeAttack, hitLayer);
 
+    void OnDetect(AttackMapper attack)
+    {
+        /*Collider[] hits = Physics.OverlapSphere(attack.point.transform.position, sizeAttack, hitLayer);
+        
         foreach (var target in hits)
         {
             if (!hasDealDamage.Contains(target.gameObject))
             {
                 hasDealDamage.Add(target.gameObject);
                 Destroy(target.gameObject);
-                Debug.Log("gay damage bang " + (attackPoint.attackType));
 
                 canDealDamage = false;
                 break;
             }
-        }   
+        }*/
+
+        
     }
+
+
+    void Blocking(AttackMapper attack, RaycastHit target)
+    {
+        Animator animator = target.collider.GetComponent<Animator>();
+        EnemyBlocking currentType = target.collider.GetComponent<EnemyBlocking>();
+
+        if (attack.attackType == currentType.attackType)
+        {
+            StartCoroutine(OnBlocked());
+            animator?.Play("Idle");
+            isBlocking = false;
+        }
+        else
+        {
+            animator?.Play("Hurt");
+        }
+    }
+
+    IEnumerator OnBlocked()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+    }
+
+
     public void EnableDamage()
     {
         canDealDamage = true;

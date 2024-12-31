@@ -8,8 +8,6 @@ public class EnemyAttack : MonoBehaviour
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
 
-    public AttackType currentAttackType;
-
     void Start()
     {
         animator = GetComponent<Animator>();

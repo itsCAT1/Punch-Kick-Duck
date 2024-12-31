@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform handPos;
     public float sizeHand;
-
+    public Transform ray;
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -54,6 +54,6 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(handPos.position, sizeHand);
+        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * 2);
     }
 }

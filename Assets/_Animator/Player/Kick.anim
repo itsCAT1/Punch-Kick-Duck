@@ -25454,7 +25454,7 @@ AnimationClip:
   m_Events:
   - time: 0.13333334
     functionName: DealDamage
-    data: 
+    data: Leg
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
@@ -25468,7 +25468,7 @@ AnimationClip:
     messageOptions: 0
   - time: 0.15
     functionName: DealDamage
-    data: 
+    data: Leg
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
@@ -25482,7 +25482,7 @@ AnimationClip:
     messageOptions: 0
   - time: 0.16666667
     functionName: DealDamage
-    data: 
+    data: Leg
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
@@ -25495,18 +25495,18 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.18333334
+    functionName: DealDamage
+    data: Leg
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.18333334
     functionName: EnableDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
-    messageOptions: 0
-  - time: 0.18333334
-    functionName: DealDamage
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
     messageOptions: 0
   - time: 0.5
     functionName: DisableDamage
