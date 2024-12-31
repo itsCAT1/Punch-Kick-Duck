@@ -2093,7 +2093,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -2151,10 +2151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6c453cb41a3fd46aa8c3983058abf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchCoolDown: 0.5
-  resetPunchTime: 1
   lastAttackTime: 0
-  isPunching: 0
   punchLeft: 1
   interval: 0.5
 --- !u!114 &3496487302655307145
@@ -2169,8 +2166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbb06a32d238914baab3a06c1d8ce91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  performAttack: {fileID: 1788879238027970673}
   controller: {fileID: 6108890442385910487}
+  performAttack: {fileID: 1788879238027970673}
+  dealDamage: {fileID: 0}
   stateManager: {fileID: 3894676319477833254}
 --- !u!114 &7856676765833840455
 MonoBehaviour:

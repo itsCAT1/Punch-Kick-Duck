@@ -36631,22 +36631,15 @@ AnimationClip:
   m_HasMotionFloatCurves: 1
   m_Events:
   - time: 0.06666667
-    functionName: EnableDamage
-    data: 
+    functionName: DealDamage
+    data: LeftHand
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.06666667
-    functionName: DealDamage
-    data: LeftHand
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.083333336
-    functionName: DealDamage
-    data: LeftHand
+    functionName: EnableDamage
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -36654,6 +36647,13 @@ AnimationClip:
   - time: 0.083333336
     functionName: EnableDamage
     data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: DealDamage
+    data: LeftHand
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

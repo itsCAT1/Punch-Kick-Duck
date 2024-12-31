@@ -1,24 +1,34 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using Lean.Pool;
+
+public enum AttackType
+{
+    punch,
+    kick,
+    duck,
+}
 
 [Serializable]
-public class AttackPoint
+public class AttackMapper
 {
-    public string name; 
-    public Transform point; 
+    public AttackType attackType;
+    public Transform point;
 }
 
 public class OnAttack : MonoBehaviour
 {
     public float sizeAttack;
     public LayerMask hitLayer;
-    public List<AttackPoint> attackPointList;
+    public List<AttackMapper> attackList;
 
     public bool canDealDamage;
     public List<GameObject> hasDealDamage;
+    public bool isBlocking = false;
 
     private void Start()
     {
@@ -26,14 +36,19 @@ public class OnAttack : MonoBehaviour
         hasDealDamage = new List<GameObject>();
     }
 
-    public void DealDamage(string pointName)
+    public void DealDamage(AttackType type)
     {
         if (!canDealDamage) return;
 
-        AttackPoint attackPoint = attackPointList.Find(ap => ap.name == pointName);
+        AttackMapper attack = attackList.Find(ap => ap.attackType == type);
 
-        if (attackPoint == null) return;
+        if (attack == null) return;
 
+        DetectCharactor(attack);
+    }
+
+    void DetectCharactor(AttackMapper attackPoint)
+    {
         Collider[] hits = Physics.OverlapSphere(attackPoint.point.position, sizeAttack, hitLayer);
 
         foreach (var target in hits)
@@ -41,17 +56,39 @@ public class OnAttack : MonoBehaviour
             if (!hasDealDamage.Contains(target.gameObject))
             {
                 hasDealDamage.Add(target.gameObject);
-
-                Debug.Log($"Da tan cong: {target.name}");
-                Animator animator = target.GetComponent<Animator>();
-                animator?.Play("Hurt");
+                LeanPool.Despawn(target.gameObject);
+                Debug.Log("gay damage bang " + (attackPoint.attackType));
+                //Blocking(target.gameObject);
 
                 canDealDamage = false;
                 break;
             }
+        }   
+    }
+
+    void Blocking(GameObject target)
+    {
+        Animator animator = target.GetComponentInParent<Animator>();
+        EnemyAttack currentType = target.GetComponent<EnemyAttack>();
+
+        if (isBlocking)
+        {
+            StartCoroutine(OnBlocked());
+            animator?.Play("Idle");
+            isBlocking = false;
+        }
+        else
+        {
+            animator?.Play("Hurt");
         }
     }
 
+    IEnumerator OnBlocked()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+    }
 
     public void EnableDamage()
     {

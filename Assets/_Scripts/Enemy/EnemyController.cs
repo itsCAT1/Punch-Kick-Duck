@@ -6,60 +6,72 @@ public class EnemyController : MonoBehaviour
 {
     Rigidbody rigid;
     Animator animator;
+    CharacterController characterController;
+    EnemyAttack enemyAttack;
 
     public float moveSpeed;
     public float attackDistance = 1f;
-    public float timeCoolDown = 1f;
-    float lastTimeAttack = 0;
 
     public Transform handPos;
-    public LayerMask playerLayer;
     public float sizeHand;
+
+    public LayerMask characterLayer;
+    public float sizeDetect;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
+        enemyAttack = GetComponent<EnemyAttack>();
     }
 
     private void Update()
     {
-        CheckAttack();
+        UpdateAction();
     }
 
 
-    void CheckAttack()
+    void UpdateAction()
     {
-        if (Vector3.Distance(transform.position, Player.Instance.transform.position) <= attackDistance)
+        bool aimingRay = Physics.Raycast(this.transform.position, this.transform.forward, out RaycastHit hitInfor, sizeDetect, characterLayer);
+        if (aimingRay)
         {
-            animator.SetBool("Walking", false);
-            PerformAttack();
+            if (hitInfor.collider.CompareTag("Player"))
+            {
+                Standing();
+                enemyAttack.PerformAttack();
+            }
+            else if (hitInfor.collider.CompareTag("Enemy"))
+            {
+                Standing();
+            }
         }
         else
         {
+            this.rigid.isKinematic = false;
             PerformMove();
         }
     }
 
+    void Standing()
+    {
+        animator.SetBool("Walking", false);
+        this.rigid.isKinematic = true;
+    }
 
     void PerformMove()
     {
         var direction = (Player.Instance.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
 
-        this.transform.position += direction * moveSpeed * Time.deltaTime;
+        this.rigid.velocity = new Vector3(direction.x * moveSpeed * Time.deltaTime, direction.y, direction.z);
+        //characterController.Move(direction * moveSpeed * Time.deltaTime);
 
         animator.SetBool("Walking", true);
     }
 
-    void PerformAttack()
-    {
-        if(Time.time - lastTimeAttack >= timeCoolDown)
-        {
-            animator.Play("PunchRight");
-            lastTimeAttack = Time.time;
-        }
-    }
+    
 
     private void OnDrawGizmosSelected()
     {

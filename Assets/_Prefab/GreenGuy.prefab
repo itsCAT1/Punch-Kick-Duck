@@ -692,10 +692,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4272428639862776308}
   - component: {fileID: 2965296540744200826}
-  - component: {fileID: 6511431914359569453}
   - component: {fileID: 2700452422032804508}
-  - component: {fileID: 2661727524580057587}
+  - component: {fileID: -6283427527482199579}
+  - component: {fileID: 6511431914359569453}
   - component: {fileID: 8414264819039310972}
+  - component: {fileID: 105291864202337220}
   m_Layer: 7
   m_Name: GreenGuy
   m_TagString: Enemy
@@ -733,7 +734,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 92ea1ad34afa1784c8dd04ed171fb969, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -741,26 +742,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6511431914359569453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736096731338259893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdd18d404c11ee4ca2cbe0239a8348c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  attackDistance: 1.3
-  timeCoolDown: 1
-  handPos: {fileID: 1951065975461098299}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  sizeHand: 0.3
 --- !u!54 &2700452422032804508
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,12 +764,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
---- !u!136 &2661727524580057587
+--- !u!136 &-6283427527482199579
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -811,7 +792,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
---- !u!114 &8414264819039310972
+--- !u!114 &6511431914359569453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -820,18 +801,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 6736096731338259893}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdd18d404c11ee4ca2cbe0239a8348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  attackDistance: 1.3
+  handPos: {fileID: 1951065975461098299}
+  sizeHand: 0.3
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  sizeDetect: 1.1
+--- !u!114 &8414264819039310972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736096731338259893}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ea0f11e812104046a7ae3ea9d5d5a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeAttack: 0.3
+  sizeAttack: 0.2
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackPointList:
-  - name: RightHand
-    point: {fileID: 1951065975461098299}
+  attackList: []
   canDealDamage: 0
   hasDealDamage: []
+  isBlocking: 0
+--- !u!114 &105291864202337220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736096731338259893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  timeCoolDown: 1
+  currentAttackType: 1
 --- !u!1 &6799659852072149784
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +858,7 @@ GameObject:
   - component: {fileID: 1951065975461098299}
   m_Layer: 7
   m_Name: Hand_R
-  m_TagString: Hand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
