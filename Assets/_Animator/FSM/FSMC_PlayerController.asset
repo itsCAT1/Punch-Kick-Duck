@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ece13e57ab2a54e80667f7d20c2544, type: 3}
+  m_Name: FSMC_PlayerController
+  m_EditorClassIdentifier: 
+  StartPosition: {x: 381.3333, y: 212}
+  AnyPosition: {x: 200, y: 400}
+  States:
+  - rid: 7295538536494923776
+  - rid: 7295538536494923778
+  - rid: 7295538537369174020
+  - rid: 7295538537369174021
+  - rid: 7295538537369174022
+  AnyTransitions: []
+  StartingState:
+    rid: 7295538536494923776
+  Parameters:
+  - rid: 7295538536494923784
+  - rid: 7295538536494923785
+  - rid: 7295538536494923786
+  - rid: 7295538536494923787
+  - rid: 7295538537369174016
+  references:
+    version: 2
+    RefIds:
+    - rid: 7295538536494923776
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours: []
+        Position: {x: 632, y: 185.33334}
+        _name: Idle
+        TransitionsFrom:
+        - rid: 7295538536494923793
+        - rid: 7295538537369174024
+        - rid: 7295538537369174025
+        - rid: 7295538537369174028
+        TransitionsTo:
+        - rid: 7295538537369174023
+        - rid: 7295538537369174026
+        - rid: 7295538537369174027
+    - rid: 7295538536494923778
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours: []
+        Position: {x: 632, y: 307.3333}
+        _name: Walk
+        TransitionsFrom: []
+        TransitionsTo:
+        - rid: 7295538536494923793
+    - rid: 7295538536494923784
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 2
+        _name: Punch
+        _value: 0
+    - rid: 7295538536494923785
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 2
+        _name: Kick
+        _value: 0
+    - rid: 7295538536494923786
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 2
+        _name: Duck
+        _value: 0
+    - rid: 7295538536494923787
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 3
+        _name: Hurt
+        _value: 0
+    - rid: 7295538536494923793
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions:
+          - rid: 7295538537369174017
+        - conditions: []
+        _originState:
+          rid: 7295538536494923776
+        _destinationState:
+          rid: 7295538536494923778
+        _name: Idle->Walk
+    - rid: 7295538537369174016
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 2
+        _name: Walk
+        _value: 0
+    - rid: 7295538537369174017
+      type: {class: FSMC_BoolCondition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        comparison: 0
+        parameter:
+          rid: 7295538537369174016
+        Value: 1
+    - rid: 7295538537369174020
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours: []
+        Position: {x: 996, y: 97.33333}
+        _name: Punch
+        TransitionsFrom:
+        - rid: 7295538537369174023
+        TransitionsTo:
+        - rid: 7295538537369174024
+    - rid: 7295538537369174021
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours: []
+        Position: {x: 996, y: 239.33333}
+        _name: Kick
+        TransitionsFrom:
+        - rid: 7295538537369174026
+        TransitionsTo:
+        - rid: 7295538537369174025
+    - rid: 7295538537369174022
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours: []
+        Position: {x: 996, y: 375.3333}
+        _name: Duck
+        TransitionsFrom:
+        - rid: 7295538537369174027
+        TransitionsTo:
+        - rid: 7295538537369174028
+    - rid: 7295538537369174023
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538537369174020
+        _destinationState:
+          rid: 7295538536494923776
+        _name: Punch->Idle
+    - rid: 7295538537369174024
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538536494923776
+        _destinationState:
+          rid: 7295538537369174020
+        _name: Idle->Punch
+    - rid: 7295538537369174025
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538536494923776
+        _destinationState:
+          rid: 7295538537369174021
+        _name: Idle->Kick
+    - rid: 7295538537369174026
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538537369174021
+        _destinationState:
+          rid: 7295538536494923776
+        _name: Kick->Idle
+    - rid: 7295538537369174027
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538537369174022
+        _destinationState:
+          rid: 7295538536494923776
+        _name: Duck->Idle
+    - rid: 7295538537369174028
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions: []
+        _originState:
+          rid: 7295538536494923776
+        _destinationState:
+          rid: 7295538537369174022
+        _name: Idle->Duck

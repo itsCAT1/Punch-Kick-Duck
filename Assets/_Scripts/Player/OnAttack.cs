@@ -38,9 +38,10 @@ public class OnAttack : MonoBehaviour
 
     public void DealDamage(AttackType type)
     {
-        if (!canDealDamage) return;
+        //if (!canDealDamage) return;
 
         AttackMapper attack = attackList.Find(ap => ap.attackType == type);
+        Debug.Log(attack.attackType);
 
         if (attack == null) return;
 
@@ -56,40 +57,14 @@ public class OnAttack : MonoBehaviour
             if (!hasDealDamage.Contains(target.gameObject))
             {
                 hasDealDamage.Add(target.gameObject);
-                LeanPool.Despawn(target.gameObject);
+                Destroy(target.gameObject);
                 Debug.Log("gay damage bang " + (attackPoint.attackType));
-                //Blocking(target.gameObject);
 
                 canDealDamage = false;
                 break;
             }
         }   
     }
-
-    void Blocking(GameObject target)
-    {
-        Animator animator = target.GetComponentInParent<Animator>();
-        EnemyAttack currentType = target.GetComponent<EnemyAttack>();
-
-        if (isBlocking)
-        {
-            StartCoroutine(OnBlocked());
-            animator?.Play("Idle");
-            isBlocking = false;
-        }
-        else
-        {
-            animator?.Play("Hurt");
-        }
-    }
-
-    IEnumerator OnBlocked()
-    {
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1);
-        Time.timeScale = 1;
-    }
-
     public void EnableDamage()
     {
         canDealDamage = true;

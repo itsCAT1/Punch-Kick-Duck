@@ -17,7 +17,8 @@ public class SpawnManager : MonoBehaviour
     {
         while (true)
         {
-            LeanPool.Spawn(enemyPrefab);
+            Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+            //LeanPool.Spawn(enemyPrefab);
             yield return new WaitForSeconds(durationSpawn);
         }
         
