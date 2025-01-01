@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using Lean.Pool;
 using static UnityEngine.GraphicsBuffer;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 
 public enum AttackType
 {
@@ -49,53 +50,41 @@ public class OnAttack : MonoBehaviour
         if (attack == null) return;
 
         bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward, out RaycastHit hitInfo, maxDistance, hitLayer);
-
+        
         if (hasCollided && !hasDealDamage.Contains(hitInfo.collider.gameObject))
         {
             hasDealDamage.Add(hitInfo.collider.gameObject);
-            Debug.Log(attack.attackType);
-            //Destroy(hitInfo.collider.gameObject);
-            Blocking(attack, hitInfo);
+            //Debug.Log(attack.attackType);
 
-            canDealDamage = false;
+            ResolveCombat(attack, hitInfo);
+            //canDealDamage = false;
         }
     }
 
-
-    void OnDetect(AttackMapper attack)
+    private void ResolveCombat(AttackMapper playerAttackType, RaycastHit enemyInfo)
     {
-        /*Collider[] hits = Physics.OverlapSphere(attack.point.transform.position, sizeAttack, hitLayer);
-        
-        foreach (var target in hits)
+        EnemyType enemy = enemyInfo.collider.GetComponent<EnemyType>(); 
+        AttackType enemyAttackType = enemy.attackType;
+
+        Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
+
+
+        if (playerAttackType.attackType == enemyAttackType)
         {
-            if (!hasDealDamage.Contains(target.gameObject))
-            {
-                hasDealDamage.Add(target.gameObject);
-                Destroy(target.gameObject);
-
-                canDealDamage = false;
-                break;
-            }
-        }*/
-
-        
-    }
-
-
-    void Blocking(AttackMapper attack, RaycastHit target)
-    {
-        Animator animator = target.collider.GetComponent<Animator>();
-        EnemyBlocking currentType = target.collider.GetComponent<EnemyBlocking>();
-
-        if (attack.attackType == currentType.attackType)
+            StartCoroutine("OnBlocked");
+            Debug.Log("Cả hai đã block!");
+        }
+        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
+                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
+                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
-            StartCoroutine(OnBlocked());
-            animator?.Play("Idle");
-            isBlocking = false;
+            Player.Instance.controller.animator?.Play("Hurt");
+            Debug.Log("Player bị đánh!");
         }
         else
         {
-            animator?.Play("Hurt");
+            animatorEnemy?.Play("Hurt");
+            Debug.Log("Enemy bị đánh!");
         }
     }
 

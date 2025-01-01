@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform playerPos;
     public Vector3 offset;
     public float speedChange;
 
@@ -15,7 +14,7 @@ public class CameraController : MonoBehaviour
 
     void FollowPlayer()
     {
-        var targetPos = playerPos.position + offset;
+        var targetPos = Player.Instance.transform.position + offset;
         transform.position = Vector3.Lerp(transform.position, targetPos, speedChange);
     }
 }

@@ -5,16 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Rigidbody rigid;
-    Animator animator;
+    public Animator animator;
     CharacterController characterController;
     EnemyAttack enemyAttack;
 
     public float moveSpeed;
-    public float attackDistance = 1f;
-
-    public Transform handPos;
-    public float sizeHand;
-
     public LayerMask characterLayer;
     public float sizeDetect;
 
@@ -69,13 +64,5 @@ public class EnemyController : MonoBehaviour
         //characterController.Move(direction * moveSpeed * Time.deltaTime);
 
         animator.SetBool("Walking", true);
-    }
-
-    
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(handPos.position, sizeHand);
     }
 }

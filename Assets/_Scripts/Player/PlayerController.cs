@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         stateManager = gameObject.GetComponent<StateManager>();
-        Player.Instance.stateManager.ChangeState(new IdleState());
+        Player.Instance.stateManager.ChangeState(new PlayerIdleState());
     }
 
     void Update()

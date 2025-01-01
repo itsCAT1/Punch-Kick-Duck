@@ -4,7 +4,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 
-public class IdleState : IState
+public class PlayerIdleState : IState
 {
 
     public void Enter()
@@ -24,7 +24,7 @@ public class IdleState : IState
     }
 }
 
-public class WalkState : IState
+public class PlayerWalkState : IState
 {
 
     public void Enter()
@@ -45,7 +45,7 @@ public class WalkState : IState
     }
 }
 
-public class PunchState : IState
+public class PlayerPunchState : IState
 {
     private float lastAttackTime;
     private bool resetState => Time.time - lastAttackTime >= 1f;
@@ -75,7 +75,7 @@ public class PunchState : IState
     public void Execute()
     {
         if (resetState) Player.Instance.performAttack.punchLeft = true;
-        if (changeStateTime) Player.Instance.stateManager.ChangeState(new WalkState());
+        if (changeStateTime) Player.Instance.stateManager.ChangeState(new PlayerWalkState());
     }
 
     public void Exit()
@@ -84,7 +84,7 @@ public class PunchState : IState
     }
 }
 
-public class KickState : IState
+public class PlayerKickState : IState
 {
     private float lastAttackTime;
     public bool attackCoolDown => Time.time - lastAttackTime >= 0.5f;
@@ -100,7 +100,7 @@ public class KickState : IState
 
     public void Execute()
     {
-        if (changeStateTime) Player.Instance.stateManager.ChangeState(new WalkState());
+        if (changeStateTime) Player.Instance.stateManager.ChangeState(new PlayerWalkState());
     }
 
     public void Exit()
@@ -109,7 +109,7 @@ public class KickState : IState
     }
 }
 
-public class DuckState : IState
+public class PlayerDuckState : IState
 {
     private float lastAttackTime;
     public bool attackCoolDown => Time.time - lastAttackTime >= 0.5f;
@@ -125,7 +125,7 @@ public class DuckState : IState
 
     public void Execute()
     {
-        if (changeStateTime) Player.Instance.stateManager.ChangeState(new WalkState());
+        if (changeStateTime) Player.Instance.stateManager.ChangeState(new PlayerWalkState());
     }
 
     public void Exit()
