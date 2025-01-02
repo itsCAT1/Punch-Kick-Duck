@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         stateManager = gameObject.GetComponent<StateManager>();
-        Player.Instance.stateManager.ChangeState(new PlayerIdleState());
+        //Player.Instance.stateManager.ChangeState(new PlayerIdleState());
     }
 
     void Update()
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         this.rigid.velocity = new Vector3(moveSpeed * inputHorizontal, rigid.velocity.y, rigid.velocity.z);
+
+        if (Input.GetKeyDown(KeyCode.Z)) animator.Play("Test");
     }
 
     public void ChangeDirection(int direction)

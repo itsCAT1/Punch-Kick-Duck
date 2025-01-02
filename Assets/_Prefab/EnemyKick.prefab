@@ -309,7 +309,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ba038d888eac5047961e63d71118d78, type: 2}
+  - {fileID: 2100000, guid: a9c83ebe4339dbe4eb1e758b9e80b439, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 105291864202337220}
   - component: {fileID: 8539364373920118614}
   m_Layer: 7
-  m_Name: EnemyPunch
+  m_Name: EnemyKick
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f4bbcdac3eec9479422e8fa1bc41ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 1
 --- !u!1 &6799659852072149784
 GameObject:
   m_ObjectHideFlags: 0

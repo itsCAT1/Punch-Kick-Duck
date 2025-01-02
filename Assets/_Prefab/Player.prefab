@@ -2139,6 +2139,7 @@ MonoBehaviour:
   inputHorizontal: 0
   handPos: {fileID: 3017696145827282644}
   sizeHand: 0.3
+  ray: {fileID: 2973825112079529700}
 --- !u!114 &1788879238027970673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,7 +2169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6108890442385910487}
   performAttack: {fileID: 1788879238027970673}
-  dealDamage: {fileID: 0}
   stateManager: {fileID: 3894676319477833254}
 --- !u!114 &7856676765833840455
 MonoBehaviour:
@@ -2186,15 +2186,12 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
-  attackPointList:
-  - name: RightHand
-    point: {fileID: 3017696145827282644}
-  - name: LeftHand
-    point: {fileID: 7656734125929658856}
-  - name: Leg
-    point: {fileID: 4526803839772800039}
+  attackList: []
   canDealDamage: 0
   hasDealDamage: []
+  isBlocking: 0
+  maxDistance: 0
+  ray: {fileID: 0}
 --- !u!114 &3894676319477833254
 MonoBehaviour:
   m_ObjectHideFlags: 0

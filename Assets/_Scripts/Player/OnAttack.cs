@@ -18,7 +18,6 @@ public enum AttackType
 [Serializable]
 public class AttackMapper
 {
-    public Transform point;
     public AttackType attackType;
 }
 
@@ -43,14 +42,15 @@ public class OnAttack : MonoBehaviour
 
     public void DealDamage(AttackType type)
     {
-        if (!canDealDamage) return;
+        //if (!canDealDamage) return;
 
         AttackMapper attack = attackList.Find(at => at.attackType == type);
         
         if (attack == null) return;
 
         bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward, out RaycastHit hitInfo, maxDistance, hitLayer);
-        
+
+        hasDealDamage.Clear();
         if (hasCollided && !hasDealDamage.Contains(hitInfo.collider.gameObject))
         {
             hasDealDamage.Add(hitInfo.collider.gameObject);
@@ -72,19 +72,19 @@ public class OnAttack : MonoBehaviour
         if (playerAttackType.attackType == enemyAttackType)
         {
             StartCoroutine("OnBlocked");
-            Debug.Log("Cả hai đã block!");
+            Debug.Log("Block");
         }
         else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
                  (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
                  (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             Player.Instance.controller.animator?.Play("Hurt");
-            Debug.Log("Player bị đánh!");
+            Debug.Log("Player attacked");
         }
         else
         {
             animatorEnemy?.Play("Hurt");
-            Debug.Log("Enemy bị đánh!");
+            Debug.Log("Enemy attacked");
         }
     }
 
@@ -104,6 +104,5 @@ public class OnAttack : MonoBehaviour
     public void DisableDamage()
     {
         canDealDamage = false;
-        hasDealDamage.Clear();
     }
 }
