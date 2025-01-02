@@ -47,9 +47,9 @@ public class PlayerWalkState : IState
 
 public class PlayerPunchState : IState
 {
-    private float lastAttackTime;
-    private bool resetState => Time.time - lastAttackTime >= 1f;
-    private bool changeStateTime => Time.time - lastAttackTime >= 2f;
+    private float timeStart = 0;
+    private bool resetState => Time.time - timeStart >= 1f;
+    private bool changeStateTime => Time.time - timeStart >= 2f;
     public void Enter()
     {
         Player.Instance.controller.moveSpeed = 2;
@@ -61,15 +61,15 @@ public class PlayerPunchState : IState
     {
         if (Player.Instance.performAttack.punchLeft)
         {
-            Player.Instance.controller.animator.Play("PunchLeft");
+            Player.Instance.controller.animator.SetTrigger("PunchLeft");
         }
         else
         {
-            Player.Instance.controller.animator.Play("PunchRight");
+            Player.Instance.controller.animator.SetTrigger("PunchRight");
         }
 
         Player.Instance.performAttack.punchLeft = !Player.Instance.performAttack.punchLeft;
-        lastAttackTime = Time.time;
+        timeStart = Time.time;
     }
 
     public void Execute()
@@ -86,16 +86,15 @@ public class PlayerPunchState : IState
 
 public class PlayerKickState : IState
 {
-    private float lastAttackTime;
-    public bool attackCoolDown => Time.time - lastAttackTime >= 0.5f;
-    public bool changeStateTime => Time.time - lastAttackTime >= 2f;
+    private float timeStart = 0;
+    public bool changeStateTime => Time.time - timeStart >= 2f;
 
 
     public void Enter()
     {
         Player.Instance.controller.moveSpeed = 2;
-        Player.Instance.controller.animator.Play("Kick");
-        lastAttackTime = Time.time;
+        Player.Instance.controller.animator.SetTrigger("Kick");
+        timeStart = Time.time;
     }
 
     public void Execute()
@@ -111,16 +110,39 @@ public class PlayerKickState : IState
 
 public class PlayerDuckState : IState
 {
-    private float lastAttackTime;
-    public bool attackCoolDown => Time.time - lastAttackTime >= 0.5f;
-    public bool changeStateTime => Time.time - lastAttackTime >= 2f;
+    private float timeStart = 0;
+    public bool changeStateTime => Time.time - timeStart >= 2f;
 
 
     public void Enter()
     {
         Player.Instance.controller.moveSpeed = 2;
-        Player.Instance.controller.animator.Play("Duck");
-        lastAttackTime = Time.time;
+        Player.Instance.controller.animator.SetTrigger("Duck");
+        timeStart = Time.time;
+    }
+
+    public void Execute()
+    {
+        if (changeStateTime) Player.Instance.stateManager.ChangeState(new PlayerWalkState());
+    }
+
+    public void Exit()
+    {
+
+    }
+}
+
+public class PlayerHurtState : IState
+{
+    private float timeStart = 0;
+    public bool changeStateTime => Time.time - timeStart >= 2f;
+
+
+    public void Enter()
+    {
+        Player.Instance.controller.moveSpeed = 2;
+        Player.Instance.controller.animator.Play("Hurt");
+        timeStart = Time.time;
     }
 
     public void Execute()

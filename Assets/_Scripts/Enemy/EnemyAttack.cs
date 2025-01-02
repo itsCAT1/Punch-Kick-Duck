@@ -8,6 +8,7 @@ public class EnemyAttack : MonoBehaviour
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -17,8 +18,23 @@ public class EnemyAttack : MonoBehaviour
     {
         if (Time.time - lastTimeAttack >= timeCoolDown)
         {
-            animator.Play("PunchRight");
+            animator.Play("Attack");
             lastTimeAttack = Time.time;
         }
+    }
+
+    public void PlayerTakeDamage()
+    {
+        Player.Instance.performAttack.PerformHurt();
+    }
+
+    public void EnableBlock()
+    {
+        CombatManager.Instance.canBlock = true;
+    }
+
+    public void DisableBlock()
+    {
+        CombatManager.Instance.canBlock = false;
     }
 }

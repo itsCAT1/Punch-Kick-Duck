@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     StateManager stateManager;
 
+    public Transform body;
     public float moveSpeed;
     public int facingDirection = 1;
     
     public float inputHorizontal;
-
-    public Transform handPos;
-    public float sizeHand;
-    public Transform ray;
+    
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -37,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void FlipCharacter()
     {
-        this.transform.localScale = new Vector3(1, 1, facingDirection);
+        body.transform.localScale = new Vector3(1, 1, facingDirection);
     }
 
     void PerformMove()
@@ -51,11 +49,5 @@ public class PlayerController : MonoBehaviour
     public void ChangeDirection(int direction)
     {
         facingDirection = direction;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * 2);
     }
 }
