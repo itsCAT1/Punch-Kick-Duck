@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using Lean.Pool;
-using static UnityEngine.GraphicsBuffer;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 
 public enum AttackType
 {

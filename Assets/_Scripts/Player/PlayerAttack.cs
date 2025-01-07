@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.stateManager.ChangeState(new PlayerPunchState());
+            Player.Instance.controller.executer.SetCurrentState("Punch");
         }
     }
 
@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.stateManager.ChangeState(new PlayerKickState());
+            Player.Instance.controller.executer.SetCurrentState("Kick");
         }
     }
 
@@ -33,16 +33,12 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.stateManager.ChangeState(new PlayerDuckState());
+            Player.Instance.controller.executer.SetCurrentState("Duck");
         }
     }
 
     public void PerformHurt()
     {
-        if (timeCoolDown)
-        {
-            startTime = Time.time;
-            Player.Instance.stateManager.ChangeState(new PlayerHurtState());
-        }
+        Player.Instance.controller.executer.SetCurrentState("Hurt");
     }
 }

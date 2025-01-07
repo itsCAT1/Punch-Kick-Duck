@@ -26,7 +26,7 @@ public class CombatManager : Singleton<CombatManager>
                  (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
                  (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
-            Player.Instance.controller.animator?.Play("Hurt");
+            //Player.Instance.controller.animator?.Play("Hurt");
             Debug.Log("Player attacked");
         }
         else

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FSMC.Runtime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -7,20 +8,18 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rigid;
     public Animator animator;
-    StateManager stateManager;
 
     public Transform body;
     public float moveSpeed;
     public int facingDirection = 1;
     
     public float inputHorizontal;
+    public FSMC_Executer executer;
     
-    void Awake()
+    void Start()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        stateManager = gameObject.GetComponent<StateManager>();
-        //Player.Instance.stateManager.ChangeState(new PlayerIdleState());
     }
 
     void Update()
@@ -41,9 +40,7 @@ public class PlayerController : MonoBehaviour
     void PerformMove()
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
-        this.rigid.velocity = new Vector3(moveSpeed * inputHorizontal, rigid.velocity.y, rigid.velocity.z);
-
-        if (Input.GetKeyDown(KeyCode.Z)) animator.Play("Test");
+        this.rigid.velocity = new Vector3(moveSpeed, rigid.velocity.y, rigid.velocity.z);
     }
 
     public void ChangeDirection(int direction)
