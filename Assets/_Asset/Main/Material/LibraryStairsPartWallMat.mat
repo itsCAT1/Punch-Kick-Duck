@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LibraryStairsPartWallMat
+  m_Shader: {fileID: 4800000, guid: 72a81fa98ac19c648ab41318c4ee8275, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5ca99ac20236ddc44928c128d8b8f8b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadTex:
+        m_Texture: {fileID: 2800000, guid: de38b7222bbd49d499997e6b8de439f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _BGradEnd: 3
+      _BGradStart: 0
+      _DstMode: 0
+      _SrcMode: 1
+      _TGradEnd: 9.5
+      _TGradStart: 5
+    m_Colors:
+      _AmbCol: {r: 0.23740655, g: 0.30406848, b: 0.5188679, a: 0}
+      _AmbPosAndScale: {r: 0, g: 5, b: -0.165, a: 0.02}
+      _BGradCol: {r: 0.17254902, g: 0.5921569, b: 0.63529414, a: 1}
+      _DiffuseBaseTint: {r: 0.32156864, g: 0.29411766, b: 0.47058824, a: 0.26666668}
+      _TGradCol: {r: 0.078431375, g: 0.78431374, b: 0.11372549, a: 1}
+  m_BuildTextureStacks: []

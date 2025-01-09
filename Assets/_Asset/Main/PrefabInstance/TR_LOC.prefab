@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1610666288240357
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4375731402629388}
+  - component: {fileID: 114357334265962247}
+  m_Layer: 0
+  m_Name: TR_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4375731402629388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610666288240357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.79561, y: 3.413358, z: -14.807322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114357334265962247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610666288240357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c65bf8cbba0cb008fb7a0244753975e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Source: {fileID: 4900000, guid: bd51a97df8f61a64289d5240921d1f3a, type: 3}
+  Language: Turkish
+  Separator: ',|,'
+  NewLine: '*cr'
+  Comma: '*comma'
+  QuoteMark: '*quo'
+  Comment: ' // '
+  entries:
+  - Name: TargetLanguage
+    Text: TÜRKÇE
+  - Name: Start
+    Text: '- <#FFFFFFFE>BAŞLA<#FFFFFFFF> -'
+  - Name: Options
+    Text: SEÇENEKLER
+  - Name: AdjustTouchControls
+    Text: DOKUNMATİK KONTROLLERİNİ AYARLA
+  - Name: DragToAdjust
+    Text: AYARLAMAK İÇİN SÜRÜKLE
+  - Name: ControlsVisibility
+    Text: GÖRÜNÜRLÜĞÜ KONTROLLERİ
+  - Name: ScreenBorder
+    Text: EKRAN SINIRI
+  - Name: ResetToDefault
+    Text: VARSAYILANA AYARLA
+  - Name: AutoRun
+    Text: OTOMATİK KOŞMA
+  - Name: Controller
+    Text: OYUN KOLU
+  - Name: ControllerFound
+    Text: OYUN KOLU ALGILANDI
+  - Name: NoControllerFound
+    Text: "OYUN KOLU BULUNAMADI\n\nALGILAMAK İÇİN OYUN KOLUNDA HERHANGİ BİR TUŞA BAS"
+  - Name: Difficulty
+    Text: ZORLUK SEVİYESİ
+  - Name: ChangingDiffWarning
+    Text: ZORLUĞU DEĞİŞTİRMEK AŞAMAYI TEKRAR BAŞLATIR
+  - Name: Language
+    Text: DİL
+  - Name: LockScreenRotation
+    Text: EKRAN DÖNDÜRMEYİ KİLİTLE
+  - Name: Music
+    Text: MÜZİK
+  - Name: SoundEffects
+    Text: SES EFEKTLERİ
+  - Name: ShowStageTimer
+    Text: SEVİYE ZAMANLAYICISINI GÖSTER
+  - Name: DeleteSaveFile
+    Text: OYUN VERİSİNİ SIFIRLA
+  - Name: DeleteSaveWarning
+    Text: SIFIRLA' SEÇENEĞİNİ SEÇMEK BU CİHAZDAKİ VE BULUTTAKİ OYUN KAYDINI SİLECEKTİR
+  - Name: DeleteSaveWarning2
+    Text: "İLERLEMENİ SİLMEK İSTEDİĞİNDEN EMİN MİSİN?\n\nBU GERİ ALINAMAZ"
+  - Name: Reset
+    Text: SIFIRLA
+  - Name: Cancel
+    Text: İPTAL
+  - Name: DeleteSaveDone
+    Text: OYUN VERİSİ SIFIRLANDI
+  - Name: ResetAchs
+    Text: BAŞARILARI SIFIRLA?
+  - Name: Privacy
+    Text: GİZLİLİK
+  - Name: RewardedAds
+    Text: ÖDÜLLÜ REKLAMLAR
+  - Name: CharSelectInfo
+    Text: "NOT! TÜM KARAKTERLER AYNI YETENEKLERE SAHİPTİR\n\nOYUNU KAZANMAK İÇİN KUTUDAN KARAKTER AÇMANIZA GEREK YOK"
+  - Name: Unbox
+    Text: KUTUYU AÇ
+  - Name: UnboxAndRemoveAds
+    Text: "KUTUYU AÇ + POP-UP REKLAMLARI KALDIR\n<SIZE=75%>+ ÖDÜLLÜ REKLAMLARI KALDIRMA SEÇENEĞİ"
+  - Name: UnboxSpecial1
+    Text: KUTUDAN BU KARAKTERİ ÇIKARMAK, DÜŞMANLARINDAN VE ÖDÜLLÜ REKLAMLARDAN KAZANDIĞIN PARAYI İKİYE KATLAR
+  - Name: UnboxSpecial2
+    Text: KUTUDAN BU KARAKTERİ ÇIKARMAK, OYUN İÇİ PARALARLA KUTUDAN ÇIKARILABİLEN TÜM KARAKTERLERİN MALİYETİNİ YARIYA İNDİRİR
+  - Name: PurchaseFailed
+    Text: SATINALMA YAPILMADI
+  - Name: RemoveAds
+    Text: REKLAMLARI   KALDIR
+  - Name: RemoveAdsInfo
+    Text: "REKLAMLARI KALDIR\n\nPOP-UP REKLAMLARI KALDIRIR VE ÖDÜLLÜ REKLAMLARI DEVRE DIŞI BIRAKMA SEÇENEĞİ EKLER"
+  - Name: AdsRemoved
+    Text: "POP-UP REKLAMLAR KALDIRILDI!\n\nAYRICA SEÇENEKLER MENÜSÜNDEN<nobr> </nobr><sprite name=\"symbolOptions\"> ÖDÜLLÜ REKLAMLARI DEVRE DIŞI BIRAKMAYI YA DA ETKİNLEŞTİRMEYİ SEÇEBİLİRSİN\n\nDESTEĞİN İÇİN TEŞEKKÜRLER!!"
+  - Name: RestorePurchases
+    Text: SATIN ALMALARI GERİ YÜKLE
+  - Name: Checking
+    Text: KONTROL EDİLİYOR…
+  - Name: RequestTimedOut
+    Text: İSTEK ZAMAN AŞIMINA UĞRADI
+  - Name: RestoreFailed
+    Text: MAĞAZAYA BAĞLANILAMADI
+  - Name: RestoreFound
+    Text: GERİ YÜKLEME BAŞARILI!
+  - Name: RestoreNoneFound
+    Text: ÖNCEKİ SATIN ALMALAR BULUNAMADI
+  - Name: RestoreNoNew
+    Text: ÖNCEKİ SATIN ALMALARIN ZATEN KİLİDİ AÇILDI
+  - Name: Collection
+    Text: 'KOLEKSİYON:'
+  - Name: Random
+    Text: RASTGELE
+  - Name: IncludeInRandom
+    Text: RASTGELE SEÇİME DAHİL ET
+  - Name: NotEnoughCoins
+    Text: DAHA FAZLA PARA GEREKLİ!!
+  - Name: WatchAd
+    Text: ~X~ ALMAK İÇİN REKLAM İZLE
+  - Name: WatchAdAlt
+    Text: REKLAM İZLE
+  - Name: WatchAdError
+    Text: REKLAM OYNATILAMADI
+  - Name: AdSkipped
+    Text: REKLAM BİTMEDİ
+  - Name: NotSignedIn
+    Text: GİRİŞ YAPILMADI
+  - Name: Credits
+    Text: KATKIDA BULUNANLAR
+  - Name: SelectLevel
+    Text: "SEVİYE\nSEÇ"
+  - Name: TuteON
+    Text: ÖĞRETİCİ
+  - Name: Done(Exit)
+    Text: BİTTİ
+  - Name: Close
+    Text: KAPAT
+  - Name: OK
+    Text: TAMAM
+  - Name: CreditsLine1
+    Text: TASARIM, PROGRAMLAMA, GRAFİKLER, SES & MÜZİK
+  - Name: CreditsLine2
+    Text: BAŞ YAPIMCI
+  - Name: CreditsLine3
+    Text: EK 3D MODELLER
+  - Name: CreditsLine4
+    Text: EK SES EFEKTLERİ
+  - Name: CreditsLine5
+    Text: ÖZEL TEŞEKKÜR
+  - Name: CreditsLine6
+    Text: TEST EKİBİNE ÇOK TEŞEKKÜRLER!
+  - Name: CreditsLine7
+    Text: ÇEVİRİLER
+  - Name: Contact
+    Text: İLETİŞİM
+  - Name: Off
+    Text: KAPAT
+  - Name: LevelXResult
+    Text: SEVİYE<#64E4FF00><SIZE=140%> X </SIZE><#64E4FFFF>SONUCU
+  - Name: Level
+    Text: SEVİYE
+  - Name: Result
+    Text: SONUÇ
+  - Name: Paused
+    Text: DURAKLATILDI
+  - Name: Continue
+    Text: DEVAM ET
+  - Name: Restart
+    Text: BAŞTAN BAŞLAT
+  - Name: Quit
+    Text: ÇIK
+  - Name: QuitGame
+    Text: OYUNDAN ÇIKIŞ?
+  - Name: HideMenu
+    Text: MENÜYÜ GİZLE
+  - Name: ShowMenu
+    Text: MENÜYÜ GÖSTERMEK İÇİN EKRANA DOKUN
+  - Name: ShowMenu_Cont
+    Text: MENÜYÜ GÖSTERMEK İÇİN HERHANGİ BİR TUŞA DOKUN
+  - Name: CombatTraining
+    Text: '- DÖVÜŞ EĞİTİMİ -'
+  - Name: Punch
+    Text: YUMRUK
+  - Name: Kick
+    Text: TEKME
+  - Name: Duck(Low)
+    Text: YERDEN TEKME
+  - Name: PunchTip
+    Text: "BİR <#FFAEFFFE><SIZE=140%>YUMRUK</SIZE><#FFFFFFFF> SALDIRISI \nYAPMAK İÇİN BURAYA DOKUN"
+  - Name: KickTip
+    Text: "BİR <#FFAEFFFE><SIZE=140%>TEKME</SIZE><#FFFFFFFF> SALDIRISI \nYAPMAK İÇİN BURAYA DOKUN"
+  - Name: DuckTip
+    Text: "BİR <#FFAEFFFE><SIZE=140%>YERDEN TEKME</SIZE><#FFFFFFFF> SALDIRISI \nYAPMAK İÇİN BURAYA DOKUN"
+  - Name: SprintTip
+    Text: "OTOMATİK OLARAK YÜRÜR\n\n<#FFAEFFFE><SIZE=140%>KOŞMAK</SIZE><#FFFFFFFF> İÇİN HERHANGİ BİR YERE DOKUN VE BASILI TUT"
+  - Name: SprintTipGamepad
+    Text: "OTOMATİK OLARAK YÜRÜR\n\n<#FFAEFFFE><SIZE=140%>KOŞMAK</SIZE><#FFFFFFFF> İÇİN HERHANGİ BİR TUŞA BASILI TUT"
+  - Name: SprintTouchTip
+    Text: "<#AEFFAEFF><SIZE=+1>İPUCU!</SIZE><#FFFFFFFF>\nKOŞARKEN DOKUNMATİK İŞARETÇİNİ FARKLI YERE SÜRÜKLEYEREK <#FFAEFFFE><SIZE=140%>KOŞMA</SIZE><#FFFFFFFF> İŞLEMİNİ BOZMADAN DEVAM EDEBİLİRSİN"
+  - Name: WalkTip
+    Text: "OTOMATİK OLARAK KOŞAR\n\n<#FFAEFFFE><SIZE=140%>YÜRÜMEK</SIZE><#FFFFFFFF> İÇİN HERHANGİ BİR YERE DOKUN VE BASILI TUT"
+  - Name: WalkTipGamepad
+    Text: "OTOMATİK OLARAK KOŞAR\n\n<#FFAEFFFE><SIZE=140%>YÜRÜMEK</SIZE><#FFFFFFFF> İÇİN HERHANGİ BİR TUŞA BASILI TUT"
+  - Name: PunchBeatsKick
+    Text: '<#75EDFFFF><SIZE=125%>YUMRUK,  <#81B7F6FF><SIZE=125%>TEKMEYİ <SIZE=100%> <#E0B9FFFF>YENER'
+  - Name: KickBeatsDuck
+    Text: '<#75EDFFFF><SIZE=125%>TEKME,  <#81B7F6FF><SIZE=125%>YERDEN TEKMEYİ <SIZE=100%> <#E0B9FFFF>YENER'
+  - Name: DuckBeatsPunch
+    Text: '<#75EDFFFF><SIZE=125%>YERDEN TEKME,  <#81B7F6FF><SIZE=125%>YUMRUĞU <SIZE=100%> <#E0B9FFFF>YENER'
+  - Name: PunchAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>YUMRUK </SIZE><#FFFFFFFF>SALDIRISI SOL'
+  - Name: KickAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>TEKME </SIZE><#FFFFFFFF>SALDIRISI SOL'
+  - Name: DuckAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>YERDEN TEKME </SIZE><#FFFFFFFF>SALDIRISI SOL'
+  - Name: PunchAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>YUMRUK </SIZE><#FFFFFFFF>SALDIRISI SAĞ'
+  - Name: KickAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>TEKME </SIZE><#FFFFFFFF>SALDIRISI SAĞ'
+  - Name: DuckAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>YERDEN TEKME </SIZE><#FFFFFFFF>SALDIRISI SAĞ'
+  - Name: ScoreNumTip
+    Text: "BU SAYI MEVCUT SEVİYE İÇİN\nSKORUNU GÖSTERİR"
+  - Name: ScoreMultiTip
+    Text: "BU SAYAÇ DÜŞMANLARINI DÖVERKEN\nKAÇ PUAN ALACAĞINI GÖSTERİR\n\nDÜŞMANLARINA VURARAK VEYA\nKOŞARAK SAYACI ARTTIR\n\nYOKSA SAYAÇ YAVAŞÇA 1'E KADAR DÜŞER"
+  - Name: ScoreHeartTip
+    Text: "KALP SANA İKİNCİ BİR ŞANS VERİR\n\nBU KALBİ YENİLDİĞİNDE KULLANABİLİRSİN,\nAMA YETERLİ DÜŞMANI YENEREK\nTEKRAR KAZANABİLİRSİN"
+  - Name: ScoreCoinsTip
+    Text: "BAZEN DÜŞMANLAR YERE PARA DÜŞÜRÜR\n\nTOPLAM PARAN BURADA GÖSTERİLİR"
+  - Name: ScoreOptionsTip
+    Text: "İPUCU!\n\n<COLOR=#77FF99FF><SIZE=115%>SEÇENEKLER MENÜSÜNDEN</SIZE></COLOR><nobr> </nobr><sprite name=\"symbolOptions\">\n<COLOR=#FFFF33FF><SIZE=115%>ZORLUK SEVİYESİNİ</SIZE></COLOR> DEĞİŞTİREBİLİR\nVE DOKUNMATİK KONTROLLERİNİ\nAYARLAYABİLİRSİN"
+  - Name: LSandPTip
+    Text: DIKEY VE YATAY OLARAK OYNAYABILME
+  - Name: Next
+    Text: SONRAKİ >
+  - Name: DemoPlay
+    Text: '- DEMO OYUN -'
+  - Name: TapToExit
+    Text: ÇIKMAK İÇİN DOKUN
+  - Name: PressAnyButtonToExit
+    Text: ÇIKMAK İÇİN HERHANGİ BİR TUŞA BAS
+  - Name: BewareTheBear
+    Text: AYIYA DİKKAT ET!!
+  - Name: NewScore
+    Text: YENİ SKOR
+  - Name: BestScore
+    Text: EN İYİ SKOR
+  - Name: NewBest
+    Text: YENİ REKOR!
+  - Name: AllStagesTotal
+    Text: TÜM SEVİYELERİN TOPLAMI
+  - Name: AllStagesNewTotal
+    Text: TÜM SEVİYELERİN YENİ TOPLAMI
+  - Name: TotalScore
+    Text: TOPLAM SKOR
+  - Name: NewTotal
+    Text: YENİ TOPLAM!!
+  - Name: FinalScore
+    Text: FİNAL SKOR
+  - Name: StageTime
+    Text: SEVİYE SÜRESİ
+  - Name: BestTime
+    Text: EN İYİ SÜRE
+  - Name: NewBestTime
+    Text: YENİ REKOR SÜRE
+  - Name: EnemiesOutrun
+    Text: '> ARKADA BIRAKILAN DÜŞMANLAR'
+  - Name: OutrunBonus
+    Text: + ARKADA BIRAKMA BONUSU
+  - Name: HeartBonus
+    Text: + KALP BONUSU
+  - Name: PlayStageAgain
+    Text: SEVİYEYİ TEKRAR OYNA
+  - Name: Share
+    Text: PAYLAŞ
+  - Name: RateThisGame
+    Text: BU   OYUNA   PUAN   VERIN
+  - Name: Rate
+    Text: PUANLAMAK!
+  - Name: IScoredXOnStageY
+    Text: ~Y~. SEVİYEDE ~X~ SKOR YAPTIM
+  - Name: IDefeatedBaron
+    Text: BARON KAPLANO'YU YENDİM!
+  - Name: FinalBattle
+    Text: FİNAL DÖVÜŞÜ
+  - Name: Revive
+    Text: CANLAN
+  - Name: Skip
+    Text: GEÇ
+  - Name: Tip
+    Text: '- İPUCU -'
+  - Name: TryAgain
+    Text: TEKRAR DENE
+  - Name: TryAgainQ
+    Text: TEKRAR DENEYİN?
+  - Name: Victory
+    Text: ZAFER!!
+  - Name: VictoryLine2
+    Text: BARON KAPLANO'YU YENDİN
+  - Name: WellDone
+    Text: AFERİN!!
+  - Name: KnockDownDoor
+    Text: BU KAPIYI GEÇMEM LAZIM
+  - Name: LetsGetOutOfHere
+    Text: HADİ ÇIKALIM BURADAN
+  - Name: UhOh
+    Text: HAYDA
+  - Name: Bam!
+    Text: BAM!
+  - Name: Yes!
+    Text: İŞTE BU!
+  - Name: MoreTrouble
+    Text: BİR BELA DAHA!
+  - Name: AnotherCustomer
+    Text: YENİ MÜŞTERİ
+  - Name: SeeYouLater
+    Text: HADİ GÖRÜŞÜRÜZ!
+  - Name: GoodNight
+    Text: İYİ GECELER!
+  - Name: OneHit
+    Text: TEK ATTIM!
+  - Name: GettingTheHangOfThis
+    Text: "ELİM YAVAŞTAN\nALIŞIYOR HA!"
+  - Name: ThinkIGetIt
+    Text: "TAMAM, \nGALİBA ANLADIM"
+  - Name: ImStrongerThanILook
+    Text: "GÖRÜNDÜĞÜMDEN\nDAHA GÜÇLÜYÜM!"
+  - Name: Hmm
+    Text: HMM…
+  - Name: NeitherOfUsWon
+    Text: "İKİMİZ DE\nKAZANAMADIK"
+  - Name: ThatWasADraw
+    Text: BERABERE KALDIK
+  - Name: AnotherDraw
+    Text: BİR BERABERE DAHA
+  - Name: ShouldFightBack
+    Text: "KARŞILIK \nVERMELİYİM"
+  - Name: Ow
+    Text: AAGH!
+  - Name: Nope
+    Text: AH BE
+  - Name: ThatDidntWork
+    Text: BU İŞE YARAMADI
+  - Name: WhatABully
+    Text: "BURANIN MUHTARI\nSEN MİSİN?!"
+  - Name: PretendThatDidntHappen
+    Text: "BU OLMAMIŞ \nGİBİ DAVRANACAĞIM"
+  - Name: WrongMove
+    Text: BU OLMADI
+  - Name: NeedToBeCloser
+    Text: "ŞİMDİ OLDU, AMA\nBİRAZ YAKLAŞMAM LAZIM"
+  - Name: WouldHaveWorkedIfCloser
+    Text: "YAKIN OLSAM\nVURACAKTIM YA"
+  - Name: PunchVsDuck
+    Text: "ŞU <#9977FFFE>YERDEN TEKME<#000000FF> SALDIRISI\n<#9977FFFE>YUMRUK<#000000FF> SALDIRIMI YENİYOR"
+  - Name: KickVsPunch
+    Text: "GALİBA BURADA <#9977FFFE>YERDEN TEKME<#000000FF> \nSALDIRISI YAPSAM İYİ OLACAK"
+  - Name: DuckVsKick
+    Text: "ŞU <#9977FFFE>TEKME<#000000FF> SALDIRISI\n<#9977FFFE>YERDEN TEKME<#000000FF> SALDIRIMI YENİYOR"
+  - Name: LetsGetSerious
+    Text: TAMAM, CİDDİLEŞME VAKTİ!
+  - Name: EnoughTraining
+    Text: "BU KADAR ANTRENMAN YETER\nŞİMDİ PRATİĞE DÖKME VAKTİ!"
+  - Name: GuessIShouldHurry
+    Text: ACELE ETMEM LAZIM
+  - Name: BetterKeepMoving
+    Text: ACELE ETSEM İYİ OLACAK!
+  - Name: IdBetterHurry
+    Text: BİRAZ ACELE ETMELİYİM
+  - Name: IdBetterRun
+    Text: KOŞSAM İYİ OLACAK!
+  - Name: GoingToHaveToRun
+    Text: KOŞMAM GEREKECEK!!
+  - Name: NotMuchTime
+    Text: FAZLA VAKTİM KALMADI!!!
+  - Name: LetsGo
+    Text: GİDELİM!
+  - Name: OKImGoing
+    Text: TAMAM, GİDİYORUM
+  - Name: ThatWasEasy
+    Text: BU KOLAY OLDU!
+  - Name: ThatWasntTooHard
+    Text: BU ÇOK ZOR OLMADI
+  - Name: ThatWasClose
+    Text: PAÇAYI ZOR KURTARDIM!
+  - Name: TooSlowShaggy
+    Text: "ÇOK YAVAŞSIN \nPOFUDUK ŞEY!"
+  - Name: HowInconsiderate
+    Text: MÜNASEBETSİZ
+  - Name: goHint_bottleTip1
+    Text: "İPUCU! EĞER BİR DÜŞMAN VE ŞİŞE ARASINDA KALIRSAM,\nÖNCE ŞİŞEYLE İLGİLENMEYE ÇALIŞMALIYIM"
+  - Name: goHint_bottleTip2
+    Text: "İPUCU! EĞER DÜŞMANA SALDIRMA VEYA \nŞİŞEYLE İLGİLENME ARASINDA SEÇİM YAPMAM \nGEREKİRSE, ÖNCE ŞİŞEYİ SEÇMELİYİM"
+  - Name: goHint_shouldHaveHitCart
+    Text: "İPUCU! EĞER BİR DÜŞMANA VEYA BİR EL ARABASINA \nVURMAK ARASINDA SEÇİM YAPMAM GEREKİRSE, \nÖNCE EL ARABASINA VURSAM İY İOLUR"
+  - Name: goHint_foxTip1
+    Text: "ŞU TİLKİLER YUMRUK VE TEKME ATMAYI SEVİYOR! \nBANA NE ŞEKİLDE YAKLAŞACAKLARINA DİKKAT ETMELİYİM"
+  - Name: goHint_tapLeftToAttackLeft
+    Text: "İPUCU! SOLDAN SALDIRMAK İÇİN\nEKRANIN SOL TARAFINA DOKUN"
+  - Name: goHint_tapRightToAttackRight
+    Text: "İPUCU! SAĞDAN SALDIRMAK İÇİN\nEKRANIN SAĞ TARAFINA DOKUN"
+  - Name: goHint_tigerTip1
+    Text: "BU KAPLAN\n<#CC99FFFF>ORTA<#000000FF>, <#9988FFFF>ALÇAK<#000000FF>, VE <#66BB88FF>YÜKSEK<#000000FF> SALDIRILARDA YETENEKLİ...\nNEYSE Kİ BEN DE\n<#CC99FFFF>YUMRUK<#000000FF>, <#9988FFFF>TEKME<#000000FF>, VE <#66BB88FF>YERDEN TEKME<#000000FF> ATMAKTA YETENEKLİYİM!! \n"
+  - Name: goHint_run
+    Text: "İPUCU! KOŞMAK İÇİN HERHANGİ\nBİR YERE DOKUN VE BASILI TUT"
+  - Name: goHint_runCont
+    Text: "İPUCU! KOŞMAK İÇİN\nHERHANGİ BİR TUŞA BASILI TUT"
+  - Name: uCongratsDiff1
+    Text: "AFERİN!\n1. ZORLUK SEVİYESİNDE\nTÜM SEVİYELERİ TAMAMLADIN"
+  - Name: uCongratsDiff2
+    Text: "HARİKA!!\n2. ZORLUK SEVİYESİNDE\nTÜM SEVİYELERİ TAMAMLADIN"
+  - Name: uCongratsDiff3
+    Text: "İNANILMAZ!!\n3. ZORLUK SEVİYESİNDE\nTÜM SEVİYELERİ TAMAMLADIN"
+  - Name: ub1
+    Text: "BENİ KUTUDAN ÇIKARDIĞIN İÇİN TEŞEKKÜRLER!!\nİŞ YETENEKLERİM SAYESİNDE, ARTIK DÜŞMANLARDAN \nVE ÖDÜLLÜ REKLAMLARDAN İKİ KATI PARA KAZANACAKSIN!"
+  - Name: ub2
+    Text: "BENİ KUTUDAN ÇIKARDIĞIN İÇİN TEŞEKKÜRLER!!\nPAZARLIK YETENEĞİM SAYESİNDE, KARAKTER KUTUSU \nAÇMAK İÇİN ÖDEMEN GEREKEN MALİYET ARTIK YARIYA İNDİ!"
+  - Name: KnockKnock
+    Text: TIK TIK
+  - Name: You!
+    Text: SEN!!!
+  - Name: Hello
+    Text: MERHABA…
+  - Name: zzBoss
+    Text: PATRON!
+  - Name: zzBrother
+    Text: ABİ!
+  - Name: zzCousin
+    Text: KUZEN!
+  - Name: zzFormerBusinessPartner
+    Text: ESKİ ORTAK!
+  - Name: zzIDontKnow
+    Text: NELER OLUYOR ANLAMIYORUM!
+  - Name: zzLongtimeNemesis
+    Text: EZELİ DÜŞMANIM!
+  - Name: zzMyMaker
+    Text: YARATICIM!
+  - Name: zzMyOldStudent
+    Text: ESKİ ÖĞRENCİM!
+  - Name: zzOldFriend
+    Text: ESKİ DOSTUM!
+  - Name: zzSpecimen
+    Text: NUMUNE 248
+  - Name: zzThief
+    Text: HIRSIZ!
+  - Name: zzUncle
+    Text: AMCA!
+  - Name: zzUsurper
+    Text: HİLEKAR!
+  - Name: zzWhoeverYouAre
+    Text: ARTIK HER KİMSEN
+  - Name: zzInsuranceNeeds
+    Text: "SİGORTA İHTİYAÇLARINLA ALAKALI \nSENİNLE KONUŞMAK İSTİYORUM"
+  - Name: zzComplain
+    Text: "BURANIN TASARIMIYLA İLGİLİ \nBİR ŞİKAYETTE BULUNMAK İSTİYORUM"
+  - Name: zzLostCar
+    Text: "ASLINDA SADECE ARABAMI NEREYE \nBIRAKTIĞIMI BULMAYA ÇALIŞIYORUM"
+  - Name: zzTrendJoiner
+    Text: "HERKESİN SENİNLE DÖVÜŞTÜĞÜNÜ DUYDUM,\nYANİ BEN DE… NEDEN OLMASIN DEDİM?"
+  - Name: zzTigerTamer
+    Text: BANA KAPLAN TERBİYECİSİ DERLER!
+  - Name: zzTeachManners
+    Text: SANA TERBİYE ÖĞRETMEYE GELDİM
+  - Name: zzPJs
+    Text: "SAAT ÖĞLEN 3 OLMUŞ, \nSEN HALA PİJAMALARINLA MISIN?"
+  - Name: zzTenBucks
+    Text: "BANA BORCUN OLAN\n10 LİRAYI ALMAK İÇİN GELDİM"
+  - Name: zzBetterDoors
+    Text: "BURAYA DAHA SAĞLAM BİR\nKAPI FALAN YAPTIR BENCE"
+  - Name: zzTorchOut
+    Text: "ZİNDANDAKİ MEŞALELERDEN BİRİNİN \nSÖNDÜĞÜNÜ SÖYLEYEYİM DEDİM"

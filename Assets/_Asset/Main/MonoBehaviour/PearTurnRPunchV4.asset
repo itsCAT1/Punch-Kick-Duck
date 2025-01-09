@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abe1fa30cd31b1b36dab28499fb6999, type: 3}
+  m_Name: PearTurnRPunchV4
+  m_EditorClassIdentifier:
+  timeScale: 1
+  tweenDefs:
+  - defName: 0
+    tweenParts:
+    - preDelay: 0
+      duration: 0.075
+      targetPos: {x: -0.75, y: -0.2}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 4
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0.0666
+      targetPos: {x: -1.3, y: -0.4}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 5
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0.03333
+      duration: 0.1
+      targetPos: {x: -0.25, y: -0.35}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 4
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0.17
+      targetPos: {x: 0, y: 0}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 27
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+  - defName: 6
+    tweenParts:
+    - preDelay: 0
+      duration: 0.05
+      targetPos: {x: 0, y: -0.3}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 6
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+  - defName: 11
+    tweenParts:
+    - preDelay: 0
+      duration: 0
+      targetPos: {x: 0.2, y: 0.2}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0.02
+      targetPos: {x: 1.4, y: 1.05}
+      targetRot: -15
+      targetScale: {x: 0, y: 0.35}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 1
+    - preDelay: 0
+      duration: 0.025
+      targetPos: {x: 1.5, y: 1.05}
+      targetRot: -15
+      targetScale: {x: 0.15, y: -0.15}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0.05
+      duration: 0.26
+      targetPos: {x: 0, y: 0}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 27
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+  - defName: 4
+    tweenParts:
+    - preDelay: 0
+      duration: 0.02
+      targetPos: {x: 0.15, y: -0.15}
+      targetRot: -5
+      targetScale: {x: -0.15, y: 0.15}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0.025
+      targetPos: {x: -0.15, y: 0.1}
+      targetRot: 0
+      targetScale: {x: 0.15, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 4
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0
+      targetPos: {x: 0.1, y: 0.1}
+      targetRot: 5
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 2
+    - preDelay: 0
+      duration: 0.075
+      targetPos: {x: -0.25, y: 0.15}
+      targetRot: -16
+      targetScale: {x: -0.15, y: 0.15}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 5
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0.033
+      duration: 0.28
+      targetPos: {x: 0, y: 0}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 27
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+  - defName: 2
+    tweenParts:
+    - preDelay: 0
+      duration: 0.06
+      targetPos: {x: 0.2, y: 0.3}
+      targetRot: -20
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 4
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0
+      targetPos: {x: -0.1, y: 0.3}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 0
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0
+      duration: 0.05
+      targetPos: {x: 0, y: 0}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 0
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 5
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+  - defName: 3
+    tweenParts:
+    - preDelay: 0
+      duration: 0.06
+      targetPos: {x: 0, y: 0}
+      targetRot: 0
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 1
+      pingponged: 0
+      prePongDelay: 0
+      easeType: 0
+      easeTypeWhenPonging: 0
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 0
+    - preDelay: 0.035
+      duration: 0.1
+      targetPos: {x: 0, y: 0.1}
+      targetRot: -15
+      targetScale: {x: 0, y: 0}
+      tweenPosition: 1
+      tweenRotation: 1
+      tweenScale: 0
+      pingponged: 1
+      prePongDelay: 0
+      easeType: 6
+      easeTypeWhenPonging: 5
+      pingCompleteMethodToCall: 0
+      tweenCompleteMethodToCall: 5

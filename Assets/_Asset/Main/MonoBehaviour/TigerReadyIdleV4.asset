@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4177717927fddcaaaba84db268869b06, type: 3}
+  m_Name: TigerReadyIdleV4
+  m_EditorClassIdentifier:
+  animName: readyIdle
+  lowerFootCanLeaveGround: 1
+  trailingFootFlipped: 1
+  trailingArmFlipped: 0
+  bodyWobbleFreq: 1
+  bodyBounceFreq: 2
+  footHeightMultiplier: {x: 0.5, y: 0.5}
+  animValues:
+  - 0.65
+  - 9
+  - 0
+  - 0.3
+  - 0
+  - 8
+  - 1.3
+  - 0.5
+  - 0.9
+  - 0
+  - 0.3
+  - 0.5
+  - -0.5
+  - 0.3
+  - 0
+  - 0
+  - 80
+  - 40
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0
+  - -0.1
+  derivedAvgSpeed: -1
+  torsoBendAmount: 0.1
+  velOverride: 0

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4177717927fddcaaaba84db268869b06, type: 3}
+  m_Name: TriumphStance4
+  m_EditorClassIdentifier:
+  animName: triumph4
+  lowerFootCanLeaveGround: 0
+  trailingFootFlipped: 0
+  trailingArmFlipped: 0
+  bodyWobbleFreq: 1
+  bodyBounceFreq: 2
+  footHeightMultiplier: {x: 0, y: 0}
+  animValues:
+  - 0.7
+  - 6.25
+  - 0
+  - 0.15
+  - -15.6
+  - -0
+  - 0.5
+  - 0.25
+  - 0.25
+  - 0
+  - 0
+  - 0.2
+  - -0.59
+  - 1
+  - 0
+  - 0
+  - 23.7
+  - 109.4
+  - 0.3
+  - 0.3
+  - 0
+  - 0
+  - 0.1
+  derivedAvgSpeed: -1
+  torsoBendAmount: 0
+  velOverride: 0

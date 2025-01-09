@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TigerFloor
+  m_Shader: {fileID: 4800000, guid: 34fd6a1579cec6d4189550b62c714e82, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _SurfaceTex:
+        m_Texture: {fileID: 2800000, guid: 8eeb1139b85d0854796f2a86318cb495, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _EdgeDarkening: 0.1
+      _VBlur: 0.0175
+    m_Colors:
+      _AddColB: {r: 0.081901945, g: 0.07889821, b: 0.084905684, a: 1}
+      _AddColT: {r: 0, g: 0, b: 0, a: 1}
+      _AmbientB: {r: 1, g: 1, b: 1, a: 1}
+      _AmbientT: {r: 0.63815486, g: 0.6334549, b: 0.6886792, a: 1}
+      _MetalMult: {r: 1, g: 2, b: 0, a: 0}
+      _RefTexAdj: {r: 3.04638, g: 0.4872644, b: 0.8333334, a: 0.5172223}
+      _Reflectivity: {r: 1.2, g: 0.3, b: 0.6, a: 0.15}
+  m_BuildTextureStacks: []

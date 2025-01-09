@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1721630178335005
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4802985459178214}
+  - component: {fileID: 114029276329665556}
+  m_Layer: 0
+  m_Name: RU_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4802985459178214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721630178335005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.79561, y: 3.413358, z: -14.807322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114029276329665556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721630178335005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c65bf8cbba0cb008fb7a0244753975e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Source: {fileID: 4900000, guid: 9dcc77f2df2d30340b03a7dd4daddf96, type: 3}
+  Language: Russian
+  Separator: ',|,'
+  NewLine: '*cr'
+  Comma: '*comma'
+  QuoteMark: '*quo'
+  Comment: ' // '
+  entries:
+  - Name: TargetLanguage
+    Text: РУССКИЙ
+  - Name: Start
+    Text: '- <#FFFFFFFE>СТАРТ<#FFFFFFFF> -'
+  - Name: Options
+    Text: ОПЦИИ
+  - Name: AdjustTouchControls
+    Text: НАСТРОЙКА СЕНСОРНОГО УПРАВЛЕНИЯ
+  - Name: DragToAdjust
+    Text: ПЕРЕТАЩИТЕ, ЧТОБЫ НАСТРОИТЬ
+  - Name: ControlsVisibility
+    Text: УПРАВЛЯЕТ ВИДИМОСТЬЮ
+  - Name: ScreenBorder
+    Text: ГРАНИЦЫ ЭКРАНА
+  - Name: ResetToDefault
+    Text: СБРОС К ЗНАЧЕНИЮ ПО УМОЛЧАНИЮ
+  - Name: AutoRun
+    Text: АВТО-БЕГ
+  - Name: Controller
+    Text: ГЕЙМПАД
+  - Name: ControllerFound
+    Text: ГЕЙМПАД ОБНАРУЖЕН
+  - Name: NoControllerFound
+    Text: "ГЕЙМПАД НЕ НАЙДЕН\n\nНАЖМИТЕ ЛЮБУЮ КНОПКУ НА ГЕЙМПАДЕ, ЧТОБЫ СИСТЕМА ЕГО ОБНАРУЖИЛА"
+  - Name: Difficulty
+    Text: СЛОЖНОСТЬ
+  - Name: ChangingDiffWarning
+    Text: ИЗМЕНЕНИЕ СЛОЖНОСТИ ПРИВЕДЕТ К ПЕРЕЗАПУСКУ ЭТАПА
+  - Name: Language
+    Text: ЯЗЫК
+  - Name: LockScreenRotation
+    Text: БЛОКИРОВКА ПОВОРОТА ЭКРАНА
+  - Name: Music
+    Text: МУЗЫКА
+  - Name: SoundEffects
+    Text: ЗВУКОВЫЕ ЭФФЕКТЫ
+  - Name: ShowStageTimer
+    Text: ПОКАЗАТЬ ТАЙМЕР УРОВНЯ
+  - Name: DeleteSaveFile
+    Text: СБРОС ИГРОВЫХ ДАННЫХ
+  - Name: DeleteSaveWarning
+    Text: '"СБРОС" ПРИВЕДЕТ К УДАЛЕНИЮ СОХРАНЕНИЯ ИГРЫ НА ЭТОМ УСТРОЙСТВЕ И В ОБЛАКЕ'
+  - Name: DeleteSaveWarning2
+    Text: "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ СБРОСИТЬ СВОЙ ПРОГРЕСС?\n\nЭТО НЕ МОЖЕТ БЫТЬ ОТМЕНЕНО"
+  - Name: Reset
+    Text: СБРОС
+  - Name: Cancel
+    Text: ОТМЕНА
+  - Name: DeleteSaveDone
+    Text: СБРОС ИГРОВЫХ ДАННЫХ
+  - Name: ResetAchs
+    Text: СБРОСИТЬ ДОСТИЖЕНИЯ?
+  - Name: Privacy
+    Text: КОНФИДЕНЦИАЛЬНОСТЬ
+  - Name: RewardedAds
+    Text: РЕКЛАМА С ВОЗНАГРАЖДЕНИЕМ
+  - Name: CharSelectInfo
+    Text: "ОБРАТИТЕ ВНИМАНИЕ! ВСЕ ПЕРСОНАЖИ ОБЛАДАЮТ ОДИНАКОВЫМИ СПОСОБНОСТЯМИ\n\nВАМ НЕ НУЖНО РАСПАКОВЫВАТЬ ПЕРСОНАЖЕЙ, ЧТОБЫ ПРОЙТИ ИГРУ!\n\n"
+  - Name: Unbox
+    Text: РАСПАКОВАТЬ
+  - Name: UnboxAndRemoveAds
+    Text: "РАСПАКОВАТЬ + УБРАТЬ ВСПЛЫВАЮЩИЕ ОКНА\n<SIZE=75%>+ ВОЗМОЖНОСТЬ ОТКЛЮЧИТЬ РЕКЛАМУ С ВОЗНАГРАЖДЕНИЕМ"
+  - Name: UnboxSpecial1
+    Text: РАСПАКОВКА ЭТОГО ПЕРСОНАЖА УДВОИТ КОЛИЧЕСТВО МОНЕТ, КОТОРЫЕ ВЫ ПОЛУЧИТЕ ОТ ВРАГОВ И ОТ РЕКЛАМЫ С ВОЗНАГРАЖДЕНИЕМ
+  - Name: UnboxSpecial2
+    Text: РАСПАКОВКА ЭТОГО ПЕРСОНАЖА УМЕНЬШИТ ВДВОЕ СТОИМОСТЬ ВСЕХ ПЕРСОНАЖЕЙ, КОТОРЫЕ МОГУТ БЫТЬ РАСПАКОВАНЫ С ПОМОЩЬЮ ВНУТРИИГРОВЫХ МОНЕТ.
+  - Name: PurchaseFailed
+    Text: ПОКУПКА НЕ СОВЕРШЕНА
+  - Name: RemoveAds
+    Text: УБРАТЬ   РЕКЛАМУ!
+  - Name: RemoveAdsInfo
+    Text: "УБРАТЬ РЕКЛАМУ\n\nУДАЛЯЕТ ВСПЛЫВАЮЩИЕ ОКНА И ДОБАВЛЯЕТ ВОЗМОЖНОСТЬ ОТКЛЮЧЕНИЯ РЕКЛАМЫ С ВОЗНАГРАЖДЕНИЕМ"
+  - Name: AdsRemoved
+    Text: "ВСПЛЫВАЮЩИЕ ОКНА УДАЛЕНЫ!\n\nВЫ ТАКЖЕ МОЖЕТЕ ОТКЛЮЧИТЬ ИЛИ ВКЛЮЧИТЬ РЕКЛАМУ С ВОЗНАГРАЖДЕНИЕМ В МЕНЮ ОПЦИЙ<nobr> </nobr><sprite name=\"symbolOptions\">\n\nСПАСИБО ЗА ВАШУ ПОДДЕРЖКУ!!"
+  - Name: RestorePurchases
+    Text: ВОССТАНОВЛЕНИЕ ПОКУПОК
+  - Name: Checking
+    Text: ПРОВЕРКА...
+  - Name: RequestTimedOut
+    Text: ВРЕМЯ ОЖИДАНИЯ ЗАПРОСА ИСТЕКЛО
+  - Name: RestoreFailed
+    Text: НЕ УДАЕТСЯ ПОДКЛЮЧИТЬСЯ К ХРАНИЛИЩУ
+  - Name: RestoreFound
+    Text: ВОССТАНОВЛЕНИЕ ПРОШЛО УСПЕШНО!
+  - Name: RestoreNoneFound
+    Text: ПРЕДЫДУЩИХ ПОКУПОК НЕ НАЙДЕНО
+  - Name: RestoreNoNew
+    Text: ПРЕДЫДУЩИЕ ПОКУПКИ УЖЕ РАЗБЛОКИРОВАНЫ
+  - Name: Collection
+    Text: 'КОЛЛЕКЦИЯ:'
+  - Name: Random
+    Text: СЛУЧАЙНЫЙ ВЫБОР
+  - Name: IncludeInRandom
+    Text: ДОБАВИТЬ В СЛУЧАЙНЫЙ ВЫБОР
+  - Name: NotEnoughCoins
+    Text: НУЖНО БОЛЬШЕ МОНЕТ!!
+  - Name: WatchAd
+    Text: ПРОСМОТРИТЕ РЕКЛАМУ, ЧТОБЫ ПОЛУЧИТЬ ~X~
+  - Name: WatchAdAlt
+    Text: ПРОСМОТРИТЕ РЕКЛАМУ
+  - Name: WatchAdError
+    Text: ОШИБКА ПРИ ВОСПРОИЗВЕДЕНИИ РЕКЛАМЫ
+  - Name: AdSkipped
+    Text: РЕКЛАМА НЕ ЗАКОНЧИЛАСЬ
+  - Name: NotSignedIn
+    Text: НЕ АВТОРИЗОВАНЫ
+  - Name: Credits
+    Text: ТИТРЫ
+  - Name: SelectLevel
+    Text: "ВЫБРАТЬ\nУРОВЕНЬ"
+  - Name: TuteON
+    Text: РУКОВОДСТВО
+  - Name: Done(Exit)
+    Text: ГОТОВО
+  - Name: Close
+    Text: ЗАКРЫТЬ
+  - Name: OK
+    Text: ОК
+  - Name: CreditsLine1
+    Text: ДИЗАЙН, ПРОГРАММИРОВАНИЕ, ГРАФИКА, ЗВУК И МУЗЫКА
+  - Name: CreditsLine2
+    Text: ИСПОЛНИТЕЛЬНЫЙ ПРОДЮСЕР
+  - Name: CreditsLine3
+    Text: ДОПОЛНИТЕЛЬНЫЕ 3D-МОДЕЛИ
+  - Name: CreditsLine4
+    Text: ДОПОЛНИТЕЛЬНЫЕ ЗВУКОВЫЕ ЭФФЕКТЫ
+  - Name: CreditsLine5
+    Text: ОСОБАЯ БЛАГОДАРНОСТЬ
+  - Name: CreditsLine6
+    Text: БОЛЬШОЕ СПАСИБО КОМАНДЕ ТЕСТИРОВЩИКОВ!
+  - Name: CreditsLine7
+    Text: ПЕРЕВОД
+  - Name: Contact
+    Text: СВЯЗАТЬСЯ
+  - Name: Off
+    Text: ВЫКЛЮЧЕНО
+  - Name: LevelXResult
+    Text: РЕЗУЛЬТАТ<#64E4FF00><SIZE=140%> X </SIZE><#64E4FFFF>УРОВНЯ
+  - Name: Level
+    Text: УРОВЕНЬ
+  - Name: Result
+    Text: РЕЗУЛЬТАТ
+  - Name: Paused
+    Text: НА ПАУЗЕ
+  - Name: Continue
+    Text: ПРОДОЛЖИТЬ
+  - Name: Restart
+    Text: ПЕРЕЗАПУСК
+  - Name: Quit
+    Text: ВЫЙТИ
+  - Name: QuitGame
+    Text: ВЫЙТИ ИЗ ИГРЫ?
+  - Name: HideMenu
+    Text: СКРЫТЬ МЕНЮ
+  - Name: ShowMenu
+    Text: КОСНИТЕСЬ ЭКРАНА, ЧТОБЫ ОТОБРАЗИТЬ МЕНЮ
+  - Name: ShowMenu_Cont
+    Text: НАЖМИТЕ ЛЮБУЮ КНОПКУ, ЧТОБЫ ОТОБРАЗИТЬ МЕНЮ
+  - Name: CombatTraining
+    Text: '- БОЕВАЯ ПОДГОТОВКА -'
+  - Name: Punch
+    Text: УДАР КУЛАКОМ
+  - Name: Kick
+    Text: ПИНОК
+  - Name: Duck(Low)
+    Text: НИЖНИЙ УДАР
+  - Name: PunchTip
+    Text: "НАЖМИТЕ ЗДЕСЬ, ЧТОБЫ ВЫПОЛНИТЬ \n<#FFAEFFFE><SIZE=140%>УДАР КУЛАКОМ</SIZE><#FFFFFFFF>"
+  - Name: KickTip
+    Text: "НАЖМИТЕ ЗДЕСЬ, ЧТОБЫ ВЫПОЛНИТЬ \n<#FFAEFFFE><SIZE=140%>ПИНОК</SIZE><#FFFFFFFF>"
+  - Name: DuckTip
+    Text: "НАЖМИТЕ ЗДЕСЬ, ЧТОБЫ ВЫПОЛНИТЬ \n<#FFAEFFFE><SIZE=140%>НИЖНИЙ УДАР</SIZE><#FFFFFFFF>"
+  - Name: SprintTip
+    Text: "ИДЕТ АВТОМАТИЧЕСКИ\n\nКОСНИТЕСЬ И УДЕРЖИВАЙТЕ В ЛЮБОМ МЕСТЕ ЧТОБЫ <#FFAEFFFE><SIZE=140%>БЕЖАТЬ</SIZE><#FFFFFFFF>"
+  - Name: SprintTipGamepad
+    Text: "ИДЕТ АВТОМАТИЧЕСКИ\n\nУДЕРЖИВАЙТЕ ЛЮБУЮ КНОПКУ ЧТОБЫ <#FFAEFFFE><SIZE=140%>БЕЖАТЬ</SIZE><#FFFFFFFF>"
+  - Name: SprintTouchTip
+    Text: "<#AEFFAEFF><SIZE=+1>СОВЕТ!</SIZE><#FFFFFFFF>\nВО ВРЕМЯ БЕГА ВЫ МОЖЕТЕ ПЕРЕДВИГАТЬ ПАЛЕЦ В ДРУГОЕ МЕСТО НЕ ПРЕРЫВАЯ  <#FFAEFFFE><SIZE=140%>БЕГ</SIZE><#FFFFFFFF>"
+  - Name: WalkTip
+    Text: "БЕГ АВТОМАТИЧЕСКИ\n\nНАЖМИТЕ И УДЕРЖИВАЙТЕ В ЛЮБОМ МЕСТЕ ЧТОБЫ <#FFAEFFFE><SIZE=140%>ИДТИ</SIZE><#FFFFFFFF>"
+  - Name: WalkTipGamepad
+    Text: "БЕГ АВТОМАТИЧЕСКИ\n\nУДЕРЖИВАЙТЕ ЛЮБУЮ КНОПКУ ЧТОБЫ <#FFAEFFFE><SIZE=140%>ИДТИ</SIZE><#FFFFFFFF>"
+  - Name: PunchBeatsKick
+    Text: '<#75EDFFFF><SIZE=125%>УДАР КУЛАКОМ <SIZE=100%> <#E0B9FFFF>БЬЕТ <#81B7F6FF><SIZE=125%> ПИНОК'
+  - Name: KickBeatsDuck
+    Text: '<#75EDFFFF><SIZE=125%>ПИНОК <SIZE=100%> <#E0B9FFFF>БЬЕТ <#81B7F6FF><SIZE=125%> НИЖНИЙ УДАР'
+  - Name: DuckBeatsPunch
+    Text: '<#75EDFFFF><SIZE=125%>НИЖНИЙ УДАР <SIZE=100%> <#E0B9FFFF>БЬЕТ <#81B7F6FF><SIZE=125%> УДАР КУЛАКОМ'
+  - Name: PunchAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>УДАР КУЛАКОМ </SIZE><#FFFFFFFF>СЛЕВА'
+  - Name: KickAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>ПИНОК </SIZE><#FFFFFFFF>СЛЕВА'
+  - Name: DuckAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>НИЖНИЙ УДАР </SIZE><#FFFFFFFF>СЛЕВА'
+  - Name: PunchAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>УДАР КУЛАКОМ </SIZE><#FFFFFFFF>СПРАВА'
+  - Name: KickAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>ПИНОК </SIZE><#FFFFFFFF>СПРАВА'
+  - Name: DuckAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>НИЖНИЙ УДАР </SIZE><#FFFFFFFF>СПРАВА'
+  - Name: ScoreNumTip
+    Text: ЭТО ЧИСЛО ПОКАЗЫВАЕТ ВАШ СЧЕТ ЗА ТЕКУЩИЙ УРОВЕНЬ
+  - Name: ScoreMultiTip
+    Text: "ЭТОТ СЧЕТЧИК ПОКАЗЫВАЕТ, СКОЛЬКО ОЧКОВ\nВЫ ПОЛУЧАЕТЕ ЗА ПОБЕДУ НАД ВРАГАМИ\n\nУВЕЛИЧЬТЕ СЧЕТ,\nПОРАЖАЯ ВРАГОВ ИЛИ БЕГА\n\nВ ПРОТИВНОМ СЛУЧАЕ СЧЕТЧИК БУДЕТ\nМЕДЛЕННО ВОЗВРАЩАТЬСЯ К 1"
+  - Name: ScoreHeartTip
+    Text: "СЕРДЦЕ ДАЕТ ВАМ ВТОРОЙ ШАНС\n\nОНО ИСПОЛЬЗУЕТСЯ, КОГДА ВЫ СБИТЫ С НОГ,\nНО ВЫ МОЖЕТЕ ЗАРАБОТАТЬ ЕГО СНОВА,\nЕСЛИ ПОБЕДИТЕ ДОСТАТОЧНОЕ\nКОЛИЧЕСТВО ВРАГОВ"
+  - Name: ScoreCoinsTip
+    Text: "ИНОГДА ВРАГИ РОНЯЮТ МОНЕТЫ\n\nЗДЕСЬ ПОКАЗАНО ОБЩЕЕ\nКОЛИЧЕСТВО ВАШИХ МОНЕТ"
+  - Name: ScoreOptionsTip
+    Text: "СОВЕТ!\n\nВЫ МОЖЕТЕ <COLOR=#FFFF33FF><SIZE=115%>ИЗМЕНИТЬ СЛОЖНОСТЬ</SIZE></COLOR>\nИ НАСТРОИТЬ СЕНСОРНОЕ УПРАВЛЕНИЕ\nВ <COLOR=#77FF99FF><SIZE=115%>МЕНЮ ОПЦИЙ</SIZE></COLOR><nobr> </nobr><sprite name=\"symbolOptions\">"
+  - Name: LSandPTip
+    Text: МОЖНО ИГРАТЬ КАК В АЛЬБОМНОЙ, ТАК И В ПОРТРЕТНОЙ ОРИЕНТАЦИИ
+  - Name: Next
+    Text: ДАЛЕЕ >
+  - Name: DemoPlay
+    Text: '- ДЕМОНСТРАЦИОННАЯ ИГРА -'
+  - Name: TapToExit
+    Text: НАЖМИТЕ, ЧТОБЫ ВЫЙТИ
+  - Name: PressAnyButtonToExit
+    Text: НАЖМИТЕ ЛЮБУЮ КНОПКУ, ЧТОБЫ ВЫЙТИ
+  - Name: BewareTheBear
+    Text: ОСТЕРЕГАЙТЕСЬ МЕДВЕДЯ!!
+  - Name: NewScore
+    Text: НОВЫЙ СЧЕТ
+  - Name: BestScore
+    Text: ЛУЧШИЙ СЧЕТ
+  - Name: NewBest
+    Text: НОВЫЙ РЕКОРД!
+  - Name: AllStagesTotal
+    Text: ИТОГО ВСЕХ УРОВНЕЙ
+  - Name: AllStagesNewTotal
+    Text: НОВОЕ ИТОГО ВСЕХ УРОВНЕЙ
+  - Name: TotalScore
+    Text: ИТОГОВЫЙ СЧЕТ
+  - Name: NewTotal
+    Text: НОВОЕ ИТОГО!!
+  - Name: FinalScore
+    Text: ФИНАЛЬНЫЙ СЧЕТ
+  - Name: StageTime
+    Text: ВРЕМЯ УРОВНЯ
+  - Name: BestTime
+    Text: ЛУЧШЕЕ ВРЕМЯ
+  - Name: NewBestTime
+    Text: НОВОЕ ЛУЧШЕЕ ВРЕМЯ
+  - Name: EnemiesOutrun
+    Text: '> ВРАГИ, КОТОРЫХ ВЫ ИЗБЕЖАЛИ'
+  - Name: OutrunBonus
+    Text: "+ БОНУС ЗА ВРАГОВ,\n    КОТОРЫХ ВЫ ИЗБЕЖАЛИ"
+  - Name: HeartBonus
+    Text: + БОНУС СЕРДЦА
+  - Name: PlayStageAgain
+    Text: ПРОЙТИ УРОВЕНЬ ЕЩЕ РАЗ
+  - Name: Share
+    Text: ПОДЕЛИТЬСЯ
+  - Name: RateThisGame
+    Text: ОЦЕНИТЕ   ЭТУ   ИГРУ
+  - Name: Rate
+    Text: ОЦЕНИТЕ!
+  - Name: IScoredXOnStageY
+    Text: Я НАБРАЛ ~X~ НА УРОВНЕ ~Y~!
+  - Name: IDefeatedBaron
+    Text: Я ПОБЕДИЛ БАРОНА ТИГРИССО!
+  - Name: FinalBattle
+    Text: ФИНАЛЬНЫЙ ПОЕДИНОК
+  - Name: Revive
+    Text: ВОЗРОЖДЕНИЕ
+  - Name: Skip
+    Text: ПРОПУСТИТЬ
+  - Name: Tip
+    Text: '- СОВЕТ -'
+  - Name: TryAgain
+    Text: ПОПРОБОВАТЬ СНОВА
+  - Name: TryAgainQ
+    Text: ПОПРОБОВАТЬ СНОВА?
+  - Name: Victory
+    Text: ПОБЕДА!!
+  - Name: VictoryLine2
+    Text: ВЫ ПОБЕДИЛИ БАРОНА ТИГРИССО
+  - Name: WellDone
+    Text: ОТЛИЧНАЯ РАБОТА!!
+  - Name: KnockDownDoor
+    Text: МНЕ НУЖНО ПРОЙТИ ЧЕРЕЗ ЭТУ ДВЕРЬ
+  - Name: LetsGetOutOfHere
+    Text: ДАВАЙТЕ ВЫБИРАТЬСЯ ОТСЮДА
+  - Name: UhOh
+    Text: УПС
+  - Name: Bam!
+    Text: БАМ!
+  - Name: Yes!
+    Text: ДА!
+  - Name: MoreTrouble
+    Text: ЕЩЕ БОЛЬШЕ ПРОБЛЕМ!
+  - Name: AnotherCustomer
+    Text: ЕЩЕ ОДИН КЛИЕНТ
+  - Name: SeeYouLater
+    Text: УВИДИМСЯ ПОЗЖЕ!
+  - Name: GoodNight
+    Text: СПОКОЙНОЙ НОЧИ!
+  - Name: OneHit
+    Text: ОДИН УДАР!
+  - Name: GettingTheHangOfThis
+    Text: "Я НАЧИНАЮ\nПОНИМАТЬ ЭТО!"
+  - Name: ThinkIGetIt
+    Text: "ХОРОШО, Я ДУМАЮ\nЧТО ПОНЯЛ"
+  - Name: ImStrongerThanILook
+    Text: "Я СИЛЬНЕЕ\nЧЕМ ВЫГЛЯЖУ!"
+  - Name: Hmm
+    Text: ХММ...
+  - Name: NeitherOfUsWon
+    Text: "НИ ОДИН ИЗ\nНАС НЕ ВЫИГРАЛ"
+  - Name: ThatWasADraw
+    Text: ЭТО БЫЛА НИЧЬЯ
+  - Name: AnotherDraw
+    Text: ЕЩЕ ОДНА НИЧЬЯ
+  - Name: ShouldFightBack
+    Text: "Я ДОЛЖЕН\nДАТЬ ОТПОР"
+  - Name: Ow
+    Text: АЙ!!
+  - Name: Nope
+    Text: НЕТ
+  - Name: ThatDidntWork
+    Text: ЭТО НЕ СРАБОТАЛО
+  - Name: WhatABully
+    Text: КАКОЙ ХУЛИГАН!
+  - Name: PretendThatDidntHappen
+    Text: "ПРИТВОРИЛСЯ ЧТО\nЭТОГО НЕ БЫЛО"
+  - Name: WrongMove
+    Text: НЕПРАВИЛЬНЫЙ ХОД
+  - Name: NeedToBeCloser
+    Text: "ПРАВИЛЬНЫЙ ХОД, НО МНЕ\nНУЖНО БЫТЬ БЛИЖЕ"
+  - Name: WouldHaveWorkedIfCloser
+    Text: "ЭТО БЫ СРАБОТАЛО\nЕСЛИ Я БЫЛ БЛИЖЕ"
+  - Name: PunchVsDuck
+    Text: "ЭТОТ <#9977FFFE>НИЖНИЙ УДАР<#000000FF>\nБЬЕТ МОЙ <#9977FFFE>УДАР КУЛАКОМ<#000000FF>"
+  - Name: KickVsPunch
+    Text: "Я ДУМАЮ <#9977FFFE>НИЖНИЙ УДАР<#000000FF>\nИ ЕСТЬ ОТВЕТ"
+  - Name: DuckVsKick
+    Text: "ЭТОТ <#9977FFFE>ПИНОК<#000000FF>\nБЬЕТ МОЙ <#9977FFFE>НИЖНИЙ УДАР<#000000FF>"
+  - Name: LetsGetSerious
+    Text: ЛАДНО, ДАВАЙТЕ СЕРЬЕЗНЕЕ!
+  - Name: EnoughTraining
+    Text: "ЛАДНО, ХВАТИТ ТРЕНИРОВОК\nДАВАЙТЕ ПОПРОБУЕМ ЭТОТ\nУРОВЕНЬ ПО-НАСТОЯЩЕМУ!"
+  - Name: GuessIShouldHurry
+    Text: "ДУМАЮ, МНЕ СЛЕДУЕТ\nПОТОРОПИТЬСЯ"
+  - Name: BetterKeepMoving
+    Text: ЛУЧШЕ ПРОДОЛЖАТЬ ДВИГАТЬСЯ!
+  - Name: IdBetterHurry
+    Text: МНЕ ЛУЧШЕ ПОТОРОПИТЬСЯ!
+  - Name: IdBetterRun
+    Text: МНЕ ЛУЧШЕ БЕЖАТЬ!
+  - Name: GoingToHaveToRun
+    Text: ПРИДЕТСЯ БЕЖАТЬ!!
+  - Name: NotMuchTime
+    Text: НЕ ТАК МНОГО ВРЕМЕНИ!!!
+  - Name: LetsGo
+    Text: ПОЕХАЛИ!
+  - Name: OKImGoing
+    Text: ХОРОШО, ХОРОШО, ИДУ
+  - Name: ThatWasEasy
+    Text: ЧТО Ж, ЭТО БЫЛО ЛЕГКО!
+  - Name: ThatWasntTooHard
+    Text: "ЭТО НЕ БЫЛО\nТАК ТРУДНО"
+  - Name: ThatWasClose
+    Text: ЭТО БЫЛО БЛИЗКО!
+  - Name: TooSlowShaggy
+    Text: СЛИШКОМ МЕДЛЕННО, КОСМАТЫЙ!
+  - Name: HowInconsiderate
+    Text: КАК НЕВНИМАТЕЛЬНО
+  - Name: goHint_bottleTip1
+    Text: "СОВЕТ! ЕСЛИ Я ОКАЖУСЬ МЕЖДУ ВРАГОМ И БУТЫЛКОЙ,\nСНАЧАЛА Я ДОЛЖЕН ПОПЫТАТЬСЯ РАЗОБРАТЬСЯ С БУТЫЛКОЙ"
+  - Name: goHint_bottleTip2
+    Text: "СОВЕТ! ЕСЛИ МНЕ ПРИДЕТСЯ ВЫБИРАТЬ МЕЖДУ\nСРАЖЕНИЕМ С ВРАГОМ ИЛИ С БУТЫЛКОЙ,\nЯ СНАЧАЛА ВЫБЕРУ БУТЫЛКУ"
+  - Name: goHint_shouldHaveHitCart
+    Text: "СОВЕТ! ЕСЛИ МНЕ ПРИДЕТСЯ ВЫБИРАТЬ МЕЖДУ\nСРАЖЕНИЕМ С ВРАГОМ ИЛИ ТЕЛЕЖКОЙ,\nЯ ЛУЧШЕ СНАЧАЛА РАЗБЕРУСЬ С ТЕЛЕЖКОЙ"
+  - Name: goHint_foxTip1
+    Text: "ЭТИ ЛИСЫ ЛЮБЯТ БИТЬ КУЛАКАМИ И НОГАМИ!\nЯ ЛУЧШЕ ПОСМОТРЮ, КАК ОНИ БУДУТ ПРИБЛИЖАТЬСЯ КО МНЕ"
+  - Name: goHint_tapLeftToAttackLeft
+    Text: "СОВЕТ! НАЖМИТЕ НА ЛЕВУЮ ЧАСТЬ ЭКРАНА\nЧТОБЫ АТАКОВАТЬ СЛЕВА"
+  - Name: goHint_tapRightToAttackRight
+    Text: "СОВЕТ! НАЖМИТЕ НА ПРАВУЮ ЧАСТЬ ЭКРАНА\nЧТОБЫ АТАКОВАТЬ СПРАВА"
+  - Name: goHint_tigerTip1
+    Text: "ЭТОТ ТИГР ИСКУСЕН В\n<#CC99FFFF>СРЕДНИХ<#000000FF>, <#9988FFFF>НИЗКИХ<#000000FF> И <#66BB88FF>ВЫСОКИХ<#000000FF> АТАКАХ...\nПОВЕЗЛО, ЧТО У МЕНЯ ХОРОШО ПОЛУЧАЮТСЯ\n<#CC99FFFF>УДАРЫ КУЛАКОМ<#000000FF>, <#9988FFFF>ПИНКИ<#000000FF>, И <#66BB88FF>НИЖНИЕ УДАРЫ!! \n"
+  - Name: goHint_run
+    Text: "СОВЕТ! КОСНИТЕСЬ И УДЕРЖИВАЙТЕ\nВ ЛЮБОМ МЕСТЕ ЧТОБЫ БЕЖАТЬ"
+  - Name: goHint_runCont
+    Text: "СОВЕТ! УДЕРЖИВАЙТЕ ЛЮБУЮ\nКНОПКУ ЧТОБЫ БЕЖАТЬ"
+  - Name: uCongratsDiff1
+    Text: "ОТЛИЧНАЯ РАБОТА!\nВЫ ПРОШЛИ ВСЕ УРОВНИ\nНА УРОВНЕ СЛОЖНОСТИ 1\n"
+  - Name: uCongratsDiff2
+    Text: "УДИВИТЕЛЬНО!!\nВЫ ПРОШЛИ ВСЕ УРОВНИ\nНА УРОВНЕ СЛОЖНОСТИ 2\n"
+  - Name: uCongratsDiff3
+    Text: "НЕВЕРОЯТНО!!\nВЫ ПРОШЛИ ВСЕ УРОВНИ\nНА УРОВНЕ СЛОЖНОСТИ 3\n"
+  - Name: ub1
+    Text: "СПАСИБО, ЧТО РАСПАКОВАЛИ МЕНЯ!!\nМОИ ДЕЛОВЫЕ НАВЫКИ ДАЮТ ВАМ ВДВОЕ БОЛЬШЕ\nМОНЕТ ОТ ВРАГОВ И РЕКЛАМЫ!"
+  - Name: ub2
+    Text: "СПАСИБО, ЧТО РАСПАКОВАЛИ МЕНЯ!!\nМОЙ НАВЫК ВЕДЕНИЯ ПЕРЕГОВОРОВ ОЗНАЧАЕТ ЧТО КОЛИЧЕСТВО МОНЕТ\nНЕОБХОДИМЫХ ДЛЯ РАСПАКОВКИ, ТЕПЕРЬ УМЕНЬШЕНО ВДВОЕ!"
+  - Name: KnockKnock
+    Text: ТУК-ТУК
+  - Name: You!
+    Text: ТЫ!!
+  - Name: Hello
+    Text: ПРИВЕТ...
+  - Name: zzBoss
+    Text: БОСС!
+  - Name: zzBrother
+    Text: БРАТ!!
+  - Name: zzCousin
+    Text: КУЗЕН!
+  - Name: zzFormerBusinessPartner
+    Text: БЫВШИЙ ДЕЛОВОЙ ПАРТНЕР!
+  - Name: zzIDontKnow
+    Text: Я НЕ ЗНАЮ, ЧТО ПРОИСХОДИТ!
+  - Name: zzLongtimeNemesis
+    Text: ДАВНИЙ ЗАКЛЯТЫЙ ВРАГ!
+  - Name: zzMyMaker
+    Text: МОЙ СОЗДАТЕЛЬ!
+  - Name: zzMyOldStudent
+    Text: МОЙ СТАРЫЙ УЧЕНИК!
+  - Name: zzOldFriend
+    Text: СТАРЫЙ ДРУГ!
+  - Name: zzSpecimen
+    Text: ОБРАЗЕЦ 248
+  - Name: zzThief
+    Text: ВОР!
+  - Name: zzUncle
+    Text: ДЯДЯ!
+  - Name: zzUsurper
+    Text: УЗУРПАТОР!
+  - Name: zzWhoeverYouAre
+    Text: КЕМ БЫ ТЫ НИ БЫЛ
+  - Name: zzInsuranceNeeds
+    Text: "Я ХОТЕЛ БЫ ПОГОВОРИТЬ С ТОБОЙ О\nСТРАХОВАНИИ ТВОЕЙ ЖИЗНИ"
+  - Name: zzComplain
+    Text: "Я ХОЧУ ПОДАТЬ ЖАЛОБУ\nО ПЛАНИРОВКЕ ЭТОГО МЕСТА"
+  - Name: zzLostCar
+    Text: "НА САМОМ ДЕЛЕ, Я ПРОСТО ПЫТАЮСЬ ПОНЯТЬ\nГДЕ Я ОСТАВИЛ СВОЮ МАШИНУ"
+  - Name: zzTrendJoiner
+    Text: "Я СЛЫШАЛ, ЧТО ВСЕ ДЕРУТСЯ С ТОБОЙ,\nПОЭТОМУ Я ПОДУМАЛ…\nКОНЕЧНО, ПОЧЕМУ БЫ И НЕТ?"
+  - Name: zzTigerTamer
+    Text: "ОНИ НАЗЫВАЮТ МЕНЯ\nУКРОТИТЕЛЕМ ТИГРОВ!"
+  - Name: zzTeachManners
+    Text: "Я ЗДЕСЬ, ЧТОБЫ НАУЧИТЬ\nТЕБЯ ХОРОШИМ МАНЕРАМ"
+  - Name: zzPJs
+    Text: "СЕЙЧАС ТРИ ЧАСА ДНЯ, А\nТЫ ВСЕ ЕЩЕ В ПИЖАМЕ?"
+  - Name: zzTenBucks
+    Text: "Я ЗДЕСЬ ИЗ-ЗА ДЕСЯТИ БАКСОВ,\nКОТОРЫЕ ТЫ МНЕ ДОЛЖЕН"
+  - Name: zzBetterDoors
+    Text: "ТЕБЕ НА САМОМ ДЕЛЕ\nНУЖНЫ ДВЕРИ ПОЛУЧШЕ"
+  - Name: zzTorchOut
+    Text: "ПРОСТО ХОТЕЛ ВАМ СООБЩИТЬ, ЧТО ОДИН\nИЗ ФАКЕЛОВ В ПОДЗЕМЕЛЬЕ ПОГАС"

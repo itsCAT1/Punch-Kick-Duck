@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PondStairsPillarsMat
+  m_Shader: {fileID: 4800000, guid: 0bb244edbcddf124790fcd2a443ee8b4, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: {}
+    m_Floats:
+      _BackLightLimitForFrontFaces: 1
+      _GradientBackLightCut: 1
+      _GradientEnd: 9.5
+      _GradientLightCut: 1
+      _GradientShadowCut: 0
+      _GradientStart: 6
+    m_Colors:
+      _BackLightCol: {r: 0.6, g: 1, b: 0.7, a: 1}
+      _BackLightDir: {r: -0.5630849, g: 0.5307076, b: -0.63347054, a: 1}
+      _BackLightPos: {r: 200, g: 76.7, b: 0, a: 0.6}
+      _DiffuseBaseCol: {r: 0.654902, g: 0.6862745, b: 0.7254902, a: 1}
+      _GradientSubColor: {r: -0.6, g: -0.4, b: -0.28, a: 1}
+      _MainLightCol: {r: 0.3, g: 0.4, b: 0.6, a: 0}
+      _MainLightDir: {r: 0.50236624, g: 0.7660787, b: -0.40093836, a: 0.6}
+      _ObjectCol: {r: 0.23082057, g: 0.5377358, b: 0.49965936, a: 1}
+      _ShadowSub: {r: -0.6, g: -0.6, b: -0.5, a: 0}
+  m_BuildTextureStacks: []

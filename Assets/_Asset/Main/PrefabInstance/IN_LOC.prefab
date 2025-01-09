@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1338310565293279
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4113204685603017}
+  - component: {fileID: 114833054165389056}
+  m_Layer: 0
+  m_Name: IN_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4113204685603017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338310565293279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.79561, y: 3.413358, z: -14.807322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114833054165389056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338310565293279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c65bf8cbba0cb008fb7a0244753975e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Source: {fileID: 4900000, guid: 7240d556cd245134caf8282d6e6a6671, type: 3}
+  Language: Indonesian
+  Separator: ',|,'
+  NewLine: '*cr'
+  Comma: '*comma'
+  QuoteMark: '*quo'
+  Comment: ' // '
+  entries:
+  - Name: TargetLanguage
+    Text: BAHASA INDONESIA
+  - Name: Start
+    Text: '- <#FFFFFFFE>MULAI<#FFFFFFFF> -'
+  - Name: Options
+    Text: PILIHAN
+  - Name: AdjustTouchControls
+    Text: SESUAIKAN KONTROL SENTUH
+  - Name: DragToAdjust
+    Text: GESER UNTUK MENYESUAIKAN
+  - Name: ControlsVisibility
+    Text: VISIBILITAS KONTROL
+  - Name: ScreenBorder
+    Text: BINGKAI LAYAR
+  - Name: ResetToDefault
+    Text: RESET KE DEFAULT
+  - Name: AutoRun
+    Text: LARI OTOMATIS
+  - Name: Controller
+    Text: GAMEPAD
+  - Name: ControllerFound
+    Text: GAMEPAD TERDETEKSI
+  - Name: NoControllerFound
+    Text: "TIDAK ADA GAMEPAD DITEMUKAN\n\nTEKAN TOMBOL APA PUN DI GAMEPAD UNTUK MENDETEKSI"
+  - Name: Difficulty
+    Text: KESULITAN
+  - Name: ChangingDiffWarning
+    Text: MENGUBAH KESULITAN AKAN MENGULANG TAHAP
+  - Name: Language
+    Text: BAHASA
+  - Name: LockScreenRotation
+    Text: ROTASI KUNCI LAYAR
+  - Name: Music
+    Text: MUSIK
+  - Name: SoundEffects
+    Text: EFEK SUARA
+  - Name: ShowStageTimer
+    Text: TUNJUKKAN PENGATUR WAKTU TINGKAT
+  - Name: DeleteSaveFile
+    Text: RESET DATA PERMAINAN
+  - Name: DeleteSaveWarning
+    Text: MEMILIH 'RESET' AKAN MENGHAPUS PENYIMPANAN PERMAINANMU DI PERANGKAT INI DAN DI CLOUD
+  - Name: DeleteSaveWarning2
+    Text: "APAKAH KAMU YAKIN KAMU INGIN MERESET KEMAJUANMU?\n\nINI TIDAK BISA DIBATALKAN"
+  - Name: Reset
+    Text: RESET
+  - Name: Cancel
+    Text: BATALKAN
+  - Name: DeleteSaveDone
+    Text: RESET DATA PERMAINAN
+  - Name: ResetAchs
+    Text: RESET PENCAPAIAN?
+  - Name: Privacy
+    Text: PRIVASI
+  - Name: RewardedAds
+    Text: IKLAN BERHADIAH
+  - Name: CharSelectInfo
+    Text: "INGAT! SEMUA KARAKTER MEMILIKI KEMAMPUAN YANG SAMA\n\nKAMU TIDAK HARUS MEMBUKA KARAKTER UNTUK MENYELESAIKAN PERMAINAN!"
+  - Name: Unbox
+    Text: BUKA
+  - Name: UnboxAndRemoveAds
+    Text: "BUKA + HILANGKAN IKLAN POP-UP\n<SIZE=75%>+ PILIHAN UNTUK MEMATIKAN IKLAN BERHADIAH"
+  - Name: UnboxSpecial1
+    Text: MEMBUKA KARAKTER INI AKAN MENGGANDAKAN BERAPA BANYAK KOIN YANG KAMU DAPATKAN DARI MUSUH DAN DARI IKLAN BERHADIAH
+  - Name: UnboxSpecial2
+    Text: MEMBUKA KARAKTER INI AKAN MEMOTONG SETENGAH BIAYA DARI SEMUA KARAKTER YANG BISA DIBUKA DENGAN KOIN DALAM PERMAINAN
+  - Name: PurchaseFailed
+    Text: TIDAK ADA PEMBELIAN YANG DILAKUKAN
+  - Name: RemoveAds
+    Text: HAPUS IKLAN!
+  - Name: RemoveAdsInfo
+    Text: "HAPUS IKLAN\n\nMENGHAPUS IKLAN POP-UP DAN MENAMBAHKAN OPSI UNTUK MEMATIKAN IKLAN BERHADIAH"
+  - Name: AdsRemoved
+    Text: "IKLAN POP-UP DIHAPUS!\n\nKAMU JUGA BISA MEMILIH UNTUK MEMATIKAN ATAU MENYALAKAN IKLAN BERHADIAH DI MENU PILIHAN<nobr> </nobr><sprite name=\"symbolOptions\">\n\nTERIMA KASIH ATAS DUKUNGANMU!!"
+  - Name: RestorePurchases
+    Text: KEMBALIKAN PEMBELIAN
+  - Name: Checking
+    Text: MEMERIKSA…
+  - Name: RequestTimedOut
+    Text: WAKTU PERMINTAAN HABIS
+  - Name: RestoreFailed
+    Text: TIDAK BISA TERHUBUNG KE TOKO
+  - Name: RestoreFound
+    Text: PENGEMBALIAN BERHASIL!
+  - Name: RestoreNoneFound
+    Text: TIDAK ADA PEMBELIAN SEBELUMNYA YANG DITEMUKAN
+  - Name: RestoreNoNew
+    Text: PEMBELIAN SEBELUMNYA SUDAH TERBUKA
+  - Name: Collection
+    Text: 'KOLEKSI:'
+  - Name: Random
+    Text: ACAK
+  - Name: IncludeInRandom
+    Text: SERTAKAN DI ACAK
+  - Name: NotEnoughCoins
+    Text: PERLU LEBIH BANYAK KOIN!!
+  - Name: WatchAd
+    Text: MAINKAN IKLAN UNTUK MENDAPATKAN ~X~
+  - Name: WatchAdAlt
+    Text: MAINKAN IKLAN
+  - Name: WatchAdError
+    Text: ERROR MEMAINKAN IKLAN
+  - Name: AdSkipped
+    Text: IKLAN TIDAK SELESAI
+  - Name: NotSignedIn
+    Text: TIDAK MASUK
+  - Name: Credits
+    Text: KREDIT
+  - Name: SelectLevel
+    Text: "PILIH\nTINGKAT"
+  - Name: TuteON
+    Text: TUTORIAL
+  - Name: Done(Exit)
+    Text: SELESAI
+  - Name: Close
+    Text: TUTUP
+  - Name: OK
+    Text: OKE
+  - Name: CreditsLine1
+    Text: DESAIN, PEMROGRAMAN, GRAFIK, SUARA & MUSIK
+  - Name: CreditsLine2
+    Text: PRODUSER EKSEKUTIF
+  - Name: CreditsLine3
+    Text: MODEL 3D TAMBAHAN
+  - Name: CreditsLine4
+    Text: EFEK SUARA TAMBAHAN
+  - Name: CreditsLine5
+    Text: TERIMA KASIH KHUSUS
+  - Name: CreditsLine6
+    Text: TERIMA KASIH BANYAK UNTUK KRU PENGUJIAN!
+  - Name: CreditsLine7
+    Text: TERJEMAHAN
+  - Name: Contact
+    Text: KONTAK
+  - Name: Off
+    Text: MATI
+  - Name: LevelXResult
+    Text: TINGKAT<#64E4FF00><SIZE=140%> X </SIZE><#64E4FFFF>HASIL
+  - Name: Level
+    Text: TINGKAT
+  - Name: Result
+    Text: HASIL
+  - Name: Paused
+    Text: DIJEDA
+  - Name: Continue
+    Text: LANJUTKAN
+  - Name: Restart
+    Text: ULANG
+  - Name: Quit
+    Text: KELUAR
+  - Name: QuitGame
+    Text: KELUAR PERMAINAN?
+  - Name: HideMenu
+    Text: SEMBUNYIKAN MENU
+  - Name: ShowMenu
+    Text: KETUK LAYAR UNTUK MENUNJUKKAN MENU
+  - Name: ShowMenu_Cont
+    Text: TEKAN TOMBOL APA PUN UNTUK MENUNJUKKAN MENU
+  - Name: CombatTraining
+    Text: '- PELATIHAN TEMPUR -'
+  - Name: Punch
+    Text: TINJU
+  - Name: Kick
+    Text: TENDANG
+  - Name: Duck(Low)
+    Text: MENGHINDAR
+  - Name: PunchTip
+    Text: "KETUK DI SINI UNTUK MELAKUKAN\nSERANGAN <#FFAEFFFE><SIZE=140%>TINJU</SIZE><#FFFFFFFF>"
+  - Name: KickTip
+    Text: "KETUK DI SINI UNTUK MELAKUKAN\nSERANGAN <#FFAEFFFE><SIZE=140%>TENDANG</SIZE><#FFFFFFFF>"
+  - Name: DuckTip
+    Text: "KETUK DI SINI UNTUK MELAKUKAN\nSERANGAN <#FFAEFFFE><SIZE=140%>MENGHINDAR</SIZE><#FFFFFFFF>"
+  - Name: SprintTip
+    Text: "BERJALAN ADALAH OTOMATIS\n\nSENTUH DAN TEKAN DI MANA SAJA UNTUK <#FFAEFFFE><SIZE=140%>BERLARI</SIZE><#FFFFFFFF>"
+  - Name: SprintTipGamepad
+    Text: "BERJALAN ADALAH OTOMATIS\n\nSENTUH DAN TEKAN UNTUK <#FFAEFFFE><SIZE=140%>BERLARI</SIZE><#FFFFFFFF>"
+  - Name: SprintTouchTip
+    Text: "<#AEFFAEFF><SIZE=+1>TIP!</SIZE><#FFFFFFFF>\nKAMU BISA MENGGESER SENTUHANMU KE TITIK BERBEDA SAAT BERLARI TANPA BERHENTI <#FFAEFFFE><SIZE=140%>LARI</SIZE><#FFFFFFFF>"
+  - Name: WalkTip
+    Text: "LARI ADALAH OTOMATIS\n\nSENTUH DAN TAHAN DI MANA SAJA UNTUK <#FFAEFFFE><SIZE=140%>BERJALAN</SIZE><#FFFFFFFF>"
+  - Name: WalkTipGamepad
+    Text: "LARI ADALAH OTOMATIS\n\nSENTUH DAN TAHAN UNTUK <#FFAEFFFE><SIZE=140%>BERJALAN</SIZE><#FFFFFFFF>"
+  - Name: PunchBeatsKick
+    Text: '<#75EDFFFF><SIZE=125%>TINJU <SIZE=100%> <#E0B9FFFF>MENGALAHKAN <#81B7F6FF><SIZE=125%> TENDANG'
+  - Name: KickBeatsDuck
+    Text: '<#75EDFFFF><SIZE=125%>TENDANG <SIZE=100%> <#E0B9FFFF>MENGALAHKAN <#81B7F6FF><SIZE=125%> MENGHINDAR'
+  - Name: DuckBeatsPunch
+    Text: '<#75EDFFFF><SIZE=125%>MENGHINDAR <SIZE=100%> <#E0B9FFFF>MENGALAHKAN <#81B7F6FF><SIZE=125%> TINJU'
+  - Name: PunchAttackLeft
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>TINJU </SIZE><#FFFFFFFF>KIRI
+  - Name: KickAttackLeft
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>TENDANG </SIZE><#FFFFFFFF>KIRI
+  - Name: DuckAttackLeft
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>MENGHINDAR </SIZE><#FFFFFFFF>KIRI
+  - Name: PunchAttackRight
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>TINJU </SIZE><#FFFFFFFF>KANAN
+  - Name: KickAttackRight
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>TENDANG </SIZE><#FFFFFFFF>KANAN
+  - Name: DuckAttackRight
+    Text: SERANGAN <#75EDFFFF><SIZE=125%>MENGHINDAR </SIZE><#FFFFFFFF>KANAN
+  - Name: ScoreNumTip
+    Text: ANGKA INI MENUNJUKKAN SKORMU UNTUK TINGKAT SAAT INI
+  - Name: ScoreMultiTip
+    Text: "PENGHITUNG INI MENUNJUKKAN BERAPA\nPOIN YANG KAMU DAPATKAN KARENA\nMENGALAHKAN MUSUH\n\nTINGKATKAN PENGHITUNG DENGAN\nMENGALAHKAN MUSUH ATAU LARI\n\nKALAU TIDAK PENGHITUNG\nAKAN PERLAHAN KEMBALI KE 1"
+  - Name: ScoreHeartTip
+    Text: "HATI MEMBERIMU KESEMPATAN KEDUA\n\nDIGUNAKAN SAAT KAMU TERJATUH TETAPI\nKAMU BISA MENDAPATKANNYA LAGI KALAU\nKAMU MENGALAHKAN CUKUP MUSUH"
+  - Name: ScoreCoinsTip
+    Text: "TERKADANG MUSUH MENJATUHKAN KOIN\n\nTOTAL KOINMU DITUNJUKKAN DI SINI"
+  - Name: ScoreOptionsTip
+    Text: "TIP!\n\nKAMU BISA MENGUBAH <COLOR=#FFFF33FF><SIZE=115%>KESULITAN</SIZE></COLOR>\nDAN SESUAIKAN KONTROL SENTUH\nDI <COLOR=#77FF99FF><SIZE=115%>MENU PILIHAN</SIZE></COLOR><nobr> </nobr><sprite name=\"symbolOptions\">"
+  - Name: LSandPTip
+    Text: BISA DIMAINKAN DI ORIENTASI LANDSCAPE DAN PORTRAIT
+  - Name: Next
+    Text: BERIKUTNYA >
+  - Name: DemoPlay
+    Text: '- PERMAINAN DEMO -'
+  - Name: TapToExit
+    Text: KETUK UNTUK KELUAR
+  - Name: PressAnyButtonToExit
+    Text: TEKAN TOMBOL APA PUN UNTUK KELUAR
+  - Name: BewareTheBear
+    Text: HATI-HATI DENGAN BERUANG!!
+  - Name: NewScore
+    Text: SKOR BARU
+  - Name: BestScore
+    Text: SKOR TERBAIK
+  - Name: NewBest
+    Text: TERBAIK BARU!
+  - Name: AllStagesTotal
+    Text: TOTAL SEMUA TINGKAT
+  - Name: AllStagesNewTotal
+    Text: TOTAL SEMUA TINGKAT BARU
+  - Name: TotalScore
+    Text: SKOR TOTAL
+  - Name: NewTotal
+    Text: TOTAL BARU!!
+  - Name: FinalScore
+    Text: SKOR FINAL
+  - Name: StageTime
+    Text: WAKTU TINGKAT
+  - Name: BestTime
+    Text: WAKTU TERBAIK
+  - Name: NewBestTime
+    Text: WAKTU TERBAIK BARU
+  - Name: EnemiesOutrun
+    Text: '> LOLOS DARI MUSUH'
+  - Name: OutrunBonus
+    Text: + BONUS LOLOS
+  - Name: HeartBonus
+    Text: + BONUS HATI
+  - Name: PlayStageAgain
+    Text: MAIN TINGKAT LAGI
+  - Name: Share
+    Text: BAGIKAN
+  - Name: RateThisGame
+    Text: BERI   RATING   UNTUK   GAME   INI
+  - Name: Rate
+    Text: MENILAI!
+  - Name: IScoredXOnStageY
+    Text: AKU MENDAPAT SKOR ~X~ DI TINGKAT ~Y~!
+  - Name: IDefeatedBaron
+    Text: AKU MENGALAHKAN BARON TIGRISSO!
+  - Name: FinalBattle
+    Text: PERTARUNGAN AKHIR
+  - Name: Revive
+    Text: BANGKITKAN
+  - Name: Skip
+    Text: LEWATI
+  - Name: Tip
+    Text: '- TIP -'
+  - Name: TryAgain
+    Text: COBA LAGI
+  - Name: TryAgainQ
+    Text: COBA LAGI?
+  - Name: Victory
+    Text: MENANG!!
+  - Name: VictoryLine2
+    Text: KAMU TELAH MENGALAHKAN BARON TIGRISSO
+  - Name: WellDone
+    Text: SELAMAT!!
+  - Name: KnockDownDoor
+    Text: AKU HARUS MELEWATI PINTU INI
+  - Name: LetsGetOutOfHere
+    Text: AYO KELUAR DARI SINI
+  - Name: UhOh
+    Text: OH OH
+  - Name: Bam!
+    Text: BAM!
+  - Name: Yes!
+    Text: YES!
+  - Name: MoreTrouble
+    Text: MASALAH LAGI!
+  - Name: AnotherCustomer
+    Text: MUSUH LAIN
+  - Name: SeeYouLater
+    Text: SAMPAI JUMPA!
+  - Name: GoodNight
+    Text: SELAMAT TIDUR!
+  - Name: OneHit
+    Text: SATU PUKULAN!
+  - Name: GettingTheHangOfThis
+    Text: "AKU MULAI\nMENGERTI!"
+  - Name: ThinkIGetIt
+    Text: "OKE, RASANYA\nAKU MENGERTI"
+  - Name: ImStrongerThanILook
+    Text: "AKU LEBIH KUAT\nDARI KELIHATANNYA!"
+  - Name: Hmm
+    Text: HMM…
+  - Name: NeitherOfUsWon
+    Text: "TIDAK ADA\nYANG MENANG"
+  - Name: ThatWasADraw
+    Text: TADI ADALAH SERI
+  - Name: AnotherDraw
+    Text: SERI LAGI
+  - Name: ShouldFightBack
+    Text: "AKU HARUS\nMELAWAN BALIK"
+  - Name: Ow
+    Text: ADUH!!
+  - Name: Nope
+    Text: TIDAK
+  - Name: ThatDidntWork
+    Text: TIDAK MANJUR
+  - Name: WhatABully
+    Text: DASAR PENGGERTAK!
+  - Name: PretendThatDidntHappen
+    Text: "PURA-PURA ITU\nNGGAK TERJADI"
+  - Name: WrongMove
+    Text: GERAKAN YANG SALAH
+  - Name: NeedToBeCloser
+    Text: "GERAKAN YANG TEPAT, TAPI\nAKU HARUS LEBIH DEKAT"
+  - Name: WouldHaveWorkedIfCloser
+    Text: "AKAN MANJUR KALAU\nAKU LEBIH DEKAT"
+  - Name: PunchVsDuck
+    Text: "SERANGAN <#9977FFFE>MENGHINDAR<#000000FF> ITU\nMENGALAHKAN <#9977FFFE>TINJU<#000000FF> KU"
+  - Name: KickVsPunch
+    Text: "KURASA SERANGAN <#9977FFFE>MENGHINDAR<#000000FF>\nADALAH JAWABANNYA DI SINI"
+  - Name: DuckVsKick
+    Text: "<#9977FFFE>TENDANG<#000000FF> ITU\nMENGALAHKAN SERANGAN <#9977FFFE>MENGHINDAR<#000000FF> KU"
+  - Name: LetsGetSerious
+    Text: OKE, AYO SERIUS!
+  - Name: EnoughTraining
+    Text: "OKE, CUKUP LATIHAN\nAYO COBA TINGKAT INI SUNGGUHAN!"
+  - Name: GuessIShouldHurry
+    Text: SEPERTINYA AKU HARUS BERGEGAS
+  - Name: BetterKeepMoving
+    Text: LEBIH BAIK TERUS BERGERAK!
+  - Name: IdBetterHurry
+    Text: AKU LEBIH BAIK BERGEGAS!
+  - Name: IdBetterRun
+    Text: AKU LEBIH BAIK LARI!
+  - Name: GoingToHaveToRun
+    Text: HARUS LARI!!
+  - Name: NotMuchTime
+    Text: TIDAK BANYAK WAKTU!!
+  - Name: LetsGo
+    Text: AYO PERGI!
+  - Name: OKImGoing
+    Text: OKE OKE, AKU JALAN
+  - Name: ThatWasEasy
+    Text: NAH ITU GAMPANG!
+  - Name: ThatWasntTooHard
+    Text: "TADI TIDAK\nTERLALU SULIT"
+  - Name: ThatWasClose
+    Text: HAMPIR SAJA!
+  - Name: TooSlowShaggy
+    Text: TERLALU LAMBAT, GENDUT!
+  - Name: HowInconsiderate
+    Text: NGGAK PENGERTIAN BANGET
+  - Name: goHint_bottleTip1
+    Text: "TIP! KALAU AKU TERJEBAK ANTARA MUSUH DAN BOTOL,\nAKU HARUS COBA MENGURUS BOTOLNYA LEBIH DULU"
+  - Name: goHint_bottleTip2
+    Text: "TIP! KALAU AKU HARUS MEMILIH ANTARA\nMENYERANG MUSUH ATAU MENGURUS BOTOL,\nAKU HARUS MEMILIH BOTOL LEBIH DULU"
+  - Name: goHint_shouldHaveHitCart
+    Text: "TIP! KALAU AKU HARUS MEMILIH ANTARA\nMENYERANG MUSUH ATAU MENGURUS TROLI,\nAKU HARUS MENGURUS TROLI LEBIH DULU"
+  - Name: goHint_foxTip1
+    Text: "RUBAH-RUBAH ITU SUKA MENINJU DAN MENENDANG!\nAKU LEBIH BAIK WASPADA BAGAIMANA MEREKA MENDEKATIKU"
+  - Name: goHint_tapLeftToAttackLeft
+    Text: "TIP! KETUK PADA SISI KIRI LAYAR\nUNTUK MENYERANG KE KIRI"
+  - Name: goHint_tapRightToAttackRight
+    Text: "TIP! KETUK PADA SISI KANAN LAYAR\nUNTUK MENYERANG KE KANAN"
+  - Name: goHint_tigerTip1
+    Text: "HARIMAU INI PANDAI DALAM\nSERANGAN <#CC99FFFF>TENGAH<#000000FF>, <#9988FFFF>RENDAH<#000000FF>, DAN <#66BB88FF>TINGGI<#000000FF>…\nUNTUNG AKU PANDAI DALAM\n<#CC99FFFF>MENINJU<#000000FF>, <#9988FFFF>MENENDANG<#000000FF>, DAN <#66BB88FF>MENGHINDAR!!"
+  - Name: goHint_run
+    Text: "TIP! SENTUH DAN TEKAN DI\nMANA SAJA UNTUK BERLARI"
+  - Name: goHint_runCont
+    Text: "TIP! SENTUH DAN TEKAN\nUNTUK BERLARI"
+  - Name: uCongratsDiff1
+    Text: "SELAMAT!\nKAMU TELAH MENYELESAIKAN SEMUA TINGKAT\nPADA KESULITAN TINGKAT 1"
+  - Name: uCongratsDiff2
+    Text: "HEBAT!!\nKAMU TELAH MENYELESAIKAN SEMUA TINGKAT\nPADA KESULITAN TINGKAT 2"
+  - Name: uCongratsDiff3
+    Text: "LUAR BIASA!!\nKAMU TELAH MENYELESAIKAN SEMUA TINGKAT\nPADA KESULITAN TINGKAT 3"
+  - Name: ub1
+    Text: "TERIMA KASIH TELAH MEMBUKAKU!!\nKEMAMPUAN BISNISKU BERARTI KAMU AKAN MENDAPATKAN KOIN\nDUA KALI LEBIH BANYAK DARI MUSUH DAN IKLAN BERHADIAH!"
+  - Name: ub2
+    Text: "TERIMA KASIH TELAH MEMBUKAKU!!\nKEMAMPUAN MENAWARKU BERARTI JUMLAH KOIN YANG\nDIPERLUKAN UNTUK MEMBUKA KARAKTER DIPOTONG SETENGAH!"
+  - Name: KnockKnock
+    Text: TOK TOK
+  - Name: You!
+    Text: KAMU!!
+  - Name: Hello
+    Text: HALO…
+  - Name: zzBoss
+    Text: BOS!
+  - Name: zzBrother
+    Text: KAKAK!!
+  - Name: zzCousin
+    Text: SEPUPU!
+  - Name: zzFormerBusinessPartner
+    Text: BEKAS REKAN BISNIS!
+  - Name: zzIDontKnow
+    Text: AKU TIDAK TAHU APA YANG SEDANG TERJADI!
+  - Name: zzLongtimeNemesis
+    Text: MUSUH BEBUYUTAN LAMA!
+  - Name: zzMyMaker
+    Text: PENCIPTAKU!
+  - Name: zzMyOldStudent
+    Text: MURID LAMAKU!
+  - Name: zzOldFriend
+    Text: KAWAN LAMA!
+  - Name: zzSpecimen
+    Text: SPESIMEN 248
+  - Name: zzThief
+    Text: MALING!
+  - Name: zzUncle
+    Text: PAMAN!
+  - Name: zzUsurper
+    Text: PEREBUT!
+  - Name: zzWhoeverYouAre
+    Text: SIAPAPUN KAMU
+  - Name: zzInsuranceNeeds
+    Text: "AKU INGIN BERBICARA PADAMU\nTENTANG KEBUTUHAN ASURANSIMU"
+  - Name: zzComplain
+    Text: "AKU INGIN MENGAJUKAN KELUHAN\nTENTANG TATA LETAK TEMPAT INI"
+  - Name: zzLostCar
+    Text: "SEBENARNYA, AKU HANYA\nMENCOBA MENEMUKAN DI MANA\nAKU MENINGGALKAN MOBILKU"
+  - Name: zzTrendJoiner
+    Text: "KUDENGAR SEMUA ORANG\nBERTARUNG DENGANMU,\nJADI KUPIKIR…\nTENTU SAJA, KENAPA TIDAK?"
+  - Name: zzTigerTamer
+    Text: "MEREKA MENYEBUTKU\nPENJINAK HARIMAU!"
+  - Name: zzTeachManners
+    Text: "AKU DI SINI UNTUK\nMENGAJARIMU ATURAN"
+  - Name: zzPJs
+    Text: "INI JAM TIGA SORE DAN\nKAMU MASIH PAKAI PIYAMA?"
+  - Name: zzTenBucks
+    Text: "AKU DI SINI UNTUK\nHUTANG SEPULUH DOLARMU"
+  - Name: zzBetterDoors
+    Text: "KAMU BENAR-BENAR BUTUH\nPINTU YANG LEBIH BAIK DI TEMPAT INI"
+  - Name: zzTorchOut
+    Text: "HANYA INGIN MEMBERI TAHUMU\nKALAU SALAH SATU OBOR\nDI RUANG BAWAH TANAH MATI"

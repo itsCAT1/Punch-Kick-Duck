@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1671456666377107
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4161320367291711}
+  - component: {fileID: 114988154962278096}
+  m_Layer: 0
+  m_Name: ZH-TW_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4161320367291711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671456666377107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.61667895, y: 3.856, z: -15.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114988154962278096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671456666377107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c65bf8cbba0cb008fb7a0244753975e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Source: {fileID: 4900000, guid: b13e487123d966540a41f19939e2198b, type: 3}
+  Language: Chinese-TW
+  Separator: ',|,'
+  NewLine: '*cr'
+  Comma: '*comma'
+  QuoteMark: '*quo'
+  Comment: ' // '
+  entries:
+  - Name: TargetLanguage
+    Text: 繁體中文
+  - Name: Start
+    Text: '- <#FFFFFFFE>開始<#FFFFFFFF> -'
+  - Name: Options
+    Text: 選項
+  - Name: AdjustTouchControls
+    Text: 調整觸摸控制
+  - Name: DragToAdjust
+    Text: 拖動即可調整
+  - Name: ControlsVisibility
+    Text: 控制可見性
+  - Name: ScreenBorder
+    Text: 屏幕邊框
+  - Name: ResetToDefault
+    Text: 重置為默認
+  - Name: AutoRun
+    Text: 自動跑
+  - Name: Controller
+    Text: 遊戲手柄
+  - Name: ControllerFound
+    Text: 檢測到遊戲手柄
+  - Name: NoControllerFound
+    Text: "未找到遊戲手柄\n\n按下遊戲手柄上的任何按鈕以嘗試檢測"
+  - Name: Difficulty
+    Text: 難度
+  - Name: ChangingDiffWarning
+    Text: 改變難度將重啓階段
+  - Name: Language
+    Text: 語言
+  - Name: LockScreenRotation
+    Text: 鎖定屏幕旋轉
+  - Name: Music
+    Text: 音樂
+  - Name: SoundEffects
+    Text: 聲音效果
+  - Name: ShowStageTimer
+    Text: 顯示階段計時器
+  - Name: DeleteSaveFile
+    Text: 重置遊戲數據
+  - Name: DeleteSaveWarning
+    Text: 選擇"重置"將删除你在此設備和雲中的遊戲儲存
+  - Name: DeleteSaveWarning2
+    Text: "你確定要重置你的進度嗎？\n\n這不能被撤銷"
+  - Name: Reset
+    Text: 重置
+  - Name: Cancel
+    Text: 取消
+  - Name: DeleteSaveDone
+    Text: 遊戲數據重置
+  - Name: ResetAchs
+    Text: 重置 GAME CENTER 成就？
+  - Name: Privacy
+    Text: 隱私
+  - Name: RewardedAds
+    Text: 獎勵廣告
+  - Name: CharSelectInfo
+    Text: "注意：所有角色都有相同的能力\n\n你不需要拆箱角色來打敗遊戲！"
+  - Name: Unbox
+    Text: 拆箱
+  - Name: UnboxAndRemoveAds
+    Text: "拆箱+移除彈出廣告\n<SIZE=75%>+解除獎勵廣告的選項"
+  - Name: UnboxSpecial1
+    Text: 拆箱此角色會使你從敵人和獎勵廣告中獲得的硬幣數量翻倍
+  - Name: UnboxSpecial2
+    Text: 拆箱此角色將使所有可以使用遊戲內硬幣拆箱的角色的硬幣成本减半
+  - Name: PurchaseFailed
+    Text: 沒有購買
+  - Name: RemoveAds
+    Text: 去除廣告！
+  - Name: RemoveAdsInfo
+    Text: "移除廣告\n\n移除彈出廣告和新增解除獎勵廣告的選項"
+  - Name: AdsRemoved
+    Text: "彈出廣告已移除！\n\n在選擇功能表中<sprite name=\"symbolOptions\">你還可以選擇解除或者啟用獎勵廣告\n\n謝謝你的支持！！"
+  - Name: RestorePurchases
+    Text: 恢復購買
+  - Name: Checking
+    Text: 正在檢查。。。
+  - Name: RequestTimedOut
+    Text: 請求超時
+  - Name: RestoreFailed
+    Text: 無法連接到商店
+  - Name: RestoreFound
+    Text: 恢復成功！
+  - Name: RestoreNoneFound
+    Text: 沒有找到以前的購買
+  - Name: RestoreNoNew
+    Text: 以前的購買已經解鎖
+  - Name: Collection
+    Text: 收藏：
+  - Name: Random
+    Text: 隨機
+  - Name: IncludeInRandom
+    Text: 包括在隨機中
+  - Name: NotEnoughCoins
+    Text: 需要更多硬幣！！
+  - Name: WatchAd
+    Text: 播放廣告來獲取~X~
+  - Name: WatchAdAlt
+    Text: 播放廣告
+  - Name: WatchAdError
+    Text: 播放廣告時出錯
+  - Name: AdSkipped
+    Text: 廣告未播放完畢
+  - Name: NotSignedIn
+    Text: 尚未登錄
+  - Name: Credits
+    Text: 製作人員
+  - Name: SelectLevel
+    Text: 選擇階段
+  - Name: TuteON
+    Text: 教程
+  - Name: Done(Exit)
+    Text: 完成
+  - Name: Close
+    Text: 關閉
+  - Name: OK
+    Text: 好的
+  - Name: CreditsLine1
+    Text: 設計、程式設計、圖形、聲音&音樂
+  - Name: CreditsLine2
+    Text: 執行製作人
+  - Name: CreditsLine3
+    Text: 額外的3D模型
+  - Name: CreditsLine4
+    Text: 附加音效
+  - Name: CreditsLine5
+    Text: 特別感謝
+  - Name: CreditsLine6
+    Text: 非常感謝測試團隊！
+  - Name: CreditsLine7
+    Text: 翻譯
+  - Name: Contact
+    Text: 聯系
+  - Name: Off
+    Text: 關閉
+  - Name: LevelXResult
+    Text: 階段<#64E4FF00><SIZE=140%> X </SIZE><#64E4FFFF>成績
+  - Name: Level
+    Text: 階段
+  - Name: Result
+    Text: 成績
+  - Name: Paused
+    Text: 暫停
+  - Name: Continue
+    Text: 繼續
+  - Name: Restart
+    Text: 再開始
+  - Name: Quit
+    Text: 退出
+  - Name: QuitGame
+    Text: 退出遊戲？
+  - Name: HideMenu
+    Text: 隱藏選單
+  - Name: ShowMenu
+    Text: 點擊屏幕以顯示菜單
+  - Name: ShowMenu_Cont
+    Text: 按任意鍵顯示選單
+  - Name: CombatTraining
+    Text: '- 搏擊訓練 -'
+  - Name: Punch
+    Text: 拳打
+  - Name: Kick
+    Text: 脚踢
+  - Name: Duck(Low)
+    Text: 蹲伏
+  - Name: PunchTip
+    Text: "點擊這裡做\n<#FFAEFFFE><SIZE=140%>拳打</SIZE><#FFFFFFFF>攻擊"
+  - Name: KickTip
+    Text: "點擊這裡做\n<#FFAEFFFE><SIZE=140%>脚踢</SIZE><#FFFFFFFF>攻擊"
+  - Name: DuckTip
+    Text: "點擊這裡做\n<#FFAEFFFE><SIZE=140%>蹲伏</SIZE><#FFFFFFFF>攻擊"
+  - Name: SprintTip
+    Text: "走是自動的\n\n觸摸並按住任何地方即可<#FFAEFFFE><SIZE=140%>跑</SIZE><#FFFFFFFF>"
+  - Name: SprintTipGamepad
+    Text: "走是自動的\n\n按住任何按鈕\n即可<#FFAEFFFE><SIZE=140%>跑</SIZE><#FFFFFFFF>"
+  - Name: SprintTouchTip
+    Text: "<#AEFFAEFF><SIZE=+1>提示！</SIZE><#FFFFFFFF>\n你可以在跑的時候，將你的觸摸拖到不同的位置而不會打斷你的<#FFAEFFFE><SIZE=140%>跑</SIZE><#FFFFFFFF>"
+  - Name: WalkTip
+    Text: "跑是自動的\n\n點擊並按住任何地方即可<#FFAEFFFE><SIZE=140%>走</SIZE><#FFFFFFFF>"
+  - Name: WalkTipGamepad
+    Text: "跑是自動的\n\n按住任何按鈕即可<#FFAEFFFE><SIZE=140%>走</SIZE><#FFFFFFFF>"
+  - Name: PunchBeatsKick
+    Text: '<#75EDFFFF><SIZE=125%>拳打 <SIZE=100%> <#E0B9FFFF>打敗 <#81B7F6FF><SIZE=125%> 脚踢'
+  - Name: KickBeatsDuck
+    Text: '<#75EDFFFF><SIZE=125%>脚踢 <SIZE=100%> <#E0B9FFFF>打敗 <#81B7F6FF><SIZE=125%> 蹲伏'
+  - Name: DuckBeatsPunch
+    Text: '<#75EDFFFF><SIZE=125%>蹲伏 <SIZE=100%> <#E0B9FFFF>打敗 <#81B7F6FF><SIZE=125%> 拳打'
+  - Name: PunchAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>拳打</SIZE><#FFFFFFFF>攻擊左邊'
+  - Name: KickAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>脚踢</SIZE><#FFFFFFFF>攻擊左邊'
+  - Name: DuckAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>蹲伏</SIZE><#FFFFFFFF>攻擊左邊'
+  - Name: PunchAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>拳打</SIZE><#FFFFFFFF>攻擊右邊'
+  - Name: KickAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>脚踢</SIZE><#FFFFFFFF>攻擊右邊'
+  - Name: DuckAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>蹲伏</SIZE><#FFFFFFFF>攻擊右邊'
+  - Name: ScoreNumTip
+    Text: 此數字顯示你當前階段的分數
+  - Name: ScoreMultiTip
+    Text: "此計數顯示你因打敗敵人而獲得多少分數\n\n通過擊中敵人或者跑來新增計數\n\n否則計數會慢慢地回落到1"
+  - Name: ScoreHeartTip
+    Text: "心形給你第二次機會\n\n它會在你被擊倒時使用，而如果你擊敗足够多的敵人，\n你可以再次獲得它"
+  - Name: ScoreCoinsTip
+    Text: "有時敵人會掉落硬幣\n\n你的總硬幣顯示在這裡"
+  - Name: ScoreOptionsTip
+    Text: "提示！\n\n你可以在<COLOR=#77FF99FF><SIZE=115%>選項選單</SIZE></COLOR><sprite name=\"symbolOptions\">中更改<COLOR=#FFFF33FF><SIZE=115%>難度</SIZE></COLOR>並調整觸摸控制"
+  - Name: LSandPTip
+    Text: 可以橫屏和縱屏方向玩
+  - Name: Next
+    Text: 下一個 >
+  - Name: DemoPlay
+    Text: '- 演示播放 -'
+  - Name: TapToExit
+    Text: 點擊退出
+  - Name: PressAnyButtonToExit
+    Text: 按任意按鈕退出
+  - Name: BewareTheBear
+    Text: 當心熊！！
+  - Name: NewScore
+    Text: 新分數
+  - Name: BestScore
+    Text: 最好分數
+  - Name: NewBest
+    Text: 新的最好！
+  - Name: AllStagesTotal
+    Text: 所有階段總計
+  - Name: AllStagesNewTotal
+    Text: 所有階段的新總計
+  - Name: TotalScore
+    Text: 總得分
+  - Name: NewTotal
+    Text: 新總計！！
+  - Name: FinalScore
+    Text: 最終分數
+  - Name: StageTime
+    Text: 階段時間
+  - Name: BestTime
+    Text: 最好時間
+  - Name: NewBestTime
+    Text: 新的最好時間
+  - Name: EnemiesOutrun
+    Text: '> 甩掉的敵人'
+  - Name: OutrunBonus
+    Text: + 甩掉敵人的獎金
+  - Name: HeartBonus
+    Text: + 心形獎金
+  - Name: PlayStageAgain
+    Text: 再玩該階段
+  - Name: Share
+    Text: 分享
+  - Name: RateThisGame
+    Text: 為此遊戲評分
+  - Name: Rate
+    Text: 評價！
+  - Name: IScoredXOnStageY
+    Text: 在階段~Y~我得~X~分！
+  - Name: IDefeatedBaron
+    Text: 我打敗了泰格爵
+  - Name: FinalBattle
+    Text: 最後一戰
+  - Name: Revive
+    Text: 復活
+  - Name: Skip
+    Text: 跳過
+  - Name: Tip
+    Text: '- 提示 -'
+  - Name: TryAgain
+    Text: 再試
+  - Name: TryAgainQ
+    Text: 再試?
+  - Name: Victory
+    Text: 勝利！
+  - Name: VictoryLine2
+    Text: 你打敗了泰格爵
+  - Name: WellDone
+    Text: 做得好！
+  - Name: KnockDownDoor
+    Text: 我需要通過這扇門
+  - Name: LetsGetOutOfHere
+    Text: 讓我們離開這裡
+  - Name: UhOh
+    Text: 哦哦
+  - Name: Bam!
+    Text: 砰！
+  - Name: Yes!
+    Text: 好！
+  - Name: MoreTrouble
+    Text: 更多麻煩！
+  - Name: AnotherCustomer
+    Text: 又一個客人
+  - Name: SeeYouLater
+    Text: 回頭見！
+  - Name: GoodNight
+    Text: 晚安！
+  - Name: OneHit
+    Text: 一擊！
+  - Name: GettingTheHangOfThis
+    Text: 我掌握這個了！
+  - Name: ThinkIGetIt
+    Text: "好吧，我想\n我明白了"
+  - Name: ImStrongerThanILook
+    Text: 我比看起來強壯多了！
+  - Name: Hmm
+    Text: 嗯。。。
+  - Name: NeitherOfUsWon
+    Text: 我們倆都沒有贏
+  - Name: ThatWasADraw
+    Text: 那是平局
+  - Name: AnotherDraw
+    Text: 另一個平局
+  - Name: ShouldFightBack
+    Text: 我應該反擊
+  - Name: Ow
+    Text: 哎喲！！
+  - Name: Nope
+    Text: 不
+  - Name: ThatDidntWork
+    Text: 那沒用
+  - Name: WhatABully
+    Text: 真是個惡霸！
+  - Name: PretendThatDidntHappen
+    Text: 假裝沒有發生
+  - Name: WrongMove
+    Text: 錯誤的動作
+  - Name: NeedToBeCloser
+    Text: "正確的動作，\n但我需要更近"
+  - Name: WouldHaveWorkedIfCloser
+    Text: "如果我離得更近，\n那會有用的"
+  - Name: PunchVsDuck
+    Text: "那 <#9977FFFE>蹲伏<#000000FF> 攻擊\n打敗我的 <#9977FFFE>拳打<#000000FF>"
+  - Name: KickVsPunch
+    Text: "我想一個 <#9977FFFE>蹲伏<#000000FF> 攻擊\n是這兒的答案"
+  - Name: DuckVsKick
+    Text: "那 <#9977FFFE>脚踢<#000000FF>\n打敗我的 <#9977FFFE>蹲伏<#000000FF> 攻擊"
+  - Name: LetsGetSerious
+    Text: 好吧，讓我們認真點！
+  - Name: EnoughTraining
+    Text: "好了，足够的培訓了\n讓我們認真地嘗試這個階段！"
+  - Name: GuessIShouldHurry
+    Text: 我想我應該快點
+  - Name: BetterKeepMoving
+    Text: 最好繼續前進！
+  - Name: IdBetterHurry
+    Text: 我最好快點！
+  - Name: IdBetterRun
+    Text: 我最好跑！
+  - Name: GoingToHaveToRun
+    Text: 一定要跑！！
+  - Name: NotMuchTime
+    Text: 沒多少時間了！！！
+  - Name: LetsGo
+    Text: 我們走吧！
+  - Name: OKImGoing
+    Text: 好吧，我要離開
+  - Name: ThatWasEasy
+    Text: 噢，那很容易
+  - Name: ThatWasntTooHard
+    Text: 那並不難
+  - Name: ThatWasClose
+    Text: 差一點兒！
+  - Name: TooSlowShaggy
+    Text: 太慢了，毛茸茸！
+  - Name: HowInconsiderate
+    Text: 多麼不體貼！
+  - Name: goHint_bottleTip1
+    Text: "提示！如果我夾擊在一個敵人和一個瓶子之間，\n我應該先應付那個瓶子"
+  - Name: goHint_bottleTip2
+    Text: "提示！如果我必須在攻擊敵人或處理瓶子之間做出選擇，\n我應該先選擇瓶子"
+  - Name: goHint_shouldHaveHitCart
+    Text: "提示！如果我必須在擊中敵人或擊中手推車之間做出選擇，\n我最好先擊中手推車"
+  - Name: goHint_foxTip1
+    Text: "那些狐狸喜歡拳打和脚踢！\n我最好留意他們如何接近我"
+  - Name: goHint_tapLeftToAttackLeft
+    Text: "提示！點擊屏幕左側\n以向左側攻擊"
+  - Name: goHint_tapRightToAttackRight
+    Text: "提示！點擊屏幕右側\n以向右側攻擊"
+  - Name: goHint_tigerTip1
+    Text: "老虎擅長\n<#CC99FFFF>中<#000000FF>，<#9988FFFF>低<#000000FF>，和<#66BB88FF>高<#000000FF>攻擊。。。\n幸運的是我擅長\n<#CC99FFFF>拳打<#000000FF>，<#9988FFFF>脚踢<#000000FF>，和<#66BB88FF>蹲伏！！"
+  - Name: goHint_run
+    Text: 提示！觸摸並按住任何地方即可跑
+  - Name: goHint_runCont
+    Text: 提示！按住任何按鈕即可跑
+  - Name: uCongratsDiff1
+    Text: "做得好！\n你已完成難度等級1的所有階段"
+  - Name: uCongratsDiff2
+    Text: "太棒了！！\n你已完成難度等級2的所有階段"
+  - Name: uCongratsDiff3
+    Text: "好極了！！！\n你已完成難度等級3的所有階段"
+  - Name: ub1
+    Text: "謝謝你拆我的箱！\n我的業務技能意味著你現在將從敵人\n和獎勵廣告中獲得兩倍的硬幣！"
+  - Name: ub2
+    Text: "謝謝你拆我的箱！！\n我的討价還价技巧意味著拆箱\n角色所需的硬幣數量現已减半！"
+  - Name: KnockKnock
+    Text: 敲敲
+  - Name: You!
+    Text: 你！
+  - Name: Hello
+    Text: 你好。。。
+  - Name: zzBoss
+    Text: 老闆！
+  - Name: zzBrother
+    Text: 哥哥！！
+  - Name: zzCousin
+    Text: 表哥！
+  - Name: zzFormerBusinessPartner
+    Text: 前商業夥伴！
+  - Name: zzIDontKnow
+    Text: 我不知道發生了什麼事
+  - Name: zzLongtimeNemesis
+    Text: 宿敵！
+  - Name: zzMyMaker
+    Text: 我的創造者！
+  - Name: zzMyOldStudent
+    Text: 我以前的學生！
+  - Name: zzOldFriend
+    Text: 老朋友！
+  - Name: zzSpecimen
+    Text: 標本248
+  - Name: zzThief
+    Text: 竊賊！
+  - Name: zzUncle
+    Text: 叔叔！
+  - Name: zzUsurper
+    Text: 篡位者！
+  - Name: zzWhoeverYouAre
+    Text: 無論你是誰
+  - Name: zzInsuranceNeeds
+    Text: 我想和你談談你的保險需求
+  - Name: zzComplain
+    Text: 我想就這個地方的佈局提出投訴
+  - Name: zzLostCar
+    Text: 其實我只是在找我車停哪兒了
+  - Name: zzTrendJoiner
+    Text: "我聽說每個人都在和你打架，\n所以我想。。。 為什麼不呢？"
+  - Name: zzTigerTamer
+    Text: 他們叫我馴虎師！
+  - Name: zzTeachManners
+    Text: 我是來教你一些禮儀的
+  - Name: zzPJs
+    Text: "現在是下午三點，\n你還穿著睡衣？"
+  - Name: zzTenBucks
+    Text: 我來是為了你欠我的十塊錢
+  - Name: zzBetterDoors
+    Text: "這個地方真的\n需要更好的門"
+  - Name: zzTorchOut
+    Text: "只是想讓你知道地\n牢裏的一個火把熄滅了"

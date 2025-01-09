@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AbstractLevelFloor
+  m_Shader: {fileID: 4800000, guid: 30463e6107950c24a8e3b06a7af64b22, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _SurfaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _EdgeDarkening: 0.5
+    m_Colors:
+      _AddColB: {r: 0.11320752, g: 0.10528268, b: 0.092381604, a: 1}
+      _AddColT: {r: 0, g: 0, b: 0, a: 1}
+      _AmbientB: {r: 0.1, g: 0.5180392, b: 0.2835294, a: 2.3}
+      _AmbientT: {r: 0, g: 0.32156864, b: 0.14117648, a: 1}
+      _BackLightCol: {r: 0, g: 0, b: 0, a: 1}
+      _BackLightPos: {r: 0, g: 0, b: 0, a: 6}
+      _MetalMult: {r: 1, g: 1, b: 1, a: 1}
+      _RefTexAdj: {r: 4.422135, g: 0.35571656, b: 0.8333334, a: 0.5172223}
+      _Reflectivity: {r: 0.6, g: 0, b: 0.6, a: 0}
+  m_BuildTextureStacks: []

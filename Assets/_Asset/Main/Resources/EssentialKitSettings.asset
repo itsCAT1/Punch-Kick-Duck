@@ -1,0 +1,480 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1245385824, guid: 48bc23c85e3b860d4cabb4491b2ffd8f, type: 3}
+  m_Name: EssentialKitSettings
+  m_EditorClassIdentifier:
+  m_applicationSettings:
+    m_logLevel: 2
+    m_appStoreIds:
+      m_ios:
+      m_tvos:
+      m_android:
+    m_usagePermissionSettings:
+      m_addressBookUsagePermission:
+        m_description: $productName uses contacts.
+        m_descriptionOverrides:
+          m_ios:
+          m_tvos:
+          m_android:
+      m_cameraUsagePermission:
+        m_description: $productName uses camera.
+        m_descriptionOverrides:
+          m_ios:
+          m_tvos:
+          m_android:
+      m_galleryUsagePermission:
+        m_description: $productName uses gallery.
+        m_descriptionOverrides:
+          m_ios:
+          m_tvos:
+          m_android:
+      m_galleryWritePermission:
+        m_description: $productName wants to write to gallery.
+        m_descriptionOverrides:
+          m_ios:
+          m_tvos:
+          m_android:
+      m_locationWhenInUsePermission:
+        m_description: $productName would like to user your location.
+        m_descriptionOverrides:
+          m_ios:
+          m_tvos:
+          m_android:
+    m_rateMyAppSettings:
+      m_isEnabled: 0
+      m_confirmationDialogSettings:
+        m_canShow: 0
+        m_promptTitle: Rate My App
+        m_promptDescription:
+        m_okButtonLabel: Ok
+        m_cancelButtonLabel: Cancel
+        m_remindLaterButtonLabel: Remind Me Later
+        m_canShowRemindMeLaterButton: 0
+      m_defaultControllerSettings:
+        m_initialPromptConstraints:
+          m_minHours: 2
+          m_minLaunches: 0
+        m_repeatPromptConstraints:
+          m_minHours: 12
+          m_minLaunches: 0
+  m_addressBookSettings:
+    m_isEnabled: 0
+    m_defaultImage: {fileID: 0}
+  m_nativeUISettings:
+    m_isEnabled: 0
+    m_customUICollection:
+      m_rendererPrefab: {fileID: 114552715567942729, guid: a1ade2df53937b044b1962f2ef02bb22, type: 2}
+      m_alertDialogPrefab: {fileID: 114208375668866805, guid: 39bb253028367684b8db3a1d8a20a281, type: 2}
+      m_datePickerPrefab: {fileID: 0}
+  m_sharingServicesSettings:
+    m_isEnabled: 0
+  m_cloudServicesSettings:
+    m_isEnabled: 1
+    m_synchronizeOnLoad: 0
+    m_syncInterval: 120
+  m_gameServicesSettings:
+    m_isEnabled: 1
+    m_leaderboards:
+    - m_id: l1
+      m_platformId: CgkI8Z_A-6sEEAIQAA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l2
+      m_platformId: CgkI8Z_A-6sEEAIQAQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l3
+      m_platformId: CgkI8Z_A-6sEEAIQAg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l4
+      m_platformId: CgkI8Z_A-6sEEAIQAw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l5
+      m_platformId: CgkI8Z_A-6sEEAIQBA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l6
+      m_platformId: CgkI8Z_A-6sEEAIQBQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l7
+      m_platformId: CgkI8Z_A-6sEEAIQBg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l8
+      m_platformId: CgkI8Z_A-6sEEAIQBw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: l9
+      m_platformId: CgkI8Z_A-6sEEAIQCA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: finalLevel
+      m_platformId: CgkI8Z_A-6sEEAIQCQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: allLevels
+      m_platformId: CgkI8Z_A-6sEEAIQCg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title:
+      m_iosProperties: {}
+      m_androidProperties: {}
+    m_achievements:
+    - m_id: 01
+      m_platformId: CgkI8Z_A-6sEEAIQDA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: LetsGetSerious
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 02
+      m_platformId: CgkI8Z_A-6sEEAIQDQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: JustWarmingUp
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 03
+      m_platformId: CgkI8Z_A-6sEEAIQDw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: ThanksButNoThanks
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 04
+      m_platformId: CgkI8Z_A-6sEEAIQEg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: BoldlyRunningAway
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 05
+      m_platformId: CgkI8Z_A-6sEEAIQEQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: BarelyMadeIt
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 06
+      m_platformId: CgkI8Z_A-6sEEAIQEA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: GoodTiming
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 07
+      m_platformId: CgkI8Z_A-6sEEAIQDg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: Untouchable
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 08
+      m_platformId: CgkI8Z_A-6sEEAIQEw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: EatMyDust
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 09
+      m_platformId: CgkI8Z_A-6sEEAIQFg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: Beegone
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 10
+      m_platformId: CgkI8Z_A-6sEEAIQFA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: BuildThatBonus
+      m_numOfStepsToUnlock: 0
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 11
+      m_platformId: CgkI8Z_A-6sEEAIQFQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: BiggerBonusBetter
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 12
+      m_platformId: CgkI8Z_A-6sEEAIQGg
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: ToughDuck
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 13
+      m_platformId: CgkI8Z_A-6sEEAIQGw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: TougherDuck
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 14
+      m_platformId: CgkI8Z_A-6sEEAIQGA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: CoStar
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 15
+      m_platformId: CgkI8Z_A-6sEEAIQGQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: QuiteTheCollector
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 16
+      m_platformId: CgkI8Z_A-6sEEAIQHA
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: Vengeance
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 17
+      m_platformId: CgkI8Z_A-6sEEAIQHQ
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: Respect
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    - m_id: 18
+      m_platformId: CgkI8Z_A-6sEEAIQFw
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_title: IDefinitelyPlannedThat
+      m_numOfStepsToUnlock: 1
+      m_iosProperties: {}
+      m_androidProperties: {}
+    m_showAchievementCompletionBanner: 1
+    m_androidProperties:
+      m_playServicesApplicationId: 149240680433
+      m_serverClientId:
+      m_needsProfileScope: 0
+      m_needsEmailScope: 0
+      m_showErrorDialogs: 0
+      m_displayPopupsAtTop: 1
+  m_billingServicesSettings:
+    m_isEnabled: 1
+    m_products:
+    - m_id: c1
+      m_platformId: com.pipsqueakgames.pkd.sc1
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_productType: 1
+      m_title: Big B
+      m_description: Doubles Coins
+      m_iosProperties: {}
+      m_androidProperties:
+        m_publicKey:
+        m_developerPayload:
+    - m_id: c2
+      m_platformId: com.pipsqueakgames.pkd.sc2
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android:
+      m_productType: 1
+      m_title: Lil B
+      m_description: Halves Cost
+      m_iosProperties: {}
+      m_androidProperties:
+        m_publicKey:
+        m_developerPayload:
+    - m_id: na
+      m_platformId: com.pipsqueakgames.pkd.removeAds
+      m_platformIdOverrides:
+        m_ios:
+        m_tvos:
+        m_android: com.pipsqueakgames.pkd.removeads
+      m_productType: 1
+      m_title: Remove Ads
+      m_description: No Forced Ads & Can Disable Rewarded Ads
+      m_iosProperties: {}
+      m_androidProperties:
+        m_publicKey:
+        m_developerPayload:
+    m_maintainPurchaseHistory: 0
+    m_autoFinishTransactions: 1
+    m_verifyTransactionReceipts: 1
+    m_iosProperties:
+      m_customVerificationServerURL:
+    m_androidProperties:
+      m_publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAttG/TaI2JjYV+iKH7f6tIUFHWg34utc3YgjZY1zYfNKcvjetMCvNNAiDH0dJEgZCaZfeDHbWfRF1IEhELThZXtuFR0W4udGj30YvUD4yTqj+HqVv1ggq5MtqiH2i5z5nGtE0Kn0uasnYVo8mlufzdqan0KIsEfjFd0gY0hPPwTkE6RDwLuFR4YuJ4A9bYg4EWRA/uwGPTEzZKQ8SeAouonFBVUosfVvIBwhdmusz/nHDNUbhTnpyfT3JOfAI5LzpE5t4xU4Hc4iNg7SgWALEdte+qBQ2hDfTej4Ahmr0SGMHpJn1NcHin2q6pxggyIPyrWD93ihFV2qxLyAG6Q2VsQIDAQAB
+  m_networkServicesSettings:
+    m_isEnabled: 0
+    m_hostAddress:
+      m_ipv4: 8.8.8.8
+      m_ipv6: 0:0:0:0:0:FFFF:0808:0808
+    m_autoStartNotifier: 0
+    m_pingSettings:
+      m_maxRetryCount: 3
+      m_timeGapBetweenPolling: 2
+      m_timeOutPeriod: 60
+      m_port: 53
+  m_webViewSettings:
+    m_isEnabled: 0
+    m_androidProperties:
+      m_usesCamera: 0
+      m_usesMicrophone: 0
+      m_allowBackNavigationKey: 1
+  m_notificationServicesSettings:
+    m_isEnabled: 0
+    m_presentationOptions: 7
+    m_usesLocationBasedNotification: 0
+    m_pushNotificationServiceType: 1
+    m_androidProperties:
+      m_needsBigStyle: 0
+      m_allowVibration: 1
+      m_whiteSmallIcon: {fileID: 0}
+      m_colouredSmallIcon: {fileID: 0}
+      m_allowNotificationDisplayWhenForeground: 0
+      m_accentColor: '#FFFFFF'
+      m_payloadKeys:
+        m_contentTitle: content_title
+        m_contentText: content_text
+        m_tickerText: ticker_text
+        m_userInfo: user_info
+        m_tag: tag
+        m_badge: badge
+        m_priority: priority
+        m_sound: sound
+        m_bigPicture: big_picture
+        m_largeIcon: large_icon
+      m_allowInExactTimeScheduling: 1
+  m_mediaServicesSettings:
+    m_isEnabled: 0
+    m_usesCamera: 1
+    m_usesGallery: 1
+    m_savesFilesToGallery: 1
+  m_deepLinkServicesSettings:
+    m_isEnabled: 0
+    m_iosProperties:
+      m_customSchemeUrls: []
+      m_universalLinks: []
+    m_androidProperties:
+      m_customSchemeUrls: []
+      m_universalLinks: []
+  m_utilitySettings:
+    m_isEnabled: 0
+    m_usesStoreRatingUtility: 1

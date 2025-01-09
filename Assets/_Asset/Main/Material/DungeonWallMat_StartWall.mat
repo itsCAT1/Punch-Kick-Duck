@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DungeonWallMat_StartWall
+  m_Shader: {fileID: 4800000, guid: 555c6e19d24c4b74bb37d0262f13b49c, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2050
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: df12a7f8e44ebb944b011b9e867b8f2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadTex:
+        m_Texture: {fileID: 2800000, guid: de38b7222bbd49d499997e6b8de439f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _BGradEnd: 3
+      _BGradStart: 0
+      _DstMode: 10
+      _FlickerPow: 0
+      _FlickerSpeed: 0
+      _ShadPower: 1
+      _SrcMode: 5
+      _TGradEnd: 9.5
+      _TGradStart: 6
+    m_Colors:
+      _AmbCol: {r: 0.43141478, g: 0.3768382, b: 0.60294116, a: 0}
+      _AmbPosAndScale: {r: 16.42, g: 5, b: 0.15, a: 0.001}
+      _BGradCol: {r: 0.7669354, g: 0.13137977, b: 0.99264705, a: 1}
+      _DiffuseBaseTint: {r: 0.3814338, g: 0.53453344, b: 0.6102941, a: 0}
+      _LightCol: {r: 0.9, g: 0.165, b: 0.52, a: 0.35}
+      _LightPos: {r: 0, g: 108.5, b: 0, a: 1.5}
+      _ShadPosAndScale: {r: 17, g: 5, b: 0.15, a: 0}
+      _TGradCol: {r: 0.04995675, g: 0.055467878, b: 0.20588237, a: 1}
+  m_BuildTextureStacks: []

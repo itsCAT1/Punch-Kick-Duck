@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1188206602386537
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4757759110817615}
+  - component: {fileID: 114614275341607766}
+  m_Layer: 0
+  m_Name: EN_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4757759110817615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188206602386537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.79561, y: 3.413358, z: -14.807322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114614275341607766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188206602386537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c65bf8cbba0cb008fb7a0244753975e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  Source: {fileID: 4900000, guid: dac99f453844cfc4daaa50269d7182f5, type: 3}
+  Language: English
+  Separator: ',|,'
+  NewLine: '*cr'
+  Comma: '*comma'
+  QuoteMark: '*quo'
+  Comment: ' // '
+  entries:
+  - Name: TargetLanguage
+    Text: ENGLISH
+  - Name: Start
+    Text: '- <#FFFFFFFE>START<#FFFFFFFF> -'
+  - Name: Options
+    Text: OPTIONS
+  - Name: AdjustTouchControls
+    Text: ADJUST TOUCH CONTROLS
+  - Name: DragToAdjust
+    Text: DRAG TO ADJUST
+  - Name: ControlsVisibility
+    Text: CONTROLS VISIBILITY
+  - Name: ScreenBorder
+    Text: SCREEN BORDER
+  - Name: ResetToDefault
+    Text: RESET TO DEFAULT
+  - Name: AutoRun
+    Text: AUTO-RUN
+  - Name: Controller
+    Text: GAMEPAD
+  - Name: ControllerFound
+    Text: GAMEPAD DETECTED
+  - Name: NoControllerFound
+    Text: "NO GAMEPAD FOUND\n\nPRESS ANY BUTTON ON GAMEPAD TO ATTEMPT DETECTION"
+  - Name: Difficulty
+    Text: DIFFICULTY
+  - Name: ChangingDiffWarning
+    Text: CHANGING DIFFICULTY WILL RESTART STAGE
+  - Name: Language
+    Text: LANGUAGE
+  - Name: LockScreenRotation
+    Text: LOCK SCREEN ROTATION
+  - Name: Music
+    Text: MUSIC
+  - Name: SoundEffects
+    Text: SOUND EFFECTS
+  - Name: ShowStageTimer
+    Text: SHOW LEVEL TIMER
+  - Name: DeleteSaveFile
+    Text: RESET GAME DATA
+  - Name: DeleteSaveWarning
+    Text: CHOOSING 'RESET' WILL DELETE YOUR GAME SAVE ON THIS DEVICE AND IN THE CLOUD
+  - Name: DeleteSaveWarning2
+    Text: "ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?\n\nTHIS CANNOT BE UNDONE"
+  - Name: Reset
+    Text: RESET
+  - Name: Cancel
+    Text: CANCEL
+  - Name: DeleteSaveDone
+    Text: GAME DATA RESET
+  - Name: ResetAchs
+    Text: RESET ACHIEVEMENTS?
+  - Name: Privacy
+    Text: PRIVACY
+  - Name: RewardedAds
+    Text: REWARDED ADS
+  - Name: CharSelectInfo
+    Text: "NOTE! ALL CHARACTERS HAVE THE SAME ABILITIES\n\nYOU DON'T HAVE TO UNBOX CHARACTERS TO BEAT THE GAME!\n\n"
+  - Name: Unbox
+    Text: UNBOX
+  - Name: UnboxAndRemoveAds
+    Text: "UNBOX + REMOVE POP-UP ADS\n<SIZE=75%>+ OPTION TO DISABLE REWARDED ADS"
+  - Name: UnboxSpecial1
+    Text: UNBOXING THIS CHARACTER WILL DOUBLE HOW MANY COINS YOU GET FROM FOES AND FROM REWARDED ADS
+  - Name: UnboxSpecial2
+    Text: UNBOXING THIS CHARACTER WILL HALVE THE COST OF ALL CHARACTERS THAT CAN BE UNBOXED WITH IN-GAME COINS
+  - Name: PurchaseFailed
+    Text: NO PURCHASE MADE
+  - Name: RemoveAds
+    Text: REMOVE   ADS!
+  - Name: RemoveAdsInfo
+    Text: "REMOVE ADS\n\nREMOVES POP-UP ADS AND ADDS OPTION TO DISABLE REWARDED ADS"
+  - Name: AdsRemoved
+    Text: "POP-UP ADS REMOVED!\n\nYOU CAN ALSO CHOOSE TO DISABLE OR ENABLE REWARDED ADS IN THE OPTIONS MENU<nobr> </nobr><sprite name=\"symbolOptions\">\n\nTHANKS FOR YOUR SUPPORT!!"
+  - Name: RestorePurchases
+    Text: RESTORE PURCHASES
+  - Name: Checking
+    Text: CHECKING...
+  - Name: RequestTimedOut
+    Text: REQUEST TIMED OUT
+  - Name: RestoreFailed
+    Text: UNABLE TO CONNECT TO STORE
+  - Name: RestoreFound
+    Text: RESTORE SUCCESSFUL!
+  - Name: RestoreNoneFound
+    Text: NO PREVIOUS PURCHASES FOUND
+  - Name: RestoreNoNew
+    Text: PREVIOUS PURCHASES ALREADY UNLOCKED
+  - Name: Collection
+    Text: 'COLLECTION:'
+  - Name: Random
+    Text: RANDOM
+  - Name: IncludeInRandom
+    Text: INCLUDE IN RANDOM
+  - Name: NotEnoughCoins
+    Text: NEED MORE COINS!
+  - Name: WatchAd
+    Text: PLAY AD TO GET ~X~
+  - Name: WatchAdAlt
+    Text: PLAY AD
+  - Name: WatchAdError
+    Text: ERROR PLAYING AD
+  - Name: AdSkipped
+    Text: AD DIDN’T FINISH
+  - Name: NotSignedIn
+    Text: NOT SIGNED IN
+  - Name: Credits
+    Text: CREDITS
+  - Name: SelectLevel
+    Text: "SELECT\nLEVEL"
+  - Name: TuteON
+    Text: TUTORIAL
+  - Name: Done(Exit)
+    Text: DONE
+  - Name: Close
+    Text: CLOSE
+  - Name: OK
+    Text: OK
+  - Name: CreditsLine1
+    Text: DESIGN, PROGRAMMING, GRAPHICS, SOUND & MUSIC
+  - Name: CreditsLine2
+    Text: EXECUTIVE PRODUCER
+  - Name: CreditsLine3
+    Text: ADDITIONAL 3D MODELS
+  - Name: CreditsLine4
+    Text: ADDITIONAL SOUND EFFECTS
+  - Name: CreditsLine5
+    Text: SPECIAL THANKS
+  - Name: CreditsLine6
+    Text: BIG THANKS TO THE TESTING CREW!
+  - Name: CreditsLine7
+    Text: TRANSLATIONS
+  - Name: Contact
+    Text: CONTACT
+  - Name: Off
+    Text: OFF
+  - Name: LevelXResult
+    Text: LEVEL<#64E4FF00><SIZE=140%> X </SIZE><#64E4FFFF>RESULT
+  - Name: Level
+    Text: LEVEL
+  - Name: Result
+    Text: RESULT
+  - Name: Paused
+    Text: PAUSED
+  - Name: Continue
+    Text: CONTINUE
+  - Name: Restart
+    Text: RESTART
+  - Name: Quit
+    Text: QUIT
+  - Name: QuitGame
+    Text: QUIT GAME?
+  - Name: HideMenu
+    Text: HIDE MENU
+  - Name: ShowMenu
+    Text: TAP SCREEN TO SHOW MENU
+  - Name: ShowMenu_Cont
+    Text: PRESS ANY BUTTON TO SHOW MENU
+  - Name: CombatTraining
+    Text: '- COMBAT TRAINING -'
+  - Name: Punch
+    Text: PUNCH
+  - Name: Kick
+    Text: KICK
+  - Name: Duck(Low)
+    Text: DUCK
+  - Name: PunchTip
+    Text: "TOUCH HERE TO DO A \n<#FFAEFFFE><SIZE=140%>PUNCH</SIZE><#FFFFFFFF> ATTACK"
+  - Name: KickTip
+    Text: "TOUCH HERE TO DO A \n<#FFAEFFFE><SIZE=140%>KICK</SIZE><#FFFFFFFF> ATTACK"
+  - Name: DuckTip
+    Text: "TOUCH HERE TO DO A \n<#FFAEFFFE><SIZE=140%>DUCK</SIZE><#FFFFFFFF> ATTACK"
+  - Name: SprintTip
+    Text: "WALKING IS AUTOMATIC\n\nTOUCH AND HOLD ANYWHERE TO <#FFAEFFFE><SIZE=140%>RUN</SIZE><#FFFFFFFF>"
+  - Name: SprintTipGamepad
+    Text: "WALKING IS AUTOMATIC\n\nHOLD ANY BUTTON TO <#FFAEFFFE><SIZE=140%>RUN</SIZE><#FFFFFFFF>"
+  - Name: SprintTouchTip
+    Text: "<#AEFFAEFF><SIZE=+1>TIP!</SIZE><#FFFFFFFF>\nYOU CAN DRAG YOUR TOUCH TO A DIFFERENT SPOT WHILE RUNNING WITHOUT BREAKING YOUR <#FFAEFFFE><SIZE=140%>RUN</SIZE><#FFFFFFFF>"
+  - Name: WalkTip
+    Text: "RUNNING IS AUTOMATIC\n\nTOUCH AND HOLD ANYWHERE TO <#FFAEFFFE><SIZE=140%>WALK</SIZE><#FFFFFFFF>"
+  - Name: WalkTipGamepad
+    Text: "RUNNING IS AUTOMATIC\n\nHOLD ANY BUTTON TO <#FFAEFFFE><SIZE=140%>WALK</SIZE><#FFFFFFFF>"
+  - Name: PunchBeatsKick
+    Text: '<#75EDFFFF><SIZE=125%>PUNCH <SIZE=100%> <#E0B9FFFF>BEATS <#81B7F6FF><SIZE=125%> KICK'
+  - Name: KickBeatsDuck
+    Text: '<#75EDFFFF><SIZE=125%>KICK <SIZE=100%> <#E0B9FFFF>BEATS <#81B7F6FF><SIZE=125%> DUCK'
+  - Name: DuckBeatsPunch
+    Text: '<#75EDFFFF><SIZE=125%>DUCK <SIZE=100%> <#E0B9FFFF>BEATS <#81B7F6FF><SIZE=125%> PUNCH'
+  - Name: PunchAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>PUNCH </SIZE><#FFFFFFFF>ATTACK LEFT'
+  - Name: KickAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>KICK </SIZE><#FFFFFFFF>ATTACK LEFT'
+  - Name: DuckAttackLeft
+    Text: '<#75EDFFFF><SIZE=125%>DUCK </SIZE><#FFFFFFFF>ATTACK LEFT'
+  - Name: PunchAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>PUNCH </SIZE><#FFFFFFFF>ATTACK RIGHT'
+  - Name: KickAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>KICK </SIZE><#FFFFFFFF>ATTACK RIGHT'
+  - Name: DuckAttackRight
+    Text: '<#75EDFFFF><SIZE=125%>DUCK </SIZE><#FFFFFFFF>ATTACK RIGHT'
+  - Name: ScoreNumTip
+    Text: THIS NUMBER SHOWS YOUR SCORE FOR THE CURRENT LEVEL
+  - Name: ScoreMultiTip
+    Text: "THIS COUNTER SHOWS HOW MANY\nPOINTS YOU GET FOR BEATING FOES\n\nINCREASE THE COUNTER BY\nHITTING FOES OR RUNNING\n\nOTHERWISE THE COUNTER WILL\nSLOWLY FALL BACK TO 1"
+  - Name: ScoreHeartTip
+    Text: "THE HEART GIVES YOU A SECOND CHANCE\n\nIT IS USED WHEN YOU ARE KNOCKED DOWN\nBUT YOU CAN EARN IT AGAIN IF\nYOU DEFEAT ENOUGH FOES"
+  - Name: ScoreCoinsTip
+    Text: "SOMETIMES FOES DROP COINS\n\nYOUR TOTAL COINS ARE SHOWN HERE"
+  - Name: ScoreOptionsTip
+    Text: "TIP!\n\nYOU CAN CHANGE THE <COLOR=#FFFF33FF><SIZE=115%>DIFFICULTY</SIZE></COLOR>\nAND ADJUST THE TOUCH CONTROLS\nIN THE <COLOR=#77FF99FF><SIZE=115%>OPTIONS MENU</SIZE></COLOR><nobr> </nobr><sprite name=\"symbolOptions\">"
+  - Name: LSandPTip
+    Text: PLAYABLE IN LANDSCAPE AND PORTRAIT
+  - Name: Next
+    Text: NEXT >
+  - Name: DemoPlay
+    Text: '- DEMO PLAY -'
+  - Name: TapToExit
+    Text: TAP TO EXIT
+  - Name: PressAnyButtonToExit
+    Text: PRESS ANY BUTTON TO EXIT
+  - Name: BewareTheBear
+    Text: BEWARE THE BEAR!!
+  - Name: NewScore
+    Text: NEW SCORE
+  - Name: BestScore
+    Text: BEST SCORE
+  - Name: NewBest
+    Text: NEW BEST!
+  - Name: AllStagesTotal
+    Text: ALL LEVELS TOTAL
+  - Name: AllStagesNewTotal
+    Text: ALL LEVELS NEW TOTAL
+  - Name: TotalScore
+    Text: TOTAL SCORE
+  - Name: NewTotal
+    Text: NEW TOTAL!!
+  - Name: FinalScore
+    Text: FINAL SCORE
+  - Name: StageTime
+    Text: LEVEL TIME
+  - Name: BestTime
+    Text: BEST TIME
+  - Name: NewBestTime
+    Text: NEW BEST TIME
+  - Name: EnemiesOutrun
+    Text: '> FOES OUTRUN'
+  - Name: OutrunBonus
+    Text: + OUTRUN BONUS
+  - Name: HeartBonus
+    Text: + HEART BONUS
+  - Name: PlayStageAgain
+    Text: PLAY LEVEL AGAIN
+  - Name: Share
+    Text: SHARE
+  - Name: RateThisGame
+    Text: RATE   THIS   GAME
+  - Name: Rate
+    Text: RATE!
+  - Name: IScoredXOnStageY
+    Text: I SCORED ~X~ ON LEVEL ~Y~!
+  - Name: IDefeatedBaron
+    Text: I DEFEATED BARON TIGRISSO!
+  - Name: FinalBattle
+    Text: FINAL BATTLE
+  - Name: Revive
+    Text: REVIVE
+  - Name: Skip
+    Text: SKIP
+  - Name: Tip
+    Text: '- TIP -'
+  - Name: TryAgain
+    Text: TRY AGAIN
+  - Name: TryAgainQ
+    Text: TRY AGAIN?
+  - Name: Victory
+    Text: VICTORY!!
+  - Name: VictoryLine2
+    Text: YOU HAVE DEFEATED BARON TIGRISSO
+  - Name: WellDone
+    Text: WELL DONE!!
+  - Name: KnockDownDoor
+    Text: I NEED TO GET PAST THIS DOOR
+  - Name: LetsGetOutOfHere
+    Text: LET'S GET OUT OF HERE
+  - Name: UhOh
+    Text: UH OH
+  - Name: Bam!
+    Text: BAM!
+  - Name: Yes!
+    Text: YES!
+  - Name: MoreTrouble
+    Text: MORE TROUBLE!
+  - Name: AnotherCustomer
+    Text: ANOTHER CUSTOMER
+  - Name: SeeYouLater
+    Text: SEE YOU LATER!
+  - Name: GoodNight
+    Text: GOOD NIGHT!
+  - Name: OneHit
+    Text: ONE HIT!
+  - Name: GettingTheHangOfThis
+    Text: "I'M GETTING THE\nHANG OF THIS!"
+  - Name: ThinkIGetIt
+    Text: "OK, I THINK\nI GET IT"
+  - Name: ImStrongerThanILook
+    Text: "I'M STRONGER\nTHAN I LOOK!"
+  - Name: Hmm
+    Text: HMM...
+  - Name: NeitherOfUsWon
+    Text: "NEITHER OF\nUS WON THAT"
+  - Name: ThatWasADraw
+    Text: THAT WAS A DRAW
+  - Name: AnotherDraw
+    Text: ANOTHER DRAW
+  - Name: ShouldFightBack
+    Text: "I SHOULD\nFIGHT BACK"
+  - Name: Ow
+    Text: OW!!
+  - Name: Nope
+    Text: NOPE
+  - Name: ThatDidntWork
+    Text: THAT DIDN'T WORK
+  - Name: WhatABully
+    Text: WHAT A BULLY!
+  - Name: PretendThatDidntHappen
+    Text: "PRETEND THAT\nDIDN'T HAPPEN"
+  - Name: WrongMove
+    Text: WRONG MOVE
+  - Name: NeedToBeCloser
+    Text: "RIGHT MOVE, BUT I\nNEED TO BE CLOSER"
+  - Name: WouldHaveWorkedIfCloser
+    Text: "WOULD HAVE WORKED\nIF I WAS CLOSER"
+  - Name: PunchVsDuck
+    Text: "THAT <#9977FFFE>DUCK<#000000FF> ATTACK\nBEATS MY <#9977FFFE>PUNCH<#000000FF>"
+  - Name: KickVsPunch
+    Text: "I THINK A <#9977FFFE>DUCK<#000000FF> ATTACK\nIS THE ANSWER HERE"
+  - Name: DuckVsKick
+    Text: "THAT <#9977FFFE>KICK<#000000FF>\nBEATS MY <#9977FFFE>DUCK<#000000FF> ATTACK"
+  - Name: LetsGetSerious
+    Text: OK, LET'S GET SERIOUS!
+  - Name: EnoughTraining
+    Text: "OK, ENOUGH TRAINING\nLET'S TRY THIS LEVEL FOR REAL!"
+  - Name: GuessIShouldHurry
+    Text: I GUESS I SHOULD HURRY
+  - Name: BetterKeepMoving
+    Text: BETTER KEEP MOVING!
+  - Name: IdBetterHurry
+    Text: I'D BETTER HURRY!
+  - Name: IdBetterRun
+    Text: I'D BETTER RUN!
+  - Name: GoingToHaveToRun
+    Text: GOING TO HAVE TO RUN!!
+  - Name: NotMuchTime
+    Text: NOT MUCH TIME!!!
+  - Name: LetsGo
+    Text: LET'S GO!
+  - Name: OKImGoing
+    Text: OK OK, I'M GOING
+  - Name: ThatWasEasy
+    Text: WELL THAT WAS EASY!
+  - Name: ThatWasntTooHard
+    Text: "THAT WASN'T\nTOO HARD"
+  - Name: ThatWasClose
+    Text: THAT WAS CLOSE!
+  - Name: TooSlowShaggy
+    Text: TOO SLOW, SHAGGY!
+  - Name: HowInconsiderate
+    Text: HOW INCONSIDERATE
+  - Name: goHint_bottleTip1
+    Text: "TIP! IF I'M CAUGHT BETWEEN A FOE AND A BOTTLE,\nI SHOULD TRY TO DEAL WITH THE BOTTLE FIRST"
+  - Name: goHint_bottleTip2
+    Text: "TIP! IF I HAVE TO CHOOSE BETWEEN\nATTACKING A FOE OR DEALING WITH A BOTTLE,\nI SHOULD CHOOSE THE BOTTLE FIRST"
+  - Name: goHint_shouldHaveHitCart
+    Text: "TIP! IF I HAVE TO CHOOSE BETWEEN\nHITTING A FOE OR HITTING A CART,\nI'D BETTER HIT THE CART FIRST"
+  - Name: goHint_foxTip1
+    Text: "THOSE FOXES LIKE PUNCHING AND KICKING!\nI'D BETTER WATCH HOW THEY APPROACH ME"
+  - Name: goHint_tapLeftToAttackLeft
+    Text: "TIP! TAP ON THE LEFT SIDE OF THE SCREEN\nTO ATTACK TO THE LEFT"
+  - Name: goHint_tapRightToAttackRight
+    Text: "TIP! TAP ON THE RIGHT SIDE OF THE SCREEN\nTO ATTACK TO THE RIGHT"
+  - Name: goHint_tigerTip1
+    Text: "THIS TIGER IS SKILLED AT\n<#CC99FFFF>MID<#000000FF>, <#9988FFFF>LOW<#000000FF>, AND <#66BB88FF>HIGH<#000000FF> ATTACKS...\nLUCKY I'M GOOD AT\n<#CC99FFFF>PUNCHING<#000000FF>, <#9988FFFF>KICKING<#000000FF>, AND <#66BB88FF>DUCKING!! \n"
+  - Name: goHint_run
+    Text: "TIP! YOU CAN RUN BY KEEPING YOUR\nTOUCH HELD DOWN AFTER DOING AN ATTACK"
+  - Name: goHint_runCont
+    Text: "TIP! YOU CAN QUICKLY START RUNNING BY KEEPING\nTHE BUTTON HELD DOWN AFTER DOING AN ATTACK"
+  - Name: uCongratsDiff1
+    Text: "WELL DONE!\nYOU HAVE BEATEN ALL LEVELS\nON DIFFICULTY LEVEL 1\n"
+  - Name: uCongratsDiff2
+    Text: "AMAZING!!\nYOU HAVE BEATEN ALL LEVELS\nON DIFFICULTY LEVEL 2\n"
+  - Name: uCongratsDiff3
+    Text: "INCREDIBLE!!\nYOU HAVE BEATEN ALL LEVELS\nON DIFFICULTY LEVEL 3\n"
+  - Name: ub1
+    Text: "THANK YOU FOR UNBOXING ME!!\nMY BUSINESS SKILLS MEANS YOU WILL NOW GET TWICE\nAS MANY COINS FROM FOES AND REWARDED ADS!"
+  - Name: ub2
+    Text: "THANK YOU FOR UNBOXING ME!!\nMY BARGAINING SKILLS MEANS THE NUMBER OF COINS\nNEEDED TO UNBOX CHARACTERS HAS NOW BEEN HALVED!"
+  - Name: KnockKnock
+    Text: KNOCK KNOCK
+  - Name: You!
+    Text: YOU!!
+  - Name: Hello
+    Text: HELLO...
+  - Name: zzBoss
+    Text: BOSS!
+  - Name: zzBrother
+    Text: BROTHER!!
+  - Name: zzCousin
+    Text: COUSIN!
+  - Name: zzFormerBusinessPartner
+    Text: FORMER BUSINESS PARTNER!
+  - Name: zzIDontKnow
+    Text: I DON'T KNOW WHAT'S GOING ON!
+  - Name: zzLongtimeNemesis
+    Text: LONGTIME NEMESIS!
+  - Name: zzMyMaker
+    Text: MY MAKER!
+  - Name: zzMyOldStudent
+    Text: MY OLD STUDENT!
+  - Name: zzOldFriend
+    Text: OLD FRIEND!
+  - Name: zzSpecimen
+    Text: SPECIMEN 248
+  - Name: zzThief
+    Text: THIEF!
+  - Name: zzUncle
+    Text: UNCLE!
+  - Name: zzUsurper
+    Text: USURPER!
+  - Name: zzWhoeverYouAre
+    Text: WHOEVER YOU ARE
+  - Name: zzInsuranceNeeds
+    Text: "I'D LIKE TO TALK TO YOU ABOUT\nYOUR INSURANCE NEEDS"
+  - Name: zzComplain
+    Text: "I WANT TO FILE A COMPLAINT\nABOUT THE LAYOUT OF THIS PLACE"
+  - Name: zzLostCar
+    Text: "ACTUALLY, I’M JUST TRYING TO FIND\nWHERE I LEFT MY CAR"
+  - Name: zzTrendJoiner
+    Text: "I HEARD EVERYONE’S BEEN FIGHTING YOU,\nSO I THOUGHT… SURE, WHY NOT?"
+  - Name: zzTigerTamer
+    Text: THEY CALL ME THE TIGER TAMER!
+  - Name: zzTeachManners
+    Text: I’M HERE TO TEACH YOU SOME MANNERS
+  - Name: zzPJs
+    Text: "IT’S THREE IN THE AFTERNOON AND\nYOU’RE STILL IN YOUR PAJAMAS?"
+  - Name: zzTenBucks
+    Text: I’M HERE FOR THE TEN BUCKS YOU OWE ME
+  - Name: zzBetterDoors
+    Text: "YOU REALLY NEED\nBETTER DOORS IN THIS PLACE"
+  - Name: zzTorchOut
+    Text: "JUST WANTED TO LET YOU KNOW\nTHAT ONE OF THE TORCHES\nIN THE DUNGEON HAS GONE OUT"

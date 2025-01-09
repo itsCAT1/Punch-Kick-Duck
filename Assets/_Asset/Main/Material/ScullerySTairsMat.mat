@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ScullerySTairsMat
+  m_Shader: {fileID: 4800000, guid: b267204f03d016d419b92b2fefe1112b, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _BackLightLimitForFrontFaces: 1
+      _Gradient2End: 0.7
+      _Gradient2Start: 4
+      _GradientBackLightCut: 1
+      _GradientEnd: 10
+      _GradientLightCut: 1
+      _GradientShadowCut: 0.5
+      _GradientStart: 6.5
+    m_Colors:
+      _BackLightCol: {r: 0.85, g: 0.8, b: 0.25, a: 1}
+      _BackLightDir: {r: -0.793371, g: 0.4094818, b: -0.45043, a: 1}
+      _BackLightPos: {r: 200, g: 28.5, b: 0, a: 0.3}
+      _DiffuseBaseCol: {r: 0.6132076, g: 0.5568964, b: 0.43676576, a: 0}
+      _Gradient2SubColor: {r: -0.6, g: -0.55, b: -0.35, a: 0.55}
+      _GradientSubColor: {r: -0.6, g: -0.55, b: -0.35, a: 0.9}
+      _MainLightCol: {r: 0.45, g: 0.4, b: 0.35, a: 0}
+      _MainLightDir: {r: 0.5, g: 0.766, b: -0.4, a: 0.7}
+      _ShadowSub: {r: -0.4, g: -0.3, b: 0, a: 0}
+  m_BuildTextureStacks: []

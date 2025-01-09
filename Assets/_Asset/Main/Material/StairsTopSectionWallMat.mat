@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StairsTopSectionWallMat
+  m_Shader: {fileID: 4800000, guid: da9a7ad90bd76af4dae5c0d8682bbe95, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9f39d3dead5ac8c47a67cd4b8f608bf3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadTex:
+        m_Texture: {fileID: 2800000, guid: 5caf034b34c4e0d4991fcf9bee71754e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: {}
+    m_Colors:
+      _AmbCol: {r: 0.20950516, g: 0.20950516, b: 0.41509432, a: 0}
+      _AmbPosAndScale: {r: -20, g: 5.08, b: 0.17, a: 0.075}
+      _DiffuseBaseTint: {r: 0.4465112, g: 0.4896506, b: 0.5471698, a: 0}
+      _ShadPosAndScale: {r: -20, g: 4.75, b: 0.15, a: 0.06}
+  m_BuildTextureStacks: []

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: QuartersLevelFloor
+  m_Shader: {fileID: 4800000, guid: 30463e6107950c24a8e3b06a7af64b22, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _SurfaceTex:
+        m_Texture: {fileID: 2800000, guid: cc6161751db7c254eb5473500339ab8f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _EdgeDarkening: 0.1
+    m_Colors:
+      _AddColB: {r: 0.21698111, g: 0.1985582, b: 0.1709238, a: 1}
+      _AddColT: {r: 0, g: 0, b: 0, a: 1}
+      _AmbientB: {r: 0.6792453, g: 0.54505855, b: 0.22748311, a: 1}
+      _AmbientT: {r: 0.38039216, g: 0.4627451, b: 0.6117647, a: 1}
+      _BackLightCol: {r: 1, g: 0.8, b: 0.5, a: 1.5}
+      _BackLightPos: {r: 0, g: 5, b: -3, a: 2}
+      _MetalMult: {r: 1, g: 0, b: 0, a: 0}
+      _RefTexAdj: {r: 1.9074585, g: 0.5242578, b: 0.8333334, a: 0.5172223}
+      _Reflectivity: {r: 1, g: 0.25, b: 0.2, a: 0.1}
+  m_BuildTextureStacks: []

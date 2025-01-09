@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EyePolecat
+  m_Shader: {fileID: 4800000, guid: 059687d623d19a145a57556892d5eeb7, type: 3}
+  m_ShaderKeywords:
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3082
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: d7539c8e50cf4c04f9ba6b55527a7898, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: -0.43, y: -0.06}
+    m_Floats:
+      _LidEdgeBlur: 15
+    m_Colors:
+      _DiffuseBaseCol: {r: 0.99215686, g: 0.9607843, b: 0.9411765, a: 1}
+      _LidThickness: {r: 0.3, g: 0.2, b: 0.2, a: 0}
+      _Lids: {r: 0.4, g: 0.45, b: 0.3, a: 0.4}
+      _LowerLidTint: {r: 0.6, g: 0.41960788, b: 0.43921572, a: 1}
+      _PupilOffsetAndSize: {r: 0.05, g: 0, b: 0.7, a: 0}
+      _UpperLidTint: {r: 0.3962264, g: 0.26352793, b: 0.3033375, a: 1}
+  m_BuildTextureStacks: []
