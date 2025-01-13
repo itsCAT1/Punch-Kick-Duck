@@ -17,11 +17,25 @@ public class SpawnManager : MonoBehaviour
     {
         while (true)
         {
-            //Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
-            LeanPool.Spawn(enemiesPrefab[Random.Range(0, enemiesPrefab.Length)]);
+            Instantiate(enemiesPrefab[Random.Range(0, enemiesPrefab.Length)], this.transform.position, Quaternion.identity);
+            //LeanPool.Spawn(enemiesPrefab[Random.Range(0, enemiesPrefab.Length)]);
 
             yield return new WaitForSeconds(durationSpawn);
         }
-        
+    }
+
+    public void SpawnPunch()
+    {
+        Instantiate(enemiesPrefab[0], this.transform.position, Quaternion.identity);
+    }
+
+    public void SpawnKick()
+    {
+        Instantiate(enemiesPrefab[1], this.transform.position, Quaternion.identity);
+    }
+
+    public void SpawnDuck()
+    {
+        Instantiate(enemiesPrefab[2], this.transform.position, Quaternion.identity);
     }
 }

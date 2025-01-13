@@ -16,6 +16,7 @@ public class KickState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
+        Debug.Log("Kick");
         Player.Instance.controller.moveSpeed = 0;
         Player.Instance.controller.animator.Play("Kick");
         timeStart = Time.time;

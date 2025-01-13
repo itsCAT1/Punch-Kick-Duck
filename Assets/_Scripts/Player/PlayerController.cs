@@ -15,26 +15,16 @@ public class PlayerController : MonoBehaviour
     
     public float inputHorizontal;
     public FSMC_Executer executer;
+
     
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        FlipCharacter();
     }
 
     private void FixedUpdate()
     {
         PerformMove();
-    }
-
-    void FlipCharacter()
-    {
-        body.transform.localScale = new Vector3(1, 1, facingDirection);
     }
 
     void PerformMove()
@@ -46,5 +36,15 @@ public class PlayerController : MonoBehaviour
     public void ChangeDirection(int direction)
     {
         facingDirection = direction;
+    }
+
+    private void Update()
+    {
+        FlipCharacter();
+    }
+
+    void FlipCharacter()
+    {
+        Player.Instance.transform.localScale = new Vector3(1, 1, facingDirection);
     }
 }

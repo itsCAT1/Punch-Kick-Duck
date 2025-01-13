@@ -32,8 +32,6 @@ public class OnAttack : MonoBehaviour
 
     public void DealDamage(AttackType type)
     {
-        if (!canDealDamage) return;
-
         AttackMapper attack = attackList.Find(at => at.attackType == type);
         
         if (attack == null) return;
@@ -42,21 +40,8 @@ public class OnAttack : MonoBehaviour
 
         if(hitInfo.collider != null)
         {
-            //Debug.Log(attack.attackType);
-            
             CombatManager.Instance.ResolveCombat(attack, hitInfo);
-            canDealDamage = false;
         }
-    }
-
-    public void EnableDamage()
-    {
-        canDealDamage = true;
-    }
-
-    public void DisableDamage()
-    {
-        canDealDamage = false;
     }
 
     private void OnDrawGizmosSelected()

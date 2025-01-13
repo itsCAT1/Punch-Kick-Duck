@@ -14,22 +14,30 @@ public class CombatManager : Singleton<CombatManager>
         Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
 
 
-        if (playerAttackType.attackType == enemyAttackType)
+        if (playerAttackType.attackType == enemyAttackType && canBlock)
         {
-            if (canBlock)
+            animatorEnemy?.Play("Block");
+
+            if (playerAttackType.attackType == AttackType.Punch)
             {
-                StartCoroutine("OnBlocked");
-                Debug.Log("Block");
+                Player.Instance.controller.animator.Play("BlockPunch");
             }
+
+            else if (playerAttackType.attackType == AttackType.Kick)
+            {
+                Player.Instance.controller.animator.Play("BlockKick");
+            }
+
+            else if (playerAttackType.attackType == AttackType.Duck)
+            {
+                Player.Instance.controller.animator.Play("BlockDuck");
+            }
+
+            StartCoroutine("OnBlocked");
         }
-        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
-                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
-                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
-        {
-            //Player.Instance.controller.animator?.Play("Hurt");
-            Debug.Log("Player attacked");
-        }
-        else
+        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Duck) ||
+                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Punch) ||
+                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Kick))
         {
             animatorEnemy?.Play("Hurt");
             Debug.Log("Enemy attacked");
@@ -41,5 +49,6 @@ public class CombatManager : Singleton<CombatManager>
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(1);
         Time.timeScale = 1;
+        canBlock = false;
     }
 }

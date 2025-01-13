@@ -17,16 +17,11 @@ public class DeactiveButton : MonoBehaviour
 
     private void TurnOffButton(IUEventData uEventData)
     {
-        
-
         StartCoroutine(TimeWaitForPress());
-
-        
     }
 
     IEnumerator TimeWaitForPress()
     {
-        Debug.Log("deactive");
         foreach (Button button in buttons)
         {
             button.interactable = false;
@@ -34,7 +29,6 @@ public class DeactiveButton : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
-        Debug.Log("active");
         foreach (Button button in buttons)
         {
             button.interactable = true;
