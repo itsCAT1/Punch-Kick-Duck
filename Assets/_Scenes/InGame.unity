@@ -3621,6 +3621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495b6ac6c49555d4bb8ce5643ec47ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigid: {fileID: 0}
   animator: {fileID: 3212140828574962338}
   body: {fileID: 5141667651439388974}
   moveSpeed: 2
@@ -4734,6 +4735,7 @@ GameObject:
   - component: {fileID: 5141667651439388974}
   - component: {fileID: 3212140828574962338}
   - component: {fileID: 8630530392717870157}
+  - component: {fileID: 8630530392717870158}
   m_Layer: 6
   m_Name: Dog
   m_TagString: Untagged
@@ -4766,6 +4768,19 @@ MonoBehaviour:
   isBlocking: 0
   sizeHit: 2
   ray: {fileID: 2370400524612375801}
+--- !u!114 &8630530392717870158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630530392717870156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879b3672edb3c1f46bddbe3769e9bf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePush: 2
 --- !u!222 &8753272930728043786
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CombatManager : Singleton<CombatManager>
@@ -13,34 +14,39 @@ public class CombatManager : Singleton<CombatManager>
 
         Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
 
-
         if (playerAttackType.attackType == enemyAttackType && canBlock)
         {
             animatorEnemy?.Play("Block");
 
-            if (playerAttackType.attackType == AttackType.Punch)
-            {
-                Player.Instance.controller.animator.Play("BlockPunch");
-            }
-
-            else if (playerAttackType.attackType == AttackType.Kick)
-            {
-                Player.Instance.controller.animator.Play("BlockKick");
-            }
-
-            else if (playerAttackType.attackType == AttackType.Duck)
-            {
-                Player.Instance.controller.animator.Play("BlockDuck");
-            }
-
-            StartCoroutine("OnBlocked");
+            BlockDamage(playerAttackType);
+            canBlock = false;
+            //StartCoroutine("OnBlocked");
         }
+
         else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Duck) ||
                  (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Punch) ||
                  (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Kick))
         {
             animatorEnemy?.Play("Hurt");
             Debug.Log("Enemy attacked");
+        }
+    }
+
+    void BlockDamage(AttackMapper playerAttackType)
+    {
+        if (playerAttackType.attackType == AttackType.Punch)
+        {
+            Player.Instance.controller.animator.Play("BlockPunch");
+        }
+
+        else if (playerAttackType.attackType == AttackType.Kick)
+        {
+            Player.Instance.controller.animator.Play("BlockKick");
+        }
+
+        else if (playerAttackType.attackType == AttackType.Duck)
+        {
+            Player.Instance.controller.animator.Play("BlockDuck");
         }
     }
 

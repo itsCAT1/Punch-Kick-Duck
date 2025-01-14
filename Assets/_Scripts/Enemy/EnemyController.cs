@@ -35,19 +35,16 @@ public class EnemyController : MonoBehaviour
         {
             if (hitInfor.collider.CompareTag("Player"))
             {
-                Debug.Log("detect player");
                 Standing();
                 enemyAttack.PerformAttack();
             }
             else if (hitInfor.collider.CompareTag("Enemy"))
             {
-                Debug.Log("detect enemy");
                 Standing();
             }
         }
         else
         {
-            Debug.Log("no detect");
             this.rigid.isKinematic = false;
             PerformMove();
         }

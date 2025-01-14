@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rigid;
+    public Rigidbody rigid;
     public Animator animator;
 
     public Transform body;
