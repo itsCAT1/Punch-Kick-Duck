@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyTakedowned : MonoBehaviour
 {
+    public float forcePush = 2;
     Rigidbody rb;
 
     private void Start()
@@ -11,25 +12,36 @@ public class EnemyTakedowned : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Die()
+    public void IsRepelledEnemy()
     {
-        rb.AddForce(this.transform.position * 3, ForceMode.Impulse);
+        Vector3 startPos = this.transform.position;
+        Vector3 endPos = startPos - new Vector3(2 * this.transform.forward.x, -1f, 1);
 
-        rb.AddTorque(new Vector3(Random.Range(0, 90), 0, 0));
+        StartCoroutine(AddForceCoroutineEnemy(startPos, endPos));
+    }
 
-        GetComponent<Collider>().enabled = false;
 
-        Destroy(gameObject, 2f);
+    IEnumerator AddForceCoroutineEnemy(Vector3 startPos, Vector3 endPos)
+    {
+        float count = 0;
+        float duration = 1;
+
+        while (count < duration)
+        {
+            this.transform.position = Vector3.Slerp(startPos, endPos, count * 2 / duration);
+
+            count += Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("die");
-            rb.AddForce(this.transform.position * 300, ForceMode.Impulse);
-
-            rb.AddTorque(new Vector3(Random.Range(0, 90), 0, 0));
+            Vector3 startPos = this.transform.position;
+            Vector3 endPos = startPos - new Vector3(2 * this.transform.forward.x, -1f, 1);
+            rb.AddForceAtPosition(this.transform.position, endPos, ForceMode.Impulse);
         }
     }
 }

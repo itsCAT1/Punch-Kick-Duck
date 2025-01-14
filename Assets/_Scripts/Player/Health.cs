@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     Rigidbody rb;
+    public EnemyTakedowned enemyTakedowned;
 
     public int currentHealth;
     public int maxHealth;
@@ -32,9 +33,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        rb.AddForce(this.transform.position * 3, ForceMode.Impulse);
-
-        rb.AddTorque(new Vector3(Random.Range(0, 90), 0, 0));
+        enemyTakedowned.IsRepelledEnemy();
 
         GetComponent<Collider>().enabled = false;
 
