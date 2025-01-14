@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 5804666621781901584}
   - component: {fileID: 5255657716002093360}
   - component: {fileID: 4262873628409728966}
+  - component: {fileID: 2349795868859149109}
   m_Layer: 7
   m_Name: Cat
   m_TagString: Enemy
@@ -618,6 +619,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcePush: 2
+--- !u!114 &2349795868859149109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326386334186138647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 1
 --- !u!1 &4663519807555698418
 GameObject:
   m_ObjectHideFlags: 0

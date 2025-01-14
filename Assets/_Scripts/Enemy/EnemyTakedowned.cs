@@ -1,33 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class EnemyTakedowned : MonoBehaviour
 {
     Rigidbody rb;
-
-    public int currentHealth;
-    public int maxHealth;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentHealth = maxHealth;
-    }
-
-    bool isDead => currentHealth <= 0;
-
-    public void TakeDamage()
-    {
-        if(isDead) return;
-
-        currentHealth--;
-
-        if (isDead)
-        {
-            Die();
-        }
     }
 
     public void Die()
@@ -39,5 +20,16 @@ public class Health : MonoBehaviour
         GetComponent<Collider>().enabled = false;
 
         Destroy(gameObject, 2f);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("die");
+            rb.AddForce(this.transform.position * 300, ForceMode.Impulse);
+
+            rb.AddTorque(new Vector3(Random.Range(0, 90), 0, 0));
+        }
     }
 }
