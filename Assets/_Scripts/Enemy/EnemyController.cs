@@ -6,19 +6,19 @@ public class EnemyController : MonoBehaviour
 {
     Rigidbody rigid;
     public Animator animator;
-    CharacterController characterController;
     EnemyAttack enemyAttack;
 
-    public float moveSpeed;
+    
     public Transform rayDetect;
     public LayerMask characterLayer;
     public float sizeDetect;
+
+    public EnemyMovement enemyMovement;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
         enemyAttack = GetComponent<EnemyAttack>();
     }
 
@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
         {
             if (hitInfor.collider.CompareTag("Player"))
             {
+                enemyMovement.enabled = false;
                 Standing();
                 enemyAttack.PerformAttack();
             }
@@ -46,7 +47,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             this.rigid.isKinematic = false;
-            PerformMove();
+            enemyMovement.enabled = true;
         }
     }
 
@@ -56,16 +57,7 @@ public class EnemyController : MonoBehaviour
         this.rigid.isKinematic = true;
     }
 
-    void PerformMove()
-    {
-        var direction = (Player.Instance.transform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
-
-        this.rigid.velocity = new Vector3(direction.x * moveSpeed, direction.y, direction.z);
-        //characterController.Move(direction * moveSpeed * Time.deltaTime);
-
-        animator.SetBool("Walking", true);
-    }
+    
 
     private void OnDrawGizmosSelected()
     {

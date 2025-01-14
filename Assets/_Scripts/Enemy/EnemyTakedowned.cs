@@ -1,10 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTakedowned : MonoBehaviour
 {
-    public float forcePush = 2;
+    public EnemyController controller;
+    public EnemyMovement movement;
+    public float forcePush = 4;
     Rigidbody rb;
 
     private void Start()
@@ -14,34 +16,12 @@ public class EnemyTakedowned : MonoBehaviour
 
     public void IsRepelledEnemy()
     {
-        Vector3 startPos = this.transform.position;
-        Vector3 endPos = startPos - new Vector3(2 * this.transform.forward.x, -1f, 1);
+        rb.isKinematic = false;
+        movement.enabled = false;
+        controller.enabled = false;
 
-        StartCoroutine(AddForceCoroutineEnemy(startPos, endPos));
-    }
+        Vector3 endPos = (this.transform.position - new Vector3(this.transform.forward.x, -5f, 3)).normalized;
 
-
-    IEnumerator AddForceCoroutineEnemy(Vector3 startPos, Vector3 endPos)
-    {
-        float count = 0;
-        float duration = 1;
-
-        while (count < duration)
-        {
-            this.transform.position = Vector3.Slerp(startPos, endPos, count * 2 / duration);
-
-            count += Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Vector3 startPos = this.transform.position;
-            Vector3 endPos = startPos - new Vector3(2 * this.transform.forward.x, -1f, 1);
-            rb.AddForceAtPosition(this.transform.position, endPos, ForceMode.Impulse);
-        }
+        rb.AddForce(endPos * forcePush, ForceMode.Impulse);
     }
 }

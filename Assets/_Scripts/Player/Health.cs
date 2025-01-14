@@ -34,8 +34,7 @@ public class Health : MonoBehaviour
     public void Die()
     {
         enemyTakedowned.IsRepelledEnemy();
-
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
 
         Destroy(gameObject, 2f);
     }

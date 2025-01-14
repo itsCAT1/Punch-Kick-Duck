@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1178,7 +1178,6 @@ GameObject:
   - component: {fileID: 1111588805859837892}
   - component: {fileID: 5879145143822733890}
   - component: {fileID: 4313969236064806860}
-  - component: {fileID: 6437859433184634696}
   m_Layer: 6
   m_Name: PlayerDog
   m_TagString: Player
@@ -1994,7 +1993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881627220435116658, guid: ed6b8f8d5c150ac49b9d1f701f719374, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3881627220435116658, guid: ed6b8f8d5c150ac49b9d1f701f719374, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3898,19 +3897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5879145143822733890}
   performAttack: {fileID: 1111588805859837892}
---- !u!114 &6437859433184634696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131593769678963419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forcePush: 2
 --- !u!222 &6461670577867202317
 CanvasRenderer:
   m_ObjectHideFlags: 0
