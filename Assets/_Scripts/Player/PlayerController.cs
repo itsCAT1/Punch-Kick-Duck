@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void PerformMove()
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
-        this.rigid.velocity = new Vector3(moveSpeed * rigid.velocity.x, rigid.velocity.y, rigid.velocity.z);
+        
     }
 
     public void ChangeDirection(int direction)

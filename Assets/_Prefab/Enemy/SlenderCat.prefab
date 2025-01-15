@@ -619,7 +619,11 @@ GameObject:
   - component: {fileID: 4531554194097693354}
   - component: {fileID: 6391838851905701491}
   - component: {fileID: 2387551223463310604}
+  - component: {fileID: 6277425997333601981}
   - component: {fileID: 7432894196181852586}
+  - component: {fileID: 2909244105330192760}
+  - component: {fileID: 4674380069482968787}
+  - component: {fileID: 2894983191283481274}
   m_Layer: 7
   m_Name: SlenderCat
   m_TagString: Enemy
@@ -730,12 +734,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  moveSpeed: 2
   rayDetect: {fileID: 8085820330303206342}
   characterLayer:
     serializedVersion: 2
     m_Bits: 192
   sizeDetect: 1.5
+  enemyMovement: {fileID: 6277425997333601981}
 --- !u!114 &2387551223463310604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +754,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   timeCoolDown: 2
+--- !u!114 &6277425997333601981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  moveSpeed: 1
 --- !u!114 &7432894196181852586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,6 +781,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 0
+--- !u!114 &2909244105330192760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879b3672edb3c1f46bddbe3769e9bf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePush: 2
+--- !u!114 &4674380069482968787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 6391838851905701491}
+  movement: {fileID: 6277425997333601981}
+  forcePush: 10
+--- !u!114 &2894983191283481274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTakedowned: {fileID: 4674380069482968787}
+  currentHealth: 0
+  maxHealth: 1
 --- !u!1 &5844047975152352360
 GameObject:
   m_ObjectHideFlags: 0

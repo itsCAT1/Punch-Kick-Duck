@@ -24,9 +24,9 @@ public class CombatManager : Singleton<CombatManager>
             //StartCoroutine("OnBlocked");
         }
 
-        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Duck) ||
-                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Punch) ||
-                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Kick))
+        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
+                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
+                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             animatorEnemy?.Play("Hurt");
             healthEnemy?.TakeDamage();

@@ -235,8 +235,11 @@ GameObject:
   - component: {fileID: 3369293955817318687}
   - component: {fileID: 2102380811329445980}
   - component: {fileID: 4505369032548092893}
+  - component: {fileID: 2718450146103392775}
   - component: {fileID: 5443709053726775527}
   - component: {fileID: 6572685948765366867}
+  - component: {fileID: 4031748516208077185}
+  - component: {fileID: 2956494114188986250}
   m_Layer: 7
   m_Name: Squirrel
   m_TagString: Enemy
@@ -275,7 +278,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 874ecfb15dfd4ab45b2f629c4920c024, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -328,7 +331,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -346,12 +349,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  moveSpeed: 2
   rayDetect: {fileID: 4201453580648480460}
   characterLayer:
     serializedVersion: 2
     m_Bits: 192
   sizeDetect: 1.5
+  enemyMovement: {fileID: 2718450146103392775}
+--- !u!114 &2718450146103392775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  moveSpeed: 1
 --- !u!114 &5443709053726775527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +396,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 2
+--- !u!114 &4031748516208077185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTakedowned: {fileID: 2956494114188986250}
+  currentHealth: 0
+  maxHealth: 1
+--- !u!114 &2956494114188986250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 4505369032548092893}
+  movement: {fileID: 2718450146103392775}
+  forcePush: 10
 --- !u!1 &931777371718319887
 GameObject:
   m_ObjectHideFlags: 0
