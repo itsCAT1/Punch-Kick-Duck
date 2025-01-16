@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyTakedowned : MonoBehaviour
 {
-    public EnemyController controller;
+    public Vector3 offset;
+    public EnemyDetect controller;
     public EnemyMovement movement;
+    public EnemyAttack attack;
     public float forcePush = 4;
     Rigidbody rb;
 
@@ -14,14 +16,24 @@ public class EnemyTakedowned : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void IsRepelledEnemy()
+    public void IsRepelled()
     {
-        rb.isKinematic = false;
-        movement.enabled = false;
+        DisableAction();
+        Vector3 pushDirection = new Vector3(transform.forward.x * offset.x, offset.y, offset.z).normalized;
+        rb.AddForce(pushDirection * forcePush, ForceMode.Impulse);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(this.transform.position, new Vector3(this.transform.forward.x * offset.x, offset.y, offset.z));
+    }
+
+    public void DisableAction()
+    {
         controller.enabled = false;
-
-        Vector3 endPos = (this.transform.position - new Vector3(this.transform.forward.x, -5f, 3)).normalized;
-
-        rb.AddForce(endPos * forcePush, ForceMode.Impulse);
+        movement.enabled = false;
+        attack.enabled = false;
+        rb.isKinematic = false;
     }
 }

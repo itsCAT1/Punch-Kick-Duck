@@ -14,11 +14,14 @@ public class EnemyMovement : MonoBehaviour
 
     public void Update()
     {
+        PerformMove();
+    }
+
+    void PerformMove()
+    {
         var direction = (Player.Instance.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
 
         this.transform.position += direction * moveSpeed * Time.deltaTime;
-
-        animator.SetBool("Walking", true);
     }
 }

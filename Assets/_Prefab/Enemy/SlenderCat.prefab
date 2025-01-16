@@ -617,13 +617,13 @@ GameObject:
   - component: {fileID: 879906581694061765}
   - component: {fileID: 5519976487368520301}
   - component: {fileID: 4531554194097693354}
-  - component: {fileID: 6391838851905701491}
+  - component: {fileID: 5840454331861802744}
   - component: {fileID: 2387551223463310604}
   - component: {fileID: 6277425997333601981}
   - component: {fileID: 7432894196181852586}
   - component: {fileID: 2909244105330192760}
-  - component: {fileID: 4674380069482968787}
   - component: {fileID: 2894983191283481274}
+  - component: {fileID: 4674380069482968787}
   m_Layer: 7
   m_Name: SlenderCat
   m_TagString: Enemy
@@ -641,7 +641,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3880027685998424511}
@@ -717,11 +717,11 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6391838851905701491
+--- !u!114 &5840454331861802744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -730,15 +730,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841920795135456151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdd18d404c11ee4ca2cbe0239a8348c, type: 3}
+  m_Script: {fileID: 11500000, guid: edce618838efd3044a04217ce177b9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   rayDetect: {fileID: 8085820330303206342}
   characterLayer:
     serializedVersion: 2
-    m_Bits: 192
-  sizeDetect: 1.5
+    m_Bits: 64
+  sizeDetect: 2
   enemyMovement: {fileID: 6277425997333601981}
 --- !u!114 &2387551223463310604
 MonoBehaviour:
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 3
 --- !u!114 &7432894196181852586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,21 +794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcePush: 2
---- !u!114 &4674380069482968787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5841920795135456151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6391838851905701491}
-  movement: {fileID: 6277425997333601981}
-  forcePush: 10
 --- !u!114 &2894983191283481274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +809,23 @@ MonoBehaviour:
   enemyTakedowned: {fileID: 4674380069482968787}
   currentHealth: 0
   maxHealth: 1
+--- !u!114 &4674380069482968787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: -3, y: 5, z: -3}
+  controller: {fileID: 5840454331861802744}
+  movement: {fileID: 6277425997333601981}
+  attack: {fileID: 2387551223463310604}
+  forcePush: 8
 --- !u!1 &5844047975152352360
 GameObject:
   m_ObjectHideFlags: 0

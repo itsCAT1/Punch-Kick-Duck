@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] enemies;
-    public Transform[] spawnPosition;
+    public Transform spawnPosition;
 
     public Transform spawnParent;
 
@@ -13,7 +13,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Instantiate(enemies[Random.Range(0 , enemies.Length)], spawnPosition[Random.Range(0, 1)].position, Quaternion.identity, spawnParent);
+            Instantiate(enemies[Random.Range(0 , enemies.Length)], spawnPosition.position, Quaternion.identity, spawnParent);
             Destroy(this);
         }
     }

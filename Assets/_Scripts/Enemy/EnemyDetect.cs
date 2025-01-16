@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyDetect : MonoBehaviour
 {
     Rigidbody rigid;
     public Animator animator;
@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
         UpdateAction();
     }
 
-
     void UpdateAction()
     {
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward * sizeDetect, out RaycastHit hitInfor, sizeDetect, characterLayer);
@@ -35,7 +34,6 @@ public class EnemyController : MonoBehaviour
         {
             if (hitInfor.collider.CompareTag("Player"))
             {
-                enemyMovement.enabled = false;
                 Standing();
                 enemyAttack.PerformAttack();
             }
@@ -46,18 +44,23 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            this.rigid.isKinematic = false;
-            enemyMovement.enabled = true;
+            Moving();
         }
     }
 
     void Standing()
     {
         animator.SetBool("Walking", false);
+        enemyMovement.enabled = false;
         this.rigid.isKinematic = true;
     }
 
-    
+    void Moving()
+    {
+        animator.SetBool("Walking", true);
+        enemyMovement.enabled = true;
+        this.rigid.isKinematic = false;
+    }
 
     private void OnDrawGizmosSelected()
     {

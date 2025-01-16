@@ -36,7 +36,7 @@ public class OnAttack : MonoBehaviour
         
         if (attack == null) return;
 
-        bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward, out RaycastHit hitInfo, sizeHit, hitLayer);
+        bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection, out RaycastHit hitInfo, sizeHit, hitLayer);
 
         if(hitInfo.collider != null)
         {
@@ -47,6 +47,6 @@ public class OnAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * sizeHit);
+        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection * sizeHit);
     }
 }
