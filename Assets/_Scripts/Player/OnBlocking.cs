@@ -30,7 +30,7 @@ public class OnBlocking : MonoBehaviour
         }
     }
 
-    public void IsRepelledEnemy()
+    public void EnemyIsRepelled()
     {
         Vector3 startPos = this.transform.position;
         Vector3 endPos = startPos - this.transform.forward * forcePush;

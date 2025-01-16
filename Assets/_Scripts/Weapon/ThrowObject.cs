@@ -21,14 +21,7 @@ public class ThrowObject : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            PushObject();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ReflectObject();
-        }
+        PushObject();
     }
 
     void PushObject()
@@ -44,7 +37,7 @@ public class ThrowObject : MonoBehaviour
     void RotateObject()
     {
         Quaternion rotate = rotatePos.transform.rotation;
-        float angle = rotate.eulerAngles.z + rotateSpeed;
+        float angle = rotate.eulerAngles.z - rotateSpeed;
         rotate.eulerAngles = new Vector3(rotate.x, rotate.y, angle);
         rotatePos.transform.rotation = rotate;
     }

@@ -836,12 +836,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4417860848737340029}
   - {fileID: 2457496561638396253}
   - {fileID: 1541899155566426385}
+  - {fileID: 2344051039522537093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2473184388392972538
@@ -927,13 +928,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edce618838efd3044a04217ce177b9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   rayDetect: {fileID: 1541899155566426385}
   characterLayer:
     serializedVersion: 2
-    m_Bits: 64
-  sizeDetect: 2
-  enemyMovement: {fileID: 2302503995978870067}
+    m_Bits: 192
+  sizeAttack: 2
+  sizeThrow: 10
+  haveBottle: 1
 --- !u!114 &2302503995978870067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2473184388392972538}
   moveSpeed: 3
 --- !u!114 &8190435950609758114
 MonoBehaviour:
@@ -960,8 +960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   timeCoolDown: 2
+  bottlePosition: {fileID: 2344051039522537093}
+  bottlePrefab: {fileID: 1973889071886178876, guid: 79ab8eeb8a0419343bcb996fec34982e, type: 3}
 --- !u!114 &1260238390275171914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,9 +1017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: -3, y: 5, z: -3}
-  controller: {fileID: 1648031268185917391}
-  movement: {fileID: 2302503995978870067}
-  attack: {fileID: 8190435950609758114}
   forcePush: 8
 --- !u!1 &5519857228172635186
 GameObject:
@@ -1246,6 +1244,37 @@ Transform:
   - {fileID: 7717693395902382937}
   m_Father: {fileID: 8919658611550407972}
   m_LocalEulerAnglesHint: {x: -0.3761374, y: -0.24668425, z: -11.208822}
+--- !u!1 &8274224860483769065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2344051039522537093}
+  m_Layer: 7
+  m_Name: BottlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2344051039522537093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274224860483769065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 970949557576425975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8541874168300286732
 GameObject:
   m_ObjectHideFlags: 0

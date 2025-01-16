@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5811092284520685957}
   - component: {fileID: 3369293955817318687}
   - component: {fileID: 2102380811329445980}
-  - component: {fileID: 4505369032548092893}
+  - component: {fileID: 2584373216732174210}
   - component: {fileID: 2718450146103392775}
   - component: {fileID: 5443709053726775527}
   - component: {fileID: 6572685948765366867}
@@ -258,7 +258,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6967295483708518116}
@@ -337,7 +337,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4505369032548092893
+--- !u!114 &2584373216732174210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,16 +346,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 918291240466080303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdd18d404c11ee4ca2cbe0239a8348c, type: 3}
+  m_Script: {fileID: 11500000, guid: edce618838efd3044a04217ce177b9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   rayDetect: {fileID: 4201453580648480460}
   characterLayer:
     serializedVersion: 2
     m_Bits: 192
-  sizeDetect: 2
-  enemyMovement: {fileID: 2718450146103392775}
+  sizeAttack: 2
+  sizeThrow: 0
 --- !u!114 &2718450146103392775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   moveSpeed: 3
 --- !u!114 &5443709053726775527
 MonoBehaviour:
@@ -382,7 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   timeCoolDown: 2
 --- !u!114 &6572685948765366867
 MonoBehaviour:
@@ -438,9 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: -3, y: 5, z: -3}
-  controller: {fileID: 4505369032548092893}
-  movement: {fileID: 2718450146103392775}
-  attack: {fileID: 5443709053726775527}
   forcePush: 8
 --- !u!1 &931777371718319887
 GameObject:

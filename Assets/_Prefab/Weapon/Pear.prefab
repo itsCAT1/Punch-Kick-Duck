@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatePos: {fileID: 6591166776147283587}
-  forceSpeed: 5
+  forceSpeed: 10
   rotateSpeed: 20
 --- !u!54 &2491050681922721314
 Rigidbody:
@@ -175,7 +175,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

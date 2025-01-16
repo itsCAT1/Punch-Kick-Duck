@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public bool timeCoolDown => Time.time - startTime >= interval;
 
     public bool punchLeft = false;
+
     public void PerformPunch()
     {
         if (timeCoolDown)
