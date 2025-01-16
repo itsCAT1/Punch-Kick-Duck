@@ -5,18 +5,13 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     Animator animator;
-    EnemyController enemyController;
 
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
 
-    public Transform bottlePosition;
-    public GameObject bottlePrefab;
-
     void Start()
     {
         animator = GetComponent<Animator>();
-        enemyController = GetComponent<EnemyController>();
     }
 
     public void PerformAttack()
@@ -26,17 +21,6 @@ public class EnemyAttack : MonoBehaviour
             animator.Play("Attack");
             lastTimeAttack = Time.time;
         }
-    }
-
-    public void PerformThrowBottle()
-    {
-        animator.Play("AttackBottle");
-        enemyController.haveBottle = false;
-    }
-
-    public void CreateBottle()
-    {
-        Instantiate(bottlePrefab, bottlePosition.position, Quaternion.identity);
     }
 
     public void PlayerTakeDamage()

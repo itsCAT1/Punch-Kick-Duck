@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     EnemyAttack enemyAttack;
     EnemyMovement enemyMovement;
+    EnemyThrowBottle enemyThrowBottle;
 
     public Transform rayDetect;
     public LayerMask characterLayer;
@@ -23,6 +24,8 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyAttack = GetComponent<EnemyAttack>();
         enemyMovement = GetComponent<EnemyMovement>();
+
+        if(haveBottle) enemyThrowBottle = GetComponent<EnemyThrowBottle>();
     }
 
     private void Update()
@@ -38,7 +41,11 @@ public class EnemyController : MonoBehaviour
 
     void SetRangeAttack()
     {
-        bool detectEnemy = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit hitInfor, 100, characterLayer);
+        bool detectEnemy = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit hitInfor, 1000, characterLayer);
+        if (hitInfor.collider == null)
+        {
+            return;
+        }
         if (hitInfor.collider.CompareTag("Enemy"))
         {
             currentRange = sizeAttack;
@@ -65,7 +72,7 @@ public class EnemyController : MonoBehaviour
                 Standing();
                 if (haveBottle)
                 {
-                    enemyAttack.PerformThrowBottle();
+                    enemyThrowBottle.PerformThrowBottle();
                 }
                 else
                 {

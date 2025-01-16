@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6988355779736669969}
   - component: {fileID: 3776305447475962027}
+  - component: {fileID: 8440225392208943302}
+  - component: {fileID: -8459626901391394020}
   - component: {fileID: 8743527360025384483}
   - component: {fileID: 3997780551330288067}
   m_Layer: 0
@@ -130,9 +132,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9480b638f1a5fe64a96b0d77205f5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: Kick
+  forcePush: 8
+  offset: {x: 0, y: 6, z: -3}
+--- !u!114 &8440225392208943302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973889071886178876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotatePos: {fileID: 1698044296540436523}
-  forceSpeed: 10
   rotateSpeed: 20
+--- !u!114 &-8459626901391394020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973889071886178876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
 --- !u!54 &8743527360025384483
 Rigidbody:
   m_ObjectHideFlags: 0

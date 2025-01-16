@@ -618,8 +618,8 @@ GameObject:
   - component: {fileID: 5519976487368520301}
   - component: {fileID: 4531554194097693354}
   - component: {fileID: 5840454331861802744}
-  - component: {fileID: 2387551223463310604}
   - component: {fileID: 6277425997333601981}
+  - component: {fileID: 2387551223463310604}
   - component: {fileID: 7432894196181852586}
   - component: {fileID: 2909244105330192760}
   - component: {fileID: 2894983191283481274}
@@ -691,9 +691,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!54 &4531554194097693354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -737,21 +737,9 @@ MonoBehaviour:
   characterLayer:
     serializedVersion: 2
     m_Bits: 192
-  sizeAttack: 0
-  sizeThrow: 0
---- !u!114 &2387551223463310604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5841920795135456151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeCoolDown: 2
+  sizeAttack: 2
+  sizeThrow: 10
+  haveBottle: 0
 --- !u!114 &6277425997333601981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +753,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+--- !u!114 &2387551223463310604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCoolDown: 2
 --- !u!114 &7432894196181852586
 MonoBehaviour:
   m_ObjectHideFlags: 0

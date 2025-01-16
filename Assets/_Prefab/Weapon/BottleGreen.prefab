@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3228762837534747023}
   - component: {fileID: 7797974521336861554}
+  - component: {fileID: 4534980742044526074}
+  - component: {fileID: 3525335446943108859}
   - component: {fileID: 5892207524819703392}
   - component: {fileID: 487311666083843253}
   m_Layer: 0
@@ -47,9 +49,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9480b638f1a5fe64a96b0d77205f5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: Punch
+  forcePush: 8
+  offset: {x: 0, y: 6, z: -3}
+--- !u!114 &4534980742044526074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985995315406895949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotatePos: {fileID: 6299303152420112459}
-  forceSpeed: 10
   rotateSpeed: 20
+--- !u!114 &3525335446943108859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985995315406895949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
 --- !u!54 &5892207524819703392
 Rigidbody:
   m_ObjectHideFlags: 0

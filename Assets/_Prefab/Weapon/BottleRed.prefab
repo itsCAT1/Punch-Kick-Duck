@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4040907227318425805}
   - component: {fileID: 8640285346477900611}
+  - component: {fileID: -9208715048466829257}
+  - component: {fileID: -3713506480340866516}
   - component: {fileID: 2742492143029369137}
   - component: {fileID: 8746081779496776987}
   m_Layer: 0
@@ -47,9 +49,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9480b638f1a5fe64a96b0d77205f5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: Duck
+  forcePush: 8
+  offset: {x: 0, y: 6, z: -3}
+--- !u!114 &-9208715048466829257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207545927603838684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotatePos: {fileID: 2959369128976915185}
-  forceSpeed: 10
   rotateSpeed: 20
+--- !u!114 &-3713506480340866516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207545927603838684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
 --- !u!54 &2742492143029369137
 Rigidbody:
   m_ObjectHideFlags: 0
