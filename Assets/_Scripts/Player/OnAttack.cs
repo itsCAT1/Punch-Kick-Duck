@@ -43,10 +43,4 @@ public class OnAttack : MonoBehaviour
             CombatManager.Instance.ResolveCombat(attack, hitInfo);
         }
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection * sizeHit);
-    }
 }
