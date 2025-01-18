@@ -971,7 +971,6 @@ GameObject:
   - component: {fileID: 1576840387671973412}
   - component: {fileID: 474045729610945198}
   - component: {fileID: 6726156363011469922}
-  - component: {fileID: 8505921809055773596}
   - component: {fileID: 4169126110449452233}
   m_Layer: 7
   m_Name: SlenderCatBottle
@@ -1154,23 +1153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTakedowned: {fileID: 8505921809055773596}
   currentHealth: 0
   maxHealth: 1
---- !u!114 &8505921809055773596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6947798225761686602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: -3, y: 5, z: -3}
-  forcePush: 8
 --- !u!114 &4169126110449452233
 MonoBehaviour:
   m_ObjectHideFlags: 0

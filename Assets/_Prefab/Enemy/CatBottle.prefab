@@ -818,7 +818,6 @@ GameObject:
   - component: {fileID: 1260238390275171914}
   - component: {fileID: 3715602542023641828}
   - component: {fileID: 1187973799123630227}
-  - component: {fileID: 8924594901646163698}
   - component: {fileID: 2627429085953984078}
   m_Layer: 7
   m_Name: CatBottle
@@ -1000,23 +999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTakedowned: {fileID: 8924594901646163698}
   currentHealth: 0
   maxHealth: 1
---- !u!114 &8924594901646163698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5490876856466041371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: -3, y: 5, z: -3}
-  forcePush: 8
 --- !u!114 &2627429085953984078
 MonoBehaviour:
   m_ObjectHideFlags: 0

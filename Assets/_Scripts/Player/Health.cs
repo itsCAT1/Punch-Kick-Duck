@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    Rigidbody rb;
-    public EnemyTakedowned enemyTakedowned;
-
     public int currentHealth;
     public int maxHealth;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
     }
 
@@ -31,12 +27,8 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Die()
+    protected virtual void Die()
     {
-        enemyTakedowned.IsRepelled();
-
-        GetComponent<Collider>().enabled = false;
-
-        Destroy(gameObject, 2f);
+        
     }
 }

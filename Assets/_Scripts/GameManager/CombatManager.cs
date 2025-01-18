@@ -13,7 +13,12 @@ public class CombatManager : Singleton<CombatManager>
         AttackType enemyAttackType = enemy.attackType;
 
         Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
-        Health healthEnemy = enemyInfo.collider.GetComponent<Health>();
+        EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
+
+        if (healthEnemy != null)
+        {
+            Debug.Log("ko co health");
+        }
 
         if (playerAttackType.attackType == enemyAttackType && canBlock)
         {
@@ -28,9 +33,7 @@ public class CombatManager : Singleton<CombatManager>
                  (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
                  (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
-            animatorEnemy?.Play("Hurt");
             healthEnemy?.TakeDamage();
-            Debug.Log("Enemy attacked");
         }
     }
 

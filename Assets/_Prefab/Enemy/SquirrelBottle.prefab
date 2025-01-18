@@ -1842,7 +1842,6 @@ GameObject:
   - component: {fileID: 3280627661544351945}
   - component: {fileID: 6791045354431604540}
   - component: {fileID: 6948495918909506909}
-  - component: {fileID: 1356112496105696192}
   - component: {fileID: 5234476784238181953}
   m_Layer: 7
   m_Name: SquirrelBottle
@@ -2024,23 +2023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTakedowned: {fileID: 1356112496105696192}
   currentHealth: 0
   maxHealth: 1
---- !u!114 &1356112496105696192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8030859090074328926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2192ccfdb7a6e974b88124efffdf6bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: -3, y: 5, z: -3}
-  forcePush: 8
 --- !u!114 &5234476784238181953
 MonoBehaviour:
   m_ObjectHideFlags: 0
