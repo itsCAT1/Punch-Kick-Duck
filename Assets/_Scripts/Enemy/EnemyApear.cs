@@ -12,15 +12,11 @@ public class EnemyApear : ObjectJumping
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void PerformJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("jump");
-            animator.Play("Jump");
+        animator.Play("Jump");
 
-            var targetPos = this.transform.position + new Vector3(0f, 0f, -6.5f);
-            PerformJumping(targetPos);
-        }
+        var targetPos = this.transform.position + new Vector3(0f, 0f, -6.5f);
+        PerformJumping(targetPos);
     }
 }

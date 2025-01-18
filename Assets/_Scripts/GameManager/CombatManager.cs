@@ -53,13 +53,8 @@ public class CombatManager : Singleton<CombatManager>
         {
             Player.Instance.controller.animator.Play("BlockDuck");
         }
-    }
 
-    IEnumerator OnBlocked()
-    {
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1);
-        Time.timeScale = 1;
-        canBlock = false;
+
+        Player.Instance.GetComponent<PlayerBlocking>().PlayerIsRepelled();
     }
 }

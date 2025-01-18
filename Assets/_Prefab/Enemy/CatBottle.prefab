@@ -816,9 +816,11 @@ GameObject:
   - component: {fileID: 2302503995978870067}
   - component: {fileID: 8190435950609758114}
   - component: {fileID: 1260238390275171914}
-  - component: {fileID: 3715602542023641828}
-  - component: {fileID: 1187973799123630227}
+  - component: {fileID: 8371113473314369888}
+  - component: {fileID: 1003598986279619270}
   - component: {fileID: 2627429085953984078}
+  - component: {fileID: -6994500708698969990}
+  - component: {fileID: 6668290880278827095}
   m_Layer: 7
   m_Name: CatBottle
   m_TagString: Enemy
@@ -974,7 +976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 1
---- !u!114 &3715602542023641828
+--- !u!114 &8371113473314369888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -983,24 +985,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5490876856466041371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879b3672edb3c1f46bddbe3769e9bf5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forcePush: 2
---- !u!114 &1187973799123630227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5490876856466041371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 092d411f0c31c3141a847924c101ed03, type: 3}
+  m_Script: {fileID: 11500000, guid: e161c2967c2341b40a74b69c4c878cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+--- !u!114 &1003598986279619270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff0ba31262d0c04aa43ed74b38d09cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 2
+  duration: 0.5
 --- !u!114 &2627429085953984078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1019,33 @@ MonoBehaviour:
   bottleAvatar: {fileID: 57285953843399755}
   bottlePosition: {fileID: 2344051039522537093}
   bottlePrefab: {fileID: 1973889071886178876, guid: 79ab8eeb8a0419343bcb996fec34982e, type: 3}
+--- !u!114 &-6994500708698969990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba77d758b73d464284a59a2a77e2fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 2
+  duration: 0.5
+  offset: {x: -2, y: 2, z: -3}
+--- !u!114 &6668290880278827095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adf6e53d43c32542be00f6993f603a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5519857228172635186
 GameObject:
   m_ObjectHideFlags: 0
