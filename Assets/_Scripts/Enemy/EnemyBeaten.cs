@@ -18,6 +18,7 @@ public class EnemyBeaten : ObjectJumping
     public void EnemyIsBeaten()
     {
         enemyActionManager.DisableAction();
+        rigid.isKinematic = false;
 
         float signX = Mathf.Sign(transform.forward.x);
         var targetPos = this.transform.position + new Vector3(offset.x * signX, offset.y, offset.z);

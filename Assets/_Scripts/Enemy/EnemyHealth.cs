@@ -18,7 +18,7 @@ public class EnemyHealth : Health
     {
         enemy.EnemyIsBeaten();
 
-        animator.Play("Hurt");
+        animator.Play("Die");
         GetComponent<Collider>().enabled = false;
 
         Destroy(gameObject, 2f);

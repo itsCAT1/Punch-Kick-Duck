@@ -11,17 +11,16 @@ public class OpenDoor : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    void Open()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        animator.Play("OpenDoor");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Open();
         }
-    }
-
-    void Open()
-    {
-        Debug.Log("Open");
-        animator.Play("OpenDoor");
     }
 }

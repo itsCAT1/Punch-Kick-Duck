@@ -25,7 +25,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void PlayerTakeDamage()
     {
-        Player.Instance.performAttack.PerformHurt();
+        Player.Instance.health.TakeDamage();
     }
 
     public void EnableBlock()

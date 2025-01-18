@@ -48,8 +48,7 @@ public class HandleColider : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<Animator>().Play("Hurt");
-            //other.GetComponent<Health>().TakeDamage();
+            other.GetComponent<EnemyHealth>().TakeDamage();
             OnHit();
         }
     }

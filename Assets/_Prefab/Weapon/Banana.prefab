@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1211949471849984120}
   - component: {fileID: 3169603501166692024}
   - component: {fileID: 7396952291613578366}
+  - component: {fileID: 9100391045143005669}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -130,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9480b638f1a5fe64a96b0d77205f5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatePos: {fileID: 2377633468671661242}
-  forceSpeed: 10
-  rotateSpeed: 20
+  attackType: 
+  forcePush: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!54 &3169603501166692024
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -181,3 +182,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9100391045143005669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321554942402376311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDuration: 4

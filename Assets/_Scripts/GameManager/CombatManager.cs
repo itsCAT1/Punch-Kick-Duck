@@ -15,11 +15,6 @@ public class CombatManager : Singleton<CombatManager>
         Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
 
-        if (healthEnemy != null)
-        {
-            Debug.Log("ko co health");
-        }
-
         if (playerAttackType.attackType == enemyAttackType && canBlock)
         {
             animatorEnemy?.Play("Block");

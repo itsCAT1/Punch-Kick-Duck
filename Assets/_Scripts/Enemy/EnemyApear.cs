@@ -10,6 +10,8 @@ public class EnemyApear : ObjectJumping
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        PerformJump();
     }
 
     public void PerformJump()
