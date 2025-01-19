@@ -8,7 +8,6 @@ public class ReboundObject : MonoBehaviour
 
     public void EnableRebound(int indexZone)
     {
-        Debug.Log("enable");
         zonies[indexZone].SetActive(true);
     }
 

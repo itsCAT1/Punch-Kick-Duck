@@ -20,8 +20,6 @@ public class CombatManager : Singleton<CombatManager>
             animatorEnemy?.Play("Block");
 
             BlockDamage(playerAttackType);
-            canBlock = false;
-            //StartCoroutine("OnBlocked");
         }
 
         else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||

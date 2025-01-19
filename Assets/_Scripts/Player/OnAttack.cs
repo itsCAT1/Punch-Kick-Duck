@@ -29,14 +29,20 @@ public class OnAttack : MonoBehaviour
     public float sizeHit;
 
     public Transform ray;
+    RaycastHit hitInfo;
+
+    public void DetectObject() => Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection, out hitInfo, sizeHit, hitLayer);
+
+    private void Update()
+    {
+        DetectObject();
+    }
 
     public void DealDamage(AttackType type)
     {
         AttackMapper attack = attackList.Find(at => at.attackType == type);
         
         if (attack == null) return;
-
-        bool hasCollided = Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection, out RaycastHit hitInfo, sizeHit, hitLayer);
 
         if(hitInfo.collider != null)
         {

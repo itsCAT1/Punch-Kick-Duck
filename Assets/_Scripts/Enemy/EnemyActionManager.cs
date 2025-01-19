@@ -17,7 +17,6 @@ public class EnemyActionManager : MonoBehaviour
 
     public void DisableAction()
     {
-        Debug.Log("disable");
         controller.enabled = false;
         movement.enabled = false;
         attack.enabled = false;
@@ -25,7 +24,6 @@ public class EnemyActionManager : MonoBehaviour
 
     public void EnableAction()
     {
-        Debug.Log("enable");
         controller.enabled = true;
         movement.enabled = true;
         attack.enabled = true;
