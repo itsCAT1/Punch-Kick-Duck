@@ -61795,6 +61795,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: StartAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
   - time: 0.083333336
     functionName: EnableRebound
     data: 
@@ -61802,7 +61809,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.25
+  - time: 0.46666667
     functionName: DealDamage
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     Animator animator;
+    AttackType enemyType;
 
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
@@ -12,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        enemyType = GetComponent<EnemyType>().attackType;
     }
 
     public void PerformAttack()
@@ -23,19 +25,24 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    public void CheckPlayer()
+    {
+        AttackType playerAttackType = Player.Instance.attackType.type;
+        if(playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking)
+        {
+            animator.Play("Block");
+            CombatManager.Instance.BlockDamage(playerAttackType);
+        }
+
+        else
+        {
+            DealDamage();
+        }
+    }
+
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
         Player.Instance.health.PerformHurt();
-    }
-
-    public void EnableBlock()
-    {
-        CombatManager.Instance.canBlock = true;
-    }
-
-    public void DisableBlock()
-    {
-        CombatManager.Instance.canBlock = false;
     }
 }

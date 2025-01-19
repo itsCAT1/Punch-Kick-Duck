@@ -5,44 +5,36 @@ using UnityEngine;
 
 public class CombatManager : Singleton<CombatManager>
 {
-    public bool canBlock = false;
+    public bool playerIsAttacking = false;
 
-    public void ResolveCombat(AttackMapper playerAttackType, RaycastHit enemyInfo)
+    public void DealtDamageEnemy(RaycastHit enemyInfo)
     {
-        EnemyType enemy = enemyInfo.collider.GetComponent<EnemyType>();
-        AttackType enemyAttackType = enemy.attackType;
+        AttackType playerAttackType = Player.Instance.attackType.type;
+        AttackType enemyAttackType = enemyInfo.collider.GetComponent<EnemyType>().attackType;
 
-        Animator animatorEnemy = enemyInfo.collider.GetComponent<Animator>();
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
 
-        if (playerAttackType.attackType == enemyAttackType && canBlock)
-        {
-            animatorEnemy?.Play("Block");
-
-            BlockDamage(playerAttackType);
-        }
-
-        else if ((playerAttackType.attackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
-                 (playerAttackType.attackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
-                 (playerAttackType.attackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
+        if ((playerAttackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
+                 (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
+                 (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
         }
     }
 
-    void BlockDamage(AttackMapper playerAttackType)
+    public void BlockDamage(AttackType playerAttackType)
     {
-        if (playerAttackType.attackType == AttackType.Punch)
+        if (playerAttackType == AttackType.Punch)
         {
             Player.Instance.controller.animator.Play("BlockPunch");
         }
 
-        else if (playerAttackType.attackType == AttackType.Kick)
+        else if (playerAttackType == AttackType.Kick)
         {
             Player.Instance.controller.animator.Play("BlockKick");
         }
 
-        else if (playerAttackType.attackType == AttackType.Duck)
+        else if (playerAttackType == AttackType.Duck)
         {
             Player.Instance.controller.animator.Play("BlockDuck");
         }
