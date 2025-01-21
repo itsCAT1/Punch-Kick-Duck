@@ -7,14 +7,18 @@ using System;
 [Serializable]
 public class WalkState : FSMC_Behaviour
 {
+    int direction;
+
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        direction = Player.Instance.controller.playerDirection;
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
+        
         Player.Instance.controller.moveSpeed = 5;
-        Player.Instance.controller.facingDirection = 1;
+        Player.Instance.controller.playerDirection = direction;
+        Debug.Log(Player.Instance.controller.playerDirection);
         Player.Instance.controller.animator.Play("Walk");
     }
 

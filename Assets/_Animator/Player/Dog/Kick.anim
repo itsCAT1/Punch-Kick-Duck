@@ -60531,7 +60531,7 @@ AnimationClip:
     intParameter: 1
     messageOptions: 0
   - time: 0.083333336
-    functionName: EnableRebound
+    functionName: StartRebound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -60539,13 +60539,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.38333333
     functionName: DealDamage
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0.6666667
-    functionName: DisableRebound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

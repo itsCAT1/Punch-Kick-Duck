@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6334d33bb2300d843a2284391ebfde86, type: 3}
+  m_Name: ListDataPlayer
+  m_EditorClassIdentifier: 
+  dataPlayers:
+  - numberMap: 1
+    playerDirection: 1
+  - numberMap: 2
+    playerDirection: -1
+  - numberMap: 3
+    playerDirection: 1
+  - numberMap: 4
+    playerDirection: -1
+  - numberMap: 5
+    playerDirection: 1
+  - numberMap: 6
+    playerDirection: -1
+  - numberMap: 7
+    playerDirection: 1

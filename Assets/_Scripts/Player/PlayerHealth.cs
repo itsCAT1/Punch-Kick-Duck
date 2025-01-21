@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    public GameObject disableAction;
-
     protected override void Hurt()
     {
         Player.Instance.controller.executer.SetCurrentState("Hurt");

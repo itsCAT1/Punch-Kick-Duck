@@ -21,10 +21,14 @@ public class EnemyActionManager : MonoBehaviour
     {
         animator.SetBool("Walking", false);
         controller.enabled = false;
+        attack.enabled = false;
+        movement.enabled = false;
     }
 
     public void EnableAction()
     {
         controller.enabled = true;
+        attack.enabled = true;
+        movement.enabled = true;
     }
 }

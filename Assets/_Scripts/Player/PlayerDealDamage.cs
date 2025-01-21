@@ -25,12 +25,13 @@ public class PlayerDealDamage : MonoBehaviour
 
     public void DetectObject()
     {
-        Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.facingDirection, out hitInfo, sizeHit, hitLayer);
+        Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.playerDirection, out hitInfo, sizeHit, hitLayer);
     }
 
     private void Update()
     {
         DetectObject();
+        Debug.Log(Player.Instance.controller.playerDirection);
     }
 
     public void GetAttackType(AttackType type)
@@ -57,5 +58,11 @@ public class PlayerDealDamage : MonoBehaviour
         {
             CombatManager.Instance.DealtDamageEnemy(hitInfo);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * Player.Instance.controller.playerDirection * sizeHit);
     }
 }

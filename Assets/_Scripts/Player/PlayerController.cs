@@ -11,16 +11,22 @@ public class PlayerController : MonoBehaviour
 
     public Transform body;
     public float moveSpeed;
-    public int facingDirection = 1;
+    public int playerDirection;
     
     public float inputHorizontal;
     public FSMC_Executer executer;
 
-    
-    void Start()
+    public ListDataPlayer data;
+    public int currentMapIndex;
+
+
+    void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        DirectionOnStart();
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -30,12 +36,7 @@ public class PlayerController : MonoBehaviour
     void PerformMove()
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector3(moveSpeed * inputHorizontal, rigid.velocity.y, rigid.velocity.z);
-    }
-
-    public void ChangeDirection(int direction)
-    {
-        facingDirection = direction;
+        rigid.velocity = new Vector3(moveSpeed * playerDirection, rigid.velocity.y, rigid.velocity.z);
     }
 
     private void Update()
@@ -43,8 +44,22 @@ public class PlayerController : MonoBehaviour
         FlipCharacter();
     }
 
+    public void ChangeDirection(int direction)
+    {
+        playerDirection = direction;
+        FlipCharacter();
+    }
+
+    void DirectionOnStart()
+    {
+        var direction = data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
+        playerDirection = direction.playerDirection;
+
+        //FlipCharacter();
+    }
+
     void FlipCharacter()
     {
-        Player.Instance.transform.localScale = new Vector3(1, 1, facingDirection);
+        Player.Instance.transform.rotation = Quaternion.Euler(0, 90 * playerDirection, 0);
     }
 }

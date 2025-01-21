@@ -6,13 +6,16 @@ public class ReboundObject : MonoBehaviour
 {
     public GameObject[] zonies;
 
-    public void EnableRebound(int indexZone)
+    public void StartRebound(int indexZone)
     {
-        zonies[indexZone].SetActive(true);
+        StartCoroutine(ReboundCountTime(indexZone));
     }
 
-    public void DisableRebound(int indexZone)
+    IEnumerator ReboundCountTime(int indexZone)
     {
+        zonies[indexZone].SetActive(true);
+
+        yield return new WaitForSeconds(0.4f);
 
         zonies[indexZone].SetActive(false);
     }

@@ -12,11 +12,17 @@ public class DeactiveButton : MonoBehaviour
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(TurnOffButton);
+        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerDead>(OffButton);
     }
 
     private void TurnOffButton(IUEventData uEventData)
     {
         StartCoroutine(TimeWaitForPress());
+    }
+
+    private void OffButton(IUEventData uEventData)
+    {
+        Deactive();
     }
 
     IEnumerator TimeWaitForPress()
@@ -27,7 +33,6 @@ public class DeactiveButton : MonoBehaviour
 
         Active();
     }
-
 
     public void Deactive()
     {
