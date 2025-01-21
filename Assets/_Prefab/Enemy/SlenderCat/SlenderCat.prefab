@@ -625,7 +625,8 @@ GameObject:
   - component: {fileID: 2287119770075739939}
   - component: {fileID: -4242060946061919341}
   - component: {fileID: 451363557054250577}
-  - component: {fileID: 8943696998072852289}
+  - component: {fileID: -2449647674379406010}
+  - component: {fileID: -4336803608068490458}
   m_Layer: 7
   m_Name: SlenderCat
   m_TagString: Enemy
@@ -641,8 +642,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5841920795135456151}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 58, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -651,7 +652,7 @@ Transform:
   - {fileID: 5433343451040717409}
   - {fileID: 8085820330303206342}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &879906581694061765
 Animator:
   serializedVersion: 5
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adf6e53d43c32542be00f6993f603a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8943696998072852289
+--- !u!114 &-2449647674379406010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -845,11 +846,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841920795135456151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1
-  duration: 0.5
+--- !u!114 &-4336803608068490458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa44bf11aa16be48ad8d2e57b99cd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5844047975152352360
 GameObject:
   m_ObjectHideFlags: 0

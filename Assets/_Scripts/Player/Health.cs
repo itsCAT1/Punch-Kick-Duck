@@ -13,9 +13,9 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    bool isDead => currentHealth <= 0;
+    public bool isDead => currentHealth <= 0;
 
-    public void TakeDamage()
+    public virtual void TakeDamage()
     {
         if(isDead) return;
 
@@ -23,11 +23,21 @@ public class Health : MonoBehaviour
 
         if (isDead)
         {
-            Die();
+            Dead();
+        }
+
+        else
+        {
+            Hurt();
         }
     }
 
-    protected virtual void Die()
+    protected virtual void Hurt()
+    {
+
+    }
+
+    protected virtual void Dead()
     {
         
     }

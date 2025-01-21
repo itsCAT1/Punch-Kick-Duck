@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemyActionManager : MonoBehaviour
 {
+    Animator animator;
     EnemyController controller;
     EnemyMovement movement;
     EnemyAttack attack;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         controller = GetComponent<EnemyController>();
         attack = GetComponent<EnemyAttack>();
         movement = GetComponent<EnemyMovement>();
@@ -17,15 +19,12 @@ public class EnemyActionManager : MonoBehaviour
 
     public void DisableAction()
     {
+        animator.SetBool("Walking", false);
         controller.enabled = false;
-        movement.enabled = false;
-        attack.enabled = false;
     }
 
     public void EnableAction()
     {
         controller.enabled = true;
-        movement.enabled = true;
-        attack.enabled = true;
     }
 }

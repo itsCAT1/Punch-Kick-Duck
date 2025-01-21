@@ -21,6 +21,7 @@ MonoBehaviour:
   - rid: 7177949605818007555
   - rid: 7177949605818007556
   - rid: 7177949606365888512
+  - rid: 1557779743304843266
   AnyTransitions: []
   StartingState:
     rid: 7177949605818007552
@@ -28,6 +29,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1557779743304843266
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 1557779743304843267
+        Position: {x: 638, y: 82}
+        _name: Dead
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 1557779743304843267
+      type: {class: DeadState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
     - rid: 7177949605818007552
       type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
       data:

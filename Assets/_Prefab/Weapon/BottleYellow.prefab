@@ -92,12 +92,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6988355779736669969}
-  - component: {fileID: 3776305447475962027}
+  - component: {fileID: 6556647456441627323}
   - component: {fileID: 8440225392208943302}
   - component: {fileID: -8459626901391394020}
   - component: {fileID: 8743527360025384483}
   - component: {fileID: 3997780551330288067}
   - component: {fileID: 5044895094331362438}
+  - component: {fileID: -4113395201346564269}
   m_Layer: 0
   m_Name: BottleYellow
   m_TagString: Untagged
@@ -121,7 +122,7 @@ Transform:
   - {fileID: 1698044296540436523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3776305447475962027
+--- !u!114 &6556647456441627323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,12 +131,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973889071886178876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9480b638f1a5fe64a96b0d77205f5388, type: 3}
+  m_Script: {fileID: 11500000, guid: e0dab42bb2c0ee44bbf72c6caba65328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushPlayer: {fileID: -4113395201346564269}
   attackType: Kick
   forcePush: 8
-  offset: {x: 0, y: 6, z: -3}
 --- !u!114 &8440225392208943302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +225,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDuration: 4
+--- !u!114 &-4113395201346564269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973889071886178876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

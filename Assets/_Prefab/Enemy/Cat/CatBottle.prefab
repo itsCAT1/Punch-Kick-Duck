@@ -821,6 +821,8 @@ GameObject:
   - component: {fileID: 2627429085953984078}
   - component: {fileID: -6994500708698969990}
   - component: {fileID: 6668290880278827095}
+  - component: {fileID: 285517880609983659}
+  - component: {fileID: 678974650161270538}
   m_Layer: 7
   m_Name: CatBottle
   m_TagString: Enemy
@@ -837,7 +839,7 @@ Transform:
   m_GameObject: {fileID: 5490876856466041371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -857,7 +859,7 @@ Animator:
   m_GameObject: {fileID: 5490876856466041371}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f26c9c6ddbf9464f9e83a06f2e64954, type: 2}
+  m_Controller: {fileID: 9100000, guid: 235ab4131cb41a448b1e1500cbf859ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1044,6 +1046,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2adf6e53d43c32542be00f6993f603a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &285517880609983659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &678974650161270538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa44bf11aa16be48ad8d2e57b99cd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5519857228172635186

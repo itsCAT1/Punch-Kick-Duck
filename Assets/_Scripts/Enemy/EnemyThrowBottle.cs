@@ -22,7 +22,7 @@ public class EnemyThrowBottle : MonoBehaviour
     {
         if (!onAttack)
         {
-            animator.Play("AttackBottle");
+            animator.Play("ThrowBottle");
         }
 
         //StartCoroutine(TimeToChangeAttack(2));

@@ -6,10 +6,13 @@ public class PlayerHealth : Health
 {
     public GameObject disableAction;
 
-    public void PerformHurt()
+    protected override void Hurt()
     {
-        Player.Instance.controller.animator.Play("Hurt");
-        disableAction.SetActive(true);
+        Player.Instance.controller.executer.SetCurrentState("Hurt");
     }
 
+    protected override void Dead()
+    {
+        Player.Instance.controller.executer.SetCurrentState("Dead");
+    }
 }

@@ -14,7 +14,7 @@ public class EnemyHealth : Health
         enemy = GetComponent<EnemyBeaten>();
     }
 
-    protected override void Die()
+    protected override void Dead()
     {
         enemy.EnemyIsBeaten();
 

@@ -12,4 +12,22 @@ namespace RMC.Core.UEvents
          this.Invoke(null);
       }
    }
+
+    [Serializable]
+    public class StatusPlayerHurt : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class StatusPlayerDead : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
 }

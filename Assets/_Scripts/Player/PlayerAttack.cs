@@ -37,9 +37,4 @@ public class PlayerAttack : MonoBehaviour
             Player.Instance.controller.executer.SetCurrentState("Duck");
         }
     }
-
-    public void PerformHurt()
-    {
-        Player.Instance.controller.executer.SetCurrentState("Hurt");
-    }
 }

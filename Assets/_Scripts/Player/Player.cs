@@ -8,4 +8,5 @@ public class Player : Singleton<Player>
     public PlayerAttackType attackType;
     public PlayerAttack performAttack;
     public PlayerHealth health;
+    public PushPlayer push;
 }

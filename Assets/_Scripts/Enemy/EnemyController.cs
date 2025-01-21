@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     EnemyThrowBottle enemyThrowBottle;
 
     public Transform rayDetect;
-    public LayerMask characterLayer;
+    public LayerMask charactorLayer;
     public float sizeAttack;
     public float sizeThrow;
     public bool haveBottle;
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
 
     void SetRangeAttack()
     {
-        bool detectEnemy = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit hitInfor, 1000, characterLayer);
+        Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit hitInfor, 1000, charactorLayer);
         if (hitInfor.collider == null)
         {
             return;
@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
 
     void CheckObject()
     {
-        bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, characterLayer);
+        bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
         if (aimingRay)
         {
             if (Infor.collider.CompareTag("Player"))

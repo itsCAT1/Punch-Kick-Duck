@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     Animator animator;
+    PerformPushPlayer pushPlayer;
     AttackType enemyType;
 
     public float timeCoolDown = 1f;
@@ -13,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        pushPlayer = GetComponent<PerformPushPlayer>();
         enemyType = GetComponent<EnemyType>().attackType;
     }
 
@@ -43,6 +45,7 @@ public class EnemyAttack : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-        Player.Instance.health.PerformHurt();
+
+        pushPlayer.PerformPush();
     }
 }

@@ -5,51 +5,39 @@ using UnityEngine;
 public class HandleColider : MonoBehaviour
 {
     Rigidbody rigid;
-    ObjectMovement objectMovement;
+    PerformPushPlayer pushPlayer;
 
     public string attackType;
     public float forcePush;
-    public Vector3 offset;
 
-    private void Start()
+
+    private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        objectMovement = GetComponent<ObjectMovement>();
+        pushPlayer = GetComponentInParent<PerformPushPlayer>();
     }
 
-    void ReflectObject()
+    public void IsThrownOut()
     {
-        this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
-    }
-
-    public void IsRepelled()
-    {
-        Vector3 pushDirection = new Vector3(0, offset.y, offset.z).normalized;
+        Vector3 pushDirection = new Vector3(0, 6, -3).normalized;
         rigid.AddForce(pushDirection * forcePush, ForceMode.Impulse);
     }
 
-    void OnHit()
+    public void PlayerOnHit()
     {
-        rigid.useGravity = true;
-        objectMovement.enabled = false;
-        IsRepelled();
+        Player.Instance.health.TakeDamage();
+        pushPlayer.PerformPush();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ObjectOnHit()
     {
-        if (other.gameObject.CompareTag(attackType))
-        {
-            ReflectObject();
-        }
-        else if (other.gameObject.CompareTag("Player"))
-        {
-            Player.Instance.performAttack.PerformHurt();
-            OnHit();
-        }
-        else if (other.gameObject.CompareTag("Enemy"))
-        {
-            other.GetComponent<EnemyHealth>().TakeDamage();
-            OnHit();
-        }
+        rigid.useGravity = true;
+        IsThrownOut();
+    }
+
+    public IEnumerator DestroyObject()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

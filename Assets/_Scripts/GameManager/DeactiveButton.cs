@@ -11,8 +11,7 @@ public class DeactiveButton : MonoBehaviour
 
     void Start()
     {
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.AddEventListener<UEvent>(TurnOffButton);
+        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(TurnOffButton);
     }
 
     private void TurnOffButton(IUEventData uEventData)
@@ -22,13 +21,24 @@ public class DeactiveButton : MonoBehaviour
 
     IEnumerator TimeWaitForPress()
     {
+        Deactive();
+
+        yield return new WaitForSeconds(0.6f);
+
+        Active();
+    }
+
+
+    public void Deactive()
+    {
         foreach (Button button in buttons)
         {
             button.interactable = false;
         }
+    }
 
-        yield return new WaitForSeconds(0.6f);
-
+    public void Active()
+    {
         foreach (Button button in buttons)
         {
             button.interactable = true;

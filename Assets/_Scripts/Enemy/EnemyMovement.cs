@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     Animator animator;
+    Rigidbody rigid;
     public float moveSpeed;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     public void Update()
@@ -22,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         var direction = (Player.Instance.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
 
-        this.transform.position += direction * moveSpeed * Time.deltaTime;
+        //this.transform.position += direction * moveSpeed * Time.deltaTime;
+        this.rigid.velocity = direction * moveSpeed;
     }
 }
