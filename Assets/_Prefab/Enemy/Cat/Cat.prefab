@@ -457,7 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9056592609496221538}
   - component: {fileID: 8889522267189183055}
-  - component: {fileID: 4089963268016467905}
+  - component: {fileID: 8813050913522691177}
   - component: {fileID: 2496835480282389058}
   - component: {fileID: 3485454884216409592}
   - component: {fileID: 6463919452780404041}
@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 5753586875027271080}
   - component: {fileID: 3600185936686860610}
   - component: {fileID: 5051200756013107069}
+  - component: {fileID: -2658477831696928123}
   m_Layer: 7
   m_Name: Cat
   m_TagString: Enemy
@@ -515,8 +516,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &4089963268016467905
-CapsuleCollider:
+--- !u!65 &8813050913522691177
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -533,11 +534,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.6, z: 1}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!54 &2496835480282389058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -580,7 +579,7 @@ MonoBehaviour:
   rayDetect: {fileID: 7986284882208633389}
   charactorLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   sizeAttack: 2
   sizeThrow: 0
   haveBottle: 0
@@ -596,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!114 &5804666621781901584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,6 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+  isHurt: 0
 --- !u!114 &7639654031180784466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +702,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa44bf11aa16be48ad8d2e57b99cd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2658477831696928123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326386334186138647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 3
+  duration: 1
 --- !u!1 &4663519807555698418
 GameObject:
   m_ObjectHideFlags: 0

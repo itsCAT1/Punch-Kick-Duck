@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: -5096547135602391702}
   - component: {fileID: -980448717875299850}
   - component: {fileID: -1105538621963090601}
+  - component: {fileID: -5284769615170661960}
   m_Layer: 7
   m_Name: SquirrelBehindDoor
   m_TagString: Enemy
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!114 &5443709053726775527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+  isHurt: 0
 --- !u!114 &2581573150429478177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +494,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5284769615170661960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 3
+  duration: 1
 --- !u!1 &931777371718319887
 GameObject:
   m_ObjectHideFlags: 0

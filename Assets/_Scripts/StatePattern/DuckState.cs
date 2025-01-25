@@ -17,7 +17,7 @@ public class DuckState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Player.Instance.controller.moveSpeed = 0;
+        Player.Instance.controller.rigid.velocity = Vector3.zero;
         Player.Instance.controller.animator.Play("Duck");
         timeStart = Time.time;
     }

@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 6668290880278827095}
   - component: {fileID: 285517880609983659}
   - component: {fileID: 678974650161270538}
+  - component: {fileID: -5196154343551238975}
   m_Layer: 7
   m_Name: CatBottle
   m_TagString: Enemy
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!114 &8190435950609758114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,6 +993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+  isHurt: 0
 --- !u!114 &1003598986279619270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,6 +1074,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa44bf11aa16be48ad8d2e57b99cd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5196154343551238975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 3
+  duration: 1
 --- !u!1 &5519857228172635186
 GameObject:
   m_ObjectHideFlags: 0

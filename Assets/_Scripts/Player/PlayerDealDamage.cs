@@ -23,15 +23,15 @@ public class PlayerDealDamage : MonoBehaviour
 
     public bool isAttacking = false;
 
-    public void DetectObject()
+    public void ObjectDetected()
     {
-        Physics.Raycast(ray.transform.position, ray.transform.forward * Player.Instance.controller.playerDirection, out hitInfo, sizeHit, hitLayer);
+        float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
+        Physics.Raycast(ray.transform.position, ray.transform.forward * playerDirection, out hitInfo, sizeHit, hitLayer);
     }
 
-    private void Update()
+    private void Update()   
     {
-        DetectObject();
-        Debug.Log(Player.Instance.controller.playerDirection);
+        ObjectDetected();
     }
 
     public void GetAttackType(AttackType type)
@@ -44,7 +44,7 @@ public class PlayerDealDamage : MonoBehaviour
         GetAttackType(type);
         CombatManager.Instance.playerIsAttacking = true;
 
-        Invoke(nameof(StopAttack), 0.4f); 
+        Invoke(nameof(StopAttack), 0.5f); 
     }
 
     public void StopAttack()
@@ -60,9 +60,10 @@ public class PlayerDealDamage : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    /*private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * Player.Instance.controller.playerDirection * sizeHit);
-    }
+        float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
+        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * playerDirection * sizeHit);
+    }*/
 }

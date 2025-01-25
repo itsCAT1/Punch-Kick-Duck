@@ -30,4 +30,13 @@ namespace RMC.Core.UEvents
             this.Invoke(null);
         }
     }
+
+    [Serializable]
+    public class OnValueHeartChange : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
 }

@@ -33,6 +33,8 @@ public class CheckStatusPlayer : MonoBehaviour
         enemyAction.EnableAction();
     }
 
+
+
     void WaitingPlayerDead(IUEventData uEventData)
     {
         enemyAction.DisableAction();

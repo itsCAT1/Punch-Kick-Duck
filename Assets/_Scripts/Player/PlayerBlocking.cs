@@ -6,7 +6,9 @@ public class PlayerBlocking : ObjectMoving
 {
     public void PlayerIsRepelled()
     {
-        var targetPos = Player.Instance.transform.position.x - Player.Instance.transform.localScale.z * pushForce;
+        float signY = Mathf.Sign(this.transform.rotation.y);
+        var targetPos = Player.Instance.transform.position.x - signY * pushForce;
+        Debug.Log(signY);
         PerformMoving(targetPos);
     }
 }

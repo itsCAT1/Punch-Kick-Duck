@@ -15,10 +15,11 @@ public class CombatManager : Singleton<CombatManager>
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
 
         if ((playerAttackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
-                 (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
-                 (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
+            (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
+            (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
+            Player.Instance.health.IncreaseValueHeart();
         }
     }
 
@@ -42,4 +43,6 @@ public class CombatManager : Singleton<CombatManager>
 
         Player.Instance.GetComponent<PlayerBlocking>().PlayerIsRepelled();
     }
+
+    
 }

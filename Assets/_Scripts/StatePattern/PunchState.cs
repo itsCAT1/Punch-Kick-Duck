@@ -17,13 +17,13 @@ public class PunchState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Player.Instance.controller.moveSpeed = 0;
-        OnPerformPunch();
+        Player.Instance.controller.rigid.velocity = Vector3.zero;
+        OnPunching();
     }
 
-    void OnPerformPunch()
+    void OnPunching()
     {
-        if (Player.Instance.performAttack.punchLeft)
+        if (Player.Instance.attack.punchLeft)
         {
             Player.Instance.controller.animator.Play("PunchLeft");
         }
@@ -32,13 +32,13 @@ public class PunchState : FSMC_Behaviour
             Player.Instance.controller.animator.Play("PunchRight");
         }
 
-        Player.Instance.performAttack.punchLeft = !Player.Instance.performAttack.punchLeft;
+        Player.Instance.attack.punchLeft = !Player.Instance.attack.punchLeft;
         timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (resetState) Player.Instance.performAttack.punchLeft = true;
+        if (resetState) Player.Instance.attack.punchLeft = true;
         if (timeChangeState) Player.Instance.controller.executer.SetCurrentState("Walk");
     }
 

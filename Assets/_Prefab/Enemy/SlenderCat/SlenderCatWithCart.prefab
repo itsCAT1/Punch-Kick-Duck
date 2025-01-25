@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 707516161805288949}
   - component: {fileID: -399860497860556968}
   - component: {fileID: 1284417299272487529}
+  - component: {fileID: 8789698565832917082}
   m_Layer: 7
   m_Name: SlenderCatWithCart
   m_TagString: Enemy
@@ -1033,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!114 &1479838148941662289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,6 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+  isHurt: 0
 --- !u!114 &8908253377337347890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,6 +1155,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8789698565832917082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529145835923974000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 3
+  duration: 1
 --- !u!1 &7664370576539175782
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class Player : Singleton<Player>
 {
     public PlayerController controller;
     public PlayerAttackType attackType;
-    public PlayerAttack performAttack;
+    public PlayerAttack attack;
     public PlayerHealth health;
-    public PushPlayer push;
+    public PushingPlayer push;
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     float startTime = 0;
-    public float interval = 0.5f;
+    public float interval = 0.6f;
     public bool timeCoolDown => Time.time - startTime >= interval;
 
     public bool punchLeft = false;
@@ -36,5 +36,10 @@ public class PlayerAttack : MonoBehaviour
             startTime = Time.time;
             Player.Instance.controller.executer.SetCurrentState("Duck");
         }
+    }
+
+    public IEnumerator test()
+    {
+        yield return new WaitForSeconds(interval);
     }
 }

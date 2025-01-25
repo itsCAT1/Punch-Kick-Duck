@@ -8,23 +8,24 @@ using System;
 public class WalkState : FSMC_Behaviour
 {
     int direction;
+    PlayerController controller;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        direction = Player.Instance.controller.playerDirection;
+        controller = Player.Instance.controller;
+        direction = controller.playerDirection;
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
-        Player.Instance.controller.moveSpeed = 5;
-        Player.Instance.controller.playerDirection = direction;
-        Debug.Log(Player.Instance.controller.playerDirection);
-        Player.Instance.controller.animator.Play("Walk");
+        controller.moveSpeed = 5;
+        controller.playerDirection = direction;
+        controller.FlipCharacter();
+        controller.animator.Play("Walk");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        //Player.Instance.controller.rigid.velocity = new Vector3(Player.Instance.controller.moveSpeed,Player.Instance.controller.rigid.velocity.y, Player.Instance.controller.rigid.velocity.z);
+        controller.rigid.velocity = new Vector3(controller.moveSpeed, controller.rigid.velocity.y, controller.rigid.velocity.z);
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

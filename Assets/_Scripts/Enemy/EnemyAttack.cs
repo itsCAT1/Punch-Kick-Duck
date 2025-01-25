@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,10 +31,16 @@ public class EnemyAttack : MonoBehaviour
     public void CheckPlayer()
     {
         AttackType playerAttackType = Player.Instance.attackType.type;
-        if(playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking)
+        int enemyDirection = MathF.Sign(this.transform.rotation.y);
+        int PlayerDirection = MathF.Sign(Player.Instance.transform.rotation.y);
+
+        if (playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking && enemyDirection == -PlayerDirection)
         {
             animator.Play("Block");
             CombatManager.Instance.BlockDamage(playerAttackType);
+
+            Player.Instance.health.currentHeart = 0;
+            InGameUIManager.Instance.lives.HeartCounter();
         }
 
         else
@@ -45,6 +52,8 @@ public class EnemyAttack : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
+        Player.Instance.health.currentHeart = 0;
+        InGameUIManager.Instance.lives.HeartCounter();
 
         pushPlayer.PerformPush();
     }

@@ -26,20 +26,7 @@ public class PlayerController : MonoBehaviour
         DirectionOnStart();
     }
 
-    
-
-    private void FixedUpdate()
-    {
-        PerformMove();
-    }
-
-    void PerformMove()
-    {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector3(moveSpeed * playerDirection, rigid.velocity.y, rigid.velocity.z);
-    }
-
-    private void Update()
+    private void Start()
     {
         FlipCharacter();
     }
@@ -54,11 +41,9 @@ public class PlayerController : MonoBehaviour
     {
         var direction = data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
         playerDirection = direction.playerDirection;
-
-        //FlipCharacter();
     }
 
-    void FlipCharacter()
+    public void FlipCharacter()
     {
         Player.Instance.transform.rotation = Quaternion.Euler(0, 90 * playerDirection, 0);
     }
