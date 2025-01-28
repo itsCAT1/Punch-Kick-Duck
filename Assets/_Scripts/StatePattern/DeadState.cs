@@ -15,11 +15,10 @@ public class DeadState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        //Player.Instance.controller.rigid.velocity = Vector3.zero;
         Player.Instance.controller.animator.Play("Die");
 
         UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<StatusPlayerDead>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<PlayerDeath>(uEventData);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

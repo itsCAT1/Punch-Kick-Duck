@@ -13,12 +13,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public int playerDirection;
     
-    public float inputHorizontal;
     public FSMC_Executer executer;
 
     public ListDataPlayer data;
-    public int currentMapIndex;
-
 
     void Awake()
     {
@@ -26,8 +23,10 @@ public class PlayerController : MonoBehaviour
         DirectionOnStart();
     }
 
-    private void Start()
+    void DirectionOnStart()
     {
+        var dataPlayer = GetDataPlayer(DataBase.Instance.currentMap);
+        playerDirection = dataPlayer.playerDirection;
         FlipCharacter();
     }
 
@@ -37,14 +36,13 @@ public class PlayerController : MonoBehaviour
         FlipCharacter();
     }
 
-    void DirectionOnStart()
-    {
-        var direction = data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
-        playerDirection = direction.playerDirection;
-    }
-
     public void FlipCharacter()
     {
-        Player.Instance.transform.rotation = Quaternion.Euler(0, 90 * playerDirection, 0);
+        this.transform.rotation = Quaternion.Euler(0, 90 * playerDirection, 0);
+    }
+
+    public DataPlayerBase GetDataPlayer(int currentMapIndex)
+    {
+        return data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
     }
 }

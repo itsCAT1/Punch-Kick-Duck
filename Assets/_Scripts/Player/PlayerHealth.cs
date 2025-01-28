@@ -7,10 +7,17 @@ public class PlayerHealth : Health
     public int currentHeart;
     public int maxHeart;
 
-    private void Awake()
+    private void Start()
     {
+        currentHealth = maxHealth;
+        GetDataHeart();
+    }
+
+    void GetDataHeart()
+    {
+        var dataPlayer = Player.Instance.controller.GetDataPlayer(DataBase.Instance.currentMap);
+        maxHeart = dataPlayer.maxHeart;
         currentHeart = maxHeart;
-        InGameUIManager.Instance.lives.HeartCounter();
     }
 
     protected override void Hurt()
@@ -32,7 +39,7 @@ public class PlayerHealth : Health
         Player.Instance.controller.executer.SetCurrentState("Dead");
     }
 
-    public void IncreaseValueHeart()
+    public void GainHeart()
     {
         if (currentHeart >= maxHeart)
         {
@@ -40,7 +47,7 @@ public class PlayerHealth : Health
         }
 
         currentHeart++;
-        InGameUIManager.Instance.lives.HeartCounter();
+        InGameUIManager.Instance.lives.UpdateLivesProgress();
 
         if (currentHeart >= maxHeart)
         {

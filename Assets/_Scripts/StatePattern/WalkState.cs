@@ -25,7 +25,7 @@ public class WalkState : FSMC_Behaviour
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        controller.rigid.velocity = new Vector3(controller.moveSpeed, controller.rigid.velocity.y, controller.rigid.velocity.z);
+        controller.rigid.velocity = new Vector3(controller.moveSpeed * direction, controller.rigid.velocity.y, controller.rigid.velocity.z);
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

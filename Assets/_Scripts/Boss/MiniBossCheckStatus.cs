@@ -14,8 +14,8 @@ public class MiniBossCheckStatus : MonoBehaviour
         miniBossAction = GetComponent<MiniBossActionManager>();
         animator = GetComponent<Animator>();
 
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(WaitingPlayerHurt);
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerDead>(WaitingPlayerDead);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayerHurt);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(WaitingPlayerDead);
     }
 
 

@@ -7,8 +7,6 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     public float speedChange;
 
-    public Transform playerPos;
-
     void Update()
     {
         FollowPlayer();
@@ -16,7 +14,7 @@ public class CameraController : MonoBehaviour
 
     void FollowPlayer()
     {
-        var targetPos = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y + offset.y, offset.z);
+        var targetPos = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y + offset.y, offset.z);
         transform.position = Vector3.Lerp(transform.position, targetPos, speedChange);
     }
 }

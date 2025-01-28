@@ -9,6 +9,7 @@ public class DataPlayerBase
 {
     public int numberMap;
     public int playerDirection;
+    public int maxHeart;
 }
 
 

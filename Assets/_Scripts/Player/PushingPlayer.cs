@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class PushingPlayer : ObjectJumping
+public class PushingPlayer : MonoBehaviour
 {
+    Rigidbody rigid;
+    public Vector3 offset;
+    public float speed;
 
-    public void PlayerIsPushed(Vector3 offset)
+    private void Start()
     {
-        var targetPos = this.transform.position + offset;
-        PerformJumping(targetPos);
-        StartCoroutine(StartTurnOff());
+        rigid = GetComponent<Rigidbody>();
     }
 
-    public IEnumerator StartTurnOff()
+    public void PlayerIsPushed(float direction)
     {
-        InGameUIManager.Instance.button.Deactive();
-
-        yield return new WaitForSeconds(1f);
-
-        InGameUIManager.Instance.button.Active();
+        rigid.AddForce(new Vector3(offset.x * direction, offset.y, offset.z), ForceMode.VelocityChange);
     }
 }

@@ -6,9 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     Rigidbody rigid;
     Animator animator;
-    EnemyAttack enemyAttack;
-    EnemyMovement enemyMovement;
-    EnemyThrowBottle enemyThrowBottle;
+    EnemyAttack attack;
+    EnemyMovement movement;
+    EnemyThrowBottle thowBottle;
+    DetectingObject detect;
 
     public Transform rayDetect;
     public LayerMask charactorLayer;
@@ -16,55 +17,28 @@ public class EnemyController : MonoBehaviour
     public float sizeThrow;
     public bool haveBottle;
 
-    float currentRange;
+    public float currentRange;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        enemyAttack = GetComponent<EnemyAttack>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        attack = GetComponent<EnemyAttack>();
+        movement = GetComponent<EnemyMovement>();
+        detect = GetComponent<DetectingObject>();
 
-        if(haveBottle) enemyThrowBottle = GetComponent<EnemyThrowBottle>();
+        if(haveBottle) thowBottle = GetComponent<EnemyThrowBottle>();
     }
 
     private void Update()
     {
-        UpdateAction();
-    }
-
-    void UpdateAction()
-    {
-        SetRangeAttack();
         CheckObject();
-    }
-
-    void SetRangeAttack()
-    {
-        Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit hitInfor, 1000, charactorLayer);
-        if (hitInfor.collider == null)
-        {
-            return;
-        }
-        if (hitInfor.collider.CompareTag("Enemy"))
-        {
-            currentRange = sizeAttack;
-        }
-
-        if (hitInfor.collider.CompareTag("Player") && !haveBottle)
-        {
-            currentRange = sizeAttack;
-        }
-
-        if (hitInfor.collider.CompareTag("Player") && haveBottle)
-        {
-            currentRange = sizeThrow;
-        }
     }
 
     void CheckObject()
     {
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
+
         if (aimingRay)
         {
             if (Infor.collider.CompareTag("Player"))
@@ -72,11 +46,11 @@ public class EnemyController : MonoBehaviour
                 Standing();
                 if (haveBottle)
                 {
-                    enemyThrowBottle.PerformThrowBottle();
+                    thowBottle.PerformThrowBottle();
                 }
                 else
                 {
-                    enemyAttack.PerformAttack();
+                    attack.PerformAttack();
                 }
             }
             else if (Infor.collider.CompareTag("Enemy"))
@@ -93,14 +67,14 @@ public class EnemyController : MonoBehaviour
     void Standing()
     {
         animator.SetBool("Walking", false);
-        enemyMovement.enabled = false;
+        movement.enabled = false;
         this.rigid.isKinematic = true;
     }
 
     void Moving()
     {
         animator.SetBool("Walking", true);
-        enemyMovement.enabled = true;
+        movement.enabled = true;
         this.rigid.isKinematic = false;
     }
 

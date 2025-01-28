@@ -6,23 +6,6 @@ using Lean.Pool;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemiesPrefab;
-    public float durationSpawn;
-
-    void Start()
-    {
-        StartCoroutine(SpawnEnemy());
-    }
-
-    IEnumerator SpawnEnemy()
-    {
-        while (true)
-        {
-            Instantiate(enemiesPrefab[Random.Range(0, enemiesPrefab.Length)], this.transform.position, Quaternion.identity);
-            //LeanPool.Spawn(enemiesPrefab[Random.Range(0, enemiesPrefab.Length)]);
-
-            yield return new WaitForSeconds(durationSpawn);
-        }
-    }
 
     public void SpawnPunch()
     {

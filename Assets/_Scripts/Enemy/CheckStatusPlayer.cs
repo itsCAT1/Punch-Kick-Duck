@@ -15,12 +15,13 @@ public class CheckStatusPlayer : MonoBehaviour
         enemyAction = GetComponent<EnemyActionManager>();
         animator = GetComponent<Animator>();
 
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(WaitingPlayerHurt);
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerDead>(WaitingPlayerDead);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(WaitingPlayerDead);
     }
 
 
-    void WaitingPlayerHurt(IUEventData uEventData)
+    void WaitingPlayer(IUEventData uEventData)
     {
         StartCoroutine(TimeWaiting());
     }

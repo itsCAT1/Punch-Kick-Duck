@@ -59,11 +59,4 @@ public class PlayerDealDamage : MonoBehaviour
             CombatManager.Instance.DealtDamageEnemy(hitInfo);
         }
     }
-
-    /*private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
-        Gizmos.DrawRay(ray.transform.position, ray.transform.forward * playerDirection * sizeHit);
-    }*/
 }

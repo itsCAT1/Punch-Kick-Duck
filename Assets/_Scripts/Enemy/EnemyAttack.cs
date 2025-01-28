@@ -1,3 +1,5 @@
+﻿using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,9 +23,12 @@ public class EnemyAttack : MonoBehaviour
 
     public void PerformAttack()
     {
+        if(!AttackingEnemyManager.Instance.CanAttack(this)) return;
+
         if (Time.time - lastTimeAttack >= timeCoolDown)
         {
             animator.Play("Attack");
+            AttackingEnemyManager.Instance.SetAttackingEnemy(this);
             lastTimeAttack = Time.time;
         }
     }
@@ -32,29 +37,50 @@ public class EnemyAttack : MonoBehaviour
     {
         AttackType playerAttackType = Player.Instance.attackType.type;
         int enemyDirection = MathF.Sign(this.transform.rotation.y);
-        int PlayerDirection = MathF.Sign(Player.Instance.transform.rotation.y);
+        int playerDirection = MathF.Sign(Player.Instance.transform.rotation.y);
 
-        if (playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking && enemyDirection == -PlayerDirection)
+        if (playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking && enemyDirection == -playerDirection)
         {
-            animator.Play("Block");
             CombatManager.Instance.BlockDamage(playerAttackType);
-
-            Player.Instance.health.currentHeart = 0;
-            InGameUIManager.Instance.lives.HeartCounter();
+            BlockDamage();
         }
-
         else
         {
             DealDamage();
         }
+
+        StartCoroutine(RemoveAttacking());
+    }
+
+    void BlockDamage()
+    {
+        animator.Play("Block");
+
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<PlayerBlocking>(uEventData);
+
+        if(Player.Instance.health.currentHealth == 1)
+        {
+            Player.Instance.health.currentHeart = 0;
+        }
+        
+        InGameUIManager.Instance.lives.UpdateLivesProgress();
     }
 
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
         Player.Instance.health.currentHeart = 0;
-        InGameUIManager.Instance.lives.HeartCounter();
+        InGameUIManager.Instance.lives.UpdateLivesProgress();
+        InGameUIManager.Instance.bonusPoint.LosePoint();
+        DataInGame.Instance.beatingStreak = 0;
 
         pushPlayer.PerformPush();
+    }
+
+    IEnumerator RemoveAttacking()
+    {
+        yield return new WaitForSeconds(0.4f);
+        AttackingEnemyManager.Instance.ClearAttackingEnemy(this);
     }
 }

@@ -11,8 +11,9 @@ public class ButtonHandle : MonoBehaviour
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(TurnOffForAWhile);
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerDead>(TurnOff);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(TurnOffForAWhile);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(TurnOffForAWhile);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(TurnOff);
     }
 
     public void TurnOffForAWhile(IUEventData uEventData)

@@ -20,7 +20,7 @@ public class HurtState : FSMC_Behaviour
         Player.Instance.controller.animator.Play("Hurt");
 
         UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<StatusPlayerHurt>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<PlayerHurt>(uEventData);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

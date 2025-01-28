@@ -8,12 +8,17 @@ using UnityEngine;
 public class EnemyGoingBack : ObjectMoving
 {
     Animator animator;
+    Rigidbody rigid;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        UEventDispatcherSingleton.Instance.AddEventListener<StatusPlayerHurt>(PerformBack);
+        rigid = GetComponent<Rigidbody>();
+
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(PerformBack);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(PerformBack);
     }
+
 
     public void PerformBack(IUEventData uEventData)
     {
@@ -22,15 +27,28 @@ public class EnemyGoingBack : ObjectMoving
 
     IEnumerator StartGoingBack()
     {
-        yield return new WaitForSeconds(0.5f);
-
-        if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= 2)
+        float timeCount = 0;
+        float duration = 0.5f;
+            
+        while (timeCount <= duration)
         {
-            float signY = Mathf.Sign(this.transform.rotation.y);
-            var targetPos = Player.Instance.transform.position.x - signY * pushForce;
-            PerformMoving(targetPos);
+            timeCount += Time.deltaTime;
+            if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= 8)
+            {
+                float signY = Mathf.Sign(this.transform.rotation.y);
 
-            animator.Play("GoBack");
+                rigid.isKinematic = false;
+                rigid.velocity = new Vector3(-signY * pushForce, 0, 0);
+
+                animator.Play("GoBack");
+            }
+
+            else
+            {
+                animator.Play("Idle");
+            }
+
+            yield return null;
         }
     }
 }

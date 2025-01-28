@@ -6,4 +6,5 @@ public class InGameUIManager : Singleton<InGameUIManager>
 {
     public ButtonHandle button;
     public LivesHandle lives;
+    public BonusPointHandle bonusPoint;
 }

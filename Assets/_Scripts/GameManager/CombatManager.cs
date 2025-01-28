@@ -19,7 +19,7 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
-            Player.Instance.health.IncreaseValueHeart();
+            AddPoint();
         }
     }
 
@@ -41,8 +41,23 @@ public class CombatManager : Singleton<CombatManager>
         }
 
 
-        Player.Instance.GetComponent<PlayerBlocking>().PlayerIsRepelled();
+        Player.Instance.GetComponent<PlayerIsPushed>().PlayerIsRepelled();
     }
 
-    
+    void AddPoint()
+    {
+        Player.Instance.health.GainHeart();
+        InGameUIManager.Instance.bonusPoint.GainPoint();
+        DataInGame.Instance.score++;
+        DataInGame.Instance.beatingStreak++;
+        CheckBeatingStreak();
+    }
+
+    void CheckBeatingStreak()
+    {
+        if(DataInGame.Instance.beatingStreak > DataInGame.Instance.maxStreak)
+        {
+            DataInGame.Instance.maxStreak = DataInGame.Instance.beatingStreak;
+        }
+    }
 }

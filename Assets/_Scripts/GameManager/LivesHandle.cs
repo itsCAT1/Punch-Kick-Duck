@@ -13,13 +13,12 @@ public class LivesHandle : MonoBehaviour
 
     private void Update()
     {
-        HeartCounter();
+        UpdateLivesProgress();
     }
 
-    public void HeartCounter()
+    public void UpdateLivesProgress()
     {
         valueLives.text = Player.Instance.health.currentHeart.ToString();
-        Debug.Log("ui");
 
         int currentHeart = Player.Instance.health.currentHeart;
         int maxHeart = Player.Instance.health.maxHeart;

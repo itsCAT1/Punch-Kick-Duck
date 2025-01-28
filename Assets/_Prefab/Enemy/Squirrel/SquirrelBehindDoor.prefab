@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 3369293955817318687}
   - component: {fileID: 2102380811329445980}
   - component: {fileID: 2584373216732174210}
+  - component: {fileID: -8485643428545663812}
   - component: {fileID: 2718450146103392775}
   - component: {fileID: 5443709053726775527}
   - component: {fileID: 6572685948765366867}
@@ -361,6 +362,19 @@ MonoBehaviour:
   sizeAttack: 2
   sizeThrow: 10
   haveBottle: 0
+  currentRange: 0
+--- !u!114 &-8485643428545663812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51eef405e1d83a844b5852662f7b909d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2718450146103392775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 3
+  pushForce: 6
   duration: 1
 --- !u!1 &931777371718319887
 GameObject:
