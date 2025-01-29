@@ -5,4 +5,5 @@ using UnityEngine;
 public class DataBase : Singleton<DataBase>
 {
     public int currentMap;
+    public Transform[] playerPosition;
 }

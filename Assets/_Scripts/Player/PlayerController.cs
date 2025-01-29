@@ -23,6 +23,16 @@ public class PlayerController : MonoBehaviour
         DirectionOnStart();
     }
 
+    private void Start()
+    {
+        PositionOnStart();
+    }
+
+    void PositionOnStart()
+    {
+        this.transform.position = DataBase.Instance.playerPosition[DataBase.Instance.currentMap - 1].position;
+    }
+
     void DirectionOnStart()
     {
         var dataPlayer = GetDataPlayer(DataBase.Instance.currentMap);

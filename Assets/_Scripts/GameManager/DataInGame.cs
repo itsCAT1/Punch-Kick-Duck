@@ -9,5 +9,5 @@ public class DataInGame : Singleton<DataInGame>
     public int beatingCounter;
     public int beatingStreak;
     public int maxStreak;
-    public bool isStart;
+    public bool isStartGame;
 }
