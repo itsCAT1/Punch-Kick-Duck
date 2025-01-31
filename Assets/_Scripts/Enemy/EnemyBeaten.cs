@@ -6,6 +6,8 @@ public class EnemyBeaten : ObjectJumping
 {
     public Vector3 offset;
     Rigidbody rigid;
+    public float dropChance = 0.3f;
+    public GameObject coinPrefab;
 
     EnemyActionManager enemyActionManager;
 
@@ -23,5 +25,19 @@ public class EnemyBeaten : ObjectJumping
         float signX = Mathf.Sign(transform.forward.x);
         var targetPos = this.transform.position + new Vector3(offset.x * signX, offset.y, offset.z);
         PerformJumping(targetPos);
+    }
+
+    void TryDropCoin(Vector3 position)
+    {
+        float randomValue = Random.value;
+        if (randomValue <= dropChance)
+        {
+            SpawnCoin(position);
+        }
+    }
+    void SpawnCoin(Vector3 position)
+    {
+        var coinTemp = Instantiate(coinPrefab, this.transform.position, Quaternion.identity);
+        coinTemp.GetComponent<Rigidbody>().AddForce(new Vector3(Player.Instance.controller.playerDirection * 2, 5, 0), ForceMode.Impulse);
     }
 }
