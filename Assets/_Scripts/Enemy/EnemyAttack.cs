@@ -64,15 +64,15 @@ public class EnemyAttack : MonoBehaviour
             Player.Instance.health.currentHeart = 0;
         }
         
-        InGameUIManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.lives.UpdateLivesProgress();
     }
 
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
         Player.Instance.health.currentHeart = 0;
-        InGameUIManager.Instance.lives.UpdateLivesProgress();
-        InGameUIManager.Instance.bonusPoint.LosePoint();
+        InGameManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.bonusPoint.LosePoint();
         DataInGame.Instance.beatingStreak = 0;
 
         pushPlayer.PerformPush();

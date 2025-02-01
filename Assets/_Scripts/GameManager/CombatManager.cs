@@ -47,7 +47,7 @@ public class CombatManager : Singleton<CombatManager>
     void AddPoint()
     {
         Player.Instance.health.GainHeart();
-        InGameUIManager.Instance.bonusPoint.GainPoint();
+        InGameManager.Instance.bonusPoint.GainPoint();
         DataInGame.Instance.score++;
         DataInGame.Instance.beatingStreak++;
         CheckBeatingStreak();

@@ -47,7 +47,7 @@ public class PlayerHealth : Health
         }
 
         currentHeart++;
-        InGameUIManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.lives.UpdateLivesProgress();
 
         if (currentHeart >= maxHeart)
         {

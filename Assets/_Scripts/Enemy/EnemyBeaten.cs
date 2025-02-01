@@ -21,23 +21,23 @@ public class EnemyBeaten : ObjectJumping
     {
         enemyActionManager.DisableAction();
         rigid.isKinematic = false;
+        RandomDropCoin();
 
         float signX = Mathf.Sign(transform.forward.x);
         var targetPos = this.transform.position + new Vector3(offset.x * signX, offset.y, offset.z);
         PerformJumping(targetPos);
     }
 
-    void TryDropCoin(Vector3 position)
+    void RandomDropCoin()
     {
         float randomValue = Random.value;
         if (randomValue <= dropChance)
         {
-            SpawnCoin(position);
+            SpawnCoin();
         }
     }
-    void SpawnCoin(Vector3 position)
+    void SpawnCoin()
     {
-        var coinTemp = Instantiate(coinPrefab, this.transform.position, Quaternion.identity);
-        coinTemp.GetComponent<Rigidbody>().AddForce(new Vector3(Player.Instance.controller.playerDirection * 2, 5, 0), ForceMode.Impulse);
+        Instantiate(coinPrefab, this.transform.position, Quaternion.Euler(90, 0, 0));
     }
 }
