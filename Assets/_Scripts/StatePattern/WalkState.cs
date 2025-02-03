@@ -15,7 +15,7 @@ public class WalkState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        controller.moveSpeed = 5;
+        controller.moveSpeed = 4;
         controller.GetDirection();
         controller.animator.Play("Walk");
     }

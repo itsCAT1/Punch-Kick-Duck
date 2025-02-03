@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 3600185936686860610}
   - component: {fileID: 5051200756013107069}
   - component: {fileID: -2658477831696928123}
+  - component: {fileID: 2937486125107915682}
   m_Layer: 7
   m_Name: Cat
   m_TagString: Enemy
@@ -609,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 5
 --- !u!114 &5804666621781901584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +733,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &2937486125107915682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326386334186138647}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 1
+  duration: 0.5
 --- !u!1 &4663519807555698418
 GameObject:
   m_ObjectHideFlags: 0

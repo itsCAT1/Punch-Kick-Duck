@@ -9,22 +9,27 @@ public class CheckStatusPlayer : MonoBehaviour
 {
     EnemyActionHandle enemyAction;
     Animator animator;
+    Health health;
 
     void Start()
     {
         enemyAction = GetComponent<EnemyActionHandle>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
 
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(WaitingPlayerDead);
-        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(WaitingPlayerDead);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopChasing);
     }
 
 
     void WaitingPlayer(IUEventData uEventData)
     {
-        StartCoroutine(TimeWaiting());
+        if(health.currentHealth > 0)
+        {
+            StartCoroutine(TimeWaiting());
+        }
     }
 
 
@@ -38,12 +43,18 @@ public class CheckStatusPlayer : MonoBehaviour
 
     void WaitingPlayerDead(IUEventData uEventData)
     {
-        enemyAction.DisableAction();
-        animator.Play("Win");
+        if (health.currentHealth > 0)
+        {
+            enemyAction.DisableAction();
+            animator.Play("Win");
+        }
     }
 
     void StopChasing(IUEventData uEventData)
     {
-        enemyAction.DisableAction();
+        if (health.currentHealth > 0)
+        {
+            enemyAction.DisableAction();
+        }
     }
 }

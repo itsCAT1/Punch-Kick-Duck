@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class NextLevelHandler : MonoBehaviour
 {
+    public Transform[] pos;
     public Vector3[] targetPos;
     public float duration;
 
@@ -23,7 +24,17 @@ public class NextLevelHandler : MonoBehaviour
 
     IEnumerator StartRotate()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
     }
+
+    [ContextMenu("Create Position")]
+    void CreatePosition()
+    {
+        for (int i = 0; i < pos.Length; i++)
+        {
+            targetPos[i] = pos[i].position;
+        }
+    }
+
 }

@@ -11,25 +11,34 @@ public class ConditionManger : Singleton<ConditionManger>
 
     public GameObject inGameUI;
     public GameObject endGameUI;
-
+    public GameObject attackUI;
 
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(ShowStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(ShowEndGame);
-    }
-
-    void ShowEndGame(IUEventData uEventData)
-    {
-        isStartGame = false;
-        isEndGame = true;
-        endGameUI.SetActive(true);
+        UEventDispatcherSingleton.Instance.AddEventListener<ChangeLevel>(ShowInGame);
     }
 
     void ShowStartGame(IUEventData uEventData)
     {
         isStartGame = true;
         isEndGame = false;
+    }
+
+    void ShowEndGame(IUEventData uEventData)
+    {
+        isStartGame = false;
+        isEndGame = true;
+        attackUI.SetActive(false);
+        endGameUI.SetActive(true);
+    }
+
+    void ShowInGame(IUEventData uEventData)
+    {
+        isStartGame = true;
+        isEndGame = false;
+        attackUI.SetActive(true);
         endGameUI.SetActive(false);
     }
 }

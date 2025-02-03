@@ -21,6 +21,6 @@ public class EnemyHealth : Health
         animator.Play("Die");
         GetComponent<Collider>().enabled = false;
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
     }
 }

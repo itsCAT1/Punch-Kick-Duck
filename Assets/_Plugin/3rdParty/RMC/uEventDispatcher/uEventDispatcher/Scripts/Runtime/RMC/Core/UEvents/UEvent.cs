@@ -41,15 +41,6 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
-    public class OnValueHeartChange : UnityEvent<IUEventData>, IUEvent
-    {
-        public void InvokeNull()
-        {
-            this.Invoke(null);
-        }
-    }
-
-    [Serializable]
     public class StartGame : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
@@ -60,6 +51,15 @@ namespace RMC.Core.UEvents
 
     [Serializable]
     public class EndGame : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class ChangeLevel : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
         {

@@ -11,7 +11,7 @@ public class EndGameState : FSMC_Behaviour
 {
     private float timeStart;
 
-    public bool timeChangeState => Time.time - timeStart >= 15;
+    public bool timeChangeState => Time.time - timeStart >= 14;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -30,14 +30,9 @@ public class EndGameState : FSMC_Behaviour
     {
         if (timeChangeState)
         {
-            if (DataManager.Instance.data.currentMap < 9)
-            {
-                DataManager.Instance.data.currentMap++;
-            }
-            
             Player.Instance.controller.executer.SetCurrentState("Walk");
             UEventData uEventData = new UEventData();
-            UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+            UEventDispatcherSingleton.Instance.Invoke<ChangeLevel>(uEventData);
         }
     }
 

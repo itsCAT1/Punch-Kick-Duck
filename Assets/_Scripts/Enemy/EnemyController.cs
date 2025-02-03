@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     EnemyMovement movement;
     EnemyThrowBottle thowBottle;
     DetectingObject detect;
+    EnemyApear apear;
 
     public Transform rayDetect;
     public LayerMask charactorLayer;
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
         attack = GetComponent<EnemyAttack>();
         movement = GetComponent<EnemyMovement>();
         detect = GetComponent<DetectingObject>();
+        apear = GetComponent<EnemyApear>();
 
         if(haveBottle) thowBottle = GetComponent<EnemyThrowBottle>();
     }
@@ -82,5 +84,13 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = haveBottle ? Color.blue : Color.red;
         Gizmos.DrawRay(rayDetect.transform.position, rayDetect.transform.forward * sizeAttack);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("OpenableDoor"))
+        {
+            apear.enabled = true;
+        }
     }
 }

@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 1126754483976277179}
   - component: {fileID: 6461558233081971333}
   - component: {fileID: 1692541130555262503}
+  - component: {fileID: -4721391769279132598}
   m_Layer: 7
   m_Name: SquirrelBottle
   m_TagString: Enemy
@@ -1990,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 5
 --- !u!114 &575324812357840258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2128,6 +2129,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &-4721391769279132598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030859090074328926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 1
+  duration: 0.5
 --- !u!1 &8098029449366886424
 GameObject:
   m_ObjectHideFlags: 0

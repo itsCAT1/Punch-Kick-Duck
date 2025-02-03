@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 285517880609983659}
   - component: {fileID: 678974650161270538}
   - component: {fileID: -5196154343551238975}
+  - component: {fileID: 7282318885144496967}
   m_Layer: 7
   m_Name: CatBottle
   m_TagString: Enemy
@@ -966,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 5
 --- !u!114 &8190435950609758114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,6 +1105,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &7282318885144496967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 1
+  duration: 0.5
 --- !u!1 &5519857228172635186
 GameObject:
   m_ObjectHideFlags: 0

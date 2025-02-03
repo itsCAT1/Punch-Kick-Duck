@@ -17,8 +17,6 @@ public class SpawnEnemy : MonoBehaviour
             {
                 Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity, spawnParent);
             }
-
-            Destroy(this.gameObject);
         }
     }
 

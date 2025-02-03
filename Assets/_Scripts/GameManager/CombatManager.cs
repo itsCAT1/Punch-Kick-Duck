@@ -13,12 +13,15 @@ public class CombatManager : Singleton<CombatManager>
         AttackType enemyAttackType = enemyInfo.collider.GetComponent<EnemyType>().attackType;
 
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
+        EnemyAttack attackEnemy = enemyInfo.collider.GetComponent<EnemyAttack>();
 
         if ((playerAttackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
             (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
+            StartCoroutine(ContinueAttack(attackEnemy));
+
             AddPoint();
         }
     }
@@ -42,6 +45,12 @@ public class CombatManager : Singleton<CombatManager>
 
 
         Player.Instance.GetComponent<PlayerIsPushed>().PlayerIsRepelled();
+    }
+
+    IEnumerator ContinueAttack(EnemyAttack attackEnemy)
+    {
+        yield return new WaitForSeconds(2f);
+        AttackingEnemyManager.Instance.ClearAttackingEnemy(attackEnemy);
     }
 
     void AddPoint()

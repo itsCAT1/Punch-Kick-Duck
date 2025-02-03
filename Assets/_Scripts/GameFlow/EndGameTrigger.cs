@@ -24,17 +24,6 @@ public class EndGameTrigger : MonoBehaviour
         {
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<EndGame>(uEventData);
-            StartCoroutine(StartEndGame());
-        }
-    }
-
-    IEnumerator StartEndGame()
-    {
-        while (time <= 15)
-        {
-            yield return new WaitForSeconds(1);
-            time++;
-            Debug.Log(time);
         }
     }
 }

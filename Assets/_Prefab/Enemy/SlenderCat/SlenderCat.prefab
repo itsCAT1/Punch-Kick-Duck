@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: -2449647674379406010}
   - component: {fileID: -4336803608068490458}
   - component: {fileID: 3496373180659590131}
+  - component: {fileID: 8267024589333304280}
   m_Layer: 7
   m_Name: SlenderCat
   m_TagString: Enemy
@@ -768,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 5
 --- !u!114 &2387551223463310604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,6 +892,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &8267024589333304280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841920795135456151}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 1
+  duration: 0.5
 --- !u!1 &5844047975152352360
 GameObject:
   m_ObjectHideFlags: 0

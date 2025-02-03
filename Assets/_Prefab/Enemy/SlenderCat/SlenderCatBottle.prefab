@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 9059418863897804656}
   - component: {fileID: -6706084058494315563}
   - component: {fileID: 1182093893297962142}
+  - component: {fileID: -112381069876505455}
   m_Layer: 7
   m_Name: SlenderCatBottle
   m_TagString: Enemy
@@ -1120,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a2ad090ac25794dbaeaef7f51552a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 5
 --- !u!114 &9091753031749601037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,6 +1259,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &-112381069876505455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947798225761686602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 1
+  duration: 0.5
 --- !u!1 &7448388827879056285
 GameObject:
   m_ObjectHideFlags: 0

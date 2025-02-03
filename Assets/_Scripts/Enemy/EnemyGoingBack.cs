@@ -9,11 +9,13 @@ public class EnemyGoingBack : ObjectMoving
 {
     Animator animator;
     Rigidbody rigid;
+    Health health;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
+        health = GetComponent<Health>();
 
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(PerformBack);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(PerformBack);
@@ -22,7 +24,10 @@ public class EnemyGoingBack : ObjectMoving
 
     public void PerformBack(IUEventData uEventData)
     {
-        StartCoroutine(StartGoingBack());
+        if (health.currentHealth > 0)
+        {
+            StartCoroutine(StartGoingBack());
+        }
     }
 
     IEnumerator StartGoingBack()
