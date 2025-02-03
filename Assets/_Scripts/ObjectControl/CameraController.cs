@@ -9,6 +9,20 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        SetSpeedFollow();
+    }
+
+    void SetSpeedFollow()
+    {
+        if (ConditionManger.Instance.isStartGame)
+        {
+            speedChange = 1;
+        }
+
+        if (ConditionManger.Instance.isEndGame)
+        {
+            speedChange = 0.01f;
+        }
         FollowPlayer();
     }
 

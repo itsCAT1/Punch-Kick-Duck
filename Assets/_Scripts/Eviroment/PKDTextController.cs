@@ -14,7 +14,7 @@ public class PKDTextController : MonoBehaviour
 
     void PositionOnStart()
     {
-        int index = DataBase.Instance.currentMap - 1;
+        int index = DataManager.Instance.data.currentMap - 1;
         var spawnPosition = positionSpawned[index].position;
         Instantiate(pkdPrefab[index], spawnPosition, Quaternion.identity, this.transform);
     }

@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataBase : Singleton<DataBase>
+[Serializable]
+public class DataBase
 {
     public int currentMap;
-    public Transform[] playerPosition;
+    public int totalScore;
 }

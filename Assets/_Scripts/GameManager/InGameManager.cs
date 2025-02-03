@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InGameManager : Singleton<InGameManager>
 {
-    public ButtonHandle button;
-    public LivesHandle lives;
-    public BonusPointHandle bonusPoint;
+    public ButtonHandler button;
+    public LivesHandler lives;
+    public BonusPointHandler bonusPoint;
 }

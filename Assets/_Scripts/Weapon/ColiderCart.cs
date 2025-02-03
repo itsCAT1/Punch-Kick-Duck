@@ -5,11 +5,11 @@ using UnityEngine;
 public class ColiderCart : HandleColider
 {
     bool hasColidered = false;
-    EnemyActionManager actionEnemy;
+    EnemyActionHandle actionEnemy;
 
     void Start()
     {
-        actionEnemy = GetComponentInParent<EnemyActionManager>();
+        actionEnemy = GetComponentInParent<EnemyActionHandle>();
     }
 
     private void OnTriggerEnter(Collider other)

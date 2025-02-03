@@ -17,25 +17,21 @@ public class PlayerController : MonoBehaviour
 
     public ListDataPlayer data;
 
-    void Awake()
+    private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         DirectionOnStart();
-    }
-
-    private void Start()
-    {
         PositionOnStart();
     }
 
     void PositionOnStart()
     {
-        this.transform.position = DataBase.Instance.playerPosition[DataBase.Instance.currentMap - 1].position;
+        this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;
     }
 
     void DirectionOnStart()
     {
-        var dataPlayer = GetDataPlayer(DataBase.Instance.currentMap);
+        var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
         playerDirection = dataPlayer.playerDirection;
         FlipCharacter();
     }
@@ -51,7 +47,7 @@ public class PlayerController : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(0, 90 * playerDirection, 0);
     }
 
-    public DataPlayerBase GetDataPlayer(int currentMapIndex)
+    public DataPlayer GetDataPlayer(int currentMapIndex)
     {
         return data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
     }

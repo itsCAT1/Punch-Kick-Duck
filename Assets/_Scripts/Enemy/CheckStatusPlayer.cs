@@ -7,17 +7,18 @@ using UnityEngine;
 
 public class CheckStatusPlayer : MonoBehaviour
 {
-    EnemyActionManager enemyAction;
+    EnemyActionHandle enemyAction;
     Animator animator;
 
     void Start()
     {
-        enemyAction = GetComponent<EnemyActionManager>();
+        enemyAction = GetComponent<EnemyActionHandle>();
         animator = GetComponent<Animator>();
 
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(WaitingPlayerDead);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(WaitingPlayerDead);
     }
 
 
@@ -35,10 +36,14 @@ public class CheckStatusPlayer : MonoBehaviour
     }
 
 
-
     void WaitingPlayerDead(IUEventData uEventData)
     {
         enemyAction.DisableAction();
         animator.Play("Win");
+    }
+
+    void StopChasing(IUEventData uEventData)
+    {
+        enemyAction.DisableAction();
     }
 }

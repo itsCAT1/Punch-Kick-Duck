@@ -49,15 +49,15 @@ public class CombatManager : Singleton<CombatManager>
         Player.Instance.health.GainHeart();
         InGameManager.Instance.bonusPoint.GainPoint();
         DataInGame.Instance.score++;
-        DataInGame.Instance.beatingStreak++;
-        CheckBeatingStreak();
+        DataEndGame.Instance.beatingStreak++;
+        UpdateBestStreak();
     }
 
-    void CheckBeatingStreak()
+    void UpdateBestStreak()
     {
-        if(DataInGame.Instance.beatingStreak > DataInGame.Instance.maxStreak)
+        if(DataEndGame.Instance.beatingStreak >= DataEndGame.Instance.bestStreak)
         {
-            DataInGame.Instance.maxStreak = DataInGame.Instance.beatingStreak;
+            DataEndGame.Instance.bestStreak = DataEndGame.Instance.beatingStreak;
         }
     }
 }

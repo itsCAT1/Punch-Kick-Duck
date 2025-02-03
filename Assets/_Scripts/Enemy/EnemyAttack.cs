@@ -73,7 +73,7 @@ public class EnemyAttack : MonoBehaviour
         Player.Instance.health.currentHeart = 0;
         InGameManager.Instance.lives.UpdateLivesProgress();
         InGameManager.Instance.bonusPoint.LosePoint();
-        DataInGame.Instance.beatingStreak = 0;
+        DataEndGame.Instance.beatingStreak = 0;
 
         pushPlayer.PerformPush();
     }

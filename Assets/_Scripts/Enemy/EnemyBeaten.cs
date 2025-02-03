@@ -9,12 +9,12 @@ public class EnemyBeaten : ObjectJumping
     public float dropChance = 0.3f;
     public GameObject coinPrefab;
 
-    EnemyActionManager enemyActionManager;
+    EnemyActionHandle enemyActionManager;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        enemyActionManager =GetComponent<EnemyActionManager>();
+        enemyActionManager =GetComponent<EnemyActionHandle>();
     }
 
     public void EnemyIsBeaten()

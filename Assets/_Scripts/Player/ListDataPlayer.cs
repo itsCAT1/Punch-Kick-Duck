@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [Serializable]
-public class DataPlayerBase
+public class DataPlayer
 {
     public int numberMap;
     public int playerDirection;
@@ -16,5 +16,5 @@ public class DataPlayerBase
 [CreateAssetMenu(fileName = "ListDataPlayer", menuName = "ScriptableObject/DataPlayers", order = 1)]
 public class ListDataPlayer : ScriptableObject
 {
-    public List<DataPlayerBase> dataPlayers;
+    public List<DataPlayer> dataPlayers;
 }

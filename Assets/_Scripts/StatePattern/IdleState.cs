@@ -7,9 +7,6 @@ using System;
 [Serializable]
 public class IdleState : FSMC_Behaviour
 {
-    private float timeStart;
-
-    public bool timeChangeState => Time.time - timeStart >= 3;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         

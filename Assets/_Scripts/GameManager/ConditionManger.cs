@@ -1,15 +1,37 @@
-using FSMC.Runtime;
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConditionManger : MonoBehaviour
+public class ConditionManger : Singleton<ConditionManger>
 {
-    public bool startGame;
-    public bool endGame;
-    public bool pauseGame;
-    public bool resumeGame;
-    
-    public FSMC_Executer executer;
+    public bool isStartGame;
+    public bool isEndGame;
 
+    public GameObject inGameUI;
+    public GameObject endGameUI;
+
+
+    void Start()
+    {
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(ShowStartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(ShowEndGame);
+    }
+
+    void ShowEndGame(IUEventData uEventData)
+    {
+        isStartGame = false;
+        isEndGame = true;
+        inGameUI.SetActive(false);
+        endGameUI.SetActive(true);
+    }
+
+    void ShowStartGame(IUEventData uEventData)
+    {
+        isStartGame = true;
+        isEndGame = false;
+        inGameUI.SetActive(true);
+        endGameUI.SetActive(false);
+    }
 }

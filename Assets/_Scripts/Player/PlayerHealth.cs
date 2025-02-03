@@ -15,7 +15,7 @@ public class PlayerHealth : Health
 
     void GetDataHeart()
     {
-        var dataPlayer = Player.Instance.controller.GetDataPlayer(DataBase.Instance.currentMap);
+        var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
         maxHeart = dataPlayer.maxHeart;
         currentHeart = maxHeart;
     }
