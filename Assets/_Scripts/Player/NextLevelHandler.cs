@@ -17,7 +17,7 @@ public class NextLevelHandler : MonoBehaviour
 
     void PlayerMoving(IUEventData uEventData)
     {
-        this.transform.DOPath(targetPos, duration, PathType.Linear, PathMode.Full3D, 10, Color.red);
+        this.transform.DOPath(targetPos, duration, PathType.CatmullRom, PathMode.Full3D, 10, Color.red);
         StartCoroutine(StartRotate());
     }
 

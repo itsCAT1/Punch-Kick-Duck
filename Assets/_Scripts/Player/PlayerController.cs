@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        DirectionOnStart();
+        GetDirection();
         PositionOnStart();
     }
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;
     }
 
-    void DirectionOnStart()
+    public void GetDirection()
     {
         var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
         playerDirection = dataPlayer.playerDirection;

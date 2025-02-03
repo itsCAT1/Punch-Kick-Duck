@@ -23,7 +23,6 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         isStartGame = false;
         isEndGame = true;
-        inGameUI.SetActive(false);
         endGameUI.SetActive(true);
     }
 
@@ -31,7 +30,6 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         isStartGame = true;
         isEndGame = false;
-        inGameUI.SetActive(true);
         endGameUI.SetActive(false);
     }
 }

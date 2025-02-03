@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EndGameTrigger : MonoBehaviour
 {
-
+    public float time;
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(ChangeStatePlayer);
@@ -24,6 +24,17 @@ public class EndGameTrigger : MonoBehaviour
         {
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<EndGame>(uEventData);
+            StartCoroutine(StartEndGame());
+        }
+    }
+
+    IEnumerator StartEndGame()
+    {
+        while (time <= 15)
+        {
+            yield return new WaitForSeconds(1);
+            time++;
+            Debug.Log(time);
         }
     }
 }

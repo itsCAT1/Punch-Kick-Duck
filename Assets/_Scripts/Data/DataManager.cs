@@ -22,7 +22,7 @@ public class DataManager : Singleton<DataManager>
 
     public void SaveData()
     {
-        SaveDataBase();
+        //SaveDataBase();
         SaveDataProgress();
     }
 

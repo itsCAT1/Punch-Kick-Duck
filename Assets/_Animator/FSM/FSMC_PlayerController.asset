@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 7177949605818007556
   - rid: 7177949606365888512
   - rid: 1557779743304843266
+  - rid: 2713678331847114752
   AnyTransitions: []
   StartingState:
     rid: 7177949605818007552
@@ -40,6 +41,19 @@ MonoBehaviour:
         TransitionsTo: []
     - rid: 1557779743304843267
       type: {class: DeadState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678331847114752
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678331847114753
+        Position: {x: 938, y: 28}
+        _name: EndGame
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678331847114753
+      type: {class: EndGameState, ns: , asm: Assembly-CSharp}
       data:
         enabled: 1
     - rid: 7177949605818007552

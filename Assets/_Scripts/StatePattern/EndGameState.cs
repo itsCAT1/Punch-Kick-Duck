@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSMC.Runtime;
 using System;
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 
 [Serializable]
 public class EndGameState : FSMC_Behaviour
@@ -18,13 +20,25 @@ public class EndGameState : FSMC_Behaviour
 
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
+        timeStart = Time.time;
+
         Player.Instance.controller.rigid.velocity = Vector3.zero;
         Player.Instance.controller.animator.Play("Walk");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (timeChangeState && ConditionManger.Instance.isStartGame) Player.Instance.controller.executer.SetCurrentState("Walk");
+        if (timeChangeState)
+        {
+            if (DataManager.Instance.data.currentMap < 9)
+            {
+                DataManager.Instance.data.currentMap++;
+            }
+            
+            Player.Instance.controller.executer.SetCurrentState("Walk");
+            UEventData uEventData = new UEventData();
+            UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)
