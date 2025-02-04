@@ -12,6 +12,7 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject inGameUI;
     public GameObject endGameUI;
     public GameObject attackUI;
+    public GameObject miniBossUI;
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         isStartGame = true;
         isEndGame = false;
+
+        if(DataManager.Instance.data.currentMap > 0 && DataManager.Instance.data.currentMap < 9)
+        {
+            miniBossUI.SetActive(true);
+        }
     }
 
     void ShowEndGame(IUEventData uEventData)
@@ -32,6 +38,7 @@ public class ConditionManger : Singleton<ConditionManger>
         isEndGame = true;
         attackUI.SetActive(false);
         endGameUI.SetActive(true);
+        miniBossUI.SetActive(false);
     }
 
     void ShowInGame(IUEventData uEventData)

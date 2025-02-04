@@ -10,6 +10,7 @@ public class DataPlayer
     public int numberMap;
     public int playerDirection;
     public int maxHeart;
+    public int timeSpawnBoss;
 }
 
 
