@@ -2,38 +2,43 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GardenGate(MetColWas_535D6F)
   m_Shader: {fileID: 4800000, guid: 849cbadb2705ec1408b195434b9cd985, type: 3}
-  m_ShaderKeywords:
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-      _MainTex:
-        m_Texture: {fileID: 2800000, guid: 64ba63b194c8d0d46b304f106adcfa58, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d315c8f856004f14e8e96ee3cfe06460, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-      _BackLightLimitForFrontFaces: 0.2
-      _TexAOStr: 0.75
-      _UV2ShadowYAdj: 0.38
+    - _BackLightLimitForFrontFaces: 0.2
+    - _TexAOStr: 0.75
+    - _UV2ShadowYAdj: 0.38
     m_Colors:
-      _BackLightCol: {r: 1, g: 0.85, b: 0.75, a: 1}
-      _BackLightDir: {r: 0, g: 0.9, b: -0.6, a: 0.75}
-      _BodyCol: {r: 0.4392157, g: 0.24705882, b: 0.5882353, a: 1}
-      _DiffuseBaseCol: {r: 0.6313726, g: 0.7411765, b: 0.7924528, a: 0}
-      _MainLightCol: {r: 0.6, g: 0.5, b: 0.4, a: 0}
-      _MainLightDir: {r: 0.5023662, g: 0.7660787, b: -0.40093836, a: 0.6}
-      _MetalCol: {r: 0.30588236, g: 0.38039216, b: 0.50980395, a: 1}
-      _ShadowSub: {r: -0.55, g: -0.4, b: -0.4, a: 0}
+    - _BackLightCol: {r: 1, g: 0.85, b: 0.75, a: 1}
+    - _BackLightDir: {r: 0, g: 0.9, b: -0.6, a: 0.75}
+    - _BodyCol: {r: 0.4392157, g: 0.24705882, b: 0.5882353, a: 1}
+    - _DiffuseBaseCol: {r: 0.6313726, g: 0.7411765, b: 0.7924528, a: 0}
+    - _MainLightCol: {r: 0.6, g: 0.5, b: 0.4, a: 0}
+    - _MainLightDir: {r: 0.5023662, g: 0.7660787, b: -0.40093836, a: 0.6}
+    - _MetalCol: {r: 0.30588236, g: 0.38039216, b: 0.50980395, a: 1}
+    - _ShadowSub: {r: -0.55, g: -0.4, b: -0.4, a: 0}
   m_BuildTextureStacks: []
