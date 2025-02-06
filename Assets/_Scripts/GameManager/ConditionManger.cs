@@ -6,46 +6,78 @@ using UnityEngine;
 
 public class ConditionManger : Singleton<ConditionManger>
 {
-    public bool isStartGame;
-    public bool isEndGame;
+    [Header("Condition")]
+    public bool startGame;
+    public bool endGame;
+    public bool gameOver;
+    public bool pauseGame;
 
-    public GameObject inGameUI;
+    [Header("UI")]
     public GameObject endGameUI;
     public GameObject attackUI;
+    public GameObject gameOverUI;
+
     public GameObject miniBossUI;
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(ShowStartGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(ShowEndGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<ChangeLevel>(ShowInGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<ChangeLevel>(OnStartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
+        UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
     }
 
-    void ShowStartGame(IUEventData uEventData)
+    void OnStartGame(IUEventData uEventData)
     {
-        isStartGame = true;
-        isEndGame = false;
+        startGame = true;
+        endGame = false;
+        pauseGame = false;
+        gameOver = false;
 
-        if(DataManager.Instance.data.currentMap > 0 && DataManager.Instance.data.currentMap < 9)
+        ActiveCurrentUI();
+
+        if (DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10)
         {
-            miniBossUI.SetActive(true);
+            miniBossUI.SetActive(startGame);
         }
     }
 
-    void ShowEndGame(IUEventData uEventData)
+    void OnEndGame(IUEventData uEventData)
     {
-        isStartGame = false;
-        isEndGame = true;
-        attackUI.SetActive(false);
-        endGameUI.SetActive(true);
-        miniBossUI.SetActive(false);
+        startGame = false;
+        endGame = true;
+        pauseGame = false;
+        gameOver = false;
+
+        ActiveCurrentUI();
+        miniBossUI.SetActive(startGame);
     }
 
-    void ShowInGame(IUEventData uEventData)
+    void OnGameOver(IUEventData uEventData)
     {
-        isStartGame = true;
-        isEndGame = false;
-        attackUI.SetActive(true);
-        endGameUI.SetActive(false);
+        startGame = false;
+        endGame = false;
+        pauseGame = false;
+        gameOver = true;
+
+        ActiveCurrentUI();
+    }
+
+    void OnPauseGame(IUEventData uEventData)
+    {
+        startGame = false;
+        endGame = false;
+        pauseGame = true;
+        gameOver = false;
+
+        ActiveCurrentUI();
+    }
+
+    void ActiveCurrentUI()
+    {
+        attackUI.SetActive(startGame);
+        endGameUI.SetActive(endGame);
+        //gameOverUI.SetActive(gameOver);
     }
 }

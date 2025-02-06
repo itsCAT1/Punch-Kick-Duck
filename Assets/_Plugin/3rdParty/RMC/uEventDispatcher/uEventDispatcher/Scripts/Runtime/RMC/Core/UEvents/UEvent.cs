@@ -58,6 +58,25 @@ namespace RMC.Core.UEvents
         }
     }
 
+
+    [Serializable]
+    public class GameOver : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class PauseGame : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
     [Serializable]
     public class ChangeLevel : UnityEvent<IUEventData>, IUEvent
     {

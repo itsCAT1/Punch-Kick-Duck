@@ -211,9 +211,9 @@ GameObject:
   - component: {fileID: 3896141780838876740}
   - component: {fileID: 8338690544141288091}
   - component: {fileID: 2799500275598702482}
+  - component: {fileID: -8152031666865387474}
   - component: {fileID: 2814926866655858214}
   - component: {fileID: 2842142122051877084}
-  - component: {fileID: 36351187334039199}
   - component: {fileID: 523702912369151703}
   m_Layer: 7
   m_Name: CatWithCart
@@ -429,6 +429,18 @@ MonoBehaviour:
   offset: {x: -2, y: 2, z: -3}
   dropChance: 0.3
   coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
+--- !u!114 &-8152031666865387474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696222224744674390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439f86d365101064ea6f6f6114ff6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2814926866655858214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,18 +463,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91573a8e31217cb49892563a658e161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &36351187334039199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696222224744674390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa44bf11aa16be48ad8d2e57b99cd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &523702912369151703

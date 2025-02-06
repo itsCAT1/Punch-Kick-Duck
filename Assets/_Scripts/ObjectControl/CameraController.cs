@@ -14,12 +14,12 @@ public class CameraController : MonoBehaviour
 
     void SetSpeedFollow()
     {
-        if (ConditionManger.Instance.isStartGame)
+        if (ConditionManger.Instance.startGame)
         {
             speedChange = 1;
         }
 
-        if (ConditionManger.Instance.isEndGame)
+        if (ConditionManger.Instance.endGame)
         {
             speedChange = 0.01f;
         }

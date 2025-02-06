@@ -2,10 +2,9 @@ using RMC.Core.UEvents.UEventDispatcher;
 using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class CheckStatusPlayer : MonoBehaviour
+public class EnemyReaction : MonoBehaviour
 {
     EnemyActionHandle enemyAction;
     Animator animator;
@@ -19,32 +18,37 @@ public class CheckStatusPlayer : MonoBehaviour
 
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(WaitingPlayerDead);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(StopAttack);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopChasing);
     }
 
-
     void WaitingPlayer(IUEventData uEventData)
     {
-        if(health.currentHealth > 0)
+        if (health.currentHealth > 0)
         {
+            Debug.Log("wait");
             StartCoroutine(TimeWaiting());
         }
     }
 
 
-    IEnumerator TimeWaiting()
+    public IEnumerator TimeWaiting()
     {
         enemyAction.DisableAction();
         yield return new WaitForSeconds(2);
-        enemyAction.EnableAction();
+        if (health.currentHealth > 0)
+        {
+            enemyAction.EnableAction();
+        }
+        
     }
 
 
-    void WaitingPlayerDead(IUEventData uEventData)
+    void StopAttack(IUEventData uEventData)
     {
         if (health.currentHealth > 0)
         {
+            Debug.Log("stop");
             enemyAction.DisableAction();
             animator.Play("Win");
         }

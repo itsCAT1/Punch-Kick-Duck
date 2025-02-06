@@ -9,7 +9,9 @@ public class PunchState : FSMC_Behaviour
 {
     private float timeStart = 0;
     private bool resetState => Time.time - timeStart >= 1f;
-    private bool timeChangeState => Time.time - timeStart >= 2f;
+
+    float interval;
+    public bool timeChangeState => Time.time - timeStart >= interval;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -19,6 +21,15 @@ public class PunchState : FSMC_Behaviour
     {
         Player.Instance.controller.rigid.velocity = Vector3.zero;
         OnPunching();
+
+        if (!ConditionManger.Instance.startGame)
+        {
+            interval = 0.5f;
+        }
+        else
+        {
+            interval = 2f;
+        }
     }
 
     void OnPunching()
@@ -39,7 +50,7 @@ public class PunchState : FSMC_Behaviour
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         if (resetState) Player.Instance.attack.punchLeft = true;
-        if (timeChangeState && ConditionManger.Instance.isStartGame) Player.Instance.controller.executer.SetCurrentState("Walk");
+        if (timeChangeState && ConditionManger.Instance.startGame) Player.Instance.controller.executer.SetCurrentState("Walk");
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

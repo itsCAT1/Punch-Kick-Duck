@@ -19,6 +19,7 @@ public class DeadState : FSMC_Behaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerDeath>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<GameOver>(uEventData);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

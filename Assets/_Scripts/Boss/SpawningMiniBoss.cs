@@ -24,6 +24,10 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
 
     void StartCounting(IUEventData uEventData)
     {
+        if(DataManager.Instance.data.currentMap == 1 || DataManager.Instance.data.currentMap == 10)
+        {
+            return;
+        }
         StartCoroutine(StartCountingTime());
     }
 

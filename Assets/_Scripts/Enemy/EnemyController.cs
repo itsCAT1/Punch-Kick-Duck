@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     EnemyThrowBottle thowBottle;
     DetectingObject detect;
     EnemyApear apear;
+    Health health;
 
     public Transform rayDetect;
     public LayerMask charactorLayer;
@@ -28,8 +29,9 @@ public class EnemyController : MonoBehaviour
         movement = GetComponent<EnemyMovement>();
         detect = GetComponent<DetectingObject>();
         apear = GetComponent<EnemyApear>();
+        health = GetComponent<Health>();
 
-        if(haveBottle) thowBottle = GetComponent<EnemyThrowBottle>();
+        if (haveBottle) thowBottle = GetComponent<EnemyThrowBottle>();
     }
 
     private void Update()
@@ -91,6 +93,14 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("OpenableDoor"))
         {
             apear.enabled = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            health.TakeDamage();
         }
     }
 }

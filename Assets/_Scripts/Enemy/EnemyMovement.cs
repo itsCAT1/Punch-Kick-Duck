@@ -24,7 +24,6 @@ public class EnemyMovement : MonoBehaviour
         var direction = (Player.Instance.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
 
-        //this.transform.position += direction * moveSpeed * Time.deltaTime;
         this.rigid.velocity = direction * moveSpeed;
     }
 }

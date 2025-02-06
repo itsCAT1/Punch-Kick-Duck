@@ -16,7 +16,8 @@ public class MiniBossActionManager : MonoBehaviour
         attack = GetComponent<MiniBossAttack>();
         movement = GetComponent<MiniBossMovement>();
     }
-    [ContextMenu("disable")]
+
+    
     public void DisableAction()
     {
         animator.SetBool("Walking", false);
@@ -24,7 +25,7 @@ public class MiniBossActionManager : MonoBehaviour
         attack.enabled = false;
         movement.enabled = false;
     }
-    [ContextMenu("enable")]
+    
     public void EnableAction()
     {
         controller.enabled = true;
