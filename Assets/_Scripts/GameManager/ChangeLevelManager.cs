@@ -9,7 +9,7 @@ public class ChangeLevelManager : Singleton<ChangeLevelManager>
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<ChangeLevel>(ChangeLevel);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ChangeLevel);
     }
 
     void ChangeLevel(IUEventData uEventData)

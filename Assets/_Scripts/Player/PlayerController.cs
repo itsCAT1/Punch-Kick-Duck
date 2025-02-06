@@ -20,16 +20,16 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        GetDirection();
-        PositionOnStart();
+        SetDirection();
+        SetPosition();
     }
 
-    void PositionOnStart()
+    public void SetPosition()
     {
         this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;
     }
 
-    public void GetDirection()
+    public void SetDirection()
     {
         var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
         playerDirection = dataPlayer.playerDirection;

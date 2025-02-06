@@ -32,7 +32,7 @@ public class EndGameState : FSMC_Behaviour
         {
             Player.Instance.controller.executer.SetCurrentState("Walk");
             UEventData uEventData = new UEventData();
-            UEventDispatcherSingleton.Instance.Invoke<ChangeLevel>(uEventData);
+            UEventDispatcherSingleton.Instance.Invoke<LevelTransition>(uEventData);
         }
     }
 

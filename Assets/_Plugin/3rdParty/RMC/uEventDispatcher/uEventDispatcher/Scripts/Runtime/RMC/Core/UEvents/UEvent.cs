@@ -78,7 +78,16 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
-    public class ChangeLevel : UnityEvent<IUEventData>, IUEvent
+    public class LevelTransition : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class LevelSelection : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
         {

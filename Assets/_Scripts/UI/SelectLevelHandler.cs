@@ -13,28 +13,13 @@ public class SelectLevelHandler : MonoBehaviour
     public Button buttonSelect;
     public Button buttonConform;
 
-
-
     public void OpenPanel()
     {
         selectLevel.SetActive(false);
         conformLevel.SetActive(true);
-
-        Debug.LogWarning("a");
-        animator.Play("Open");
-        //StartCoroutine(StartSelect());
-    }
-
-    IEnumerator StartSelect()
-    {
-        
-        
-
-        buttonConform.interactable = false;
-
-        yield return new WaitForSeconds(0.3f);
-        
         buttonConform.interactable = true;
+
+        animator.Play("Open");
     }
 
     public void ClosePanel()

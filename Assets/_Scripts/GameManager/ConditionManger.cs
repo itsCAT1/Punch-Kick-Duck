@@ -23,7 +23,7 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<ChangeLevel>(OnStartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
     }
