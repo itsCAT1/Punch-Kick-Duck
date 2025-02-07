@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
     AttackType enemyType;
 
     public float timeCoolDown = 1f;
-    float lastTimeAttack = 0;
+    public float startAttack = 0;
 
     void Start()
     {
@@ -25,11 +25,11 @@ public class EnemyAttack : MonoBehaviour
     {
         if(!AttackingEnemyManager.Instance.CanAttack(this)) return;
 
-        if (Time.time - lastTimeAttack >= timeCoolDown)
+        if (Time.time - startAttack >= timeCoolDown)
         {
             animator.Play("Attack");
             AttackingEnemyManager.Instance.SetAttackingEnemy(this);
-            lastTimeAttack = Time.time;
+            startAttack = Time.time;
         }
     }
 

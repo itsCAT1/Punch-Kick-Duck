@@ -20,6 +20,7 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(StartCounting);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetLevel);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetLevel);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(GameOver);
     }
 
     void GetTimer()
@@ -33,11 +34,6 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         if(DataManager.Instance.data.currentMap == 1 || DataManager.Instance.data.currentMap == 10)
         {
             return;
-        }
-
-        if (countingCoroutine != null)
-        {
-            StopCoroutine(countingCoroutine);
         }
 
         countingCoroutine = StartCoroutine(StartCountingTime());
@@ -59,12 +55,23 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         bossHaveSpawned.Add(bossTemp);
     }
 
-    public void ResetLevel(IUEventData uEventData)
+    void StopCountingTime()
     {
         if (countingCoroutine != null)
         {
             StopCoroutine(countingCoroutine);
         }
+    }
+
+    void ResumeCountingTime()
+    {
+        countingCoroutine = StartCoroutine(StartCountingTime());
+    }
+
+
+    void ResetLevel(IUEventData uEventData)
+    {
+        StopCountingTime();
 
         GetTimer();
 
@@ -78,6 +85,12 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         {
             return;
         }
-        countingCoroutine = StartCoroutine(StartCountingTime());
+
+        ResumeCountingTime();
+    }
+
+    void GameOver(IUEventData uEventData)
+    {
+        StopCountingTime();
     }
 }

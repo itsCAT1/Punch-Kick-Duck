@@ -34,7 +34,7 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = false;
             foreach (var enemyPos in spawnPositions)
             {
-                var enemyTemp = Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity, spawnParent);
+                var enemyTemp = Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity);
                 enemiesHaveSpawned.Add(enemyTemp);
             }
         }
