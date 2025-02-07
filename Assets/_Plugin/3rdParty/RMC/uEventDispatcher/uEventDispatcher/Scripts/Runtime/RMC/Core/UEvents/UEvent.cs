@@ -78,6 +78,16 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
+    public class RestartGame : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+
+    [Serializable]
     public class LevelTransition : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()

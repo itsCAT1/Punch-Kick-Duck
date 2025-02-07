@@ -8,33 +8,28 @@ using UnityEngine.UI;
 public class ButtonHandler : MonoBehaviour
 {
     public List<Button> buttons;
+    float timeStart = 0;
+    public float duration = 1;
+    public bool cantAttack => Time.time - timeStart >= duration;
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(TurnOffForAWhile);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(TurnOffForAWhile);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(TurnOff);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(SetAttackCooldown);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(SetAttackCooldown);
     }
 
-    public void TurnOffForAWhile(IUEventData uEventData)
+    public void SetAttackCooldown(IUEventData uEventData)
     {
-        StartCoroutine(StartTurnOff());
-    }
+        timeStart = Time.time;
 
-    public IEnumerator StartTurnOff()
-    {
-        Deactive();
-
-        yield return new WaitForSeconds(1f);
+        if (cantAttack)
+        {
+            Deactive();
+            return;
+        }
 
         Active();
     }
-
-    public void TurnOff(IUEventData uEventData)
-    {
-        Deactive();
-    }
-
 
     public void Deactive()
     {

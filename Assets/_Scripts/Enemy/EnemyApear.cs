@@ -19,6 +19,12 @@ public class EnemyApear : ObjectJumping
         animator.Play("Jump");
 
         var targetPos = this.transform.position + new Vector3(0f, 0f, -6.5f);
+
         PerformJumping(targetPos);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(this.transform);
     }
 }

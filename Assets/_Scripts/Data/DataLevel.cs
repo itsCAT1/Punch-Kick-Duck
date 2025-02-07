@@ -7,6 +7,7 @@ using UnityEngine;
 public class DataLevel
 {
     public int bestScore;
+    public bool isCompleted;
 }
 
 [Serializable]

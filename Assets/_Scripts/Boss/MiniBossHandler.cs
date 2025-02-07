@@ -12,19 +12,19 @@ public class MiniBossHandler : MonoBehaviour
 
     private void Update()
     {
-        UpdateLivesProgress();
+        UpdateLives();
     }
 
-    public void UpdateLivesProgress()
+    public void UpdateLives()
     {
         timeCount.text = SpawningMiniBoss.Instance.timeCounter.ToString();
 
-        int currentTime = SpawningMiniBoss.Instance.timeCounter;
+        float currentTime = SpawningMiniBoss.Instance.timeCounter;
 
         var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
-        int maxTime = dataPlayer.timeSpawnBoss;
+        float maxTime = dataPlayer.timeSpawnBoss;
 
-        progressTimeUI.fillAmount = (float)currentTime / (float)maxTime;
+        progressTimeUI.fillAmount = currentTime / maxTime;
 
         iconBear.color = Color.black;
         timeCount.enabled = true;

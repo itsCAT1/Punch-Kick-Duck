@@ -9,14 +9,15 @@ using RMC.Core.UEvents;
 [Serializable]
 public class HurtState : FSMC_Behaviour
 {
-
+    private float timeStart = 0;
+    public bool timeChangeState => Time.time - timeStart >= 2;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        //Player.Instance.controller.rigid.velocity = Vector3.zero;
+        timeStart = Time.time;
         Player.Instance.controller.animator.Play("Hurt");
 
         UEventData uEventData = new UEventData();
@@ -25,7 +26,7 @@ public class HurtState : FSMC_Behaviour
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+        if (timeChangeState) Player.Instance.controller.executer.SetCurrentState("Walk");
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

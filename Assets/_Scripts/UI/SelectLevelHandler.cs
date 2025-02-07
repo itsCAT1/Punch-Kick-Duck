@@ -18,6 +18,7 @@ public class SelectLevelHandler : MonoBehaviour
         selectLevel.SetActive(false);
         conformLevel.SetActive(true);
         buttonConform.interactable = true;
+        SelectLevelManager.Instance.ActiveCurrentLevel();
 
         animator.Play("Open");
     }

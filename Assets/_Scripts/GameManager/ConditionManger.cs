@@ -78,6 +78,6 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         attackUI.SetActive(startGame);
         endGameUI.SetActive(endGame);
-        //gameOverUI.SetActive(gameOver);
+        gameOverUI.SetActive(gameOver);
     }
 }

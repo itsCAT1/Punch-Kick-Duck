@@ -1,4 +1,6 @@
 ﻿using FSMC.Runtime;
+using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         SetDirection();
         SetPosition();
+
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetPlayer);
     }
 
     public void SetPosition()
@@ -50,5 +54,11 @@ public class PlayerController : MonoBehaviour
     public DataPlayer GetDataPlayer(int currentMapIndex)
     {
         return data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
+    }
+
+    public void ResetPlayer(IUEventData uEventData)
+    {
+        rigid.velocity = Vector3.zero;
+        executer.SetCurrentState("Walk");
     }
 }

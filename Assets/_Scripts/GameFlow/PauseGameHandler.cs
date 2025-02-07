@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PauseGameHandler : MonoBehaviour
 {
     Animator panelPauseAnim;
+    public Button buttonPause;
 
     private void Start()
     {
@@ -24,12 +25,14 @@ public class PauseGameHandler : MonoBehaviour
     public void OpenPanel()
     {
         Time.timeScale = 0;
+        buttonPause.interactable = false;
         panelPauseAnim.Play("Open");
     }
 
     public void ClosePanel()
     {
         Time.timeScale = 1;
+        buttonPause.interactable = true;
         panelPauseAnim.Play("Close");
     }
 }

@@ -1,3 +1,5 @@
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +11,9 @@ public class OpeningDoor : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(Close);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(Close);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +33,7 @@ public class OpeningDoor : MonoBehaviour
         animator.Play("OpenDoor");
     }
 
-    void Close()
+    void Close(IUEventData uEventData)
     {
         animator.Play("CloseDoor");
     }

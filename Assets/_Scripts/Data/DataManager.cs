@@ -10,26 +10,26 @@ public class DataManager : Singleton<DataManager>
 
     private void OnEnable()
     {
-        LoadData();
+        LoadDataProgress();
     }
 
     private void OnApplicationQuit()
     {
-        SaveData();
+        //SaveData();
+        SaveDataProgress();
     }
 
     public int currentBestScore => listLevel.data[data.currentMap - 1].bestScore;
 
+    [ContextMenu("Save Data")]
     public void SaveData()
     {
-        //SaveDataBase();
-        SaveDataProgress();
+        SaveDataBase();
     }
-
+    [ContextMenu("Load Data")]
     public void LoadData()
     {
         LoadDataBase();
-        LoadDataProgress();
     }
 
     public void SaveDataBase()

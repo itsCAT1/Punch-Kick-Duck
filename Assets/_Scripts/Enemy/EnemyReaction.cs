@@ -26,7 +26,6 @@ public class EnemyReaction : MonoBehaviour
     {
         if (health.currentHealth > 0)
         {
-            Debug.Log("wait");
             StartCoroutine(TimeWaiting());
         }
     }
@@ -48,7 +47,6 @@ public class EnemyReaction : MonoBehaviour
     {
         if (health.currentHealth > 0)
         {
-            Debug.Log("stop");
             enemyAction.DisableAction();
             animator.Play("Win");
         }

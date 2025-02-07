@@ -11,9 +11,14 @@ public class SpawnEnemy : MonoBehaviour
     public Transform spawnParent;
     bool canSpawn;
 
+    public List<GameObject> enemiesHaveSpawned;
+
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetLevel);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetLevel);
     }
 
     void EnableSpawn(IUEventData uEventData)
@@ -29,9 +34,19 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = false;
             foreach (var enemyPos in spawnPositions)
             {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity, spawnParent);
+                var enemyTemp = Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity, spawnParent);
+                enemiesHaveSpawned.Add(enemyTemp);
             }
         }
+    }
+
+    void ResetLevel(IUEventData uEventData)
+    {
+        foreach (var enemy in enemiesHaveSpawned)
+        {
+            Destroy(enemy.gameObject);
+        }
+        enemiesHaveSpawned.Clear();
     }
 
     [ContextMenu("Add Position")]
