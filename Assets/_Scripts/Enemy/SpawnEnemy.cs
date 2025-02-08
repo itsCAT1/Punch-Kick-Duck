@@ -34,8 +34,24 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = false;
             foreach (var enemyPos in spawnPositions)
             {
-                var enemyTemp = Instantiate(enemies[Random.Range(0, enemies.Length)], enemyPos.position, Quaternion.identity);
-                enemiesHaveSpawned.Add(enemyTemp);
+                bool hasEnemyWithBottle = false;
+                foreach (var enemy in enemiesHaveSpawned)
+                {
+                    if (enemy.GetComponent<EnemyController>().haveBottle)
+                    {
+                        hasEnemyWithBottle = true;
+                        break;
+                    }
+                }
+
+                GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
+                EnemyController enemyController = enemyPrefab.GetComponent<EnemyController>();
+
+                if (!hasEnemyWithBottle || !enemyController.haveBottle)
+                {
+                    var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
+                    enemiesHaveSpawned.Add(enemyTemp);
+                }
             }
         }
     }

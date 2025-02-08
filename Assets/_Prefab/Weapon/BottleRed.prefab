@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4040907227318425805}
+  - component: {fileID: 2742492143029369137}
+  - component: {fileID: 8746081779496776987}
   - component: {fileID: 1540833077233750709}
   - component: {fileID: -9208715048466829257}
   - component: {fileID: -3713506480340866516}
-  - component: {fileID: 2742492143029369137}
-  - component: {fileID: 8746081779496776987}
-  - component: {fileID: 1975823415678233529}
   - component: {fileID: -5977364828396051283}
   m_Layer: 0
   m_Name: BottleRed
@@ -39,47 +38,6 @@ Transform:
   - {fileID: 2959369128976915185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1540833077233750709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207545927603838684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0dab42bb2c0ee44bbf72c6caba65328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackType: Kick
-  forcePush: 8
---- !u!114 &-9208715048466829257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207545927603838684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotatePos: {fileID: 2959369128976915185}
-  rotateSpeed: 20
---- !u!114 &-3713506480340866516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207545927603838684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceSpeed: 10
 --- !u!54 &2742492143029369137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,7 +86,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.7, z: 0.3}
   m_Center: {x: 0, y: 0.33, z: 0}
---- !u!114 &1975823415678233529
+--- !u!114 &1540833077233750709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,10 +95,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 2207545927603838684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Script: {fileID: 11500000, guid: e0dab42bb2c0ee44bbf72c6caba65328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 4
+  attackType: Kick
+  forcePush: 8
+--- !u!114 &-9208715048466829257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207545927603838684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatePos: {fileID: 2959369128976915185}
+  rotateSpeed: 20
+--- !u!114 &-3713506480340866516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207545927603838684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
 --- !u!114 &-5977364828396051283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2207545927603838684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
+  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7590793054045346060

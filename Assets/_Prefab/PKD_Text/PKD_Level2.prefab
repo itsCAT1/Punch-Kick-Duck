@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 273467862425618317}
   - component: {fileID: 5576635786177842055}
   - component: {fileID: 6603439872571237445}
-  - component: {fileID: 5054703920142008350}
   m_Layer: 0
   m_Name: PKD_Level2
   m_TagString: Untagged
@@ -182,19 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcePush: 500
---- !u!114 &5054703920142008350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073974622408311492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeDuration: 2
 --- !u!1 &3016552580081047589
 GameObject:
   m_ObjectHideFlags: 0

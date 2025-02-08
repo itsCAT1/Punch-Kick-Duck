@@ -26,6 +26,7 @@ public class EnemyThrowBottle : MonoBehaviour
         }
 
         StartCoroutine(TimeToChangeAttack(2));
+        StartCoroutine(RemoveAttacking());
     }
 
     public void CreateBottle()
@@ -40,5 +41,11 @@ public class EnemyThrowBottle : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         enemyController.haveBottle = false;
+    }
+
+    IEnumerator RemoveAttacking()
+    {
+        yield return new WaitForSeconds(0.4f);
+        AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
     }
 }

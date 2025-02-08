@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3228762837534747023}
+  - component: {fileID: 5892207524819703392}
+  - component: {fileID: 487311666083843253}
   - component: {fileID: -6713338761105187385}
   - component: {fileID: 4534980742044526074}
   - component: {fileID: 3525335446943108859}
-  - component: {fileID: 5892207524819703392}
-  - component: {fileID: 487311666083843253}
-  - component: {fileID: 2105562771813246398}
-  - component: {fileID: -5992258014365420701}
+  - component: {fileID: 5371635870073533559}
   m_Layer: 0
   m_Name: BottleGreen
   m_TagString: Untagged
@@ -39,47 +38,6 @@ Transform:
   - {fileID: 6299303152420112459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6713338761105187385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985995315406895949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0dab42bb2c0ee44bbf72c6caba65328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackType: Punch
-  forcePush: 8
---- !u!114 &4534980742044526074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985995315406895949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotatePos: {fileID: 6299303152420112459}
-  rotateSpeed: 20
---- !u!114 &3525335446943108859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985995315406895949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceSpeed: 10
 --- !u!54 &5892207524819703392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,7 +86,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.7, z: 0.3}
   m_Center: {x: 0, y: 0.33, z: 0}
---- !u!114 &2105562771813246398
+--- !u!114 &-6713338761105187385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,11 +95,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 985995315406895949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Script: {fileID: 11500000, guid: e0dab42bb2c0ee44bbf72c6caba65328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 4
---- !u!114 &-5992258014365420701
+  attackType: Punch
+  forcePush: 8
+--- !u!114 &4534980742044526074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +109,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 985995315406895949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatePos: {fileID: 6299303152420112459}
+  rotateSpeed: 20
+--- !u!114 &3525335446943108859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985995315406895949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed18e65dfce23204da7bdd7444ea7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
+--- !u!114 &5371635870073533559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985995315406895949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4459526687390663988

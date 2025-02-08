@@ -2035,10 +2035,12 @@ MonoBehaviour:
   rayDetect: {fileID: 6255753150057832556}
   charactorLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   sizeAttack: 2
-  sizeThrow: 10
+  sizeIdle: 3
+  sizeThrow: 6
   haveBottle: 0
+  haveCart: 1
   currentRange: 0
   attackCoolDown: 0.5
 --- !u!114 &1745165379086948849

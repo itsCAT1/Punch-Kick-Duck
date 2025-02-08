@@ -9,11 +9,6 @@ public class SelfDestroy : MonoBehaviour
     public float timeDuration;
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(Destroy);
-    }
-
-    void Destroy(IUEventData eventData)
-    {
         Destroy(gameObject, timeDuration);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColiderBottle : HandleColider
+public class BottleHandler : HandleColider
 {
     BottleMovement bottleMovement;
 
@@ -13,6 +13,7 @@ public class ColiderBottle : HandleColider
 
     public void ReflectObject()
     {
+        bottleMovement.forceSpeed = 15;
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
     }
 
@@ -25,6 +26,8 @@ public class ColiderBottle : HandleColider
 
         if (other.gameObject.CompareTag("Player"))
         {
+            bottleMovement.forceSpeed = 0;
+
             PlayerOnHit();
             ObjectOnHit();
             StartCoroutine(DestroyObject());
@@ -33,7 +36,10 @@ public class ColiderBottle : HandleColider
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyHealth>().TakeDamage();
+
+            bottleMovement.forceSpeed = 0;
             ObjectOnHit();
+            CombatManager.Instance.AddPoint();
             StartCoroutine(DestroyObject());
         }
     }

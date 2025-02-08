@@ -16,13 +16,7 @@ public class HandleColider : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         pushPlayer = GetComponentInParent<PushingPlayer>();
     }
-
-    public void IsThrownOut()
-    {
-        Vector3 pushDirection = new Vector3(0, 6, -3).normalized;
-        rigid.AddForce(pushDirection * forcePush, ForceMode.Impulse);
-    }
-
+        
     public void PlayerOnHit()
     {
         Player.Instance.health.TakeDamage();
@@ -32,7 +26,8 @@ public class HandleColider : MonoBehaviour
     public void ObjectOnHit()
     {
         rigid.useGravity = true;
-        IsThrownOut();
+        Vector3 pushDirection = new Vector3(0, 6, -3).normalized;
+        rigid.AddForce(pushDirection * forcePush, ForceMode.Impulse);
     }
 
     public IEnumerator DestroyObject()

@@ -13,7 +13,7 @@ public class CombatManager : Singleton<CombatManager>
         AttackType enemyAttackType = enemyInfo.collider.GetComponent<EnemyType>().attackType;
 
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
-        EnemyAttack attackEnemy = enemyInfo.collider.GetComponent<EnemyAttack>();
+        GameObject attackEnemy = enemyInfo.collider.GetComponent<GameObject>();
 
         if ((playerAttackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
             (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
@@ -47,13 +47,13 @@ public class CombatManager : Singleton<CombatManager>
         Player.Instance.GetComponent<PlayerOnBlocking>().PlayerIsRepelled();
     }
 
-    IEnumerator ContinueAttack(EnemyAttack attackEnemy)
+    IEnumerator ContinueAttack(GameObject attackEnemy)
     {
         yield return new WaitForSeconds(2f);
         AttackingEnemyManager.Instance.ClearAttackingEnemy(attackEnemy);
     }
 
-    void AddPoint()
+    public void AddPoint()
     {
         Player.Instance.health.GainHeart();
         InGameManager.Instance.bonusPoint.GainPoint();

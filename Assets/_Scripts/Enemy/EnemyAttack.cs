@@ -20,9 +20,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void PerformAttack()
     {
-        if(!AttackingEnemyManager.Instance.CanAttack(this)) return;
-
-        AttackingEnemyManager.Instance.SetAttackingEnemy(this);
         animator.Play("Attack");
     }
 
@@ -74,6 +71,6 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator RemoveAttacking()
     {
         yield return new WaitForSeconds(0.4f);
-        AttackingEnemyManager.Instance.ClearAttackingEnemy(this);
+        AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
     }
 }

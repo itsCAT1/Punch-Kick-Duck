@@ -27,7 +27,6 @@ public class BonusPointHandler : MonoBehaviour
         ConditionManger.Instance.startGame = true;
         while (ConditionManger.Instance.startGame)
         {
-            Debug.Log(DataInGame.Instance.beatingPoint);
             progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
             beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
 

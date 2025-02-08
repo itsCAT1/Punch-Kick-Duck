@@ -16,12 +16,14 @@ public class EnemyController : MonoBehaviour
     public Transform rayDetect;
     public LayerMask charactorLayer;
     public float sizeAttack;
+    public float sizeIdle;
     public float sizeThrow;
     public bool haveBottle;
+    public bool haveCart;
 
     public float currentRange;
 
-    public float attackCoolDown = 0.5f;
+    public float attackCoolDown = 1f;
     float timeCounter;
     public bool canAttack => timeCounter >= attackCoolDown;
     
@@ -41,10 +43,10 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        CheckObject();
+        UpdateAction();
     }
 
-    void CheckObject()
+    void UpdateAction()
     {
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
 
@@ -72,6 +74,10 @@ public class EnemyController : MonoBehaviour
 
         if (canAttack)
         {
+            if (!AttackingEnemyManager.Instance.CanAttack(this.gameObject)) return;
+
+            AttackingEnemyManager.Instance.SetAttackingEnemy(this.gameObject);
+
             if (haveBottle)
             {
                 thowBottle.PerformThrowBottle();
@@ -87,15 +93,30 @@ public class EnemyController : MonoBehaviour
     void Standing()
     {
         animator.SetBool("Walking", false);
+        animator.SetBool("HaveCart", false);
         movement.enabled = false;
         this.rigid.isKinematic = true;
     }
 
     void Moving()
     {
-        animator.SetBool("Walking", true);
+        SetWalkingType();
         movement.enabled = true;
         this.rigid.isKinematic = false;
+    }
+
+    void SetWalkingType()
+    {
+        if (haveCart)
+        {
+            animator.SetBool("HaveCart", true);
+            animator.SetBool("Walking", false);
+        }
+        else
+        {
+            animator.SetBool("HaveCart", false);
+            animator.SetBool("Walking", true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

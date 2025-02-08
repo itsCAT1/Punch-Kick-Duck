@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColiderCart : HandleColider
+public class CartHandler : HandleColider
 {
     bool hasColidered = false;
+    EnemyController controller;
     EnemyActionHandle actionEnemy;
 
     void Start()
     {
         actionEnemy = GetComponentInParent<EnemyActionHandle>();
+        controller = GetComponentInParent<EnemyController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +19,7 @@ public class ColiderCart : HandleColider
         if (other.gameObject.CompareTag("Player") && !hasColidered)
         {
             hasColidered = true;
+            controller.haveCart = false;
             PlayerOnHit();
             ObjectOnHit();
             StartCoroutine(DestroyObject());
@@ -24,6 +27,7 @@ public class ColiderCart : HandleColider
 
         if (other.gameObject.CompareTag(attackType))
         {
+            controller.haveCart = false;
             ObjectOnHit();
             StartCoroutine(StopActionEnemy());
             StartCoroutine(DestroyObject());
