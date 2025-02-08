@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBeaten : ObjectJumping
+public class EnemyBeaten : ObjectPushing
 {
     public Vector3 offset;
     Rigidbody rigid;

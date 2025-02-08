@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EndGameHandler : MonoBehaviour
 {
     [Header("Score")]
+    public Text resultUI;
     public Text newScoreUI;
     public Text newBestUI;
     public Text bestScoreUI;
@@ -58,8 +59,9 @@ public class EndGameHandler : MonoBehaviour
             newScoreUI.text = newScore.ToString();
         }
 
-        bestScoreUI.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
+        resultUI.text = "LEVEL  <size=110>" + DataManager.Instance.data.currentMap + "</size>  RESULT";
 
+        bestScoreUI.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
         outrunBonusUI.text = DataEndGame.Instance.bestStreak.ToString() + " x " + DataEndGame.Instance.bestBeatingCounter + " = " + outrunScore.ToString();
         heartBonusUI.text = heartBonus.ToString();
         totalScoreUI.text = totalScore.ToString();
@@ -70,6 +72,7 @@ public class EndGameHandler : MonoBehaviour
         if (newScore > DataManager.Instance.currentBestScore)
         {
             DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore = newScore;
+
         }
 
         DataManager.Instance.data.totalScore = totalScore;

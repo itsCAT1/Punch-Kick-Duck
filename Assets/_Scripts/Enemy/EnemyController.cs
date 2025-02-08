@@ -13,16 +13,22 @@ public class EnemyController : MonoBehaviour
     EnemyApear apear;
     Health health;
 
+    [Header("Raycast Detect")] 
     public Transform rayDetect;
     public LayerMask charactorLayer;
-    public float sizeAttack;
-    public float sizeIdle;
-    public float sizeThrow;
+
+    [Header("Enemy Type")]
     public bool haveBottle;
     public bool haveCart;
 
+    [Header("Size Attack")]
+    public float sizeAttack;
+    public float sizeStand;
+    public float sizeThrow;
+    public float sizeHaveCart;
     public float currentRange;
 
+    [Header("Attack Cooldown")]
     public float attackCoolDown = 1f;
     float timeCounter;
     public bool canAttack => timeCounter >= attackCoolDown;
@@ -105,7 +111,7 @@ public class EnemyController : MonoBehaviour
         this.rigid.isKinematic = false;
     }
 
-    void SetWalkingType()
+    public void SetWalkingType()
     {
         if (haveCart)
         {

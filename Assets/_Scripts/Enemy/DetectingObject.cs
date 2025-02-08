@@ -18,25 +18,34 @@ public class DetectingObject : MonoBehaviour
 
     void SetRangeAttack()
     {
-        bool aimingRay = Physics.Raycast(controller.rayDetect.transform.position, controller.rayDetect.transform.forward, out RaycastHit hitInfor, 1000, controller.charactorLayer);
+        Physics.Raycast(controller.rayDetect.transform.position, controller.rayDetect.transform.forward, out RaycastHit hitInfor, 1000, controller.charactorLayer);
 
-        if (aimingRay)
+        if (hitInfor.collider == null)
         {
-            if (hitInfor.collider.CompareTag("Enemy"))
-            {
-                controller.currentRange = controller.sizeIdle;
-            }
+            return;
+        }
 
-            else if (hitInfor.collider.CompareTag("Player"))
+        if (hitInfor.collider.CompareTag("Enemy"))
+        {
+            if (!controller.haveCart)
             {
-                if (!controller.haveBottle)
-                {
-                    controller.currentRange = controller.sizeAttack;
-                }
-                else
-                {
-                    controller.currentRange = controller.sizeThrow;
-                }
+                controller.currentRange = controller.sizeStand;
+            }
+            else
+            {
+                controller.currentRange = controller.sizeHaveCart;
+            }
+        }
+
+        else if (hitInfor.collider.CompareTag("Player"))
+        {
+            if (!controller.haveBottle)
+            {
+                controller.currentRange = controller.sizeAttack;
+            }
+            else
+            {
+                controller.currentRange = controller.sizeThrow;
             }
         }
     }

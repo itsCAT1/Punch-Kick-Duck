@@ -20,6 +20,7 @@ public class EnemyActionHandle : MonoBehaviour
     public void DisableAction()
     {
         animator.SetBool("Walking", false);
+        animator.SetBool("HaveCart", false);
         controller.enabled = false;
         attack.enabled = false;
         movement.enabled = false;

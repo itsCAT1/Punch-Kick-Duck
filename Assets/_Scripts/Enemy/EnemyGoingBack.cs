@@ -38,7 +38,7 @@ public class EnemyGoingBack : ObjectMoving
         while (timeCount <= duration)
         {
             timeCount += Time.deltaTime;
-            if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= 8)
+            if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= 10)
             {
                 float signY = Mathf.Sign(this.transform.rotation.y);
 

@@ -7,18 +7,19 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] enemies;
+    public GameObject[] enemiesHaveWeapon;
     public List<Transform> spawnPositions; 
     public Transform spawnParent;
     bool canSpawn;
 
-    public List<GameObject> enemiesHaveSpawned;
+
 
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableSpawn);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetLevel);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetLevel);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ClearEnemy);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ClearEnemy);
     }
 
     void EnableSpawn(IUEventData uEventData)
@@ -34,35 +35,51 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = false;
             foreach (var enemyPos in spawnPositions)
             {
-                bool hasEnemyWithBottle = false;
-                foreach (var enemy in enemiesHaveSpawned)
+                if (!SpawnManager.Instance.enemyHaveWeapon)
                 {
-                    if (enemy.GetComponent<EnemyController>().haveBottle)
-                    {
-                        hasEnemyWithBottle = true;
-                        break;
-                    }
-                }
-
-                GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
-                EnemyController enemyController = enemyPrefab.GetComponent<EnemyController>();
-
-                if (!hasEnemyWithBottle || !enemyController.haveBottle)
-                {
+                    GameObject enemyPrefab = enemiesHaveWeapon[Random.Range(0, enemiesHaveWeapon.Length)];
                     var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
-                    enemiesHaveSpawned.Add(enemyTemp);
+                    SpawnManager.Instance.enemyHaveSpawned.Add(enemyTemp);
                 }
+
+                else
+                {
+                    GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
+                    var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
+                    SpawnManager.Instance.enemyHaveSpawned.Add(enemyTemp);
+                }
+
+                CheckEnemyHaveWeapon();
             }
         }
     }
 
-    void ResetLevel(IUEventData uEventData)
+    void CheckEnemyHaveWeapon()
     {
-        foreach (var enemy in enemiesHaveSpawned)
+        foreach (var enemy in SpawnManager.Instance.enemyHaveSpawned)
+        {
+            if (enemy.GetComponent<EnemyController>() == null) return;
+
+            if (enemy.GetComponent<EnemyController>().haveBottle || enemy.GetComponent<EnemyController>().haveCart)
+            {
+                SpawnManager.Instance.enemyHaveWeapon = true;
+                break;
+            }
+            else
+            {
+                SpawnManager.Instance.enemyHaveWeapon = false;
+            }
+        }
+    }
+
+
+    void ClearEnemy(IUEventData uEventData)
+    {
+        foreach (var enemy in SpawnManager.Instance.enemyHaveSpawned)
         {
             Destroy(enemy.gameObject);
         }
-        enemiesHaveSpawned.Clear();
+        SpawnManager.Instance.enemyHaveSpawned.Clear();
     }
 
     [ContextMenu("Add Position")]

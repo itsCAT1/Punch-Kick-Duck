@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyApear : ObjectJumping
+public class EnemyApear : ObjectPushing
 {
     Animator animator;
 

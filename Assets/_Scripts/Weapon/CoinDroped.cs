@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinDroped : ObjectJumping
+public class CoinDroped : ObjectPushing
 {
     public Vector3 offset;
 

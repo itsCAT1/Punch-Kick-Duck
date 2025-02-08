@@ -1963,10 +1963,12 @@ MonoBehaviour:
   charactorLayer:
     serializedVersion: 2
     m_Bits: 192
-  sizeAttack: 2
-  sizeIdle: 3
-  sizeThrow: 6
   haveBottle: 1
+  haveCart: 0
+  sizeAttack: 2
+  sizeStand: 3
+  sizeThrow: 6
+  sizeHaveCart: 6
   currentRange: 0
   attackCoolDown: 0.5
 --- !u!114 &129080365953427522
@@ -2075,7 +2077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba77d758b73d464284a59a2a77e2fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 2
+  pushForce: 0
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
   dropChance: 0.3
@@ -2142,7 +2144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96996357b4d49b4fa2afb293cd64efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1
+  pushForce: 1
   duration: 0.5
 --- !u!1 &8098029449366886424
 GameObject:

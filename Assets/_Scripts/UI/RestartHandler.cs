@@ -19,7 +19,6 @@ public class RestartHandler : MonoBehaviour
 
     IEnumerator StartRestart()
     {
-        InGameManager.Instance.pauseGame.ClosePanel();
         yield return new WaitForSeconds(0.3f);
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<RestartGame>(uEventData);

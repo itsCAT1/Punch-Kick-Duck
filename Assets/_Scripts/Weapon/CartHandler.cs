@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CartHandler : HandleColider
+public class CartHandler : ColiderHandler
 {
     bool hasColidered = false;
     EnemyController controller;
@@ -33,6 +34,7 @@ public class CartHandler : HandleColider
             StartCoroutine(DestroyObject());
         }
     }
+
 
     IEnumerator StopActionEnemy()
     {
