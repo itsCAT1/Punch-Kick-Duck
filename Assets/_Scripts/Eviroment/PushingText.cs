@@ -14,6 +14,6 @@ public class PushingText : MonoBehaviour
 
     public void PerformPushing()
     {
-        rigid.AddForce(new Vector3(Player.Instance.controller.playerDirection * 5, 2, 0) * forcePush);
+        rigid.AddForce(new Vector3(Player.Instance.controller.playerDirection * 5, 2, 2) * forcePush);
     }
 }

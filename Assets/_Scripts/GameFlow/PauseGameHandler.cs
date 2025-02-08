@@ -35,4 +35,10 @@ public class PauseGameHandler : MonoBehaviour
         buttonPause.interactable = true;
         panelPauseAnim.Play("Close");
     }
+
+    public void ContinueGame()
+    {
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+    }
 }

@@ -23,7 +23,6 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
     }
@@ -36,11 +35,6 @@ public class ConditionManger : Singleton<ConditionManger>
         gameOver = false;
 
         ActiveCurrentUI();
-
-        if (DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10)
-        {
-            miniBossUI.SetActive(startGame);
-        }
     }
 
     void OnEndGame(IUEventData uEventData)
@@ -79,5 +73,14 @@ public class ConditionManger : Singleton<ConditionManger>
         attackUI.SetActive(startGame);
         endGameUI.SetActive(endGame);
         gameOverUI.SetActive(gameOver);
+
+        if (DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10)
+        {
+            miniBossUI.SetActive(startGame);
+        }
+        else
+        {
+            miniBossUI.SetActive(false);
+        }
     }
 }

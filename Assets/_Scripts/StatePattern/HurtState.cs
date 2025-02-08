@@ -10,7 +10,7 @@ using RMC.Core.UEvents;
 public class HurtState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool timeChangeState => Time.time - timeStart >= 2;
+    public bool timeChangeState => Time.time - timeStart >= 1.5f;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         

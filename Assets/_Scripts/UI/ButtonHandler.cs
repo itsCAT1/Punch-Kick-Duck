@@ -8,9 +8,6 @@ using UnityEngine.UI;
 public class ButtonHandler : MonoBehaviour
 {
     public List<Button> buttons;
-    float timeStart = 0;
-    public float duration = 1;
-    public bool cantAttack => Time.time - timeStart >= duration;
 
     void Start()
     {
@@ -20,13 +17,14 @@ public class ButtonHandler : MonoBehaviour
 
     public void SetAttackCooldown(IUEventData uEventData)
     {
-        timeStart = Time.time;
+        StartCoroutine(TurnOffButton());
+    }
 
-        if (cantAttack)
-        {
-            Deactive();
-            return;
-        }
+    public IEnumerator TurnOffButton()
+    {
+        Deactive();
+
+        yield return new WaitForSeconds(1f);
 
         Active();
     }

@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 8385016127147449260}
   - component: {fileID: 6097917832607790879}
   - component: {fileID: 8224467399144349333}
+  - component: {fileID: 5513778300289800068}
   m_Layer: 0
   m_Name: PKD_Level5
   m_TagString: Untagged
@@ -250,7 +251,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8224467399144349333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcePush: 500
+--- !u!114 &5513778300289800068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294037033004443228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDuration: 2
 --- !u!1 &7374951775402813806
 GameObject:
   m_ObjectHideFlags: 0

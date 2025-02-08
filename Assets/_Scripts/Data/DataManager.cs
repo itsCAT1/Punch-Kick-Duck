@@ -10,12 +10,13 @@ public class DataManager : Singleton<DataManager>
 
     private void OnEnable()
     {
+        LoadData();
         LoadDataProgress();
     }
 
     private void OnApplicationQuit()
     {
-        //SaveData();
+        SaveData();
         SaveDataProgress();
     }
 

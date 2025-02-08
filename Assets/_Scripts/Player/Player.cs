@@ -8,5 +8,14 @@ public class Player : Singleton<Player>
     public PlayerAttackType attackType;
     public PlayerAttack attack;
     public PlayerHealth health;
-    public PushingPlayer push;
+    public PlayerOnTakeDamage onTakeDamage;
+
+    private void OnValidate()
+    {
+        controller = GetComponent<PlayerController>();
+        attackType = GetComponent<PlayerAttackType>();
+        attack = GetComponent<PlayerAttack>();
+        health = GetComponent<PlayerHealth>();
+        onTakeDamage = GetComponent<PlayerOnTakeDamage>();
+    }
 }

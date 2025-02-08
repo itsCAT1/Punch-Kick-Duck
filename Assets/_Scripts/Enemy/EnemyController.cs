@@ -21,6 +21,11 @@ public class EnemyController : MonoBehaviour
 
     public float currentRange;
 
+    public float attackCoolDown = 0.5f;
+    float timeCounter;
+    public bool canAttack => timeCounter >= attackCoolDown;
+    
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -47,15 +52,7 @@ public class EnemyController : MonoBehaviour
         {
             if (Infor.collider.CompareTag("Player"))
             {
-                Standing();
-                if (haveBottle)
-                {
-                    thowBottle.PerformThrowBottle();
-                }
-                else
-                {
-                    attack.PerformAttack();
-                }
+                Attack();
             }
             else if (Infor.collider.CompareTag("Enemy"))
             {
@@ -65,6 +62,25 @@ public class EnemyController : MonoBehaviour
         else
         {
             Moving();
+        }
+    }
+
+    void Attack()
+    {
+        Standing();
+        timeCounter += Time.deltaTime;
+
+        if (canAttack)
+        {
+            if (haveBottle)
+            {
+                thowBottle.PerformThrowBottle();
+            }
+            else
+            {
+                attack.PerformAttack();
+            }
+            timeCounter = 0;
         }
     }
 
@@ -80,12 +96,6 @@ public class EnemyController : MonoBehaviour
         animator.SetBool("Walking", true);
         movement.enabled = true;
         this.rigid.isKinematic = false;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = haveBottle ? Color.blue : Color.red;
-        Gizmos.DrawRay(rayDetect.transform.position, rayDetect.transform.forward * sizeAttack);
     }
 
     private void OnTriggerEnter(Collider other)

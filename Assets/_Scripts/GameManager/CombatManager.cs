@@ -44,7 +44,7 @@ public class CombatManager : Singleton<CombatManager>
         }
 
 
-        Player.Instance.GetComponent<PlayerIsPushed>().PlayerIsRepelled();
+        Player.Instance.GetComponent<PlayerOnBlocking>().PlayerIsRepelled();
     }
 
     IEnumerator ContinueAttack(EnemyAttack attackEnemy)

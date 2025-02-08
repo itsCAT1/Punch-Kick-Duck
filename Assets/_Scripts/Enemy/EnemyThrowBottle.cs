@@ -25,7 +25,7 @@ public class EnemyThrowBottle : MonoBehaviour
             animator.Play("ThrowBottle");
         }
 
-        //StartCoroutine(TimeToChangeAttack(2));
+        StartCoroutine(TimeToChangeAttack(2));
     }
 
     public void CreateBottle()

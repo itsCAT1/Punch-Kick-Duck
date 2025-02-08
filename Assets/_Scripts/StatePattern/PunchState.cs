@@ -28,7 +28,7 @@ public class PunchState : FSMC_Behaviour
         }
         else
         {
-            interval = 2f;
+            interval = 1.5f;
         }
     }
 

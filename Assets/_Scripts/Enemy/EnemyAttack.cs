@@ -8,16 +8,13 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     Animator animator;
-    PerformPushPlayer pushPlayer;
+    PushingPlayer pushPlayer;
     AttackType enemyType;
-
-    public float timeCoolDown = 1f;
-    public float startAttack = 0;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        pushPlayer = GetComponent<PerformPushPlayer>();
+        pushPlayer = GetComponent<PushingPlayer>();
         enemyType = GetComponent<EnemyType>().attackType;
     }
 
@@ -25,12 +22,8 @@ public class EnemyAttack : MonoBehaviour
     {
         if(!AttackingEnemyManager.Instance.CanAttack(this)) return;
 
-        if (Time.time - startAttack >= timeCoolDown)
-        {
-            animator.Play("Attack");
-            AttackingEnemyManager.Instance.SetAttackingEnemy(this);
-            startAttack = Time.time;
-        }
+        AttackingEnemyManager.Instance.SetAttackingEnemy(this);
+        animator.Play("Attack");
     }
 
     public void CheckPlayer()

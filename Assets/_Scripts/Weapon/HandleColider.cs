@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandleColider : MonoBehaviour
 {
     Rigidbody rigid;
-    PerformPushPlayer pushPlayer;
+    PushingPlayer pushPlayer;
 
     public string attackType;
     public float forcePush;
@@ -14,7 +14,7 @@ public class HandleColider : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        pushPlayer = GetComponentInParent<PerformPushPlayer>();
+        pushPlayer = GetComponentInParent<PushingPlayer>();
     }
 
     public void IsThrownOut()

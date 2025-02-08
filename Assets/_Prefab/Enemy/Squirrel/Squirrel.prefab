@@ -361,6 +361,7 @@ MonoBehaviour:
   sizeThrow: 10
   haveBottle: 0
   currentRange: 0
+  attackCoolDown: 0.5
 --- !u!114 &7462911393651815163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ccd445b8e37c942990e8afca754158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCoolDown: 2
 --- !u!114 &6572685948765366867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 918291240466080303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c57bbadc8405a542acea0470fc82d18, type: 3}
+  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3238137224431754331

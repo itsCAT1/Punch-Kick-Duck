@@ -36,6 +36,7 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
             return;
         }
 
+        StopCountingTime();
         countingCoroutine = StartCoroutine(StartCountingTime());
     }
 

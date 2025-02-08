@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,41 +13,39 @@ public class BonusPointHandler : MonoBehaviour
 
     void Start()
     {
-        StartGame();
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(StartGame);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            GainPoint();
-        }
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            LosePoint(); 
-        }
-    }
-
-    void StartGame()
+    void StartGame(IUEventData uEventData)
     {
         StartCoroutine(CountdownPoint());
     }
 
     IEnumerator CountdownPoint()
     {
+        ConditionManger.Instance.startGame = true;
         while (ConditionManger.Instance.startGame)
         {
+            Debug.Log(DataInGame.Instance.beatingPoint);
             progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
             beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
 
-            DataInGame.Instance.beatingPoint -= 0.001f;
+            string currentState = Player.Instance.controller.executer.GetCurrentState().Name;
+
+            if (currentState == "Walk")
+            {
+                DataInGame.Instance.beatingPoint += 0.002f;
+            }
+            else
+            {
+                DataInGame.Instance.beatingPoint -= 0.002f;
+            }
 
             CheckPoint();
             yield return null;
         }
     }
-
 
     void CheckPoint()
     {
