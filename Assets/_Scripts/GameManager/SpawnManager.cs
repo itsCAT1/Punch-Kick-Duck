@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class SpawnManager : Singleton<SpawnManager>
 {
-    public List<GameObject> enemyHaveSpawned;
-
-    public bool enemyHaveWeapon = false;
+    
 }

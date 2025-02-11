@@ -7,12 +7,11 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] enemies;
-    public GameObject[] enemiesHaveWeapon;
     public List<Transform> spawnPositions; 
     public Transform spawnParent;
     bool canSpawn;
 
-
+    public List<GameObject> enemyHaveSpawned;
 
     void Start()
     {
@@ -35,51 +34,21 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = false;
             foreach (var enemyPos in spawnPositions)
             {
-                if (!SpawnManager.Instance.enemyHaveWeapon)
-                {
-                    GameObject enemyPrefab = enemiesHaveWeapon[Random.Range(0, enemiesHaveWeapon.Length)];
-                    var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
-                    SpawnManager.Instance.enemyHaveSpawned.Add(enemyTemp);
-                }
+                GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
 
-                else
-                {
-                    GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
-                    var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
-                    SpawnManager.Instance.enemyHaveSpawned.Add(enemyTemp);
-                }
-
-                CheckEnemyHaveWeapon();
+                var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity);
+                enemyHaveSpawned.Add(enemyTemp);
             }
         }
     }
-
-    void CheckEnemyHaveWeapon()
-    {
-        foreach (var enemy in SpawnManager.Instance.enemyHaveSpawned)
-        {
-            if (enemy.GetComponent<EnemyController>() == null) return;
-
-            if (enemy.GetComponent<EnemyController>().haveBottle || enemy.GetComponent<EnemyController>().haveCart)
-            {
-                SpawnManager.Instance.enemyHaveWeapon = true;
-                break;
-            }
-            else
-            {
-                SpawnManager.Instance.enemyHaveWeapon = false;
-            }
-        }
-    }
-
 
     void ClearEnemy(IUEventData uEventData)
     {
-        foreach (var enemy in SpawnManager.Instance.enemyHaveSpawned)
+        foreach (var enemy in enemyHaveSpawned)
         {
             Destroy(enemy.gameObject);
         }
-        SpawnManager.Instance.enemyHaveSpawned.Clear();
+        enemyHaveSpawned.Clear();
     }
 
     [ContextMenu("Add Position")]

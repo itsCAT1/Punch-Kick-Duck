@@ -20,10 +20,8 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
     {
         if (!DataManager.Instance.listLevel.data[level - 1].isCompleted)
         {
-            Debug.Log("not change");
             return;
         }
-        Debug.Log("change");
         DataManager.Instance.data.currentMap = level;
         Debug.Log(DataManager.Instance.data.currentMap);
 

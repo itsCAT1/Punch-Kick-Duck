@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Floor9
+  m_Shader: {fileID: 4800000, guid: 40b69493211073548bd5f103f15d911d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: 23776fcbb1e659b45a1e88a80d0a6d6b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _LerpFactor: 0.5172223
+      _ZDarkRange: 26
+      _ZDarkStart: 5
+    m_Colors:
+      _TintMulti1: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.33333334}
+      _TintMulti2: {r: 0.26628694, g: 0.27761418, b: 0.3018868, a: 0.78431374}
+      _ZDarkCol: {r: 0.25490198, g: 0.37527433, b: 0.5294118, a: 1}
+  m_BuildTextureStacks: []
