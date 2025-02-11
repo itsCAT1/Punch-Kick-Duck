@@ -2,36 +2,46 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BeeTestMat
-  m_Shader: {fileID: 4800000, guid: f6140936ffd83344c8af876dbbb5c169, type: 3}
-  m_ShaderKeywords:
+  m_Shader: {fileID: 4800000, guid: 246c77cc7b055234ba601a20c1973f8a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: {}
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-      _BackLightLimitForFrontFaces: 0
-      _Gradient1End: 0
-      _Gradient1Start: 0
-      _GradientBackLightCut: 0
-      _GradientLightCut: 0
-      _GradientShadowCut: 0
+    - _BackLightLimitForFrontFaces: 0
+    - _BackLightLimiter: 0
+    - _Gradient1End: 0
+    - _Gradient1Start: 0
+    - _GradientBackLightCut: 0
+    - _GradientLightCut: 0
+    - _GradientShadowCut: 0
     m_Colors:
-      _BackLightCol: {r: 0.3, g: 1, b: 0.9, a: 0}
-      _BackLightDir: {r: -0.18541956, g: -0.37366813, b: 0.90884084, a: 1.9591964}
-      _DiffuseBaseCol: {r: 0.75686276, g: 0.6509804, b: 0.8, a: 1}
-      _Gradient1SubColor: {r: 0, g: 0, b: 0, a: 0}
-      _MainLightCol: {r: 0.5, g: 0.4, b: 0.3, a: 0}
-      _MainLightDir: {r: 0.42118937, g: 0.84237874, b: -0.33615112, a: 1}
-      _ShadowSub: {r: -0.5, g: -0.3, b: -0.2, a: 0}
+    - _BackLightCol: {r: 0.3, g: 1, b: 0.9, a: 0}
+    - _BackLightDir: {r: -0.18541956, g: -0.37366813, b: 0.90884084, a: 1.9591964}
+    - _DiffuseBaseCol: {r: 0.75686276, g: 0.6509804, b: 0.8, a: 1}
+    - _Gradient1SubColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MainLightCol: {r: 0.5, g: 0.4, b: 0.3, a: 0}
+    - _MainLightDir: {r: 0.42118937, g: 0.84237874, b: -0.33615112, a: 1}
+    - _ShadowSub: {r: -0.5, g: -0.3, b: -0.2, a: 0}
   m_BuildTextureStacks: []
