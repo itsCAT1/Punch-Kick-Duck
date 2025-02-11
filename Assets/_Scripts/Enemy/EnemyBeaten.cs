@@ -14,7 +14,7 @@ public class EnemyBeaten : ObjectPushing
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        enemyActionManager =GetComponent<EnemyActionHandle>();
+        enemyActionManager = GetComponent<EnemyActionHandle>();
     }
 
     public void EnemyIsBeaten()
