@@ -20,8 +20,6 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
-            StartCoroutine(ContinueAttack(attackEnemy));
-
             GainPoint();
         }
     }
@@ -45,12 +43,6 @@ public class CombatManager : Singleton<CombatManager>
 
 
         Player.Instance.GetComponent<PlayerOnBlocking>().PlayerIsRepelled();
-    }
-
-    IEnumerator ContinueAttack(GameObject attackEnemy)
-    {
-        yield return new WaitForSeconds(2f);
-        AttackingEnemyManager.Instance.ClearAttackingEnemy(attackEnemy);
     }
 
     public void GainPoint()

@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetCurrentState("Punch");
+            Player.Instance.controller.executer.SetTrigger("Punch");
         }
     }
 
@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetCurrentState("Kick");
+            Player.Instance.controller.executer.SetTrigger("Kick");
         }
     }
 
@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetCurrentState("Duck");
+            Player.Instance.controller.executer.SetTrigger("Duck");
         }
     }
 

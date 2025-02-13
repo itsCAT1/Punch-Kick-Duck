@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 1883570154758187973}
   - component: {fileID: 8794049457726636204}
   - component: {fileID: 1543724010409509925}
+  - component: {fileID: -1075100230912747571}
   - component: {fileID: 6376285724377883542}
   - component: {fileID: 3927235421736748991}
   - component: {fileID: 2678545834849858002}
@@ -213,9 +214,9 @@ GameObject:
   - component: {fileID: 2799500275598702482}
   - component: {fileID: -8152031666865387474}
   - component: {fileID: 2814926866655858214}
-  - component: {fileID: 2842142122051877084}
   - component: {fileID: 523702912369151703}
   - component: {fileID: 7401331883610827246}
+  - component: {fileID: 4108668086901214056}
   m_Layer: 7
   m_Name: CatWithCart
   m_TagString: Enemy
@@ -312,6 +313,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-1075100230912747571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696222224744674390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1db87e0dcd99d540b4ef87af581ec94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 1543724010409509925}
+  animator: {fileID: 1883570154758187973}
+  controller: {fileID: 6376285724377883542}
+  attack: {fileID: 8678105989214417763}
+  movement: {fileID: 2678545834849858002}
+  thowBottle: {fileID: 0}
+  apear: {fileID: 0}
+  health: {fileID: 3896141780838876740}
+  coin: {fileID: 7401331883610827246}
+  executer: {fileID: 4108668086901214056}
 --- !u!114 &6376285724377883542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,12 +353,9 @@ MonoBehaviour:
     m_Bits: 192
   haveBottle: 0
   haveCart: 1
-  sizeAttack: 2
-  sizeStand: 3
-  sizeThrow: 6
-  sizeHaveCart: 6
   currentRange: 0
   attackCoolDown: 0.5
+  canAttack: 1
 --- !u!114 &3927235421736748991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51eef405e1d83a844b5852662f7b909d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeAttack: 2
+  sizeStand: 3
+  sizeThrow: 5
+  sizeHaveCart: 4
 --- !u!114 &2678545834849858002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,18 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2842142122051877084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696222224744674390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91573a8e31217cb49892563a658e161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &523702912369151703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,8 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 6
-  duration: 0.5
+  speedMove: 6
 --- !u!114 &7401331883610827246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +505,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropChance: 0.3
   coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
+--- !u!114 &4108668086901214056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696222224744674390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7f4d8633f97ce45bbc75a0d23f36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 11400000, guid: 61b324a267c344b41b0c68d929baf200, type: 2}
 --- !u!1 &1775552048683755675
 GameObject:
   m_ObjectHideFlags: 0

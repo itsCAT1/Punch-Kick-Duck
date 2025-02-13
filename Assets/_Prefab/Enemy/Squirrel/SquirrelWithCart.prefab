@@ -1911,6 +1911,7 @@ GameObject:
   - component: {fileID: 1212637950006815911}
   - component: {fileID: 1894071479458482158}
   - component: {fileID: 74815555375508875}
+  - component: {fileID: 1667504200590910309}
   - component: {fileID: 4319120916899415088}
   - component: {fileID: 1745165379086948849}
   - component: {fileID: 6240766813596020727}
@@ -1920,10 +1921,10 @@ GameObject:
   - component: {fileID: 8075804120043903104}
   - component: {fileID: 378334141293967506}
   - component: {fileID: 4724786670077725634}
-  - component: {fileID: 5398103634891220258}
   - component: {fileID: -3615736505114369234}
   - component: {fileID: -5851532266248293631}
   - component: {fileID: -4986015209071473075}
+  - component: {fileID: -3753239370592048173}
   m_Layer: 7
   m_Name: SquirrelWithCart
   m_TagString: Enemy
@@ -2021,6 +2022,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1667504200590910309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842851730770738881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1db87e0dcd99d540b4ef87af581ec94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 74815555375508875}
+  animator: {fileID: 1212637950006815911}
+  controller: {fileID: 4319120916899415088}
+  attack: {fileID: 2732824108866027461}
+  movement: {fileID: 6240766813596020727}
+  thowBottle: {fileID: 0}
+  apear: {fileID: 0}
+  health: {fileID: 7932008989621246262}
+  coin: {fileID: -4986015209071473075}
+  executer: {fileID: -3753239370592048173}
 --- !u!114 &4319120916899415088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2039,12 +2062,9 @@ MonoBehaviour:
     m_Bits: 192
   haveBottle: 0
   haveCart: 1
-  sizeAttack: 2
-  sizeStand: 3
-  sizeThrow: 6
-  sizeHaveCart: 6
   currentRange: 0
   attackCoolDown: 0.5
+  canAttack: 1
 --- !u!114 &1745165379086948849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2057,6 +2077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51eef405e1d83a844b5852662f7b909d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeAttack: 2
+  sizeStand: 3
+  sizeThrow: 5
+  sizeHaveCart: 4
 --- !u!114 &6240766813596020727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,18 +2175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439f86d365101064ea6f6f6114ff6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5398103634891220258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8842851730770738881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91573a8e31217cb49892563a658e161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3615736505114369234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,8 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 6
-  duration: 1
+  speedMove: 6
 --- !u!114 &-4986015209071473075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2214,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropChance: 0.3
   coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
+--- !u!114 &-3753239370592048173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842851730770738881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7f4d8633f97ce45bbc75a0d23f36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 11400000, guid: 61b324a267c344b41b0c68d929baf200, type: 2}
 --- !u!1 &8992316847606892924
 GameObject:
   m_ObjectHideFlags: 0

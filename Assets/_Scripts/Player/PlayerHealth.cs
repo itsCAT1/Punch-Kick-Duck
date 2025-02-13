@@ -1,3 +1,5 @@
+using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,8 @@ public class PlayerHealth : Health
 
     private void Start()
     {
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(LoseHeart);
+
         currentHealth = maxHealth;
         GetDataHeart();
     }
@@ -53,5 +57,16 @@ public class PlayerHealth : Health
         {
             currentHealth = 2;
         }
+    }
+
+
+    void LoseHeart(IUEventData uEventData)
+    {
+        if (Player.Instance.health.currentHealth == 1)
+        {
+            Player.Instance.health.currentHeart = 0;
+        }
+
+        InGameManager.Instance.lives.UpdateLivesProgress();
     }
 }

@@ -1836,6 +1836,7 @@ GameObject:
   - component: {fileID: 8941731532964019079}
   - component: {fileID: 9005872606057115619}
   - component: {fileID: 5723841274703730617}
+  - component: {fileID: -3620422215234252938}
   - component: {fileID: 95968501126647037}
   - component: {fileID: 129080365953427522}
   - component: {fileID: 1503310456844819288}
@@ -1846,11 +1847,11 @@ GameObject:
   - component: {fileID: 5234476784238181953}
   - component: {fileID: -7047058063833638738}
   - component: {fileID: -939306389611372959}
-  - component: {fileID: 8463544528646443048}
   - component: {fileID: 6461558233081971333}
   - component: {fileID: 1692541130555262503}
   - component: {fileID: 2328732897686359339}
   - component: {fileID: -4721391769279132598}
+  - component: {fileID: 3563941762240541126}
   m_Layer: 7
   m_Name: SquirrelBottle
   m_TagString: Enemy
@@ -1948,6 +1949,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-3620422215234252938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030859090074328926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1db87e0dcd99d540b4ef87af581ec94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 5723841274703730617}
+  animator: {fileID: 8941731532964019079}
+  controller: {fileID: 95968501126647037}
+  attack: {fileID: 575324812357840258}
+  movement: {fileID: 1503310456844819288}
+  thowBottle: {fileID: 5234476784238181953}
+  apear: {fileID: -4721391769279132598}
+  health: {fileID: 7781751236488210584}
+  coin: {fileID: 2328732897686359339}
+  executer: {fileID: 3563941762240541126}
 --- !u!114 &95968501126647037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,12 +1989,9 @@ MonoBehaviour:
     m_Bits: 192
   haveBottle: 1
   haveCart: 0
-  sizeAttack: 2
-  sizeStand: 3
-  sizeThrow: 6
-  sizeHaveCart: 6
   currentRange: 0
   attackCoolDown: 0.5
+  canAttack: 1
 --- !u!114 &129080365953427522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1984,6 +2004,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51eef405e1d83a844b5852662f7b909d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeAttack: 2
+  sizeStand: 3
+  sizeThrow: 5
+  sizeHaveCart: 4
 --- !u!114 &1503310456844819288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,18 +2117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439f86d365101064ea6f6f6114ff6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8463544528646443048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8030859090074328926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91573a8e31217cb49892563a658e161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6461558233081971333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,8 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 6
-  duration: 1
+  speedMove: 6
 --- !u!114 &2328732897686359339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,6 +2170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 1
   duration: 0.5
+--- !u!114 &3563941762240541126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030859090074328926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7f4d8633f97ce45bbc75a0d23f36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 11400000, guid: 61b324a267c344b41b0c68d929baf200, type: 2}
 --- !u!1 &8098029449366886424
 GameObject:
   m_ObjectHideFlags: 0
