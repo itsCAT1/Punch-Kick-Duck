@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour
 
     void Moving()
     {
-        animator.SetBool("Walking", true);
+        SetWalkingType();
         movement.enabled = true;
         this.rigid.isKinematic = false;
     }

@@ -16,6 +16,7 @@ public class BeeWinState : FSMC_Behaviour
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         controller = executer.GetComponent<BeeController>();
+        Debug.Log("bee win");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

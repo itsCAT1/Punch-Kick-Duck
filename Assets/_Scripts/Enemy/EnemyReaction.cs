@@ -9,6 +9,7 @@ public class EnemyReaction : MonoBehaviour
     EnemyActionHandle enemyAction;
     Animator animator;
     Health health;
+    Coroutine countingCoroutine;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyReaction : MonoBehaviour
 
     void WaitingPlayer(IUEventData uEventData)
     {
+        StopAllCoroutines();
         if (health.currentHealth > 0)
         {
             StartCoroutine(TimeWaiting());
@@ -39,12 +41,12 @@ public class EnemyReaction : MonoBehaviour
         {
             enemyAction.EnableAction();
         }
-        
     }
 
 
     void StopAttack(IUEventData uEventData)
     {
+        StopAllCoroutines();
         if (health.currentHealth > 0)
         {
             enemyAction.DisableAction();
@@ -54,6 +56,7 @@ public class EnemyReaction : MonoBehaviour
 
     void StopChasing(IUEventData uEventData)
     {
+        StopAllCoroutines();
         if (health.currentHealth > 0)
         {
             enemyAction.DisableAction();

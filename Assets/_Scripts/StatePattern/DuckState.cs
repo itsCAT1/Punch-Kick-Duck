@@ -27,7 +27,7 @@ public class DuckState : FSMC_Behaviour
         }
         else
         {
-            interval = 1.5f;
+            interval = 1f;
         }
     }
 

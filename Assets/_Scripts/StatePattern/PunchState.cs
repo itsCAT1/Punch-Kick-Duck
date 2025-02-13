@@ -8,7 +8,7 @@ using System;
 public class PunchState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    private bool resetState => Time.time - timeStart >= 1f;
+    private bool resetState => Time.time - timeStart >= 0.8f;
 
     float interval;
     public bool timeChangeState => Time.time - timeStart >= interval;
@@ -28,7 +28,7 @@ public class PunchState : FSMC_Behaviour
         }
         else
         {
-            interval = 1.5f;
+            interval = 1f;
         }
     }
 

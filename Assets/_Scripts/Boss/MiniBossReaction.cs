@@ -23,6 +23,7 @@ public class MiniBossReaction : MonoBehaviour
 
     void WaitingPlayer(IUEventData uEventData)
     {
+        StopAllCoroutines();
         StartCoroutine(TimeWaiting());
     }
 
@@ -30,7 +31,7 @@ public class MiniBossReaction : MonoBehaviour
     public IEnumerator TimeWaiting()
     {
         miniBossAction.DisableAction();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         if (!ConditionManger.Instance.gameOver)
         {
             miniBossAction.EnableAction();
@@ -40,12 +41,14 @@ public class MiniBossReaction : MonoBehaviour
 
     void StopAttack(IUEventData uEventData)
     {
+        StopAllCoroutines();
         miniBossAction.DisableAction();
         animator.Play("Win");
     }
 
     void StopChasing(IUEventData uEventData)
     {
+        StopAllCoroutines();
         miniBossAction.DisableAction();
     }
 }

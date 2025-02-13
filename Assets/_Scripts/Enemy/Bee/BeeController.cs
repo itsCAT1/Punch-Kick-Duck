@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using FSMC.Runtime;
 using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
@@ -15,6 +15,7 @@ public class BeeController : MonoBehaviour
     public float targetAngle;
     public float rotationDuration;
     public GameObject currentZone;
+    public bool isDead = false;
 
     FSMC_Executer executer;
 
@@ -47,6 +48,7 @@ public class BeeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isDead) return;
         if (Player.Instance.health.currentHealth <= 0) return;
 
         if (other.gameObject.CompareTag("ZoneChangeDirection") && other.gameObject != currentZone)
@@ -64,6 +66,7 @@ public class BeeController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick"))
         {
+            isDead = true;
             executer.SetCurrentState("Dead");
         }
     }

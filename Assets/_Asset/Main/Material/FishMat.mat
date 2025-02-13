@@ -2,46 +2,51 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FishMat
   m_Shader: {fileID: 4800000, guid: f4fae3a902e30b4418db1e6d76c7b3cc, type: 3}
-  m_ShaderKeywords:
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3080
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-      _MainTex:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: 7e512deb18913cb49b6adf19d2d07fc2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-      _AFloatVal: -5.5
-      _GradientBackLightCut: 1
-      _GradientEnd: 70
-      _GradientLightCut: 1
-      _GradientShadowCut: 1
-      _GradientSpecCut: 0.75
-      _GradientStart: 71.5
-      _Shininess: 16
-      _SpecPower: 4
+    - _AFloatVal: -5.5
+    - _GradientBackLightCut: 1
+    - _GradientEnd: 70
+    - _GradientLightCut: 1
+    - _GradientShadowCut: 1
+    - _GradientSpecCut: 0.75
+    - _GradientStart: 71.5
+    - _Shininess: 16
+    - _SpecPower: 4
     m_Colors:
-      _BackLightCol: {r: 0.3, g: 1, b: 1, a: 0.5}
-      _BackLightDir: {r: 0, g: 0.7, b: -0.714, a: 0.3}
-      _DiffuseBaseCol: {r: 0.9811321, g: 0.7913849, b: 0.9670767, a: 1}
-      _GradientSubColor: {r: -1, g: -0.3, b: -0.3, a: 1}
-      _MainLightCol: {r: 0.5, g: 0.4, b: 0.3, a: 0}
-      _MainLightDir: {r: 0.50236624, g: 0.7660787, b: -0.40093836, a: 0.6}
-      _Radians_Speed_Curve: {r: 0, g: 0, b: 0, a: 1}
-      _ShadowSub: {r: -0.4, g: -0.3, b: -0.1, a: 0}
-      _SpecCol: {r: 1, g: 0.8806241, b: 0.7028302, a: 1}
-      _UVOffset: {r: 0, g: 0.5, b: 0, a: 1}
+    - _BackLightCol: {r: 0.3, g: 1, b: 1, a: 0.5}
+    - _BackLightDir: {r: 0, g: 0.7, b: -0.714, a: 0.3}
+    - _DiffuseBaseCol: {r: 0.9811321, g: 0.7913849, b: 0.9670767, a: 1}
+    - _GradientSubColor: {r: -1, g: -0.3, b: -0.3, a: 1}
+    - _MainLightCol: {r: 0.5, g: 0.4, b: 0.3, a: 0}
+    - _MainLightDir: {r: 0.50236624, g: 0.7660787, b: -0.40093836, a: 0.6}
+    - _Radians_Speed_Curve: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowSub: {r: -0.4, g: -0.3, b: -0.1, a: 0}
+    - _SpecCol: {r: 1, g: 0.8806241, b: 0.7028302, a: 1}
+    - _UVOffset: {r: 0, g: 0.5, b: 0, a: 1}
   m_BuildTextureStacks: []

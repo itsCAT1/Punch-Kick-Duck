@@ -1,4 +1,4 @@
-using RMC.Core.UEvents;
+﻿using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,15 +8,14 @@ public class BeeManager : Singleton<BeeManager>
 {
     public Transform[] beePosition;
 
-
-    private void Start()
+    private void Update()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(UpdatePosition);
+        UpdatePosition();
     }
 
-    public void UpdatePosition(IUEventData uEventData)
+    public void UpdatePosition()
     {
-        var angle = Player.Instance.controller.playerDirection > 0 ? 0 : 90;
-        this.transform.eulerAngles = new Vector3(0, angle, 0);
+         this.transform.localScale = new Vector3(1, 1, Player.Instance.controller.playerDirection);
     }
+
 }

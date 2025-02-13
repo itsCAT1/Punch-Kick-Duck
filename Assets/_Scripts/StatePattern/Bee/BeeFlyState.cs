@@ -10,7 +10,7 @@ public class BeeFlyState : FSMC_Behaviour
     BeeController controller;
     BeeMovement movement;
     private float timeStart = 0;
-    public bool timeChangeState => Time.time - timeStart >= 4;
+    public bool timeChangeState => Time.time - timeStart >= 4.2f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -26,6 +26,7 @@ public class BeeFlyState : FSMC_Behaviour
         controller.PerformRotate();
 
         timeStart = Time.time;
+        Debug.Log("bee move");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

@@ -22,6 +22,7 @@ public class BeeAttackState : FSMC_Behaviour
         attack.currentIndex = 0;
         attack.UpdatePosition();
         controller.PerformRotate();
+        Debug.Log("bee attack");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
