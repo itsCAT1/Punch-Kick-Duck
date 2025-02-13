@@ -14,13 +14,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {x: 200, y: 200}
   AnyPosition: {x: 200, y: 400}
-  States: []
+  States:
+  - rid: 2713678532757946371
+  - rid: 2713678532757946372
+  - rid: 2713678532757946373
+  - rid: 2713678545796726784
   AnyTransitions: []
   StartingState:
-    rid: -2
+    rid: 2713678532757946372
   Parameters: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 2713678532757946371
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678532757946377
+        Position: {x: 508, y: 304}
+        _name: Fly
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678532757946372
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678532757946374
+        Position: {x: 490, y: 200}
+        _name: Attack
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678532757946373
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678545796726786
+        Position: {x: 527, y: 113}
+        _name: Dead
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678532757946374
+      type: {class: BeeAttackState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678532757946377
+      type: {class: BeeFlyState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678545796726784
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678545796726785
+        Position: {x: 754, y: 200}
+        _name: Win
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678545796726785
+      type: {class: BeeWinState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678545796726786
+      type: {class: BeeDeadState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1

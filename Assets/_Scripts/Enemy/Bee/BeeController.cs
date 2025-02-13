@@ -1,22 +1,76 @@
+using DG.Tweening;
+using FSMC.Runtime;
+using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeeController : ObjectPushing
+public class BeeController : MonoBehaviour
 {
-    public Vector3 offset;
+    public BeeAttack attack;
+    public BeeMovement movement;
+    public BeeBeaten beeBeaten;
 
-    private void Update()
+    public float targetAngle;
+    public float rotationDuration;
+    public GameObject currentZone;
+
+    FSMC_Executer executer;
+
+    public bool onLeft => transform.position.x < Player.Instance.transform.position.x;
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        executer = GetComponent<FSMC_Executer>();
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(PerformLeave);
+    }
+
+    void UpdateAngle()
+    {
+        if (onLeft)
         {
-            EnemyIsBeaten();
+            targetAngle = 0;
+        }
+
+        else
+        {
+            targetAngle = 180;
         }
     }
 
-    public void EnemyIsBeaten()
+    public void PerformRotate()
     {
-        var targetPos = this.transform.position + new Vector3(offset.x, offset.y, offset.z);
-        PerformJumping(targetPos);
+        UpdateAngle();
+        transform.DORotate(new Vector3(0, targetAngle, 0), rotationDuration, RotateMode.Fast);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Player.Instance.health.currentHealth <= 0) return;
+
+        if (other.gameObject.CompareTag("ZoneChangeDirection") && other.gameObject != currentZone)
+        {
+            PerformRotate();
+            currentZone = other.gameObject;
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Player.Instance.health.TakeDamage();
+            CombatManager.Instance.LosePoint();
+            executer.SetCurrentState("Fly");
+        }
+
+        if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick"))
+        {
+            executer.SetCurrentState("Dead");
+        }
+    }
+
+    public void PerformLeave(IUEventData uEventData)
+    {
+        executer.SetCurrentState("Win");
+        Destroy(this.gameObject, 2);
     }
 }

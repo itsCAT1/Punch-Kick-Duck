@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 6668290880278827095}
   - component: {fileID: 285517880609983659}
   - component: {fileID: -5196154343551238975}
+  - component: {fileID: -8699151149461502362}
   - component: {fileID: 7282318885144496967}
   m_Layer: 7
   m_Name: CatBottle
@@ -1056,8 +1057,6 @@ MonoBehaviour:
   pushForce: 1
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
-  dropChance: 0.3
-  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &8860531098578846349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1107,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &-8699151149461502362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490876856466041371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.3
+  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &7282318885144496967
 MonoBehaviour:
   m_ObjectHideFlags: 0

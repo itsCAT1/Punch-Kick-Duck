@@ -22,7 +22,7 @@ public class CombatManager : Singleton<CombatManager>
             healthEnemy?.TakeDamage();
             StartCoroutine(ContinueAttack(attackEnemy));
 
-            AddPoint();
+            GainPoint();
         }
     }
 
@@ -53,13 +53,21 @@ public class CombatManager : Singleton<CombatManager>
         AttackingEnemyManager.Instance.ClearAttackingEnemy(attackEnemy);
     }
 
-    public void AddPoint()
+    public void GainPoint()
     {
         Player.Instance.health.GainHeart();
         InGameManager.Instance.bonusPoint.GainPoint();
         DataInGame.Instance.score++;
         DataEndGame.Instance.beatingStreak++;
         UpdateBestStreak();
+    }
+
+    public void LosePoint()
+    {
+        Player.Instance.health.currentHeart = 0;
+        InGameManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.bonusPoint.LosePoint();
+        DataEndGame.Instance.beatingStreak = 0;
     }
 
     void UpdateBestStreak()

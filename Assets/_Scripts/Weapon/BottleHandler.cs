@@ -39,7 +39,7 @@ public class BottleHandler : ColiderHandler
 
             bottleMovement.forceSpeed = 0;
             ObjectOnHit();
-            CombatManager.Instance.AddPoint();
+            CombatManager.Instance.GainPoint();
             StartCoroutine(DestroyObject());
         }
     }

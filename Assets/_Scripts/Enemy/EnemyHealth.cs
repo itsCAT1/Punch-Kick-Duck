@@ -16,7 +16,7 @@ public class EnemyHealth : Health
 
     protected override void Dead()
     {
-        enemy.EnemyIsBeaten();
+        enemy.EnemyThrownOut();
 
         animator.Play("Die");
         GetComponent<Collider>().enabled = false;

@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 8463544528646443048}
   - component: {fileID: 6461558233081971333}
   - component: {fileID: 1692541130555262503}
+  - component: {fileID: 2328732897686359339}
   - component: {fileID: -4721391769279132598}
   m_Layer: 7
   m_Name: SquirrelBottle
@@ -2080,8 +2081,6 @@ MonoBehaviour:
   pushForce: 1
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
-  dropChance: 0.3
-  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &-939306389611372959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2131,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &2328732897686359339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030859090074328926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.3
+  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &-4721391769279132598
 MonoBehaviour:
   m_ObjectHideFlags: 0

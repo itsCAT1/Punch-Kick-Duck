@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 3344591960118169176}
   - component: {fileID: -6706084058494315563}
   - component: {fileID: 1182093893297962142}
+  - component: {fileID: 1217022943026048621}
   - component: {fileID: -112381069876505455}
   m_Layer: 7
   m_Name: SlenderCatBottle
@@ -1210,8 +1211,6 @@ MonoBehaviour:
   pushForce: 1
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
-  dropChance: 0.3
-  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &9038895034741071801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1261,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &1217022943026048621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947798225761686602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.3
+  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &-112381069876505455
 MonoBehaviour:
   m_ObjectHideFlags: 0

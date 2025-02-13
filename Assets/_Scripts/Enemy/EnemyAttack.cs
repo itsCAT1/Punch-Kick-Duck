@@ -60,10 +60,7 @@ public class EnemyAttack : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-        Player.Instance.health.currentHeart = 0;
-        InGameManager.Instance.lives.UpdateLivesProgress();
-        InGameManager.Instance.bonusPoint.LosePoint();
-        DataEndGame.Instance.beatingStreak = 0;
+        CombatManager.Instance.LosePoint();
 
         pushPlayer.PerformPush();
     }

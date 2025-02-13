@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 5753586875027271080}
   - component: {fileID: 3600185936686860610}
   - component: {fileID: -2658477831696928123}
+  - component: {fileID: -2276527885443506907}
   - component: {fileID: 2937486125107915682}
   m_Layer: 7
   m_Name: Cat
@@ -684,8 +685,6 @@ MonoBehaviour:
   pushForce: 1
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
-  dropChance: 0.3
-  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &3673839821224278477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +735,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &-2276527885443506907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326386334186138647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.3
+  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &2937486125107915682
 MonoBehaviour:
   m_ObjectHideFlags: 0

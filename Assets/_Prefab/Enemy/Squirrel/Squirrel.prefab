@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: -5096547135602391702}
   - component: {fileID: -2688713228687868067}
   - component: {fileID: 3238137224431754331}
+  - component: {fileID: -8907330924287501120}
   - component: {fileID: 1432745824612113381}
   m_Layer: 7
   m_Name: Squirrel
@@ -459,8 +460,6 @@ MonoBehaviour:
   pushForce: 1
   duration: 0.5
   offset: {x: -2, y: 2, z: -3}
-  dropChance: 0.3
-  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &-6477398991652203943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +510,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
+--- !u!114 &-8907330924287501120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918291240466080303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.3
+  coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!114 &1432745824612113381
 MonoBehaviour:
   m_ObjectHideFlags: 0
