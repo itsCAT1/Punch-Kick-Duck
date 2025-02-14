@@ -16,7 +16,6 @@ public class EnemyWinState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Debug.Log("win");
         enemy = executer.GetComponent<Enemy>();
 
         enemy.rigid.isKinematic = true;

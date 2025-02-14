@@ -17,7 +17,6 @@ public class BeeDeadState : FSMC_Behaviour
         controller = executer.GetComponent<BeeController>();
 
         controller.beeBeaten.BeeThrownOut();
-        Debug.Log("bee dead");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

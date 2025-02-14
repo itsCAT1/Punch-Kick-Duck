@@ -17,11 +17,6 @@ public class EnemyController : MonoBehaviour
 
     [Header("Size Attack")]
     public float currentRange;
-
-    [Header("Attack Cooldown")]
-    public float attackCoolDown = 1f;
-    float timeCounter;
-
     public bool canAttack = true;
 
     private void Start()
@@ -45,15 +40,7 @@ public class EnemyController : MonoBehaviour
         {
             if (Infor.collider.CompareTag("Player"))
             {
-                if (haveBottle)
-                {
-                    Debug.Log("throw");
-                    enemy.executer.SetCurrentState("Throw");
-                }
-                else
-                {
-                    enemy.executer.SetCurrentState("Attack");
-                }
+                Attack();
             }
             else if (Infor.collider.CompareTag("Enemy"))
             {
@@ -68,10 +55,6 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        if (!AttackingEnemyManager.Instance.CanAttack(this.gameObject)) return;
-
-        AttackingEnemyManager.Instance.SetAttackingEnemy(this.gameObject);
-
         if (haveBottle)
         {
             enemy.executer.SetCurrentState("Throw");
@@ -80,6 +63,16 @@ public class EnemyController : MonoBehaviour
         {
             enemy.executer.SetCurrentState("Attack");
         }
+    }
+
+    void Idle()
+    {
+        enemy.rigid.velocity = Vector3.zero;
+        enemy.controller.Standing();
+
+        enemy.rigid.isKinematic = true;
+
+        Standing();
     }
 
     public void Standing()

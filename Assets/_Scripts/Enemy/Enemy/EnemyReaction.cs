@@ -20,7 +20,8 @@ public class EnemyReaction : MonoBehaviour
 
     void WaitingPlayer(IUEventData uEventData)
     {
-        Debug.Log("Change");
+        if (enemy.health.currentHealth == 0) return;
+
         enemy.controller.canAttack = false;
         enemy.executer.SetCurrentState("GoBack");
     }
@@ -28,12 +29,16 @@ public class EnemyReaction : MonoBehaviour
 
     void StopAttack(IUEventData uEventData)
     {
+        if (enemy.health.currentHealth == 0) return;
+
         enemy.controller.canAttack = false;
         enemy.executer.SetCurrentState("Win");
     }
 
     void StopChasing(IUEventData uEventData)
     {
+        if (enemy.health.currentHealth == 0) return;
+
         enemy.controller.canAttack = false;
         enemy.executer.SetCurrentState("Idle");
     }

@@ -25,6 +25,7 @@ public class OpeningDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck"))
         {
             Open();
+            GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -36,5 +37,6 @@ public class OpeningDoor : MonoBehaviour
     void Close(IUEventData uEventData)
     {
         animator.Play("CloseDoor");
+        GetComponent<Collider>().enabled = true;
     }
 }

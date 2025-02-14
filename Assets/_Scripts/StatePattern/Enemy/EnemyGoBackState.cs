@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSMC.Runtime;
 using System;
+using static UnityEngine.EventSystems.EventTrigger;
 
 [Serializable]
 public class EnemyGoBackState : FSMC_Behaviour
@@ -17,11 +18,12 @@ public class EnemyGoBackState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Debug.Log("Go back");
         enemy = executer.GetComponent<Enemy>();
+
+        enemy.controller.canAttack = false;
         enemy.rigid.isKinematic = false;
 
-        enemy.GetComponent<EnemyGoingBack>().PerformBack();
+        enemy.GetComponent<EnemyGoingBack>().PerformGoingBack();
         timeStart = Time.time;
     }
 

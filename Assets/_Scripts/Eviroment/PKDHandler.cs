@@ -22,7 +22,7 @@ public class PKDHandler : PushingText
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck") 
+        if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck")) 
             && !ConditionManger.Instance.startGame)
         {
             UEventData uEventData = new UEventData();

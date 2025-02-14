@@ -7,7 +7,7 @@ public class AttackingEnemyManager : Singleton<AttackingEnemyManager>
 {
     public GameObject currentAttackingEnemy = null; 
 
-    public bool CanAttack(GameObject enemy) => currentAttackingEnemy == null;
+    public bool CanAttack(GameObject enemy) => currentAttackingEnemy == null || currentAttackingEnemy == enemy;
 
     public void SetAttackingEnemy(GameObject enemy)
     {

@@ -16,13 +16,12 @@ public class EnemyIdleState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Debug.Log("idle");
         enemy = executer.GetComponent<Enemy>();
 
         enemy.rigid.velocity = Vector3.zero;
-        enemy.rigid.isKinematic = true;
         enemy.controller.Standing();
         
+        enemy.rigid.isKinematic = true;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
@@ -32,6 +31,6 @@ public class EnemyIdleState : FSMC_Behaviour
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        
     }
 }

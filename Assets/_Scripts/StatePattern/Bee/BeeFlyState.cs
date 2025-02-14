@@ -26,7 +26,6 @@ public class BeeFlyState : FSMC_Behaviour
         controller.PerformRotate();
 
         timeStart = Time.time;
-        Debug.Log("bee move");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

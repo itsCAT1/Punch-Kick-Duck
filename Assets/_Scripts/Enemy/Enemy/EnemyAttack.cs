@@ -31,8 +31,6 @@ public class EnemyAttack : MonoBehaviour
 
         if (playerAttackType == enemyType && CombatManager.Instance.playerIsAttacking && enemyDirection == -playerDirection)
         {
-            CombatManager.Instance.BlockDamage(playerAttackType);
-
             BlockDamage();
         }
         else
@@ -45,6 +43,8 @@ public class EnemyAttack : MonoBehaviour
 
     void BlockDamage()
     {
+        CombatManager.Instance.BlockDamage(Player.Instance.attackType.type);
+
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerBlocking>(uEventData);
 

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColiderHandler : ObjectPushing
+public class ColliderHandler : ObjectPushing
 {
-    Rigidbody rigid;
     PushingPlayer pushPlayer;
 
     public string attackType;
@@ -12,7 +11,6 @@ public class ColiderHandler : ObjectPushing
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
         pushPlayer = GetComponentInParent<PushingPlayer>();
     }
         
@@ -27,11 +25,11 @@ public class ColiderHandler : ObjectPushing
         var currentPosition = this.transform.position;
         var targetPos = new Vector3(currentPosition.x, currentPosition.y - 3, currentPosition.z - 5);
         PerformJumping(targetPos);
+        SelfDestroy();
     }
 
-    public IEnumerator DestroyObject()
+    public void SelfDestroy()
     {
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+        Destroy(gameObject, 2);
     }
 }

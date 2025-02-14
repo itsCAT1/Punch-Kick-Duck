@@ -16,7 +16,6 @@ public class EnemyDeadState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Debug.Log("dead");
         enemy = executer.GetComponent<Enemy>();
 
         enemy.controller.canAttack = false;

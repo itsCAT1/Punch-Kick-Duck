@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CartHandler : ColiderHandler
+public class CartHandler : ColliderHandler
 {
     bool hasColidered = false;
-    EnemyController controller;
-    EnemyActionHandle actionEnemy;
+    Enemy enemy;
 
     void Start()
     {
-        actionEnemy = GetComponentInParent<EnemyActionHandle>();
-        controller = GetComponentInParent<EnemyController>();
+        enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,26 +18,21 @@ public class CartHandler : ColiderHandler
         if (other.gameObject.CompareTag("Player") && !hasColidered)
         {
             hasColidered = true;
-            controller.haveCart = false;
+            enemy.controller.haveCart = false;
             PlayerOnHit();
             ObjectOnHit();
-            StartCoroutine(DestroyObject());
         }
 
         if (other.gameObject.CompareTag(attackType))
         {
-            controller.haveCart = false;
+            enemy.controller.haveCart = false;
+            enemy.executer.SetCurrentState("GoBack");
             ObjectOnHit();
-            StartCoroutine(StopActionEnemy());
-            StartCoroutine(DestroyObject());
         }
-    }
 
-
-    IEnumerator StopActionEnemy()
-    {
-        actionEnemy.DisableAction();
-        yield return new WaitForSeconds(2);
-        actionEnemy.EnableAction();
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemy.executer.SetCurrentState("GoBack");
+        }
     }
 }

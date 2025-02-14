@@ -17,7 +17,7 @@ public class EnemyGoingBack : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-    public void PerformBack()
+    public void PerformGoingBack()
     {
         StartCoroutine(StartGoingBack());
     }
@@ -26,21 +26,30 @@ public class EnemyGoingBack : MonoBehaviour
     {
         float timeCount = 0;
         float duration = 0.5f;
+        float distance = 10;
+
+        if (enemy.controller.haveCart)
+        {
+            distance = 20;
+        }
+
 
         while (timeCount <= duration)
         {
             timeCount += Time.deltaTime;
-            if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= 10)
+            if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) <= distance)
             {
                 float signY = Mathf.Sign(this.transform.rotation.y);
 
                 enemy.rigid.velocity = new Vector3(-signY * speedMove, 0, 0);
 
+                enemy.controller.Standing();
                 enemy.animator.Play("GoBack");
             }
 
             else
             {
+                enemy.controller.Standing();
                 enemy.animator.Play("Idle");
             }
 

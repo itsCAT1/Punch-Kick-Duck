@@ -16,7 +16,6 @@ public class EnemyWalkState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Debug.Log("walk");
         enemy = executer.GetComponent<Enemy>();
 
         enemy.rigid.isKinematic = false;

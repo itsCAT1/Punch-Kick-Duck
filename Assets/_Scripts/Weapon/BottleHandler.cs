@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottleHandler : ColiderHandler
+public class BottleHandler : ColliderHandler
 {
     BottleMovement bottleMovement;
 
@@ -30,7 +30,6 @@ public class BottleHandler : ColiderHandler
 
             PlayerOnHit();
             ObjectOnHit();
-            StartCoroutine(DestroyObject());
         }
 
         if (other.gameObject.CompareTag("Enemy") && ConditionManger.Instance.startGame)
@@ -40,7 +39,6 @@ public class BottleHandler : ColiderHandler
             bottleMovement.forceSpeed = 0;
             ObjectOnHit();
             CombatManager.Instance.GainPoint();
-            StartCoroutine(DestroyObject());
         }
     }
 }

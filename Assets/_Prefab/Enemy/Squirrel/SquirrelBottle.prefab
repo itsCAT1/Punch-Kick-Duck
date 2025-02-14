@@ -1990,7 +1990,6 @@ MonoBehaviour:
   haveBottle: 1
   haveCart: 0
   currentRange: 0
-  attackCoolDown: 0.5
   canAttack: 1
 --- !u!114 &129080365953427522
 MonoBehaviour:
@@ -2007,7 +2006,7 @@ MonoBehaviour:
   sizeAttack: 2
   sizeStand: 3
   sizeThrow: 5
-  sizeHaveCart: 4
+  sizeHaveCart: 5
 --- !u!114 &1503310456844819288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2141,7 +2140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 6
+  speedMove: 5
 --- !u!114 &2328732897686359339
 MonoBehaviour:
   m_ObjectHideFlags: 0
