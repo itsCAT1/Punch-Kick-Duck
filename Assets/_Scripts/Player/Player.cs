@@ -9,7 +9,7 @@ public class Player : Singleton<Player>
     [HideInInspector]
     public PlayerAttackType attackType;
     [HideInInspector]
-    public PlayerAttack attack;
+    public PlayerAttacking attack;
     [HideInInspector]
     public PlayerHealth health;
     [HideInInspector]
@@ -19,7 +19,7 @@ public class Player : Singleton<Player>
     {
         controller = GetComponent<PlayerController>();
         attackType = GetComponent<PlayerAttackType>();
-        attack = GetComponent<PlayerAttack>();
+        attack = GetComponent<PlayerAttacking>();
         health = GetComponent<PlayerHealth>();
         onTakeDamage = GetComponent<PlayerOnTakeDamage>();
     }

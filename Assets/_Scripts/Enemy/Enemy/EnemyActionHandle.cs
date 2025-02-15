@@ -7,13 +7,13 @@ public class EnemyActionHandle : MonoBehaviour
     Animator animator;
     EnemyController controller;
     EnemyMovement movement;
-    EnemyAttack attack;
+    EnemyAttacking attack;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<EnemyController>();
-        attack = GetComponent<EnemyAttack>();
+        attack = GetComponent<EnemyAttacking>();
         movement = GetComponent<EnemyMovement>();
     }
 

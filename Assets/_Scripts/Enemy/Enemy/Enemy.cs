@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public EnemyController controller;
     [HideInInspector]
-    public EnemyAttack attack;
+    public EnemyAttacking attack;
     [HideInInspector]
     public EnemyMovement movement;
     [HideInInspector]
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         health = GetComponent<Health>();
         controller = GetComponent<EnemyController>();
         movement = GetComponent<EnemyMovement>();
-        attack = GetComponent<EnemyAttack>();
+        attack = GetComponent<EnemyAttacking>();
         apear = GetComponent<EnemyApear>();
         coin = GetComponent<DroppingCoin>();
 

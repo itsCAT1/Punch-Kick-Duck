@@ -14,10 +14,9 @@ public enum AttackType
 
 public class PlayerDealDamage : MonoBehaviour
 {
-    public float sizeAttack;
     public LayerMask hitLayer;
 
-    public float sizeHit;
+    public float sizeAttack;
     public Transform ray;
     RaycastHit hitInfo;
 
@@ -26,7 +25,7 @@ public class PlayerDealDamage : MonoBehaviour
     public void ObjectDetected()
     {
         float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
-        Physics.Raycast(ray.transform.position, ray.transform.forward * playerDirection, out hitInfo, sizeHit, hitLayer);
+        Physics.Raycast(ray.transform.position, ray.transform.forward * playerDirection, out hitInfo, sizeAttack, hitLayer);
     }
 
     private void Update()   

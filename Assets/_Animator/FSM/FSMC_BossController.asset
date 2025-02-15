@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ece13e57ab2a54e80667f7d20c2544, type: 3}
+  m_Name: FSMC_BossController
+  m_EditorClassIdentifier: 
+  StartPosition: {x: 200, y: 200}
+  AnyPosition: {x: 493, y: 431}
+  States:
+  - rid: 2713678592158728192
+  - rid: 2713678592158728193
+  - rid: 2713678592158728194
+  AnyTransitions:
+  - rid: 2713678603077550080
+  StartingState:
+    rid: 2713678592158728192
+  Parameters:
+  - rid: 2713678603077550081
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2713678592158728192
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678592158728196
+        Position: {x: 507, y: 200}
+        _name: Idle
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678592158728193
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678592158728197
+        Position: {x: 507, y: 109}
+        _name: Walk
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678592158728194
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678592158728195
+        Position: {x: 507, y: 300}
+        _name: Attack
+        TransitionsFrom: []
+        TransitionsTo:
+        - rid: 2713678603077550080
+    - rid: 2713678592158728195
+      type: {class: BossAttackState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678592158728196
+      type: {class: BossIdleState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678592158728197
+      type: {class: BossWalkState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678603077550080
+      type: {class: FSMC_Transition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        conditions:
+        - conditions:
+          - rid: 2713678603077550082
+        _originState:
+          rid: -2
+        _destinationState:
+          rid: 2713678592158728194
+        _name: Any->Attack
+    - rid: 2713678603077550081
+      type: {class: FSMC_BoolParameter, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _type: 3
+        _name: Attack
+        _value: 0
+    - rid: 2713678603077550082
+      type: {class: FSMC_BoolCondition, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        comparison: 0
+        parameter:
+          rid: 2713678603077550081
+        Value: 1
