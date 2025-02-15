@@ -11,6 +11,8 @@ public class Player : Singleton<Player>
     [HideInInspector]
     public PlayerAttacking attack;
     [HideInInspector]
+    public PlayerMovement movement;
+    [HideInInspector]
     public PlayerHealth health;
     [HideInInspector]
     public PlayerOnTakeDamage onTakeDamage;
@@ -20,6 +22,7 @@ public class Player : Singleton<Player>
         controller = GetComponent<PlayerController>();
         attackType = GetComponent<PlayerAttackType>();
         attack = GetComponent<PlayerAttacking>();
+        movement = GetComponent<PlayerMovement>();
         health = GetComponent<PlayerHealth>();
         onTakeDamage = GetComponent<PlayerOnTakeDamage>();
     }

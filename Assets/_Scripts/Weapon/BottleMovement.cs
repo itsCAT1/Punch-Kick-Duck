@@ -7,11 +7,6 @@ public class BottleMovement : MonoBehaviour
     Rigidbody rigid;
     public float forceSpeed;
 
-    private void Start()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
-
     private void Update()
     {
         PushObject();

@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class BossPouncing : ObjectPushing
 {
-    public Vector3 foodCart;
-
+    public GameObject foodCart;
     public Vector3 targetPos;
-    public Transform[] pouncePosition;
-
-    public float speedMove;
     
     void Update()
     {
@@ -35,25 +31,26 @@ public class BossPouncing : ObjectPushing
 
     public void SetTarget()
     {
-        if (this.transform.position.x > foodCart.x)
+        if (this.transform.position.x > foodCart.transform.position.x)
         {
-            targetPos = foodCart + new Vector3(-2, 0, 0);
+            targetPos = foodCart.transform.position + new Vector3(-2, 0, 0);
         }
         else
         {
-            targetPos = foodCart + new Vector3(2, 0, 0);
+            targetPos = foodCart.transform.position + new Vector3(2, 0, 0);
         }
+        RotateTowardCart(targetPos);
     }
 
-    public void PerformMoving()
+    public void RotateTowardCart(Vector3 target)
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos, speedMove * Time.deltaTime);
-    }
-
-    public void PerformRotate(Transform target)
-    {
-        var direction = target.position - this.transform.position;
+        var direction = target - this.transform.position;
         this.transform.rotation = Quaternion.LookRotation(direction);
+    }
 
+    public void RotateTowardPlayer()
+    {
+        var direction = Player.Instance.transform.position - this.transform.position;
+        this.transform.rotation = Quaternion.LookRotation(direction);
     }
 }

@@ -53,7 +53,7 @@ public class PlayerDealDamage : MonoBehaviour
 
     public void DealDamage()
     {
-        if (hitInfo.collider != null)
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Enemy"))
         {
             CombatManager.Instance.DealtDamageEnemy(hitInfo);
         }

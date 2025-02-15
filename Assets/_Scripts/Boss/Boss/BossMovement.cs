@@ -6,23 +6,8 @@ public class BossMovement : MonoBehaviour
 {
     public float speedMove;
 
-    void Start()
+    public void PerformMoving()
     {
-        
-    }
-
-    private void Update()
-    {
-        //MoveTowardsPlayer();
-    }
-
-    public void MoveTowardsPlayer()
-    {
-        var playerPos = Player.Instance.transform.position;
-
-        var direction = (playerPos - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
-
-        transform.position = Vector3.MoveTowards(this.transform.position, playerPos, speedMove * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, Boss.Instance.pounce.targetPos, speedMove * Time.deltaTime);
     }
 }

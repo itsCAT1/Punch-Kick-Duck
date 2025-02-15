@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void PerformMoving()
     {
-        
+        var controller = Player.Instance.controller;
+
+        controller.rigid.velocity = new Vector3(controller.moveSpeed * controller.playerDirection, controller.rigid.velocity.y, controller.rigid.velocity.z);
     }
 }

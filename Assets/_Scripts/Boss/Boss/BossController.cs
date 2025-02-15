@@ -28,19 +28,5 @@ public class BossController : MonoBehaviour
     void UpdateAction()
     {
         
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Attack();
-            timeAttack = Time.time;
-        }
-    }
-
-    public void Attack()
-    {
-        Boss.Instance.animator.Play("Punch");
-        //Boss.Instance.attackType.type = (AttackType)Random.Range(0, 3);
-
-        //Boss.Instance.executer.SetTrigger("Attack");
     }
 }

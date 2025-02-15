@@ -94,7 +94,10 @@ GameObject:
   - component: {fileID: 3410325583119124632}
   - component: {fileID: 3169603501166692024}
   - component: {fileID: 7396952291613578366}
-  - component: {fileID: 9100391045143005669}
+  - component: {fileID: 5371114871194308461}
+  - component: {fileID: -5421805453210764338}
+  - component: {fileID: 1940497536082048980}
+  - component: {fileID: -2064191970271888672}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -166,7 +169,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9100391045143005669
+--- !u!114 &5371114871194308461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +178,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 5321554942402376311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Script: {fileID: 11500000, guid: e656f4450761d1c4295afb3e1c746135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 4
+  pushForce: 6
+  duration: 1
+  attackType: Kick
+--- !u!114 &-5421805453210764338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321554942402376311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatePos: {fileID: 2377633468671661242}
+  rotateSpeed: 15
+--- !u!114 &1940497536082048980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321554942402376311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87448450ef2b3a14b983796aecfcd593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
+--- !u!114 &-2064191970271888672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321554942402376311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

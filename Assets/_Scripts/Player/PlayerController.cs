@@ -28,6 +28,14 @@ public class PlayerController : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetPlayer);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            executer.SetCurrentState("Walk");
+        }
+    }
+
     public void SetPosition()
     {
         this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;
@@ -35,6 +43,12 @@ public class PlayerController : MonoBehaviour
 
     public void SetDirection()
     {
+        if(DataManager.Instance.data.currentMap == 10)
+        {
+            FollowBoss();
+            return;
+        }
+
         var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
         playerDirection = dataPlayer.playerDirection;
         FlipCharacter();
@@ -60,5 +74,15 @@ public class PlayerController : MonoBehaviour
     {
         rigid.velocity = Vector3.zero;
         executer.SetCurrentState("Walk");
+    }
+
+    void FollowBoss()
+    {
+        var playerPos = Player.Instance.transform.position.x;
+        var bossPos = Boss.Instance.transform.position.x;
+
+        playerDirection = playerPos > bossPos ? -1 : 1;
+
+        FlipCharacter();
     }
 }

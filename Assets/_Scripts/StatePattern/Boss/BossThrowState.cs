@@ -16,7 +16,7 @@ public class BossThrowState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Boss.Instance.pounce.PerformRotate(Player.Instance.transform);
+        Boss.Instance.pounce.RotateTowardPlayer();
         Boss.Instance.animator.Play("Throw");
 
         timeStart = Time.time;

@@ -94,7 +94,10 @@ GameObject:
   - component: {fileID: 6591166776147283587}
   - component: {fileID: 2491050681922721314}
   - component: {fileID: 6651252540042487301}
-  - component: {fileID: 726804040162640924}
+  - component: {fileID: -1479865984603308545}
+  - component: {fileID: -7585826971164904366}
+  - component: {fileID: 2820433695311315077}
+  - component: {fileID: -7197233315869192923}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -166,7 +169,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &726804040162640924
+--- !u!114 &-1479865984603308545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +178,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 9204470512054697019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510275db9f1f59d4685c725ec206b2f9, type: 3}
+  m_Script: {fileID: 11500000, guid: e656f4450761d1c4295afb3e1c746135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 4
+  pushForce: 6
+  duration: 1
+  attackType: Punch
+--- !u!114 &-7585826971164904366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204470512054697019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed1e96bb46d344a962e70b3551bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatePos: {fileID: 5146662935394033101}
+  rotateSpeed: 15
+--- !u!114 &2820433695311315077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204470512054697019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87448450ef2b3a14b983796aecfcd593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceSpeed: 10
+--- !u!114 &-7197233315869192923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204470512054697019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
