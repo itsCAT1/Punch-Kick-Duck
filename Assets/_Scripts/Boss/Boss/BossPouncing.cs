@@ -5,42 +5,55 @@ using UnityEngine;
 
 public class BossPouncing : ObjectPushing
 {
-    public Transform foodCart;
+    public Vector3 foodCart;
+
+    public Vector3 targetPos;
     public Transform[] pouncePosition;
-    public float distance;
+
+    public float speedMove;
     
     void Update()
     {
-        
-    }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Boss.Instance.executer.SetCurrentState("Pounce");
+        }
 
-
-
-    public void Pounce()
-    {
-        Boss.Instance.animator.Play("Pounces");
-
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SetTarget();
+        }
     }
 
     public void PerformPounce()
     {
         var signX = Mathf.Sign(this.transform.rotation.y);
-        Debug.Log(signX);
-        var jumpTarget = this.transform.position + new Vector3(distance * signX, 0, 0);
+        var jumpTarget = this.transform.position + new Vector3(15 * signX, 0, 0);
 
         PerformJumping(jumpTarget);
     }
 
-    public void MoveTowardCart()
+    public void SetTarget()
     {
-        if(this.transform.position.x > foodCart.position.x)
+        if (this.transform.position.x > foodCart.x)
         {
-            this.transform.DOMoveX(pouncePosition[0].position.x, 0.5f);
+            targetPos = foodCart + new Vector3(-2, 0, 0);
         }
         else
         {
-            this.transform.DOMoveX(pouncePosition[1].position.x, 0.5f);
+            targetPos = foodCart + new Vector3(2, 0, 0);
         }
     }
 
+    public void PerformMoving()
+    {
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos, speedMove * Time.deltaTime);
+    }
+
+    public void PerformRotate(Transform target)
+    {
+        var direction = target.position - this.transform.position;
+        this.transform.rotation = Quaternion.LookRotation(direction);
+
+    }
 }

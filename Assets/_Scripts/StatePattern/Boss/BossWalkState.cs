@@ -7,9 +7,6 @@ using System;
 [Serializable]
 public class BossWalkState : FSMC_Behaviour
 {
-    private float timeStart = 0;
-    float interval;
-    public bool timeChangeState => Time.time - timeStart >= interval;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -17,12 +14,30 @@ public class BossWalkState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+        Boss.Instance.pounce.PerformRotate(Player.Instance.transform);
+        Boss.Instance.animator.Play("Walk");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Boss.Instance.movement.MoveTowardsPlayer();
+        if (ReachedTarget())
+        {
+            Boss.Instance.executer.SetCurrentState("Throw");
+            return;
+        }
+
+        
+        Boss.Instance.pounce.PerformMoving();
+    }
+
+    bool ReachedTarget()
+    {
+        if (Vector3.Distance(Boss.Instance.transform.position, Boss.Instance.pounce.targetPos) < 0.01f)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

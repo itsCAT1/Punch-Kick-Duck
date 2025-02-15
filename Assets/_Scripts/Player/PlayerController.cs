@@ -28,14 +28,6 @@ public class PlayerController : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetPlayer);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            executer.SetCurrentState("Hurt");
-        }
-    }
-
     public void SetPosition()
     {
         this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;

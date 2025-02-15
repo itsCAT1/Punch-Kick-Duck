@@ -18,6 +18,8 @@ MonoBehaviour:
   - rid: 2713678592158728192
   - rid: 2713678592158728193
   - rid: 2713678592158728194
+  - rid: 4071469915166474240
+  - rid: 4071469915166474241
   AnyTransitions:
   - rid: 2713678603077550080
   StartingState:
@@ -93,3 +95,29 @@ MonoBehaviour:
         parameter:
           rid: 2713678603077550081
         Value: 1
+    - rid: 4071469915166474240
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 4071469915166474243
+        Position: {x: 774.6667, y: 108.666664}
+        _name: Pounce
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 4071469915166474241
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 4071469915166474242
+        Position: {x: 774.6667, y: 212}
+        _name: Throw
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 4071469915166474242
+      type: {class: BossThrowState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 4071469915166474243
+      type: {class: BossPounceState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1

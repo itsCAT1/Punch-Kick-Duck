@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSMC.Runtime;
 using System;
+using static UnityEngine.GraphicsBuffer;
 
 [Serializable]
-public class BossThrowState : FSMC_Behaviour
+public class BossPounceState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool throwCoolDown => Time.time - timeStart >= 2;
+    public bool timeChangeState => Time.time - timeStart >= 1.5f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -16,18 +17,16 @@ public class BossThrowState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Boss.Instance.pounce.PerformRotate(Player.Instance.transform);
-        Boss.Instance.animator.Play("Throw");
-
+        Boss.Instance.pounce.SetTarget();
+        Boss.Instance.animator.Play("Pounces");
         timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (throwCoolDown)
+        if (timeChangeState)
         {
-            Boss.Instance.animator.Play("Throw");
-            timeStart = Time.time;
+            Boss.Instance.executer.SetCurrentState("Walk");
         }
     }
 

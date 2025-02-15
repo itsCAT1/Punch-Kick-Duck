@@ -8,14 +8,6 @@ public class DroppingCoin : MonoBehaviour
     public GameObject coinPrefab;
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RandomDropCoin();
-        }
-    }
-
     public void RandomDropCoin()
     {
         float randomValue = Random.value;

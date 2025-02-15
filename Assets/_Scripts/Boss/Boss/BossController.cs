@@ -27,14 +27,9 @@ public class BossController : MonoBehaviour
 
     void UpdateAction()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Boss.Instance.pounce.Pounce();
-            timePounces = Time.time;
-            return;
-        }
+        
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Attack();
             timeAttack = Time.time;
