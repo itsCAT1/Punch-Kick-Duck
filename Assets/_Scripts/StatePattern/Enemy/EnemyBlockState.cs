@@ -23,7 +23,7 @@ public class EnemyBlockState : FSMC_Behaviour
         enemy.rigid.isKinematic = false;
 
         enemy.animator.Play("Block");
-        enemy.GetComponent<EnemyIsPushed>().EnemyIsRepelled();
+        enemy.GetComponent<EnemyOnBlocking>().EnemyIsRepelled();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

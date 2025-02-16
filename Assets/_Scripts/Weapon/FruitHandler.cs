@@ -36,7 +36,7 @@ public class FruitHandler : ColliderHandler
         {
             fruitMovement.forceSpeed = 0;
             ObjectOnHit();
-            CombatManager.Instance.GainPoint();
+            DataPointManager.Instance.GainPoint();
         }
     }
 }

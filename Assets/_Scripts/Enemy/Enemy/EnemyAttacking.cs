@@ -54,7 +54,7 @@ public class EnemyAttacking : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-        CombatManager.Instance.LosePoint();
+        DataPointManager.Instance.LosePoint();
 
         pushPlayer.PerformPush();
     }

@@ -28,6 +28,6 @@ public class BeeBeaten : ObjectPushing
     {
         animator.enabled = false;
         coin.RandomDropCoin();
-        CombatManager.Instance.GainPoint();
+        DataPointManager.Instance.GainPoint();
     }
 }

@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FSMC.Runtime;
+using System;
 
-public class BossDeadState : MonoBehaviour
+[Serializable]
+public class BossDeadState : FSMC_Behaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float timeStart = 0;
+    public bool timeChangeState => Time.time - timeStart >= 1;
+
+    public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+
+    }
+    public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
+    {
+        Boss.Instance.animator.Play("Dead");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+
+
+    }
+
+    public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)
+    {
+
     }
 }

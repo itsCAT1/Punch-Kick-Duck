@@ -57,5 +57,10 @@ public class PlayerDealDamage : MonoBehaviour
         {
             CombatManager.Instance.DealtDamageEnemy(hitInfo);
         }
+
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Boss"))
+        {
+            CombatManager.Instance.DealtDamageBoss();
+        }
     }
 }

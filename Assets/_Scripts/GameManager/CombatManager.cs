@@ -13,14 +13,27 @@ public class CombatManager : Singleton<CombatManager>
         AttackType enemyAttackType = enemyInfo.collider.GetComponent<EnemyType>().attackType;
 
         EnemyHealth healthEnemy = enemyInfo.collider.GetComponent<EnemyHealth>();
-        GameObject attackEnemy = enemyInfo.collider.GetComponent<GameObject>();
 
         if ((playerAttackType == AttackType.Punch && enemyAttackType == AttackType.Kick) ||
             (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
-            GainPoint();
+            DataPointManager.Instance.GainPoint();
+        }
+    }
+
+    public void DealtDamageBoss()
+    {
+        AttackType playerAttackType = Player.Instance.attackType.type;
+        AttackType bossAttackType = Boss.Instance.attackType.type;
+
+        if ((playerAttackType == AttackType.Punch && bossAttackType == AttackType.Kick) ||
+            (playerAttackType == AttackType.Kick && bossAttackType == AttackType.Duck) ||
+            (playerAttackType == AttackType.Duck && bossAttackType == AttackType.Punch))
+        {
+            Boss.Instance.executer.SetCurrentState("Hurt");
+            DataPointManager.Instance.GainPoint();
         }
     }
 
@@ -40,33 +53,8 @@ public class CombatManager : Singleton<CombatManager>
         {
             Player.Instance.animator.Play("BlockDuck");
         }
-
-
         Player.Instance.GetComponent<PlayerOnBlocking>().PlayerIsRepelled();
     }
 
-    public void GainPoint()
-    {
-        Player.Instance.health.GainHeart();
-        InGameManager.Instance.bonusPoint.GainPoint();
-        DataInGame.Instance.score++;
-        DataEndGame.Instance.beatingStreak++;
-        UpdateBestStreak();
-    }
-
-    public void LosePoint()
-    {
-        Player.Instance.health.currentHeart = 0;
-        InGameManager.Instance.lives.UpdateLivesProgress();
-        InGameManager.Instance.bonusPoint.LosePoint();
-        DataEndGame.Instance.beatingStreak = 0;
-    }
-
-    void UpdateBestStreak()
-    {
-        if(DataEndGame.Instance.beatingStreak >= DataEndGame.Instance.bestStreak)
-        {
-            DataEndGame.Instance.bestStreak = DataEndGame.Instance.beatingStreak;
-        }
-    }
+    
 }

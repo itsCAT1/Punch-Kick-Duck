@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public int playerDirection;
     public ListDataPlayer data;
 
+    public float distanceAttack;
     private void Start()
     {
         player = GetComponent<Player>();
@@ -73,17 +74,17 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateAction()
     {
-        if(!ConditionManger.Instance.startGame) return;
+        //if(!ConditionManger.Instance.startGame) return;
 
         if (DataManager.Instance.data.currentMap == 10)
         {
             float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
 
-            if (distance > 3.2f)
+            if (distance > distanceAttack + 0.2f)
             {
                 Player.Instance.executer.SetCurrentState("Walk");
             }
-            else if (distance < 2.8f)
+            else if (distance < distanceAttack + 0.2f)
             {
                 Player.Instance.executer.SetCurrentState("Idle");
             }

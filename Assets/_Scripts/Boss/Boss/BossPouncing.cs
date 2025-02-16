@@ -7,7 +7,7 @@ public class BossPouncing : ObjectPushing
 {
     public GameObject foodCart;
     public Vector3 targetPos;
-    
+    int direction;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -33,24 +33,37 @@ public class BossPouncing : ObjectPushing
     {
         if (this.transform.position.x > foodCart.transform.position.x)
         {
-            targetPos = foodCart.transform.position + new Vector3(-2, 0, 0);
+            targetPos = new Vector3(265.7f, 108, 0);
         }
         else
         {
-            targetPos = foodCart.transform.position + new Vector3(2, 0, 0);
+            targetPos = new Vector3(269.7f, 108, 0);
         }
-        RotateTowardCart(targetPos);
     }
 
-    public void RotateTowardCart(Vector3 target)
+    public void RotateTowardCart()
     {
-        var direction = target - this.transform.position;
-        this.transform.rotation = Quaternion.LookRotation(direction);
+        if (this.transform.position.x > targetPos.x)
+        {
+            direction = -1;
+        }
+        else
+        {
+            direction = 1;
+        }
+        this.transform.rotation = Quaternion.Euler(0, 90 * direction, 0);
     }
 
     public void RotateTowardPlayer()
     {
-        var direction = Player.Instance.transform.position - this.transform.position;
-        this.transform.rotation = Quaternion.LookRotation(direction);
+        if (this.transform.position.x > Player.Instance.transform.position.x)
+        {
+            direction = -1;
+        }
+        else
+        {
+            direction = 1;
+        }
+        this.transform.rotation = Quaternion.Euler(0, 90 * direction, 0);
     }
 }

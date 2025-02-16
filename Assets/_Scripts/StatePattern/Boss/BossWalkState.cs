@@ -14,7 +14,7 @@ public class BossWalkState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Boss.Instance.pounce.SetTarget();
+        Boss.Instance.pounce.RotateTowardCart();
         Boss.Instance.animator.Play("Walk");
     }
 

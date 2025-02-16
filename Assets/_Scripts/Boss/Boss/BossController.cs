@@ -4,29 +4,42 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    public float attackCoolDown = 2;
-    public float timeAttack;
+    public bool canAttack;
 
-    public bool canAttack => Time.time - timeAttack >= attackCoolDown;
-    public bool playerInRange => Vector3.Distance(transform.position, Player.Instance.transform.position) <= 3f;
+    public int attackCount;
+    public int throwCount;
+    public bool isThrowing = false;
+
+    public float distanceAttack;
 
     void Start()
     {
         
     }
 
+    private void Update()
+    {
+        UpdateAction();
+    }
+
     public void UpdateAction()
     {
-        float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
+        if (!canAttack) return;
+        if (Boss.Instance.executer.GetCurrentState() == null) return;
 
-        if (distance >= 3.2f)
-        {
-            Boss.Instance.executer.SetCurrentState("Idle");
-        }
 
-        if (distance <= 2.8f)
+        if (!isThrowing)
         {
-            Boss.Instance.executer.SetCurrentState("Attack");
+            float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
+            if (distance >= distanceAttack + 0.2f)
+            {
+                Boss.Instance.executer.SetCurrentState("Idle");
+            }
+
+            else if (distance <= distanceAttack - 0.2f)
+            {
+                Boss.Instance.executer.SetCurrentState("Attack");
+            }
         }
     }
 }
