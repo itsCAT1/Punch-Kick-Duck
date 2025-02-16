@@ -28,17 +28,17 @@ public class CombatManager : Singleton<CombatManager>
     {
         if (playerAttackType == AttackType.Punch)
         {
-            Player.Instance.controller.animator.Play("BlockPunch");
+            Player.Instance.animator.Play("BlockPunch");
         }
 
         else if (playerAttackType == AttackType.Kick)
         {
-            Player.Instance.controller.animator.Play("BlockKick");
+            Player.Instance.animator.Play("BlockKick");
         }
 
         else if (playerAttackType == AttackType.Duck)
         {
-            Player.Instance.controller.animator.Play("BlockDuck");
+            Player.Instance.animator.Play("BlockDuck");
         }
 
 

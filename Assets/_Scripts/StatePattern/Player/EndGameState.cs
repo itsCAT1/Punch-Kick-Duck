@@ -22,15 +22,15 @@ public class EndGameState : FSMC_Behaviour
     {
         timeStart = Time.time;
 
-        Player.Instance.controller.rigid.velocity = Vector3.zero;
-        Player.Instance.controller.animator.Play("Walk");
+        Player.Instance.rigid.velocity = Vector3.zero;
+        Player.Instance.animator.Play("Walk");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         if (timeChangeState)
         {
-            Player.Instance.controller.executer.SetCurrentState("Walk");
+            Player.Instance.executer.SetCurrentState("Walk");
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<LevelTransition>(uEventData);
             UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FSMC.Runtime;
@@ -17,13 +17,14 @@ public class KickState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Player.Instance.controller.rigid.velocity = Vector3.zero;
-        Player.Instance.controller.animator.Play("Kick");
+        Player.Instance.rigid.velocity = Vector3.zero;
+        Player.Instance.animator.Play("Kick");
+        Player.Instance.animator.SetBool("Walk", false);
         timeStart = Time.time;
 
         if (!ConditionManger.Instance.startGame)
         {
-            interval = 0.5f;
+            interval = 1f;
         }
         else
         {
@@ -33,7 +34,7 @@ public class KickState : FSMC_Behaviour
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (timeChangeState && ConditionManger.Instance.startGame) Player.Instance.controller.executer.SetCurrentState("Walk");
+        if (timeChangeState) Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

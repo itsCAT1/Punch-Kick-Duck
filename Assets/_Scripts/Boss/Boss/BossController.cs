@@ -6,27 +6,27 @@ public class BossController : MonoBehaviour
 {
     public float attackCoolDown = 2;
     public float timeAttack;
-    public float timePounces;
-    public float pouncesCooldown = 10;
 
     public bool canAttack => Time.time - timeAttack >= attackCoolDown;
     public bool playerInRange => Vector3.Distance(transform.position, Player.Instance.transform.position) <= 3f;
-
-    public bool canPounces => Time.time - timePounces >= pouncesCooldown;
 
     void Start()
     {
         
     }
 
-
-    void Update()
+    public void UpdateAction()
     {
-        UpdateAction();
-    }
+        float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
 
-    void UpdateAction()
-    {
-        
+        if (distance >= 3.2f)
+        {
+            Boss.Instance.executer.SetCurrentState("Idle");
+        }
+
+        if (distance <= 2.8f)
+        {
+            Boss.Instance.executer.SetCurrentState("Attack");
+        }
     }
 }

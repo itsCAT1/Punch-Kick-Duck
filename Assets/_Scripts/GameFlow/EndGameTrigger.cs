@@ -15,7 +15,7 @@ public class EndGameTrigger : MonoBehaviour
 
     public void ChangeStatePlayer(IUEventData uEventData)
     {
-        Player.Instance.controller.executer.SetCurrentState("EndGame");
+        Player.Instance.executer.SetCurrentState("EndGame");
     }
 
 

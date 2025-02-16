@@ -9,6 +9,6 @@ public class PlayerMovement : MonoBehaviour
     {
         var controller = Player.Instance.controller;
 
-        controller.rigid.velocity = new Vector3(controller.moveSpeed * controller.playerDirection, controller.rigid.velocity.y, controller.rigid.velocity.z);
+        Player.Instance.rigid.velocity = new Vector3(controller.moveSpeed * controller.playerDirection, 0, 0);
     }
 }

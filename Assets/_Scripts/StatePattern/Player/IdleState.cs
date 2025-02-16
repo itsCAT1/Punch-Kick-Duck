@@ -13,13 +13,13 @@ public class IdleState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Player.Instance.controller.rigid.velocity = Vector3.zero;
-        Player.Instance.controller.animator.Play("Idle");
+        Player.Instance.rigid.velocity = Vector3.zero;
+        Player.Instance.animator.SetBool("Walk", false);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+        Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

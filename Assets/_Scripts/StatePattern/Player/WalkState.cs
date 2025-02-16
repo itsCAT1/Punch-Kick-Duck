@@ -8,7 +8,6 @@ using System;
 public class WalkState : FSMC_Behaviour
 {
     PlayerController controller;
-    bool bossInRange => Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position) <= 3f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -18,16 +17,12 @@ public class WalkState : FSMC_Behaviour
     {
         controller.moveSpeed = 4;
         controller.SetDirection();
-        controller.animator.Play("Walk");
+        Player.Instance.animator.SetBool("Walk", true);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if(DataManager.Instance.data.currentMap == 10 && bossInRange)
-        {
-            controller.rigid.velocity = Vector3.zero;
-            return;
-        }
+        Player.Instance.controller.UpdateAction();
 
         Player.Instance.movement.PerformMoving();
     }

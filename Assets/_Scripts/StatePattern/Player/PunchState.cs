@@ -19,12 +19,12 @@ public class PunchState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Player.Instance.controller.rigid.velocity = Vector3.zero;
+        Player.Instance.rigid.velocity = Vector3.zero;
         OnPunching();
-
+        Player.Instance.animator.SetBool("Walk", false);
         if (!ConditionManger.Instance.startGame)
         {
-            interval = 0.5f;
+            interval = 1f;
         }
         else
         {
@@ -36,11 +36,11 @@ public class PunchState : FSMC_Behaviour
     {
         if (Player.Instance.attack.punchLeft)
         {
-            Player.Instance.controller.animator.Play("PunchLeft");
+            Player.Instance.animator.Play("PunchLeft");
         }
         else
         {
-            Player.Instance.controller.animator.Play("PunchRight");
+            Player.Instance.animator.Play("PunchRight");
         }
 
         Player.Instance.attack.punchLeft = !Player.Instance.attack.punchLeft;
@@ -50,7 +50,7 @@ public class PunchState : FSMC_Behaviour
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         if (resetState) Player.Instance.attack.punchLeft = true;
-        if (timeChangeState && ConditionManger.Instance.startGame) Player.Instance.controller.executer.SetCurrentState("Walk");
+        if (timeChangeState) Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

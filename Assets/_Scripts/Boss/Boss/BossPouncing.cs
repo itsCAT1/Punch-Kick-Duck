@@ -24,7 +24,7 @@ public class BossPouncing : ObjectPushing
     public void PerformPounce()
     {
         var signX = Mathf.Sign(this.transform.rotation.y);
-        var jumpTarget = this.transform.position + new Vector3(15 * signX, 0, 0);
+        var jumpTarget = this.transform.position + new Vector3(20 * signX, 0, 0);
 
         PerformJumping(jumpTarget);
     }

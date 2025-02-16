@@ -151,10 +151,10 @@ namespace FSMC.Runtime
         }
         public void SetCurrentState(string name, FSMC_Executer executer)
         {
-            /*if (_currentState != null && _currentState.Name == name)
+            if (_currentState != null && _currentState.Name == name)
             {
                 return;
-            }*/
+            }
 
             FSMC_State state = States.SingleOrDefault(s => s.Name == name);
 

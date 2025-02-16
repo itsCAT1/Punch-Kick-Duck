@@ -16,7 +16,7 @@ public class PlayerAttacking : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetTrigger("Punch");
+            Player.Instance.executer.SetTrigger("Punch");
         }
     }
 
@@ -25,7 +25,7 @@ public class PlayerAttacking : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetTrigger("Kick");
+            Player.Instance.executer.SetTrigger("Kick");
         }
     }
 
@@ -34,12 +34,7 @@ public class PlayerAttacking : MonoBehaviour
         if (timeCoolDown)
         {
             startTime = Time.time;
-            Player.Instance.controller.executer.SetTrigger("Duck");
+            Player.Instance.executer.SetTrigger("Duck");
         }
-    }
-
-    public IEnumerator test()
-    {
-        yield return new WaitForSeconds(interval);
     }
 }

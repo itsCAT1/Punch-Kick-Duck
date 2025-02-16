@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [Header("Size Attack")]
     public float currentRange;
     public bool canAttack = true;
+    float distance;
 
     private void Start()
     {
@@ -36,8 +37,14 @@ public class EnemyController : MonoBehaviour
 
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
         
-        if (aimingRay)
+        if(Infor.collider != null)
         {
+            distance = Vector3.Distance(transform.position, Infor.collider.transform.position);
+        }
+        
+        if (aimingRay && distance <= currentRange - 0.2f)
+        {
+            Debug.Log("Idle");
             if (Infor.collider.CompareTag("Player"))
             {
                 Attack();
@@ -49,6 +56,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            Debug.Log("Walk");
             enemy.executer.SetCurrentState("Walk");
         }
     }

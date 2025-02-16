@@ -30,7 +30,7 @@ public class BonusPointHandler : MonoBehaviour
             progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
             beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
 
-            string currentState = Player.Instance.controller.executer.GetCurrentState().Name;
+            string currentState = Player.Instance.executer.GetCurrentState().Name;
 
             if (currentState == "Walk")
             {

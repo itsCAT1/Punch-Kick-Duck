@@ -26,7 +26,7 @@ public class PlayerHealth : Health
 
     protected override void Hurt()
     {
-        Player.Instance.controller.executer.SetCurrentState("Hurt");
+        Player.Instance.executer.SetCurrentState("Hurt");
         currentHeart = 0;
         StartCoroutine(PlayerIsHurt());
     }
@@ -40,7 +40,7 @@ public class PlayerHealth : Health
 
     protected override void Dead()
     {
-        Player.Instance.controller.executer.SetCurrentState("Dead");
+        Player.Instance.executer.SetCurrentState("Dead");
     }
 
     public void GainHeart()

@@ -8,20 +8,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rigid;
-    public Animator animator;
-
+    public Player player;
     public Transform body;
     public float moveSpeed;
     public int playerDirection;
-    
-    public FSMC_Executer executer;
-
     public ListDataPlayer data;
 
     private void Start()
     {
-        rigid = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
         SetDirection();
         SetPosition();
 
@@ -32,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            executer.SetCurrentState("Walk");
+            player.executer.SetCurrentState("Walk");
         }
     }
 
@@ -45,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         if(DataManager.Instance.data.currentMap == 10)
         {
-            FollowBoss();
+            RotateFowardBoss();
             return;
         }
 
@@ -72,11 +67,36 @@ public class PlayerController : MonoBehaviour
 
     public void ResetPlayer(IUEventData uEventData)
     {
-        rigid.velocity = Vector3.zero;
-        executer.SetCurrentState("Walk");
+        player.rigid.velocity = Vector3.zero;
+        player.executer.SetCurrentState("Walk");
     }
 
-    void FollowBoss()
+    public void UpdateAction()
+    {
+        if(!ConditionManger.Instance.startGame) return;
+
+        if (DataManager.Instance.data.currentMap == 10)
+        {
+            float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
+
+            if (distance > 3.2f)
+            {
+                Player.Instance.executer.SetCurrentState("Walk");
+            }
+            else if (distance < 2.8f)
+            {
+                Player.Instance.executer.SetCurrentState("Idle");
+            }
+        }
+        else
+        {
+            Player.Instance.executer.SetCurrentState("Walk");
+        }
+        return;
+    }
+
+
+    void RotateFowardBoss()
     {
         var playerPos = Player.Instance.transform.position.x;
         var bossPos = Boss.Instance.transform.position.x;
