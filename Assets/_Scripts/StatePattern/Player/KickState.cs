@@ -19,7 +19,6 @@ public class KickState : FSMC_Behaviour
     {
         Player.Instance.rigid.velocity = Vector3.zero;
         Player.Instance.animator.Play("Kick");
-        Player.Instance.animator.SetBool("Walk", false);
         timeStart = Time.time;
 
         if (!ConditionManger.Instance.startGame)

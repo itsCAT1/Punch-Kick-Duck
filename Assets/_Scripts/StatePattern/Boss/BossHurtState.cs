@@ -8,7 +8,7 @@ using System;
 public class BossHurtState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool timeChangeState => Time.time - timeStart >= 0.5f;
+    public bool timeChangeState => Time.time - timeStart >= 1f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -16,13 +16,22 @@ public class BossHurtState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        Boss.Instance.controller.canAttack = false;
+        Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Hurt");
+        
+        Boss.Instance.coin.RandomDropCoin();
+
+        timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if(timeChangeState) Boss.Instance.controller.canAttack = true;
+        if (timeChangeState)
+        {
+            Boss.Instance.controller.SetAction();
+
+            Boss.Instance.controller.isUpdate = true;
+        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

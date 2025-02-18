@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiniBossAttack : MonoBehaviour
 {
     Animator animator;
-    PushingPlayer pushPlayer;
+    PushHandler pushPlayer;
 
     public float timeCoolDown = 1f;
     float lastTimeAttack = 0;
@@ -13,7 +13,7 @@ public class MiniBossAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        pushPlayer = GetComponent<PushingPlayer>();
+        pushPlayer = GetComponent<PushHandler>();
     }
 
     private void Update()
@@ -34,6 +34,6 @@ public class MiniBossAttack : MonoBehaviour
     {
         Player.Instance.health.TakeDamage();
 
-        pushPlayer.PerformPush();
+        pushPlayer.PerformPushPlayer();
     }
 }

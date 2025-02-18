@@ -21,7 +21,6 @@ public class PunchState : FSMC_Behaviour
     {
         Player.Instance.rigid.velocity = Vector3.zero;
         OnPunching();
-        Player.Instance.animator.SetBool("Walk", false);
         if (!ConditionManger.Instance.startGame)
         {
             interval = 1f;

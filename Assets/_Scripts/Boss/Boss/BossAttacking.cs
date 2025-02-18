@@ -7,14 +7,12 @@ using UnityEngine;
 
 public class BossAttacking : MonoBehaviour
 {
-    Boss boss;
-    PushingPlayer pushPlayer;
+    PushHandler pushPlayer;
 
 
     void Start()
     {
-        boss = GetComponent<Boss>();
-        pushPlayer = GetComponent<PushingPlayer>();
+        pushPlayer = GetComponent<PushHandler>();
     }
 
     public void CheckPlayer()
@@ -36,12 +34,12 @@ public class BossAttacking : MonoBehaviour
 
     void BlockDamage()
     {
-        CombatManager.Instance.BlockDamage(Player.Instance.attackType.type);
+        Player.Instance.block.BlockDamage();
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerBlocking>(uEventData);
+        Boss.Instance.executer.SetCurrentState("Block");
 
-        boss.executer.SetCurrentState("Block");
     }
 
     public void DealDamage()
@@ -49,6 +47,6 @@ public class BossAttacking : MonoBehaviour
         Player.Instance.health.TakeDamage();
         DataPointManager.Instance.LosePoint();
 
-        pushPlayer.PerformPush();
+        pushPlayer.PerformPushPlayer();
     }
 }

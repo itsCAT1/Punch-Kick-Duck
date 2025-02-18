@@ -28,14 +28,6 @@ public class PlayerHealth : Health
     {
         Player.Instance.executer.SetCurrentState("Hurt");
         currentHeart = 0;
-        StartCoroutine(PlayerIsHurt());
-    }
-
-    IEnumerator PlayerIsHurt()
-    {
-        isHurt = true;
-        yield return new WaitForSeconds(0.6f);
-        isHurt = false;
     }
 
     protected override void Dead()

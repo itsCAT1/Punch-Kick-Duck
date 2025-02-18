@@ -8,13 +8,13 @@ using UnityEngine;
 public class EnemyAttacking : MonoBehaviour
 {
     Enemy enemy;
-    PushingPlayer pushPlayer;
+    PushHandler pushPlayer;
     AttackType enemyType;
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        pushPlayer = GetComponent<PushingPlayer>();
+        pushPlayer = GetComponent<PushHandler>();
         enemyType = GetComponent<EnemyType>().attackType;
     }
 
@@ -43,7 +43,7 @@ public class EnemyAttacking : MonoBehaviour
 
     void BlockDamage()
     {
-        CombatManager.Instance.BlockDamage(Player.Instance.attackType.type);
+        Player.Instance.block.BlockDamage();
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerBlocking>(uEventData);
@@ -56,7 +56,7 @@ public class EnemyAttacking : MonoBehaviour
         Player.Instance.health.TakeDamage();
         DataPointManager.Instance.LosePoint();
 
-        pushPlayer.PerformPush();
+        pushPlayer.PerformPushPlayer();
     }
 
     IEnumerator RemoveAttacking()

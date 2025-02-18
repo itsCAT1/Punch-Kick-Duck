@@ -20,8 +20,6 @@ public class PlayerDealDamage : MonoBehaviour
     public Transform ray;
     RaycastHit hitInfo;
 
-    public bool isAttacking = false;
-
     public void ObjectDetected()
     {
         float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
@@ -43,7 +41,8 @@ public class PlayerDealDamage : MonoBehaviour
         GetAttackType(type);
         CombatManager.Instance.playerIsAttacking = true;
 
-        Invoke(nameof(StopAttack), 0.5f); 
+        CancelInvoke(nameof(StopAttack));
+        Invoke(nameof(StopAttack), 0.4f); 
     }
 
     public void StopAttack()

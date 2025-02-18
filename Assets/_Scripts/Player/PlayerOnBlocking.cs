@@ -10,4 +10,23 @@ public class PlayerOnBlocking : ObjectMoving
         var targetPos = Player.Instance.transform.position.x - signY * pushForce;
         PerformMoving(targetPos);
     }
+
+    public void BlockDamage()
+    {
+        if (Player.Instance.attackType.type == AttackType.Punch)
+        {
+            Player.Instance.animator.Play("BlockPunch");
+        }
+
+        else if (Player.Instance.attackType.type == AttackType.Kick)
+        {
+            Player.Instance.animator.Play("BlockKick");
+        }
+
+        else if (Player.Instance.attackType.type == AttackType.Duck)
+        {
+            Player.Instance.animator.Play("BlockDuck");
+        }
+        PlayerIsRepelled();
+    }
 }

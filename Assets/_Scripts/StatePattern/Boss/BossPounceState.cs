@@ -26,6 +26,7 @@ public class BossPounceState : FSMC_Behaviour
     {
         if (timeChangeState)
         {
+            Boss.Instance.controller.isUpdate = false;
             Boss.Instance.executer.SetCurrentState("Walk");
         }
     }

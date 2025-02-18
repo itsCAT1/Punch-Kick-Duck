@@ -8,7 +8,7 @@ using System;
 public class BossBlockState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool timeChangeState => Time.time - timeStart >= 0.5f;
+    public bool timeChangeState => Time.time - timeStart >= 1f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -16,13 +16,21 @@ public class BossBlockState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        Boss.Instance.controller.isUpdate = false;
+        Boss.Instance.onBlocking.BlockDamage();
+        Debug.Log("Block");
+        Boss.Instance.onBlocking.EnemyIsRepelled();
+        timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
+        if(timeChangeState)
+        {
+            Boss.Instance.controller.SetAction();
 
-
+            Boss.Instance.controller.isUpdate = true;
+        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

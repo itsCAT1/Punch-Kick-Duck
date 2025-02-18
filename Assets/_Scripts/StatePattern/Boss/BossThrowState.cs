@@ -22,28 +22,42 @@ public class BossThrowState : FSMC_Behaviour
     {
         Boss.Instance.pounce.RotateTowardPlayer();
 
-        Boss.Instance.controller.throwCount = 3;
         PerformThrow();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (throwCoolDown && canThrow)
+        if (canThrow)
         {
-            PerformThrow();
+            if (throwCoolDown) PerformThrow();
         }
-        if (timeChangeState && !canThrow)
+
+        else
         {
+            Boss.Instance.controller.isAttacking = true;
+            Boss.Instance.controller.isPounching = false;
             Boss.Instance.controller.isThrowing = false;
+            Boss.Instance.controller.attackCount = 3;
+
+            if (timeChangeState) ChangeState();
         }
-            
+
     }
 
     void PerformThrow()
     {
         Boss.Instance.animator.Play("Throw");
+        Boss.Instance.throwing.SetFruit();
         Boss.Instance.controller.throwCount--;
         timeStart = Time.time;
+    }
+
+    void ChangeState()
+    {
+
+        Boss.Instance.controller.SetAction();
+
+        Boss.Instance.controller.isUpdate = true;
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

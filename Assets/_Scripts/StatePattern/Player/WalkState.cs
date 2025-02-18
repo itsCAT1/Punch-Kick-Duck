@@ -17,7 +17,7 @@ public class WalkState : FSMC_Behaviour
     {
         controller.moveSpeed = 4;
         controller.SetDirection();
-        Player.Instance.animator.SetBool("Walk", true);
+        Player.Instance.animator.Play("Walk");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

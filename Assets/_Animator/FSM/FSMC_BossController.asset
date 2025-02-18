@@ -20,6 +20,10 @@ MonoBehaviour:
   - rid: 2713678592158728194
   - rid: 4071469915166474240
   - rid: 4071469915166474241
+  - rid: 2713678634215014402
+  - rid: 2713678634215014403
+  - rid: 2713678634215014406
+  - rid: 2713678671553232896
   AnyTransitions:
   - rid: 2713678603077550080
   StartingState:
@@ -95,6 +99,58 @@ MonoBehaviour:
         parameter:
           rid: 2713678603077550081
         Value: 1
+    - rid: 2713678634215014402
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678634215014405
+        Position: {x: 775, y: 300}
+        _name: Block
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678634215014403
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678634215014404
+        Position: {x: 775, y: 404}
+        _name: Hurt
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678634215014404
+      type: {class: BossHurtState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678634215014405
+      type: {class: BossBlockState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678634215014406
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678634215014407
+        Position: {x: 775, y: 504}
+        _name: Dead
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678634215014407
+      type: {class: BossDeadState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 2713678671553232896
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 2713678671553232897
+        Position: {x: 775, y: 24}
+        _name: Win
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 2713678671553232897
+      type: {class: BossWinState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
     - rid: 4071469915166474240
       type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
       data:
@@ -109,7 +165,7 @@ MonoBehaviour:
       data:
         _behaviours:
         - rid: 4071469915166474242
-        Position: {x: 774.6667, y: 212}
+        Position: {x: 775, y: 200}
         _name: Throw
         TransitionsFrom: []
         TransitionsTo: []

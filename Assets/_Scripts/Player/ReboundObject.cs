@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,22 @@ public class ReboundObject : MonoBehaviour
 {
     public GameObject[] zonies;
 
+    int index;
+
     public void StartRebound(int indexZone)
     {
-        StartCoroutine(ReboundCountTime(indexZone));
+        index = indexZone;
+
+        zonies[index].SetActive(true);
+
+        CancelInvoke(nameof(StopRebound));
+        Invoke(nameof(StopRebound), 0.3f);
     }
 
-    IEnumerator ReboundCountTime(int indexZone)
+
+
+    void StopRebound()
     {
-        zonies[indexZone].SetActive(true);
-
-        yield return new WaitForSeconds(0.4f);
-
-        zonies[indexZone].SetActive(false);
+        zonies[index].SetActive(false);
     }
 }

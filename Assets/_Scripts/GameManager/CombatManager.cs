@@ -32,29 +32,18 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Kick && bossAttackType == AttackType.Duck) ||
             (playerAttackType == AttackType.Duck && bossAttackType == AttackType.Punch))
         {
-            Boss.Instance.executer.SetCurrentState("Hurt");
+            CanDealDamage();
+        }
+    }
+
+    void CanDealDamage()
+    {
+        string bossState = Boss.Instance.executer.GetCurrentState().Name;
+        if (bossState == "Attack")
+        {
+            Boss.Instance.health.TakeDamage();
+            Player.Instance.push.PerformPushBoss();
             DataPointManager.Instance.GainPoint();
         }
     }
-
-    public void BlockDamage(AttackType playerAttackType)
-    {
-        if (playerAttackType == AttackType.Punch)
-        {
-            Player.Instance.animator.Play("BlockPunch");
-        }
-
-        else if (playerAttackType == AttackType.Kick)
-        {
-            Player.Instance.animator.Play("BlockKick");
-        }
-
-        else if (playerAttackType == AttackType.Duck)
-        {
-            Player.Instance.animator.Play("BlockDuck");
-        }
-        Player.Instance.GetComponent<PlayerOnBlocking>().PlayerIsRepelled();
-    }
-
-    
 }

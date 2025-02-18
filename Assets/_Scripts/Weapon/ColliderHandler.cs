@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class ColliderHandler : ObjectPushing
 {
-    PushingPlayer pushPlayer;
+    PushHandler pushPlayer;
 
     public string attackType;
 
 
     private void Awake()
     {
-        pushPlayer = GetComponentInParent<PushingPlayer>();
+        pushPlayer = GetComponentInParent<PushHandler>();
     }
         
     public void PlayerOnHit()
     {
         Player.Instance.health.TakeDamage();
-        pushPlayer.PerformPush();
+        pushPlayer.PerformPushPlayer();
     }
 
     public void ObjectOnHit()

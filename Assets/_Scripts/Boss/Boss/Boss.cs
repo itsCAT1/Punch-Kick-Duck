@@ -8,9 +8,13 @@ public class Boss : Singleton<Boss>
     [HideInInspector]
     public Animator animator;
     [HideInInspector]
+    public Rigidbody rigid;
+    [HideInInspector]
     public BossAttackType attackType;
     [HideInInspector]
     public BossController controller;
+    [HideInInspector]
+    public BossHealth health;
     [HideInInspector]
     public BossMovement movement;
     [HideInInspector]
@@ -20,17 +24,28 @@ public class Boss : Singleton<Boss>
     [HideInInspector]
     public BossThrowing throwing;
     [HideInInspector]
+    public BossOnBlocking onBlocking;
+    [HideInInspector]
+    public ForceReceiver receiver;
+    [HideInInspector]
+    public DroppingCoin coin;
+    [HideInInspector]
     public FSMC_Executer executer;
 
     void OnValidate()
     {
         animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
         attackType = GetComponent<BossAttackType>();
         controller = GetComponent<BossController>();
+        health = GetComponent<BossHealth>();
         movement = GetComponent<BossMovement>();
         attack = GetComponent<BossAttacking>();
         pounce = GetComponent<BossPouncing>();
         throwing = GetComponent<BossThrowing>();
+        onBlocking = GetComponent<BossOnBlocking>();
+        receiver = GetComponent<ForceReceiver>();
+        coin = GetComponent<DroppingCoin>();
         executer = GetComponent<FSMC_Executer>();
     }
 }

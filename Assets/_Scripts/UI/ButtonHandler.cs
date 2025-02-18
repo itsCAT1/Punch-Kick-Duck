@@ -17,15 +17,14 @@ public class ButtonHandler : MonoBehaviour
 
     public void SetAttackCooldown(IUEventData uEventData)
     {
-        StartCoroutine(TurnOffButton());
-    }
-
-    public IEnumerator TurnOffButton()
-    {
         Deactive();
 
-        yield return new WaitForSeconds(1f);
+        CancelInvoke(nameof(TurnOffButton));
+        Invoke(nameof(TurnOffButton), 1f);
+    }
 
+    public void TurnOffButton()
+    {
         Active();
     }
 

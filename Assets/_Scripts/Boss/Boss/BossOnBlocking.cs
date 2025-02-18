@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossOnBlocking : MonoBehaviour
+public class BossOnBlocking : EnemyOnBlocking
 {
-    // Start is called before the first frame update
-    void Start()
+    public void BlockDamage()
     {
-        
-    }
+        if (Boss.Instance.attackType.type == AttackType.Punch)
+        {
+            Boss.Instance.animator.Play("BlockPunch");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else if (Boss.Instance.attackType.type == AttackType.Kick)
+        {
+            Boss.Instance.animator.Play("BlockKick");
+        }
+
+        else if (Boss.Instance.attackType.type == AttackType.Duck)
+        {
+            Boss.Instance.animator.Play("BlockDuck");
+        }
     }
 }

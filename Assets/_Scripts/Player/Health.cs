@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth;
-    public bool isHurt;
 
     private void Start()
     {
@@ -19,7 +18,6 @@ public class Health : MonoBehaviour
     public virtual void TakeDamage()
     {
         if(isDead) return;
-        if(isHurt) return;
 
         currentHealth--;
 

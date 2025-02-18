@@ -19,7 +19,11 @@ public class Player : Singleton<Player>
     [HideInInspector]
     public PlayerHealth health;
     [HideInInspector]
-    public PlayerOnTakeDamage onTakeDamage;
+    public ForceReceiver receiver;
+    [HideInInspector]
+    public PushHandler push;
+    [HideInInspector]
+    public PlayerOnBlocking block;
     [HideInInspector]
     public FSMC_Executer executer;
     private void OnValidate()
@@ -30,7 +34,9 @@ public class Player : Singleton<Player>
         attack = GetComponent<PlayerAttacking>();
         movement = GetComponent<PlayerMovement>();
         health = GetComponent<PlayerHealth>();
-        onTakeDamage = GetComponent<PlayerOnTakeDamage>();
+        receiver = GetComponent<ForceReceiver>();
+        push = GetComponent<PushHandler>();
+        block = GetComponent<PlayerOnBlocking>();
         executer = GetComponent<FSMC_Executer>();
     }
 }

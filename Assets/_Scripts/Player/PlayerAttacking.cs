@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttacking : MonoBehaviour
 {
     float startTime = 0;
-    public float interval = 0.6f;
+    public float interval = 0.5f;
     public bool timeCoolDown => Time.time - startTime >= interval;
 
     public bool punchLeft = false;
