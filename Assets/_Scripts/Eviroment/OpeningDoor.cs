@@ -26,6 +26,8 @@ public class OpeningDoor : MonoBehaviour
         {
             Open();
             GetComponent<Collider>().enabled = false;
+
+            if(DataManager.Instance.data.currentMap == 10) CombatManager.Instance.inBossArea = true;
         }
     }
 

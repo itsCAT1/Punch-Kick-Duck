@@ -49,7 +49,7 @@ public class PunchState : FSMC_Behaviour
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         if (resetState) Player.Instance.attack.punchLeft = true;
-        if (timeChangeState) Player.Instance.controller.UpdateAction();
+        if (timeChangeState && ConditionManger.Instance.startGame) Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

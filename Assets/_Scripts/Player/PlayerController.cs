@@ -3,7 +3,9 @@ using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public ListDataPlayer data;
 
     public float distanceAttack;
+
+    public bool reachedDoor;
     private void Start()
     {
         player = GetComponent<Player>();
@@ -74,20 +78,18 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateAction()
     {
-        //if(!ConditionManger.Instance.startGame) return;
+        if(!ConditionManger.Instance.startGame) return;
 
         if (DataManager.Instance.data.currentMap == 10)
         {
-            float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
-
-            if (distance > distanceAttack + 0.2f)
-            {
-                Player.Instance.executer.SetCurrentState("Walk");
-            }
-            else if (distance < distanceAttack + 0.2f)
+            if(reachedDoor)
             {
                 Player.Instance.executer.SetCurrentState("Idle");
+                return;
             }
+
+            float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
+            SetState(distance);
         }
         else
         {
@@ -96,6 +98,17 @@ public class PlayerController : MonoBehaviour
         return;
     }
 
+    void SetState(float distance)
+    {
+        if (distance > distanceAttack + 0.2f)
+        {
+            Player.Instance.executer.SetCurrentState("Walk");
+        }
+        else if (distance < distanceAttack + 0.2f)
+        {
+            Player.Instance.executer.SetCurrentState("Idle");
+        }
+    }
 
     void RotateFowardBoss()
     {

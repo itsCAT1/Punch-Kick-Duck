@@ -6,6 +6,7 @@ using UnityEngine;
 public class CombatManager : Singleton<CombatManager>
 {
     public bool playerIsAttacking = false;
+    public bool inBossArea = false;
 
     public void DealtDamageEnemy(RaycastHit enemyInfo)
     {

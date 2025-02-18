@@ -18,6 +18,7 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject gameOverUI;
 
     public GameObject miniBossUI;
+    public GameObject bossUI;
 
     void Start()
     {
@@ -81,6 +82,16 @@ public class ConditionManger : Singleton<ConditionManger>
         else
         {
             miniBossUI.SetActive(false);
+        }
+
+        if(DataManager.Instance.data.currentMap == 10)
+        {
+            bossUI.SetActive(startGame);
+        }
+
+        else
+        {
+            bossUI.SetActive(false);
         }
     }
 }

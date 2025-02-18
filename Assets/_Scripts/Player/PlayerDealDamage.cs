@@ -22,6 +22,10 @@ public class PlayerDealDamage : MonoBehaviour
 
     public void ObjectDetected()
     {
+        if (CombatManager.Instance.inBossArea) sizeAttack = 3.5f;
+
+        else sizeAttack = 2f;
+
         float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
         Physics.Raycast(ray.transform.position, ray.transform.forward * playerDirection, out hitInfo, sizeAttack, hitLayer);
     }
@@ -29,6 +33,7 @@ public class PlayerDealDamage : MonoBehaviour
     private void Update()   
     {
         ObjectDetected();
+        DetectDoor();
     }
 
     public void GetAttackType(AttackType type)
@@ -62,4 +67,16 @@ public class PlayerDealDamage : MonoBehaviour
             CombatManager.Instance.DealtDamageBoss();
         }
     }
+
+    void DetectDoor()
+    {
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("OpenableDoor"))
+        {
+            Player.Instance.controller.reachedDoor = true;
+            return;
+        }
+        
+        Player.Instance.controller.reachedDoor = false;
+    }
+
 }
