@@ -18,6 +18,11 @@ public class BossHurtState : FSMC_Behaviour
     {
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Hurt");
+
+        foreach(var fruit in Boss.Instance.throwing.fruitAvatar)
+        {
+            fruit.SetActive(false);
+        }
         
         Boss.Instance.coin.RandomDropCoin();
 

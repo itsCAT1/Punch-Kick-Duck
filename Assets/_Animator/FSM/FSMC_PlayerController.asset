@@ -23,6 +23,7 @@ MonoBehaviour:
   - rid: 7177949606365888512
   - rid: 1557779743304843266
   - rid: 2713678331847114752
+  - rid: 6375723103389483008
   AnyTransitions:
   - rid: 2713678568512552961
   - rid: 2713678568512552962
@@ -136,6 +137,19 @@ MonoBehaviour:
         parameter:
           rid: 2713678568512552966
         Value: 1
+    - rid: 6375723103389483008
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 6375723103389483009
+        Position: {x: 638, y: -103}
+        _name: Win
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 6375723103389483009
+      type: {class: WinState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
     - rid: 7177949605818007552
       type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
       data:

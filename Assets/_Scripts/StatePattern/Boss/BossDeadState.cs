@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSMC.Runtime;
 using System;
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 
 [Serializable]
 public class BossDeadState : FSMC_Behaviour
@@ -21,6 +23,15 @@ public class BossDeadState : FSMC_Behaviour
 
         CameraController.Instance.SetSpeedFollowBoss();
 
+        Player.Instance.executer.SetCurrentState("Win");
+        foreach (var fruit in Boss.Instance.throwing.fruitAvatar)
+        {
+            fruit.SetActive(false);
+        }
+        
+
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<EndGame>(uEventData);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

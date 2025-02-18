@@ -7,18 +7,18 @@ public class EndGameHandler : MonoBehaviour
 {
     [Header("Score")]
     public Text resultUI;
-    public Text newScoreUI;
-    public Text newBestUI;
-    public Text bestScoreUI;
+    public Text newScoreValue;
+    public Text newBestValue;
+    public Text bestScoreValue;
     public GameObject newScorePanel;
     public GameObject newBestPanel;
 
     [Header("Bonus")]
-    public Text outrunBonusUI;
-    public Text heartBonusUI;
+    public Text outrunBonusValue;
+    public Text heartBonusValue;
 
     [Header("Total")]
-    public Text totalScoreUI;
+    public Text totalScoreValue;
 
     void Start()
     {
@@ -50,21 +50,21 @@ public class EndGameHandler : MonoBehaviour
         {
             newBestPanel.SetActive(true);
             newScorePanel.SetActive(false);
-            newBestUI.text = newScore.ToString();
+            newBestValue.text = newScore.ToString();
         }
         else
         {
             newBestPanel.SetActive(false);
             newScorePanel.SetActive(true);
-            newScoreUI.text = newScore.ToString();
+            newScoreValue.text = newScore.ToString();
         }
 
         resultUI.text = "LEVEL  <size=110>" + DataManager.Instance.data.currentMap + "</size>  RESULT";
 
-        bestScoreUI.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
-        outrunBonusUI.text = DataEndGame.Instance.bestStreak.ToString() + " x " + DataEndGame.Instance.bestBeatingCounter + " = " + outrunScore.ToString();
-        heartBonusUI.text = heartBonus.ToString();
-        totalScoreUI.text = totalScore.ToString();
+        bestScoreValue.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
+        outrunBonusValue.text = DataEndGame.Instance.bestStreak.ToString() + " x " + DataEndGame.Instance.bestBeatingCounter + " = " + outrunScore.ToString();
+        heartBonusValue.text = heartBonus.ToString();
+        totalScoreValue.text = totalScore.ToString();
     }
 
     void UpdateData(int newScore, int totalScore)

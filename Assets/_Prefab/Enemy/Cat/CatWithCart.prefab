@@ -423,7 +423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
-  isHurt: 0
 --- !u!114 &8338690544141288091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,11 +432,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696222224744674390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff0ba31262d0c04aa43ed74b38d09cc, type: 3}
+  m_Script: {fileID: 11500000, guid: ddefd2a1bb2d6814585a7aec224fcb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 2
-  duration: 0.5
 --- !u!114 &2799500275598702482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,9 +471,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696222224744674390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99a88367f1dbb94e9b5deee02d0d7e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ab0c31d0043bf5459d74e9983c654b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushForce: 3
+  duration: 0.5
 --- !u!114 &523702912369151703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563920b55edbfa499095a2d3d8da573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 5
+  speedMove: 7
 --- !u!114 &7401331883610827246
 MonoBehaviour:
   m_ObjectHideFlags: 0

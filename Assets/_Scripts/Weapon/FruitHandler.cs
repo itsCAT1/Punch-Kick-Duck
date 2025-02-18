@@ -34,7 +34,7 @@ public class FruitHandler : ColliderHandler
 
         if (other.gameObject.CompareTag("Boss"))
         {
-            Boss.Instance.executer.SetCurrentState("Hurt");
+            Boss.Instance.health.TakeDamage();
             fruitMovement.forceSpeed = 0;
             ObjectOnHit();
             DataPointManager.Instance.GainPoint();
