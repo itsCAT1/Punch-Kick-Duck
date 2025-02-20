@@ -21,9 +21,10 @@ public class BossDeadState : FSMC_Behaviour
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Dead");
 
-        CameraController.Instance.SetSpeedFollowBoss();
+        CameraManager.Instance.FollowBoss();
 
         Player.Instance.executer.SetCurrentState("Win");
+
         foreach (var fruit in Boss.Instance.throwing.fruitAvatar)
         {
             fruit.SetActive(false);

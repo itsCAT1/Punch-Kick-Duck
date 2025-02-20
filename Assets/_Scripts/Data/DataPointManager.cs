@@ -9,7 +9,7 @@ public class DataPointManager : Singleton<DataPointManager>
     {
         Player.Instance.health.GainHeart();
         InGameManager.Instance.bonusPoint.GainPoint();
-        DataInGame.Instance.score++;
+        DataInGame.Instance.score += DataInGame.Instance.beatingCounter;
         DataEndGame.Instance.beatingStreak++;
         UpdateBestStreak();
     }

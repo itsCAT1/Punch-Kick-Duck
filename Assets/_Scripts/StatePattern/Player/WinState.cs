@@ -15,7 +15,6 @@ public class WinState : FSMC_Behaviour
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         Player.Instance.animator.Play("Win");
-        Debug.Log("win");
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

@@ -16,9 +16,6 @@ public class PlayerController : MonoBehaviour
     public int playerDirection;
     public ListDataPlayer data;
 
-    public float distanceAttack;
-
-    public bool reachedDoor;
     private void Start()
     {
         player = GetComponent<Player>();
@@ -26,14 +23,6 @@ public class PlayerController : MonoBehaviour
         SetPosition();
 
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetPlayer);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            player.executer.SetCurrentState("Walk");
-        }
     }
 
     public void SetPosition()
@@ -82,32 +71,13 @@ public class PlayerController : MonoBehaviour
 
         if (DataManager.Instance.data.currentMap == 10)
         {
-            if(reachedDoor)
-            {
-                Player.Instance.executer.SetCurrentState("Idle");
-                return;
-            }
-
-            float distance = Vector3.Distance(Player.Instance.transform.position, Boss.Instance.transform.position);
-            SetState(distance);
+            Player.Instance.followBoss.FollowBoss();
         }
         else
         {
-            Player.Instance.executer.SetCurrentState("Walk");
+            //Player.Instance.executer.SetCurrentState("Walk");
         }
         return;
-    }
-
-    void SetState(float distance)
-    {
-        if (distance > distanceAttack + 0.2f)
-        {
-            Player.Instance.executer.SetCurrentState("Walk");
-        }
-        else if (distance < distanceAttack + 0.2f)
-        {
-            Player.Instance.executer.SetCurrentState("Idle");
-        }
     }
 
     void RotateFowardBoss()

@@ -17,6 +17,16 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         UpdateAction();
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Boss.Instance.health.TakeDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Player.Instance.health.TakeDamage();
+        }
     }
 
     public void UpdateAction()

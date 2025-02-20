@@ -1,40 +1,20 @@
-﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
-
-public enum AttackType
-{
-    Punch,
-    Kick,
-    Duck,
-}
 
 public class PlayerDealDamage : MonoBehaviour
 {
     public LayerMask hitLayer;
-
-    public float sizeAttack;
     public Transform ray;
-    RaycastHit hitInfo;
+    public RaycastHit hitInfo;
 
-    public void ObjectDetected()
-    {
-        if (CombatManager.Instance.inBossArea) sizeAttack = 3.5f;
+    public float currentRange;
 
-        else sizeAttack = 2f;
 
-        float playerDirection = Mathf.Sign(Player.Instance.transform.rotation.eulerAngles.y);
-        Physics.Raycast(ray.transform.position, ray.transform.forward * playerDirection, out hitInfo, sizeAttack, hitLayer);
-    }
+    public bool aimingRay => Physics.Raycast(ray.transform.position, ray.transform.forward, out hitInfo, currentRange, hitLayer);
 
-    private void Update()   
-    {
-        ObjectDetected();
-        DetectDoor();
-    }
 
     public void GetAttackType(AttackType type)
     {
@@ -47,7 +27,7 @@ public class PlayerDealDamage : MonoBehaviour
         CombatManager.Instance.playerIsAttacking = true;
 
         CancelInvoke(nameof(StopAttack));
-        Invoke(nameof(StopAttack), 0.4f); 
+        Invoke(nameof(StopAttack), 0.4f);
     }
 
     public void StopAttack()
@@ -57,26 +37,19 @@ public class PlayerDealDamage : MonoBehaviour
 
     public void DealDamage()
     {
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Enemy"))
+        if(aimingRay)
         {
-            CombatManager.Instance.DealtDamageEnemy(hitInfo);
+            if (hitInfo.collider.CompareTag("Enemy"))
+            {
+                CombatManager.Instance.DealtDamageEnemy(hitInfo);
+            }
+
+            if (hitInfo.collider.CompareTag("Boss"))
+            {
+                CombatManager.Instance.DealtDamageBoss();
+            }
         }
 
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Boss"))
-        {
-            CombatManager.Instance.DealtDamageBoss();
-        }
-    }
-
-    void DetectDoor()
-    {
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("OpenableDoor"))
-        {
-            Player.Instance.controller.reachedDoor = true;
-            return;
-        }
         
-        Player.Instance.controller.reachedDoor = false;
     }
-
 }

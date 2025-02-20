@@ -4,8 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PKDHandler : PushingText
+public class PKDHandler : MonoBehaviour
 {
+    Rigidbody rigid;
+    public float forcePush;
+
+    public 
+
+    void Start()
+    {
+        this.rigid = GetComponent<Rigidbody>();
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(PushAll);
+    }
+
+    public void PerformPushing()
+    {
+        rigid.AddForce(new Vector3(Player.Instance.controller.playerDirection * 5, 2, Random.Range(1, 3)) * forcePush);
+    }
 
     private void Update()
     {
@@ -14,7 +29,7 @@ public class PKDHandler : PushingText
 
     void SelfDestroy()
     {
-        if(Vector3.Distance(this.transform.position, Player.Instance.transform.position) >= 20)
+        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20)
         {
             Destroy(this.gameObject);
         }
@@ -22,12 +37,18 @@ public class PKDHandler : PushingText
 
     private void OnTriggerEnter(Collider other)
     {
+
+
         if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck")) 
             && !ConditionManger.Instance.startGame)
         {
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
-            PerformPushing();
         }
+    }
+
+    void PushAll(IUEventData uEventData)
+    {
+        PerformPushing();
     }
 }

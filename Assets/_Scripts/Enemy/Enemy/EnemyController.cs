@@ -44,7 +44,6 @@ public class EnemyController : MonoBehaviour
         
         if (aimingRay && distance <= currentRange - 0.2f)
         {
-            Debug.Log("Idle");
             if (Infor.collider.CompareTag("Player"))
             {
                 Attack();
@@ -56,7 +55,6 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Walk");
             enemy.executer.SetCurrentState("Walk");
         }
     }
