@@ -32,27 +32,21 @@ public class EndGameHandler : MonoBehaviour
 
         int heartBonus = Player.Instance.health.currentHeart * 10;
 
-        if (Player.Instance.health.currentHealth == 2)
+        if (Player.Instance.health.currentHealth > 1)
         {
             heartBonus = 0;
         }
         
         int newScore = score + outrunScore + heartBonus;
-        
-        int totalScore = newScore;
 
-        foreach (var scoreEachLevel in DataManager.Instance.listLevel.data)
-        {
-            
-        }
+        DataEndGame.Instance.UpdateData(newScore);
 
-        DataEndGame.Instance.UpdateData(newScore, totalScore);
-
-        ShowResult(score, outrunScore, heartBonus, newScore, totalScore);
+        Debug.Log(heartBonus);
+        ShowResult(score, outrunScore, heartBonus, newScore);
 
     }
 
-    void ShowResult(int score, int outrunScore, int heartBonus, int newScore, int totalScore)
+    void ShowResult(int score, int outrunScore, int heartBonus, int newScore)
     {
         if (newScore > DataManager.Instance.currentBestScore)
         {
@@ -72,6 +66,6 @@ public class EndGameHandler : MonoBehaviour
         bestScoreValue.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
         outrunBonusValue.text = DataInGame.Instance.bestStreak.ToString() + " x " + DataInGame.Instance.beatingCounter + " = " + outrunScore.ToString();
         heartBonusValue.text = heartBonus.ToString();
-        totalScoreValue.text = totalScore.ToString();
+        totalScoreValue.text = DataManager.Instance.data.totalScore.ToString();
     }
 }

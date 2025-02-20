@@ -23,7 +23,7 @@ public class CartHandler : ColliderHandler
             ObjectOnHit();
         }
 
-        if (other.gameObject.CompareTag(attackType))
+        if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck"))
         {
             enemy.controller.haveCart = false;
             enemy.executer.SetCurrentState("GoBack");

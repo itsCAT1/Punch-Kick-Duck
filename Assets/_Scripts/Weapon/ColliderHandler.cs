@@ -6,7 +6,7 @@ public class ColliderHandler : ObjectPushing
 {
     PushHandler pushPlayer;
 
-    public string attackType;
+    public AttackType attackType;
 
 
     private void Awake()

@@ -27,7 +27,7 @@ public class PlayerDealDamage : MonoBehaviour
         CombatManager.Instance.playerIsAttacking = true;
 
         CancelInvoke(nameof(StopAttack));
-        Invoke(nameof(StopAttack), 0.4f);
+        Invoke(nameof(StopAttack), 0.3f);
     }
 
     public void StopAttack()

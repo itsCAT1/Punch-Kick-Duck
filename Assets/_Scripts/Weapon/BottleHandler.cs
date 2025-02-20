@@ -19,17 +19,26 @@ public class BottleHandler : ColliderHandler
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(attackType))
+        if (other.gameObject.CompareTag("Punch"))
         {
-            ReflectObject();
+            if (this.attackType == AttackType.Punch)
+            {
+                ReflectObject();
+            }
         }
+
+        if (other.gameObject.CompareTag("Kick"))
+        {
+            if (this.attackType == AttackType.Kick)
+            {
+                ReflectObject();
+            }
+        }
+
 
         if (other.gameObject.CompareTag("Player") && ConditionManger.Instance.startGame)
         {
-            bottleMovement.forceSpeed = 0;
-
-            PlayerOnHit();
-            ObjectOnHit();
+            CanDealDamage();
         }
 
         if (other.gameObject.CompareTag("Enemy") && ConditionManger.Instance.startGame)
@@ -39,6 +48,18 @@ public class BottleHandler : ColliderHandler
             bottleMovement.forceSpeed = 0;
             ObjectOnHit();
             DataPointManager.Instance.GainPoint();
+        }
+    }
+
+    void CanDealDamage()
+    {
+        if (Player.Instance.attackType.type == AttackType.Duck && this.attackType == AttackType.Duck && CombatManager.Instance.playerIsAttacking) return;
+
+        else
+        {
+            bottleMovement.forceSpeed = 0;
+            PlayerOnHit();
+            ObjectOnHit();
         }
     }
 }

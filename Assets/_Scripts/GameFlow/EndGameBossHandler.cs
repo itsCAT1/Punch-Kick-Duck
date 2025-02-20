@@ -27,7 +27,6 @@ public class EndGameBossHandler : MonoBehaviour
     void UpdateResult()
     {
         int score = DataInGame.Instance.score;
-
         int heartBonus = Player.Instance.health.currentHeart * 10;
 
         if (Player.Instance.health.currentHealth == 2)
@@ -36,13 +35,14 @@ public class EndGameBossHandler : MonoBehaviour
         }
 
         int newScore = score + heartBonus;
-        int totalScore = newScore + DataManager.Instance.data.totalScore;
 
-        ShowResult(score, heartBonus, newScore, totalScore);
-        UpdateData(newScore, totalScore);
+        DataEndGame.Instance.UpdateData(newScore);
+
+        ShowResult(score, heartBonus, newScore);
+
     }
 
-    void ShowResult(int score, int heartBonus, int newScore, int totalScore)
+    void ShowResult(int score, int heartBonus, int newScore)
     {
         if (newScore > DataManager.Instance.currentBestScore)
         {
@@ -59,16 +59,6 @@ public class EndGameBossHandler : MonoBehaviour
 
         bestScoreValue.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
         heartBonusValue.text = heartBonus.ToString();
-        totalScoreValue.text = totalScore.ToString();
-    }
-
-    void UpdateData(int newScore, int totalScore)
-    {
-        if (newScore > DataManager.Instance.currentBestScore)
-        {
-            DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore = newScore;
-        }
-
-        DataManager.Instance.data.totalScore = totalScore;
+        totalScoreValue.text = totalScoreValue.ToString();
     }
 }

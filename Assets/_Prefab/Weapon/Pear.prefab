@@ -147,7 +147,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &6651252540042487301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -183,7 +183,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 6
   duration: 1
-  attackType: Punch
+  attackType: 2
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  ray: {fileID: 0}
 --- !u!114 &-7585826971164904366
 MonoBehaviour:
   m_ObjectHideFlags: 0
