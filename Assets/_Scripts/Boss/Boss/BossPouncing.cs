@@ -8,18 +8,6 @@ public class BossPouncing : ObjectPushing
     public GameObject foodCart;
     public Vector3 targetPos;
     int direction;
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Boss.Instance.executer.SetCurrentState("Pounce");
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SetTarget();
-        }
-    }
 
     public void PerformPounce()
     {

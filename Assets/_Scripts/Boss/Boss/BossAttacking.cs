@@ -45,7 +45,6 @@ public class BossAttacking : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-        DataPointManager.Instance.LosePoint();
 
         pushPlayer.PerformPushPlayer();
     }

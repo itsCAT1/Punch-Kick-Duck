@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //Player.Instance.executer.SetCurrentState("Walk");
+            Player.Instance.executer.SetCurrentState("Walk");
         }
         return;
     }

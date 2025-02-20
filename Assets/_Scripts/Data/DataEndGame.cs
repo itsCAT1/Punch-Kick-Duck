@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DataEndGame : Singleton<DataEndGame>
 {
-    [Header("Score")]
-    public int bestScore;
 
-    [Header("Bonus")]
-    public int bestBeatingCounter;
-    public int beatingStreak;
-    public int bestStreak;
-    public int heartBonus;
+    public void UpdateData(int newScore, int totalScore)
+    {
+        if (newScore > DataManager.Instance.currentBestScore)
+        {
+            DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore = newScore;
+        }
 
-    [Header("Total")]
-    public int totalScore;
+        DataManager.Instance.data.totalScore = totalScore;
+        DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].isCompleted = true;
+    }
 }

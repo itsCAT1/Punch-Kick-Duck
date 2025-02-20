@@ -16,6 +16,11 @@ public class BonusPointHandler : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(StartGame);
     }
 
+    private void Update()
+    {
+        progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
+        beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
+    }
 
     void StartGame(IUEventData uEventData)
     {
@@ -27,18 +32,17 @@ public class BonusPointHandler : MonoBehaviour
         ConditionManger.Instance.startGame = true;
         while (ConditionManger.Instance.startGame)
         {
-            progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
-            beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
+            
 
             string currentState = Player.Instance.executer.GetCurrentState().Name;
 
             if (currentState == "Walk")
             {
-                DataInGame.Instance.beatingPoint += 0.002f;
+                DataInGame.Instance.beatingPoint += 0.003f;
             }
             else
             {
-                DataInGame.Instance.beatingPoint -= 0.002f;
+                DataInGame.Instance.beatingPoint -= 0.003f;
             }
 
             CheckPoint();
@@ -64,7 +68,6 @@ public class BonusPointHandler : MonoBehaviour
             DataInGame.Instance.beatingCounter++; 
             DataInGame.Instance.beatingPoint = 0; 
         }
-        UpdateBestBeatingCounter();
         stayLevel = true;
     }
 
@@ -81,13 +84,5 @@ public class BonusPointHandler : MonoBehaviour
         DataInGame.Instance.beatingPoint--;
 
         CheckPoint();
-    }
-
-    void UpdateBestBeatingCounter()
-    {
-        if (DataInGame.Instance.beatingCounter >= DataEndGame.Instance.bestBeatingCounter)
-        {
-            DataEndGame.Instance.bestBeatingCounter = DataInGame.Instance.beatingCounter;
-        }
     }
 }

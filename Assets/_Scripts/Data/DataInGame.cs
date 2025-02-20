@@ -9,5 +9,7 @@ public class DataInGame : Singleton<DataInGame>
     public int score;
     public float beatingPoint;
     public int beatingCounter;
-    public int coin;
+
+    public int beatingStreak;
+    public int bestStreak;
 }

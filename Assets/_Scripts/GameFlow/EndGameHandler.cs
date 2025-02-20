@@ -25,10 +25,10 @@ public class EndGameHandler : MonoBehaviour
         UpdateResult();
     }
 
-    void UpdateResult()
+    void UpdateResult() 
     {
         int score = DataInGame.Instance.score;
-        int outrunScore = DataEndGame.Instance.bestStreak * DataEndGame.Instance.bestBeatingCounter;
+        int outrunScore = DataInGame.Instance.bestStreak * DataInGame.Instance.beatingCounter;
 
         int heartBonus = Player.Instance.health.currentHeart * 10;
 
@@ -38,10 +38,18 @@ public class EndGameHandler : MonoBehaviour
         }
         
         int newScore = score + outrunScore + heartBonus;
-        int totalScore = newScore + DataManager.Instance.data.totalScore;
         
+        int totalScore = newScore;
+
+        foreach (var scoreEachLevel in DataManager.Instance.listLevel.data)
+        {
+            
+        }
+
+        DataEndGame.Instance.UpdateData(newScore, totalScore);
+
         ShowResult(score, outrunScore, heartBonus, newScore, totalScore);
-        UpdateData(newScore, totalScore);
+
     }
 
     void ShowResult(int score, int outrunScore, int heartBonus, int newScore, int totalScore)
@@ -62,19 +70,8 @@ public class EndGameHandler : MonoBehaviour
         resultUI.text = "LEVEL  <size=110>" + DataManager.Instance.data.currentMap + "</size>  RESULT";
 
         bestScoreValue.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
-        outrunBonusValue.text = DataEndGame.Instance.bestStreak.ToString() + " x " + DataEndGame.Instance.bestBeatingCounter + " = " + outrunScore.ToString();
+        outrunBonusValue.text = DataInGame.Instance.bestStreak.ToString() + " x " + DataInGame.Instance.beatingCounter + " = " + outrunScore.ToString();
         heartBonusValue.text = heartBonus.ToString();
         totalScoreValue.text = totalScore.ToString();
-    }
-
-    void UpdateData(int newScore, int totalScore)
-    {
-        if (newScore > DataManager.Instance.currentBestScore)
-        {
-            DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore = newScore;
-
-        }
-
-        DataManager.Instance.data.totalScore = totalScore;
     }
 }

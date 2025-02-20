@@ -15,13 +15,18 @@ public class CameraManager : Singleton<CameraManager>
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnGameStart);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
 
+        //FollowPlayer();
+    }
+
+    private void Update()
+    {
         FollowPlayer();
     }
 
     public void FollowPlayer()
     {
         playerCamera.SetActive(true);
-        SmoothFollowPlayer();
+        InstantFollowPlayer();
     }
 
     public void FollowBoss()

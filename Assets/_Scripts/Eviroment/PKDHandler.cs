@@ -29,7 +29,7 @@ public class PKDHandler : MonoBehaviour
 
     void SelfDestroy()
     {
-        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20)
+        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.startGame)
         {
             Destroy(this.gameObject);
         }

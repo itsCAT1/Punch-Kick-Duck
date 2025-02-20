@@ -10,15 +10,6 @@ public class BossThrowing : MonoBehaviour
 
     public int fruitType;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Boss.Instance.executer.SetCurrentState("Throw");
-        }
-    }
-
-
     public void SetFruit()
     {
         fruitType = Random.Range(0, 3);

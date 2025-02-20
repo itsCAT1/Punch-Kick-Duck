@@ -30,7 +30,6 @@ public class HurtState : FSMC_Behaviour
         
         if (timeChangeState)
         {
-            Debug.Log("walk");
             Player.Instance.executer.SetCurrentState("Walk");
         }
             

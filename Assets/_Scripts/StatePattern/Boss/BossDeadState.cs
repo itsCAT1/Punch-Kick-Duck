@@ -30,9 +30,8 @@ public class BossDeadState : FSMC_Behaviour
             fruit.SetActive(false);
         }
         
-
         UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<EndGame>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<EndGameBoss>(uEventData);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

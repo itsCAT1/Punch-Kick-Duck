@@ -60,7 +60,6 @@ public class BeeController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Player.Instance.health.TakeDamage();
-            DataPointManager.Instance.LosePoint();
             executer.SetCurrentState("Fly");
         }
 
