@@ -42,11 +42,12 @@ public class EnemyController : MonoBehaviour
             distance = Vector3.Distance(transform.position, Infor.collider.transform.position);
         }
         
-        if (aimingRay && distance <= currentRange - 0.2f)
+        if (aimingRay && distance < currentRange - 0.2f)
         {
             if (Infor.collider.CompareTag("Player"))
             {
                 Attack();
+                Debug.Log("attack");
             }
             else if (Infor.collider.CompareTag("Enemy"))
             {
@@ -56,6 +57,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             enemy.executer.SetCurrentState("Walk");
+            Debug.Log("walk");
         }
     }
 

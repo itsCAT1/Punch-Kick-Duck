@@ -7,11 +7,15 @@ using UnityEngine;
 public class ConditionManger : Singleton<ConditionManger>
 {
     [Header("Condition")]
-    public bool startGame;
+    public bool inGame;
     public bool endGame;
     public bool endGameBoss;
     public bool gameOver;
     public bool pauseGame;
+    public bool selectCharactor;
+    public bool menuGame;
+    public bool startGame;
+
 
     [Header("UI")]
     public GameObject endGameUI;
@@ -20,19 +24,24 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject gameOverUI;
     public GameObject miniBossUI;
     public GameObject bossUI;
+    public GameObject menuGameUI;
+    public GameObject selectCharactorUI;
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGameBoss>(OnEndGameBoss);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnSelectCharactor);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
+
     }
 
-    void OnStartGame(IUEventData uEventData)
+    void OnInGame(IUEventData uEventData)
     {
-        startGame = true;
+        inGame = true;
         endGame = false;
         pauseGame = false;
         gameOver = false;
@@ -43,7 +52,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void OnEndGame(IUEventData uEventData)
     {
-        startGame = false;
+        inGame = false;
         pauseGame = false;
         gameOver = false;
         endGame = true;
@@ -54,7 +63,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void OnEndGameBoss(IUEventData uEventData)
     {
-        startGame = false;
+        inGame = false;
         pauseGame = false;
         gameOver = false;
         endGame = false;
@@ -65,7 +74,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void OnGameOver(IUEventData uEventData)
     {
-        startGame = false;
+        inGame = false;
         endGame = false;
         pauseGame = false;
         gameOver = true;
@@ -76,7 +85,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void OnPauseGame(IUEventData uEventData)
     {
-        startGame = false;
+        inGame = false;
         endGame = false;
         pauseGame = true;
         gameOver = false;
@@ -85,16 +94,45 @@ public class ConditionManger : Singleton<ConditionManger>
         ActiveCurrentUI();
     }
 
+    void OnSelectCharactor(IUEventData uEventData)
+    {
+        inGame = false;
+        endGame = false;
+        pauseGame = false;
+        gameOver = false;
+        endGameBoss = false;
+        selectCharactor = true;
+        menuGame = false;
+
+        ActiveCurrentUI();
+    }
+
+    void OnMenuGame(IUEventData uEventData)
+    {
+        inGame = false;
+        endGame = false;
+        pauseGame = false;
+        gameOver = false;
+        endGameBoss = false;
+        selectCharactor = false;
+        menuGame = true;
+
+        ActiveCurrentUI();
+    }
+
     void ActiveCurrentUI()
     {
-        attackUI.SetActive(startGame);
+        attackUI.SetActive(inGame);
         endGameUI.SetActive(endGame);
         endGameBossUI.SetActive(endGameBoss);
         gameOverUI.SetActive(gameOver);
+        selectCharactorUI.SetActive(selectCharactor);
+        menuGameUI.SetActive(menuGame);
+
 
         if (DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10)
         {
-            miniBossUI.SetActive(startGame);
+            miniBossUI.SetActive(inGame);
         }
         else
         {
@@ -103,7 +141,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
         if(DataManager.Instance.data.currentMap == 10)
         {
-            bossUI.SetActive(startGame);
+            bossUI.SetActive(inGame);
         }
 
         else

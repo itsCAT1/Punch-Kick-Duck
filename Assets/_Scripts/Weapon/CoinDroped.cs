@@ -8,13 +8,23 @@ public class CoinDroped : ObjectPushing
 
     void Start()
     {
-        DropCoin();
+        SetDirection();
     }
 
-    void DropCoin()
+    void SetDirection()
     {
-        var targetX = this.transform.position.x + offset.x * Player.Instance.controller.playerDirection;
-        PerformJumping(new Vector3(targetX, 0, 0));
+        int direction = (this.transform.position.x > Player.Instance.transform.position.x) ? 1 : -1;
+        if(DataManager.Instance.data.currentMap == 10) direction = -direction;
+
+        DropCoin(direction);
+    }
+
+    public void DropCoin(int direction)
+    {
+        var currentPosition = this.transform.position;
+
+        var target = new Vector3(currentPosition.x + offset.x * direction, currentPosition.y + offset.y, currentPosition.z);
+        PerformJumping(target);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -21,7 +21,7 @@ public class DuckState : FSMC_Behaviour
         Player.Instance.animator.Play("Duck");
         timeStart = Time.time;
 
-        if (!ConditionManger.Instance.startGame)
+        if (!ConditionManger.Instance.inGame)
         {
             interval = 1f;
         }
@@ -33,7 +33,7 @@ public class DuckState : FSMC_Behaviour
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (timeChangeState && ConditionManger.Instance.startGame) Player.Instance.controller.UpdateAction();
+        if (timeChangeState && ConditionManger.Instance.inGame) Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

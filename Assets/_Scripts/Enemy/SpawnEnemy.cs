@@ -13,7 +13,7 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableSpawn);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
     }
 

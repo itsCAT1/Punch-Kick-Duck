@@ -13,7 +13,7 @@ public class BonusPointHandler : MonoBehaviour
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(StartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(StartGame);
     }
 
     private void Update()
@@ -29,8 +29,8 @@ public class BonusPointHandler : MonoBehaviour
 
     IEnumerator CountdownPoint()
     {
-        ConditionManger.Instance.startGame = true;
-        while (ConditionManger.Instance.startGame)
+        ConditionManger.Instance.inGame = true;
+        while (ConditionManger.Instance.inGame)
         {
             
 

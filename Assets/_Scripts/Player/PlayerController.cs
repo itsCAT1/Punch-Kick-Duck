@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateAction()
     {
-        if(!ConditionManger.Instance.startGame) return;
+        if(!ConditionManger.Instance.inGame) return;
 
         if (DataManager.Instance.data.currentMap == 10)
         {

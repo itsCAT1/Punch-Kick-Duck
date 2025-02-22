@@ -39,6 +39,6 @@ public class PauseGameHandler : MonoBehaviour
     public void ContinueGame()
     {
         UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
     }
 }

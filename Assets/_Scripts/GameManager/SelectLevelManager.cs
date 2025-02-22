@@ -16,6 +16,11 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
         UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(OnSelectLevel);
     }
 
+    private void Update()
+    {
+        HightlightCurrentLevel();
+    }
+
     public void SelectLevel(int level)
     {
         if (!DataManager.Instance.listLevel.data[level - 1].isCompleted)

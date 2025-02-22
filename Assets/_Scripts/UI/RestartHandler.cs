@@ -22,7 +22,7 @@ public class RestartHandler : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<RestartGame>(uEventData);
-        UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
     }
 
     void SetPlayerPosition(IUEventData uEventData)

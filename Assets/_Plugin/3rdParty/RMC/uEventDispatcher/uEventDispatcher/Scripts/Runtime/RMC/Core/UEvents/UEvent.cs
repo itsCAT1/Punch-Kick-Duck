@@ -50,6 +50,15 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
+    public class InGame : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
     public class EndGame : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
@@ -116,6 +125,24 @@ namespace RMC.Core.UEvents
 
     [Serializable]
     public class EndGameBoss : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class MenuGame : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
+    public class CharactorSelection : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
         {

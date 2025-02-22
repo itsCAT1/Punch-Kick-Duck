@@ -10,33 +10,66 @@ public class CameraManager : Singleton<CameraManager>
     public GameObject playerCamera;
     public GameObject bossCamera;
 
+    public CinemachineBlendDefinition instantBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0);
+    public CinemachineBlendDefinition smoothBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 2f); 
+
+    private CinemachineBrain cinemachineBrain;
+
     private void Start()
     {
+        cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
+
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnGameStart);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
 
-        FollowPlayer();
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
     }
 
-    private void Update()
+    public void InstantCamera()
     {
-        //FollowPlayer();
+        cinemachineBrain.m_DefaultBlend = instantBlend;
     }
 
-    public void FollowPlayer()
+    public void SmoothCamera()
+    {
+        cinemachineBrain.m_DefaultBlend = smoothBlend;
+    }
+
+    void InstantFollowPlayer()
     {
         playerCamera.SetActive(true);
-        InstantFollowPlayer();
+        InstantCamera();
     }
 
-    public void FollowBoss()
+    void SmoothFollowPlayer()
     {
-        playerCamera.SetActive(false);
+        playerCamera.SetActive(true);
+        SmoothCamera();
     }
 
     void OnGameStart(IUEventData uEventData)
     {
-        FollowPlayer();
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 60;
+    }
+
+    void OnMenuGame(IUEventData uEventData)
+    {
+        InstantFollowPlayer();
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
+    }
+
+    void OnCharactorSelection(IUEventData uEventData)
+    {
+        InstantFollowPlayer();
+    }
+
+    public void SmoothFollowBoss()
+    {
+        playerCamera.SetActive(false);
+        SmoothCamera();
     }
 
     public void GoBossArea(IUEventData uEventData)
@@ -46,40 +79,10 @@ public class CameraManager : Singleton<CameraManager>
 
     IEnumerator MoveToBossAreaCoroutine()
     {
-        FollowBoss();
+        SmoothFollowBoss();
         yield return new WaitForSeconds(3);
-        FollowPlayer();
+        SmoothFollowPlayer();
         yield return new WaitForSeconds(3);
         CombatManager.Instance.inBossArea = true;
-    }
-
-    public void InstantFollowPlayer()
-    {
-        if (playerCamera != null && Player.Instance != null)
-        {
-            var transposer = playerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTransposer>();
-
-            if (transposer != null)
-            {
-                transposer.m_XDamping = 0; 
-                transposer.m_YDamping = 0; 
-                transposer.m_ZDamping = 0;  
-            }
-        }
-    }
-
-    public void SmoothFollowPlayer()
-    {
-        if (playerCamera != null && Player.Instance != null)
-        {
-            var transposer = playerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTransposer>();
-
-            if (transposer != null)
-            {
-                transposer.m_XDamping = 1;
-                transposer.m_YDamping = 1; 
-                transposer.m_ZDamping = 1;
-            }
-        }
     }
 }

@@ -21,7 +21,7 @@ public class BossDeadState : FSMC_Behaviour
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Dead");
 
-        CameraManager.Instance.FollowBoss();
+        CameraManager.Instance.SmoothFollowBoss();
 
         Player.Instance.executer.SetCurrentState("Win");
 

@@ -7,6 +7,7 @@ public class Player : Singleton<Player>
 {
     public Animator animator;
     public PlayerDealDamage dealDamage;
+
     [HideInInspector]
     public PlayerController controller;
     [HideInInspector]
@@ -29,6 +30,8 @@ public class Player : Singleton<Player>
     public PlayerOnBlocking block;
     [HideInInspector]
     public PlayerBossFollower followBoss;
+    [HideInInspector]
+    public PlayerSkinSelector selecter;
 
     [HideInInspector]
     public FSMC_Executer executer;
@@ -45,6 +48,7 @@ public class Player : Singleton<Player>
         push = GetComponent<PushHandler>();
         block = GetComponent<PlayerOnBlocking>();
         followBoss = GetComponent<PlayerBossFollower>();
+        selecter = GetComponent<PlayerSkinSelector>();
         executer = GetComponent<FSMC_Executer>();
     }
 }

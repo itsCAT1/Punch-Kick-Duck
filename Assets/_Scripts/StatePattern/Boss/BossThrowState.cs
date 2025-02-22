@@ -14,7 +14,7 @@ public class BossThrowState : FSMC_Behaviour
 
     public bool canThrow => Boss.Instance.controller.throwCount > 0;
 
-    public bool playerInRange => Vector3.Distance(Boss.Instance.transform.position, Player.Instance.transform.position) <= 8;
+    public bool playerInRange => Vector3.Distance(Boss.Instance.transform.position, Player.Instance.transform.position) <= 6;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {

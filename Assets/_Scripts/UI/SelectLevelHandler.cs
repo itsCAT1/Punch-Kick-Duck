@@ -25,10 +25,10 @@ public class SelectLevelHandler : MonoBehaviour
 
     public void ClosePanel()
     {
-        StartCoroutine(StartConform());
+        StartCoroutine(StartClose());
     }
 
-    IEnumerator StartConform()
+    IEnumerator StartClose()
     {
         animator.Play("Close");
         buttonConform.interactable = false;

@@ -14,7 +14,7 @@ public class PKDHandler : MonoBehaviour
     void Start()
     {
         this.rigid = GetComponent<Rigidbody>();
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(PushAll);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(PushAll);
     }
 
     public void PerformPushing()
@@ -29,7 +29,7 @@ public class PKDHandler : MonoBehaviour
 
     void SelfDestroy()
     {
-        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.startGame)
+        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.inGame)
         {
             Destroy(this.gameObject);
         }
@@ -40,10 +40,10 @@ public class PKDHandler : MonoBehaviour
 
 
         if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck")) 
-            && !ConditionManger.Instance.startGame)
+            && !ConditionManger.Instance.inGame)
         {
             UEventData uEventData = new UEventData();
-            UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+            UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
         }
     }
 
