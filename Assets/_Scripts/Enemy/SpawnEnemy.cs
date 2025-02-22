@@ -15,6 +15,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableSpawn);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableSpawn);
     }
 
     void EnableSpawn(IUEventData uEventData)

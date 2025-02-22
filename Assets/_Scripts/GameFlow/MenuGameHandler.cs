@@ -24,13 +24,5 @@ public class MenuGameHandler : MonoBehaviour
     {
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
-
-        SlideDownMenu();
-    }
-
-    void SlideDownMenu()
-    {
-        RectTransform rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosY(-600, 0.5f).SetEase(Ease.InOutQuad);
     }
 }

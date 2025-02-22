@@ -11,12 +11,9 @@ public class LoadSceneHandler : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(LoadScene);
     }
 
-
-
-    public void LoadScene(IUEventData uEventData)
+    public void LoadScene()
     {
         animator.Play("LoadScene");
     }

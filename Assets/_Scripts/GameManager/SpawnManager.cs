@@ -12,6 +12,7 @@ public class SpawnManager : Singleton<SpawnManager>
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ClearEnemy);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ClearEnemy);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ClearEnemy);
     }
 

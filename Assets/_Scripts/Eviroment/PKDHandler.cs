@@ -9,7 +9,6 @@ public class PKDHandler : MonoBehaviour
     Rigidbody rigid;
     public float forcePush;
 
-    public 
 
     void Start()
     {

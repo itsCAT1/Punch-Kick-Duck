@@ -13,7 +13,7 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetPlayerPosition);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(OnSelectLevel);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPlayerPosition);
     }
 
     private void Update()
@@ -38,10 +38,7 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
     {
         Player.Instance.controller.SetPosition();
         Player.Instance.controller.SetDirection();
-    }
 
-    void OnSelectLevel(IUEventData uEventData)
-    {
         HightlightCurrentLevel();
     }
 

@@ -18,6 +18,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
 
     [Header("UI")]
+    public GameObject inGameUI;
     public GameObject endGameUI;
     public GameObject endGameBossUI;
     public GameObject attackUI;
@@ -30,6 +31,7 @@ public class ConditionManger : Singleton<ConditionManger>
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGameBoss>(OnEndGameBoss);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
@@ -39,6 +41,19 @@ public class ConditionManger : Singleton<ConditionManger>
 
     }
 
+    void OnStartGame(IUEventData uEventData)
+    {
+        inGame = false;
+        endGame = false;
+        pauseGame = false;
+        gameOver = false;
+        endGameBoss = false;
+        menuGame = false;
+        startGame = true;
+
+        ActiveCurrentUI();
+    }
+
     void OnInGame(IUEventData uEventData)
     {
         inGame = true;
@@ -46,7 +61,10 @@ public class ConditionManger : Singleton<ConditionManger>
         pauseGame = false;
         gameOver = false;
         endGameBoss = false;
+        menuGame = false;
+        startGame = true;
 
+        attackUI.SetActive(true);
         ActiveCurrentUI();
     }
 
@@ -57,6 +75,8 @@ public class ConditionManger : Singleton<ConditionManger>
         gameOver = false;
         endGame = true;
         endGameBoss = false;
+        menuGame = false;
+        startGame = false;
 
         ActiveCurrentUI();
     }
@@ -68,6 +88,8 @@ public class ConditionManger : Singleton<ConditionManger>
         gameOver = false;
         endGame = false;
         endGameBoss = true;
+        menuGame = false;
+        startGame = false;
 
         ActiveCurrentUI();
     }
@@ -79,18 +101,23 @@ public class ConditionManger : Singleton<ConditionManger>
         pauseGame = false;
         gameOver = true;
         endGameBoss = false;
+        menuGame = false;
+        startGame = false;
 
         ActiveCurrentUI();
     }
 
     void OnPauseGame(IUEventData uEventData)
     {
-        inGame = false;
+        inGame = true;
         endGame = false;
         pauseGame = true;
         gameOver = false;
         endGameBoss = false;
+        menuGame = false;
+        startGame = true;
 
+        attackUI.SetActive(false);
         ActiveCurrentUI();
     }
 
@@ -103,6 +130,7 @@ public class ConditionManger : Singleton<ConditionManger>
         endGameBoss = false;
         selectCharactor = true;
         menuGame = false;
+        startGame = false;
 
         ActiveCurrentUI();
     }
@@ -116,13 +144,15 @@ public class ConditionManger : Singleton<ConditionManger>
         endGameBoss = false;
         selectCharactor = false;
         menuGame = true;
+        startGame = false;
 
+        Debug.Log("memu");
         ActiveCurrentUI();
     }
 
     void ActiveCurrentUI()
     {
-        attackUI.SetActive(inGame);
+        inGameUI.SetActive(startGame);
         endGameUI.SetActive(endGame);
         endGameBossUI.SetActive(endGameBoss);
         gameOverUI.SetActive(gameOver);

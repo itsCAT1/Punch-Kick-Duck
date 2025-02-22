@@ -12,6 +12,7 @@ public class DoorHandler : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(Close);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(EnterBoss);
     }
