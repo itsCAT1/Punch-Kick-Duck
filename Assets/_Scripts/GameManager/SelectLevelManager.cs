@@ -28,7 +28,6 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
             return;
         }
         DataManager.Instance.data.currentMap = level;
-        Debug.Log(DataManager.Instance.data.currentMap);
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<LevelSelection>(uEventData);

@@ -36,28 +36,29 @@ public class EnemyController : MonoBehaviour
         if (enemy.executer.GetCurrentState() == null) return;
 
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
-        
+
         if(Infor.collider != null)
         {
             distance = Vector3.Distance(transform.position, Infor.collider.transform.position);
         }
         
-        if (aimingRay && distance < currentRange - 0.2f)
+        if (aimingRay)
         {
-            if (Infor.collider.CompareTag("Player"))
+            Debug.Log("attack");
+            if (Infor.collider.CompareTag("Player") && distance < currentRange - 0.2f)
             {
                 Attack();
-                Debug.Log("attack");
             }
-            else if (Infor.collider.CompareTag("Enemy"))
+            else if (Infor.collider.CompareTag("Enemy") && distance < currentRange - 0.2f)
             {
                 enemy.executer.SetCurrentState("Idle");
             }
         }
         else
         {
-            enemy.executer.SetCurrentState("Walk");
             Debug.Log("walk");
+            if(distance > currentRange + 0.2f) enemy.executer.SetCurrentState("Walk");
+
         }
     }
 

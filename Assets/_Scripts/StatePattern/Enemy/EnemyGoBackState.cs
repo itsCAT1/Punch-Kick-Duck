@@ -32,6 +32,7 @@ public class EnemyGoBackState : FSMC_Behaviour
         if (timeChangeState)
         {
             enemy.controller.canAttack = true;
+            enemy.executer.SetCurrentState("Walk");
         }
             
     }

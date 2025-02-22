@@ -37,11 +37,13 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         }
 
         StopCounting();
+        
         countingCoroutine = StartCoroutine(StartCountingTime());
     }
 
     IEnumerator StartCountingTime()
     {
+        GetTimer();
         while (timeCounter > 0)
         {
             yield return new WaitForSeconds(1);
@@ -73,8 +75,6 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
     void ResetCounting(IUEventData uEventData)
     {
         StopCounting();
-
-        GetTimer();
 
         if (DataManager.Instance.data.currentMap == 1 || DataManager.Instance.data.currentMap == 10)
         {

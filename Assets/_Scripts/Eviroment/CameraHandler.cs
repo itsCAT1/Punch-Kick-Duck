@@ -9,11 +9,10 @@ public class CameraHandler : MonoBehaviour
     public CinemachineBlendDefinition smoothBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 2f);
     
     private CinemachineBrain cinemachineBrain;
-    void Start()
+    public CinemachineVirtualCamera virtualCamera;
+    void Awake()
     {
-
         cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
-
     }
 
     public void InstantCamera()
@@ -25,4 +24,5 @@ public class CameraHandler : MonoBehaviour
     {
         cinemachineBrain.m_DefaultBlend = smoothBlend;
     }
+
 }

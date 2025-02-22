@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
         SetDirection();
         SetPosition();
 
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetPlayer);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(PlayerInMenu);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(PlayerInRestart);
     }
 
     public void SetPosition()
@@ -59,12 +60,6 @@ public class PlayerController : MonoBehaviour
         return data.dataPlayers.Find(data => data.numberMap == currentMapIndex);
     }
 
-    public void ResetPlayer(IUEventData uEventData)
-    {
-        player.rigid.velocity = Vector3.zero;
-        player.executer.SetCurrentState("Walk");
-    }
-
     public void UpdateAction()
     {
         if(!ConditionManger.Instance.inGame) return;
@@ -88,5 +83,16 @@ public class PlayerController : MonoBehaviour
         playerDirection = playerPos > bossPos ? -1 : 1;
 
         FlipCharacter();
+    }
+
+    public void PlayerInMenu(IUEventData uEventData)
+    {
+        player.executer.SetCurrentState("Idle");
+    }
+
+    public void PlayerInRestart(IUEventData uEventData)
+    {
+        ConditionManger.Instance.inGame = true;
+        player.executer.SetCurrentState("Walk");
     }
 }

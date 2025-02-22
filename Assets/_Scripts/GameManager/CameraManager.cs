@@ -21,6 +21,7 @@ public class CameraManager : Singleton<CameraManager>
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
+
     }
 
     void InstantFollowPlayer()
@@ -49,8 +50,9 @@ public class CameraManager : Singleton<CameraManager>
 
     void OnMenuGame(IUEventData uEventData)
     {
-        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
         handler.InstantCamera();
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
+        if (handler == null) Debug.Log("a");
     }
 
     void OnCharactorSelection(IUEventData uEventData)

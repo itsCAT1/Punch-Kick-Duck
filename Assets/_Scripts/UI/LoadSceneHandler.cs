@@ -15,6 +15,12 @@ public class LoadSceneHandler : MonoBehaviour
 
     public void LoadScene()
     {
+        StartCoroutine(StartLoad());
+    }
+
+    IEnumerator StartLoad()
+    {
+        yield return new WaitForSeconds(0.2f);
         animator.Play("LoadScene");
     }
 }

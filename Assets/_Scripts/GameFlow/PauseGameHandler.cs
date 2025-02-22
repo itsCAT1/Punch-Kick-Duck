@@ -9,10 +9,13 @@ public class PauseGameHandler : MonoBehaviour
 {
     Animator panelPauseAnim;
     public Button buttonPause;
+    public GameObject panelPause;
 
     private void Start()
     {
         panelPauseAnim = GetComponent<Animator>();
+
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(HidePanelPause);
     }
 
     public void PauseGame()
@@ -38,7 +41,11 @@ public class PauseGameHandler : MonoBehaviour
 
     public void ContinueGame()
     {
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+        Time.timeScale = 1;
+    }
+
+    public void HidePanelPause(IUEventData uEvent)
+    {
+        panelPause.SetActive(false);
     }
 }
