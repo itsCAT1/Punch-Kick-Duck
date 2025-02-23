@@ -9,6 +9,7 @@ using Cinemachine.Editor;
 public class CameraManager : Singleton<CameraManager>
 {
     public GameObject playerCamera;
+    public GameObject seletctCamera;
     public GameObject bossCamera;
     public CameraHandler handler;
 
@@ -38,6 +39,7 @@ public class CameraManager : Singleton<CameraManager>
     public void SmoothFollowBoss()
     {
         playerCamera.SetActive(false);
+        seletctCamera.SetActive(false);
         handler.SmoothCamera();
     }
 
@@ -57,7 +59,9 @@ public class CameraManager : Singleton<CameraManager>
 
     void OnCharactorSelection(IUEventData uEventData)
     {
-        InstantFollowPlayer();
+        playerCamera.SetActive(false);
+        seletctCamera.SetActive(true);
+        handler.InstantCamera();
     }
 
     IEnumerator SmoothFOV(CinemachineVirtualCamera cam)

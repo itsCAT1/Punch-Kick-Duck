@@ -25,4 +25,10 @@ public class MenuGameHandler : MonoBehaviour
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
     }
+
+    public void SelectCharactor()
+    {
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<CharactorSelection>(uEventData);
+    }
 }
