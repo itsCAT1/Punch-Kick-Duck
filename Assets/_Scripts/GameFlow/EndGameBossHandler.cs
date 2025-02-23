@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EndGameBossHandler : MonoBehaviour
 {
     [Header("Score")]
-    public Text newScoreValue;
-    public Text newBestValue;
-    public Text bestScoreValue;
+    public TextMeshProUGUI newScoreValue;
+    public TextMeshProUGUI newBestValue;
+    public TextMeshProUGUI bestScoreValue;
     public GameObject newScorePanel;
     public GameObject newBestPanel;
 
     [Header("Bonus")]
-    public Text heartBonusValue;
+    public TextMeshProUGUI heartBonusValue;
 
     [Header("Total")]
-    public Text totalScoreValue;
+    public TextMeshProUGUI totalScoreValue;
 
 
     void Start()

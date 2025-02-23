@@ -44,7 +44,6 @@ public class EnemyController : MonoBehaviour
         
         if (aimingRay)
         {
-            Debug.Log("attack");
             if (Infor.collider.CompareTag("Player") && distance < currentRange - 0.2f)
             {
                 Attack();

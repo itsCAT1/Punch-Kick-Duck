@@ -2,12 +2,13 @@
 using RMC.Core.UEvents;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class BonusPointHandler : MonoBehaviour
 {
     public Image progressBar; 
-    public Text beatingCounterUI; 
+    public TextMeshProUGUI beatingCounterUI; 
 
     public bool stayLevel; 
 
