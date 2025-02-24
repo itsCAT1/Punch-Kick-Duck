@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform body;
     public float moveSpeed;
     public int playerDirection;
-    public ListDataPlayer data;
+    public PlayerDataBase data;
 
     private void Start()
     {

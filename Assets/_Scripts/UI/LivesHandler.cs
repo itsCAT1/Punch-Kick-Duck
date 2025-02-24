@@ -11,7 +11,7 @@ public class LivesHandler : MonoBehaviour
     public Image progressLivesUI;
 
 
-    private void Update()
+    private void Start()
     {
         UpdateLivesProgress();
     }

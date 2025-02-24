@@ -39,11 +39,11 @@ public class EndGameBossHandler : MonoBehaviour
 
         DataEndGame.Instance.UpdateData(newScore);
 
-        ShowResult(score, heartBonus, newScore);
+        UpdateUI(score, heartBonus, newScore);
 
     }
 
-    void ShowResult(int score, int heartBonus, int newScore)
+    void UpdateUI(int score, int heartBonus, int newScore)
     {
         if (newScore > DataManager.Instance.currentBestScore)
         {

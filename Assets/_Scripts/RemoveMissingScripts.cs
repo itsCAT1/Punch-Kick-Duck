@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RemoveMissingScripts : MonoBehaviour
 {
-    [MenuItem("Tools/Clean Up Missing Scripts")]
+    /*[MenuItem("Tools/Clean Up Missing Scripts")]
     private static void CleanMissingScripts()
     {
         int totalRemoved = 0;
@@ -17,5 +17,5 @@ public class RemoveMissingScripts : MonoBehaviour
         }
 
         Debug.Log($"Removed {totalRemoved} Missing Scripts.");
-    }
+    }*/
 }

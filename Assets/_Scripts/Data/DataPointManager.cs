@@ -30,6 +30,8 @@ public class DataPointManager : Singleton<DataPointManager>
         DataInGame.Instance.score += DataInGame.Instance.beatingCounter;
         DataInGame.Instance.beatingStreak++;
         UpdateBestStreak();
+
+        InGameManager.Instance.score.UpdateScore();
     }
 
     public void LosePoint(IUEventData uEventData)

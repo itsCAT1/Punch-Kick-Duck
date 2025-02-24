@@ -10,6 +10,9 @@ public class InGameManager : Singleton<InGameManager>
     public ButtonHandler button;
     public LivesHandler lives;
     public BonusPointHandler bonusPoint;
+    public ScoreHandler score;
+    public CoinHandler coin;
+    public MiniBossHandler miniBoss;
 
     CanvasGroup canvasGroup;
 
@@ -26,7 +29,7 @@ public class InGameManager : Singleton<InGameManager>
         Player.Instance.health.currentHealth = Player.Instance.health.maxHealth;
         Player.Instance.health.currentHeart = Player.Instance.health.maxHeart;
         DataInGame.Instance.beatingPoint = 0;
-        DataInGame.Instance.beatingCounter = 0;
+        DataInGame.Instance.beatingCounter = 1;
         DataInGame.Instance.score = 0;
     }
 

@@ -1,76 +1,118 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using DG.Tweening;
 
 public class cam : MonoBehaviour
 {
-    public Transform[] items; // Mảng chứa các transform của các item
-    public float swipeSpeed = 1.0f; // Tốc độ di chuyển camera khi kéo chuột
-    public float snapSpeed = 5.0f; // Tốc độ snap camera vào item
-    public float minDistanceToSnap = 0.1f; // Khoảng cách tối thiểu để snap vào item
+    public Transform[] items;
+    public float swipeSpeed = 10f;
+    public float minVelocityToSnap = 0.1f;
+    public float decelerationRate = 0.95f;
+    public float snapDuration = 0.5f;
 
-    public Vector2 mouseStartPos; // Vị trí bắt đầu kéo chuột
-    public bool isDragging = false; // Kiểm tra xem có đang kéo chuột không
-    public int currentItemIndex = 0; // Chỉ số của item hiện tại
+    Vector2 mouseStartPos;
+    bool isDragging = false;
+    bool isSnapping = false;
+    int currentItemIndex;
+    float targetX;
+    Vector3 velocity;
 
-    private void Update()
+    float minX;
+    float maxX;
+
+    private void Start()
+    {
+        if (items.Length > 0)
+        {
+            minX = items[0].position.x - 2;
+            maxX = items[items.Length - 1].position.x + 2;
+        }
+    }
+
+    void Update()
     {
         HandleMouseInput();
-        MoveCameraToItem();
+
+        if (!isDragging && Mathf.Abs(velocity.x) < minVelocityToSnap)
+        {
+            StartSnap();
+        }
+
+        if (!isDragging && !isSnapping)
+        {
+            velocity *= decelerationRate;
+        }
+
+        if (!isDragging)
+        {
+            transform.position += velocity * Time.deltaTime;
+        }
+
+        LimitCameraPosition();
     }
 
-    private void HandleMouseInput()
+    void HandleMouseInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Khi nhấn chuột trái
+        if (Input.GetMouseButtonDown(0))
         {
-            mouseStartPos = Input.mousePosition; // Lưu vị trí bắt đầu kéo
+            mouseStartPos = Input.mousePosition;
             isDragging = true;
-            Debug.Log("click");
+            isSnapping = false;
+            DOTween.Kill(transform);
         }
 
-        if (Input.GetMouseButton(0) && isDragging) // Khi đang giữ chuột trái
+        if (Input.GetMouseButton(0) && isDragging)
         {
-            Vector2 mouseDelta = (Vector2)Input.mousePosition - mouseStartPos; // Tính khoảng cách di chuyển chuột
-            float swipeDelta = mouseDelta.x * swipeSpeed * Time.deltaTime; // Tính toán độ dịch chuyển
-            transform.Translate(-swipeDelta, 0, 0); // Di chuyển camera theo hướng kéo chuột
-            Debug.Log("keo");
+            Vector2 mouseDir = (Vector2)Input.mousePosition - mouseStartPos;
+            velocity.x = -mouseDir.x * swipeSpeed * Time.deltaTime;
         }
 
-        if (Input.GetMouseButtonUp(0)) // Khi thả chuột trái
+        if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-            //SnapToNearestItem(); // Snap camera vào item gần nhất
-            Debug.Log("tha");
         }
     }
 
-    private void SnapToNearestItem()
+    void StartSnap()
+    {
+        FindNearestItem();
+        isSnapping = true;
+
+        transform.DOMoveX(targetX, snapDuration).OnComplete(() =>
+        {
+            isSnapping = false;
+            velocity = Vector3.zero;
+        });
+    }
+
+    void FindNearestItem()
     {
         float minDistance = float.MaxValue;
-        int nearestItemIndex = 0;
+        int nearestIndex = 0;
 
-        // Tìm item gần nhất với vị trí hiện tại của camera
         for (int i = 0; i < items.Length; i++)
         {
             float distance = Mathf.Abs(transform.position.x - items[i].position.x);
             if (distance < minDistance)
             {
                 minDistance = distance;
-                nearestItemIndex = i;
+                nearestIndex = i;
             }
         }
 
-        currentItemIndex = nearestItemIndex; // Cập nhật chỉ số item hiện tại
+        currentItemIndex = nearestIndex;
+        targetX = items[currentItemIndex].position.x;
     }
 
-    private void MoveCameraToItem()
+    void LimitCameraPosition()
     {
-        if (!isDragging) // Nếu không đang kéo chuột
+        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
+        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+
+        if (transform.position.x <= minX || transform.position.x >= maxX)
         {
-            // Di chuyển camera đến vị trí của item hiện tại
-            Vector3 targetPosition = new Vector3(items[currentItemIndex].position.x, transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, snapSpeed * Time.deltaTime);
+            velocity = Vector3.zero;
         }
     }
 }

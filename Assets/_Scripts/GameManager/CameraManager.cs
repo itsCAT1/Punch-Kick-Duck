@@ -4,7 +4,6 @@ using RMC.Core.UEvents.UEventDispatcher;
 using RMC.Core.UEvents;
 using System.Collections;
 using DG.Tweening;
-using Cinemachine.Editor;
 
 public class CameraManager : Singleton<CameraManager>
 {
@@ -12,11 +11,13 @@ public class CameraManager : Singleton<CameraManager>
     public GameObject seletctCamera;
     public GameObject bossCamera;
     public CameraHandler handler;
+    public CameraSkinSelector skinSelector;
 
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnGameStart);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnRestartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
 
@@ -52,9 +53,9 @@ public class CameraManager : Singleton<CameraManager>
 
     void OnMenuGame(IUEventData uEventData)
     {
-        handler.InstantCamera();
+        InstantFollowPlayer();
+        seletctCamera.SetActive(false);
         playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
-        if (handler == null) Debug.Log("a");
     }
 
     void OnCharactorSelection(IUEventData uEventData)
@@ -62,6 +63,11 @@ public class CameraManager : Singleton<CameraManager>
         playerCamera.SetActive(false);
         seletctCamera.SetActive(true);
         handler.InstantCamera();
+    }
+
+    void OnRestartGame(IUEventData uEventData)
+    {
+        InstantFollowPlayer();
     }
 
     IEnumerator SmoothFOV(CinemachineVirtualCamera cam)

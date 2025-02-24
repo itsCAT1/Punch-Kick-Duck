@@ -9,4 +9,5 @@ public class DataBase
     public int currentMap;
     public int totalScore;
     public int totalCoin;
+    public int currentSkin;
 }

@@ -1,3 +1,5 @@
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,12 +12,12 @@ public class ScoreHandler : MonoBehaviour
     public TextMeshProUGUI scoreUI;
 
 
-    void Update()
+    private void Start()
     {
-        UpdateScore();
+        levelUI.text = "LEVEL " + DataManager.Instance.data.currentMap.ToString();
     }
 
-    void UpdateScore()
+    public void UpdateScore()
     {
         levelUI.text = "LEVEL " + DataManager.Instance.data.currentMap.ToString();
         scoreUI.text = DataInGame.Instance.score.ToString();

@@ -1,3 +1,5 @@
+using DG.Tweening;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +11,17 @@ public class MiniBossHandler : MonoBehaviour
     public Image progressTimeUI;
     public Image iconBear;
 
+    public GameObject warningLeft;
+    public GameObject warningRight;
 
-    private void Update()
+    public CanvasGroup canvasGroup;
+
+    private void Start()
     {
-        UpdateLives();
+        UpdateTimer();
     }
 
-    public void UpdateLives()
+    public void UpdateTimer()
     {
         timeCount.text = SpawningMiniBoss.Instance.timeCounter.ToString();
 
@@ -33,6 +39,28 @@ public class MiniBossHandler : MonoBehaviour
         {
             timeCount.enabled = false;
             iconBear.color = Color.white;
+            StartCoroutine(OnWarning(dataPlayer));
         }
+    }
+
+    IEnumerator OnWarning(DataPlayer dataPlayer)
+    {
+        if(dataPlayer.playerDirection < 0) warningRight.SetActive(true);
+        else warningLeft.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        FadeUI();
+
+        yield return new WaitForSeconds(1);
+
+        warningLeft.SetActive(false);
+        warningRight.SetActive(false);
+    }
+
+    public void FadeUI()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.DOFade(0, 1f);
     }
 }

@@ -34,7 +34,6 @@ public class EnemyAttackState : FSMC_Behaviour
         
         AttackingEnemyManager.Instance.SetAttackingEnemy(enemy.gameObject);
 
-        Debug.Log(Time.time - timeStart);
         if (attackCooldown)
         {
             enemy.attack.PerformAttack();

@@ -55,7 +55,6 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.Log("walk");
             if(distance > currentRange + 0.2f) enemy.executer.SetCurrentState("Walk");
 
         }

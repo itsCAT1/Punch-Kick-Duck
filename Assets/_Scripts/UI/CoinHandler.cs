@@ -8,13 +8,12 @@ public class CoinHandler : MonoBehaviour
 {
     public TextMeshProUGUI coinUI;
 
-
-    void Update()
+    private void Start()
     {
         UpdateScore();
     }
 
-    void UpdateScore()
+    public void UpdateScore()
     {
         coinUI.text = DataManager.Instance.data.totalCoin.ToString();
     }

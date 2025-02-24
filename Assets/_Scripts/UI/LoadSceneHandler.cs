@@ -13,6 +13,7 @@ public class LoadSceneHandler : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    [ContextMenu ("load")]
     public void LoadScene()
     {
         StartCoroutine(StartLoad());
