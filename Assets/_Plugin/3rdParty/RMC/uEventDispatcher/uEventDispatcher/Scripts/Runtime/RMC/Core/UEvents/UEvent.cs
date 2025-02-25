@@ -149,4 +149,13 @@ namespace RMC.Core.UEvents
             this.Invoke(null);
         }
     }
+
+    [Serializable]
+    public class AdjustTouch : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
 }

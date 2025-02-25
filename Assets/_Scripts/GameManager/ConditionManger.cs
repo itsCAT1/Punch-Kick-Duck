@@ -14,6 +14,7 @@ public class ConditionManger : Singleton<ConditionManger>
     public bool selectCharactor;
     public bool menuGame;
     public bool startGame;
+    public bool adjustTouch;
 
 
     [Header("UI")]
@@ -27,6 +28,7 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject bossUI;
     public GameObject menuGameUI;
     public GameObject selectCharactorUI;
+    public GameObject adjustTouchUI;
 
     void Start()
     {
@@ -37,7 +39,7 @@ public class ConditionManger : Singleton<ConditionManger>
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnSelectCharactor);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
-
+        UEventDispatcherSingleton.Instance.AddEventListener<AdjustTouch>(OnMenuGame);
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
@@ -127,6 +129,20 @@ public class ConditionManger : Singleton<ConditionManger>
         selectCharactor = false;
         menuGame = true;
         startGame = false;
+
+        ActiveCurrentUI();
+    }
+
+    void OnAdjustTouch(IUEventData uEventData)
+    {
+        inGame = true;
+        endGame = false;
+        gameOver = false;
+        endGameBoss = false;
+        selectCharactor = false;
+        menuGame = false;
+        startGame = false;
+        adjustTouch = true;
 
         ActiveCurrentUI();
     }

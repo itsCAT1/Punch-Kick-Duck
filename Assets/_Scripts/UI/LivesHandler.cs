@@ -5,21 +5,17 @@ using UnityEngine.UI;
 
 public class LivesHandler : MonoBehaviour
 {
-    public Text valueLives;
-
     public Image heartUI;
     public Image progressLivesUI;
 
 
-    private void OnEnable()
+    private void Start()
     {
         UpdateLivesProgress();
     }
 
     public void UpdateLivesProgress()
     {
-        valueLives.text = Player.Instance.health.currentHeart.ToString();
-
         int currentHeart = Player.Instance.health.currentHeart;
         int maxHeart = Player.Instance.health.maxHeart;
 
