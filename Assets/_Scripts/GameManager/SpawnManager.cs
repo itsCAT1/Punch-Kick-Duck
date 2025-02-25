@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SpawnManager : Singleton<SpawnManager>
 {
-    public List<GameObject> enemyHaveSpawned;
+    public List<GameObject> objectHaveSpawned;
     public Transform spawnParent;
 
     void Start()
@@ -19,10 +19,10 @@ public class SpawnManager : Singleton<SpawnManager>
 
     void ClearEnemy(IUEventData uEventData)
     {
-        foreach (var enemy in enemyHaveSpawned)
+        foreach (var enemy in objectHaveSpawned)
         {
             Destroy(enemy.gameObject);
         }
-        enemyHaveSpawned.Clear();
+        objectHaveSpawned.Clear();
     }
 }

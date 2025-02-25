@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class InGameManager : Singleton<InGameManager>
 {
-    public ButtonHandler button;
     public LivesHandler lives;
     public BonusPointHandler bonusPoint;
     public ScoreHandler score;

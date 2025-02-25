@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class QuitGameHandler : MonoBehaviour
 {
-    void Start()
-    {
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPlayerPosition);
-    }
-
     public void QuitGame()
     {
         StartCoroutine(StartQuit());
@@ -23,11 +18,5 @@ public class QuitGameHandler : MonoBehaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
-    }
-
-    void SetPlayerPosition(IUEventData uEventData)
-    {
-        Player.Instance.controller.SetPosition();
-        Player.Instance.controller.SetDirection();
     }
 }

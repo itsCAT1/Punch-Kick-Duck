@@ -34,7 +34,7 @@ public class SpawnEnemy : MonoBehaviour
                 GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
 
                 var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity, SpawnManager.Instance.spawnParent);
-                SpawnManager.Instance.enemyHaveSpawned.Add(enemyTemp);
+                SpawnManager.Instance.objectHaveSpawned.Add(enemyTemp);
             }
         }
     }

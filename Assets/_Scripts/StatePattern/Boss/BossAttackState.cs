@@ -8,7 +8,7 @@ using System;
 public class BossAttackState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool attackCooldown => Time.time - timeStart >= 2;
+    public bool attackCooldown => Time.time - timeStart >= 1;
     public bool timeChangeState => Time.time - timeStart >= 2;
 
     public bool canAttack => Boss.Instance.controller.attackCount > 0;

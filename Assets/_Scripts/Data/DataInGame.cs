@@ -5,6 +5,9 @@ using UnityEngine;
 public class DataInGame : Singleton<DataInGame>
 {
     public Transform[] playerPosition;
+    public Transform[] positionOnBoss;
+    public bool inRoom;
+
 
     public int score;
     public float beatingPoint;

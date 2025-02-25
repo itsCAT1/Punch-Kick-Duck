@@ -38,6 +38,9 @@ public class ConditionManger : Singleton<ConditionManger>
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnSelectCharactor);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
 
+
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
     }
 
     void OnStartGame(IUEventData uEventData)

@@ -18,16 +18,38 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Player>();
+
         SetDirection();
         SetPosition();
 
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(PlayerInMenu);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(PlayerInRestart);
+
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPlayer);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(SetPlayer);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetPlayer);
+    }
+
+    void SetPlayer(IUEventData uEventData)
+    {
+        SetDirection();
+        SetPosition();
     }
 
     public void SetPosition()
     {
-        this.transform.position = DataInGame.Instance.playerPosition[DataManager.Instance.data.currentMap - 1].position;
+        var currentMap = DataManager.Instance.data.currentMap;
+
+        if (currentMap == 10)
+        {
+            if(!DataInGame.Instance.inRoom)
+                this.transform.position = DataInGame.Instance.positionOnBoss[0].position;
+            else
+                this.transform.position = DataInGame.Instance.positionOnBoss[1].position;
+        }
+
+        else 
+        this.transform.position = DataInGame.Instance.playerPosition[currentMap - 1].position;
     }
 
     public void SetDirection()

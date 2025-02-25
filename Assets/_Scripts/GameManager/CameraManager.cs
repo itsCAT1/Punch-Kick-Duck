@@ -20,9 +20,6 @@ public class CameraManager : Singleton<CameraManager>
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
 
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
-
     }
 
     void InstantFollowPlayer()

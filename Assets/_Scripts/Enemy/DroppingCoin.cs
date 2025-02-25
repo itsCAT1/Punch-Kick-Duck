@@ -7,11 +7,6 @@ public class DroppingCoin : MonoBehaviour
     public float dropChance = 0.3f;
     public GameObject coinPrefab;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) RandomDropCoin();
-    }
-
     public void RandomDropCoin()
     {
         float randomValue = Random.value;
@@ -22,6 +17,7 @@ public class DroppingCoin : MonoBehaviour
     }
     void SpawnCoin()
     {
-        Instantiate(coinPrefab, this.transform.position, Quaternion.Euler(90, 0, 0));
+        var coinTemp = Instantiate(coinPrefab, this.transform.position, Quaternion.Euler(90, 0, 0), SpawnManager.Instance.spawnParent);
+        SpawnManager.Instance.objectHaveSpawned.Add(coinTemp);
     }
 }

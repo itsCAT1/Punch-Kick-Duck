@@ -60,7 +60,7 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
     void Spawn()
     {
         var bossTemp = Instantiate(miniBossPrefab, spawnPosition[DataManager.Instance.data.currentMap - 1].position, Quaternion.identity, SpawnManager.Instance.spawnParent);
-        SpawnManager.Instance.enemyHaveSpawned.Add(bossTemp);
+        SpawnManager.Instance.objectHaveSpawned.Add(bossTemp);
     }
 
     void StopCounting()

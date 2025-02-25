@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
@@ -10,6 +12,8 @@ public class PlayerAttacking : MonoBehaviour
     public bool timeCoolDown => Time.time - startTime >= interval;
 
     public bool punchLeft = false;
+
+    public bool canAttack;
 
     private void Update()
     {
@@ -46,10 +50,20 @@ public class PlayerAttacking : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(DisableAttackTemporary);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(DisableAttackTemporary);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(DisableAttack);
+
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableAttack);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableAttack);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableAttack);
+    }
 
     public void PerformPunch()
     {
-        if (timeCoolDown)
+        if (timeCoolDown && canAttack)
         {
             startTime = Time.time;
             Player.Instance.executer.SetTrigger("Punch");
@@ -58,7 +72,7 @@ public class PlayerAttacking : MonoBehaviour
 
     public void PerformKick()
     {
-        if (timeCoolDown)
+        if (timeCoolDown && canAttack)
         {
             startTime = Time.time;
             Player.Instance.executer.SetTrigger("Kick");
@@ -67,10 +81,33 @@ public class PlayerAttacking : MonoBehaviour
 
     public void PerformDuck()
     {
-        if (timeCoolDown)
+        if (timeCoolDown && canAttack)
         {
             startTime = Time.time;
             Player.Instance.executer.SetTrigger("Duck");
         }
+    }
+
+    void EnableAttack(IUEventData uEventData)
+    {
+        canAttack = true;
+    }
+
+    void DisableAttack(IUEventData uEventData)
+    {
+        canAttack = false;
+    }
+
+    void DisableAttackTemporary(IUEventData uEventData)
+    {
+        canAttack = false;
+
+        CancelInvoke(nameof(Enable));
+        Invoke(nameof(Enable), 1f);
+    }
+
+    void Enable()
+    {
+        canAttack = true;
     }
 }

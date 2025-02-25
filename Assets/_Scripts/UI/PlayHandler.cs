@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class PlayHandler : MonoBehaviour
 {
-    void Start()
-    {
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPlayerPosition);
-    }
-
     public void BackMenu()
     {
         StartCoroutine(StartQuit());
@@ -23,11 +18,5 @@ public class PlayHandler : MonoBehaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
-    }
-
-    void SetPlayerPosition(IUEventData uEventData)
-    {
-        Player.Instance.controller.SetPosition();
-        Player.Instance.controller.SetDirection();
     }
 }
