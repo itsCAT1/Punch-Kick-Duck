@@ -38,8 +38,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
-        playerDirection = dataPlayer.playerDirection;
+        if(DataManager.Instance.data != null)
+        {
+            var dataPlayer = GetDataPlayer(DataManager.Instance.data.currentMap);
+            playerDirection = dataPlayer.playerDirection;
+        }
+        
         FlipCharacter();
     }
 

@@ -10,9 +10,9 @@ public class SlideHandler : MonoBehaviour
     public float position;
     public float duration;
 
-    private void Start()
+    private void OnEnable()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetUI);
+        ResetUI();
     }
 
     public void SlideUI()
@@ -21,14 +21,8 @@ public class SlideHandler : MonoBehaviour
         rectTransform.DOAnchorPosY(position, duration).SetEase(Ease.InOutQuad);
     }
 
-    public void ResetUI(IUEventData uEventData)
+    public void ResetUI()
     {
-        StartCoroutine(StartReset());
-    }
-
-    IEnumerator StartReset()
-    {
-        yield return new WaitForSeconds(0.1f);
         RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.anchoredPosition = Vector2.zero;
     }

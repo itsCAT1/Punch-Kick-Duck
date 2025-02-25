@@ -15,6 +15,7 @@ public class SelectLevelHandler : MonoBehaviour
 
     public void OpenPanel()
     {
+        Debug.Log("open");
         selectLevel.SetActive(false);
         conformLevel.SetActive(true);
         buttonConform.interactable = true;
@@ -38,5 +39,13 @@ public class SelectLevelHandler : MonoBehaviour
         conformLevel.SetActive(false);
         selectLevel.SetActive(true);
         buttonSelect.interactable = true;
+    }
+
+    public void PanelOnStartGame()
+    {
+        if(conformLevel.activeSelf) animator.Play("Close");
+
+        conformLevel.SetActive(false);
+        selectLevel.SetActive(true);
     }
 }

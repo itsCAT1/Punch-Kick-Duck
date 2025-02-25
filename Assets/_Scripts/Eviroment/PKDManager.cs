@@ -22,6 +22,7 @@ public class PKDManager : MonoBehaviour
         DestroyPKD();
 
         int index = DataManager.Instance.data.currentMap - 1;
+
         var spawnPosition = positionSpawned[index].position;
 
         var pkdTemp = Instantiate(pkdPrefab[index], spawnPosition, Quaternion.identity, this.transform);

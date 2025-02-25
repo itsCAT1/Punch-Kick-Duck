@@ -19,6 +19,8 @@ public class PlayHandler : MonoBehaviour
     IEnumerator StartQuit()
     {
         yield return new WaitForSeconds(0.2f);
+        LoadSceneHandler.Instance.LoadScene();
+
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
     }

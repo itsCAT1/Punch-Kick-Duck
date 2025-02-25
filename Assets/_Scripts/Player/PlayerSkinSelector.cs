@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerSkinSelector : MonoBehaviour
 {
-    public int index = 0;
-
     public GameObject[] skins;
 
     private void Start()
@@ -18,6 +16,7 @@ public class PlayerSkinSelector : MonoBehaviour
     public void SetSkin()
     {
         var id = DataManager.Instance.data.currentSkin - 1;
+        if (id < 0) id = 1;
 
         for (int i = 0; i < skins.Length; i++)
         {

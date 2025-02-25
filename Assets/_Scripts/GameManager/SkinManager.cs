@@ -69,7 +69,6 @@ public class SkinManager : Singleton<SkinManager>
     {
         if (!CheckSkin(1))
         {
-            Debug.Log("a");
             var owned = new SkinOwned
             {
                 indexSkin = 1,

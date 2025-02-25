@@ -9,15 +9,24 @@ public class PlayerHealth : Health
     public int currentHeart;
     public int maxHeart;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage();
+        }
+
+    }
+
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(LoseHeart);
 
         currentHealth = maxHealth;
-        GetDataHeart();
+        SetDataHeart();
     }
 
-    void GetDataHeart()
+    public void SetDataHeart()
     {
         var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
         maxHeart = dataPlayer.maxHeart;

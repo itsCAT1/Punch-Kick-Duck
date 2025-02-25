@@ -15,7 +15,6 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnGameStart);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnRestartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
@@ -44,7 +43,7 @@ public class CameraManager : Singleton<CameraManager>
         handler.SmoothCamera();
     }
 
-    void OnGameStart(IUEventData uEventData)
+    public void OnGameStart()
     {
         CinemachineVirtualCamera cam = playerCamera.GetComponent<CinemachineVirtualCamera>();
         StartCoroutine(SmoothFOV(cam));

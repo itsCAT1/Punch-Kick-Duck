@@ -25,8 +25,11 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
 
     void GetTimer()
     {
-        var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
-        timeCounter = dataPlayer.timeSpawnBoss;
+        if(DataManager.Instance.data != null)
+        {
+            var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
+            timeCounter = dataPlayer.timeSpawnBoss;
+        }
     }
 
     void StartCounting(IUEventData uEventData)

@@ -17,12 +17,6 @@ public class BonusPointHandler : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(StartGame);
     }
 
-    private void Update()
-    {
-        progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
-        beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
-    }
-
     void StartGame(IUEventData uEventData)
     {
         StartCoroutine(CountdownPoint());
@@ -33,7 +27,8 @@ public class BonusPointHandler : MonoBehaviour
         ConditionManger.Instance.inGame = true;
         while (ConditionManger.Instance.inGame)
         {
-            
+            progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
+            beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
 
             string currentState = Player.Instance.executer.GetCurrentState().Name;
 

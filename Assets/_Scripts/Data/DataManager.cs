@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +11,7 @@ public class DataManager : Singleton<DataManager>
     private void OnEnable()
     {
         LoadData();
-        
+        DataStartUp();
     }
 
     private void OnApplicationQuit()
@@ -61,5 +61,28 @@ public class DataManager : Singleton<DataManager>
         var value = JsonUtility.ToJson(listLevel);
         var dataValueString = PlayerPrefs.GetString(nameof(ListDataLevel), value);
         listLevel = JsonUtility.FromJson<ListDataLevel>(dataValueString);
+    }
+
+    void DataStartUp()
+    {
+        if (!PlayerPrefs.HasKey(nameof(DataBase)))
+        {
+            this.data = new DataBase
+            {
+                currentMap = 1,
+                totalCoin = 0,
+                totalScore = 0
+            };
+            SaveDataBase();
+        }
+    }
+
+
+    [ContextMenu("Reset Data")]
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
+
+        data = new DataBase();
     }
 }

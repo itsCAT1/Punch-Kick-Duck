@@ -12,7 +12,7 @@ public class ScoreHandler : MonoBehaviour
     public TextMeshProUGUI scoreUI;
 
 
-    private void Start()
+    private void OnEnable()
     {
         levelUI.text = "LEVEL " + DataManager.Instance.data.currentMap.ToString();
     }

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadSceneHandler : MonoBehaviour
+public class LoadSceneHandler : Singleton<LoadSceneHandler>
 {
     Animator animator;
 
@@ -13,10 +13,11 @@ public class LoadSceneHandler : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     [ContextMenu ("load")]
     public void LoadScene()
     {
-        StartCoroutine(StartLoad());
+        animator.Play("LoadScene");
     }
 
     IEnumerator StartLoad()

@@ -25,6 +25,7 @@ public class BeeController : MonoBehaviour
     {
         executer = GetComponent<FSMC_Executer>();
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(PerformLeave);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(PerformLeave);
     }
 
     void UpdateAngle()

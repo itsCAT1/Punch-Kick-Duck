@@ -42,7 +42,6 @@ public class EndGameHandler : MonoBehaviour
 
         DataEndGame.Instance.UpdateData(newScore);
 
-        Debug.Log(heartBonus);
         UpdateUI(score, outrunScore, heartBonus, newScore);
 
     }

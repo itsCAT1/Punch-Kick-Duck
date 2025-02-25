@@ -19,8 +19,12 @@ public class RestartHandler : MonoBehaviour
     IEnumerator StartRestart()
     {
         yield return new WaitForSeconds(0.2f);
+        LoadSceneHandler.Instance.LoadScene();
+
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<RestartGame>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+
     }
 
     void SetPlayerPosition(IUEventData uEventData)

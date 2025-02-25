@@ -22,13 +22,15 @@ public class MenuGameHandler : MonoBehaviour
 
     public void StartGame()
     {
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+        StartCoroutine(OnStartGame());
     }
 
-    public void SelectCharactor()
+    IEnumerator OnStartGame()
     {
+        yield return new WaitForSeconds(0.3f);
         UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<CharactorSelection>(uEventData);
+        UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
+
+        InGameManager.Instance.ShowUI();
     }
 }
