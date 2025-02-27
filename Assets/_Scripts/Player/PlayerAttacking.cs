@@ -54,7 +54,7 @@ public class PlayerAttacking : MonoBehaviour
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(DisableAttackTemporary);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(DisableAttackTemporary);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(DisableAttack);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(DisableAttack);
 
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableAttack);
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableAttack);

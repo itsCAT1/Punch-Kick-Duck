@@ -3,6 +3,7 @@ using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class SelectLevelManager : Singleton<SelectLevelManager>
 {
@@ -10,18 +11,17 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
     public GameObject[] levelLocked;
     public GameObject[] levelUnlocked;
 
+    
+
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetHightlight);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetHightlight);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(UnlockNextLevel);
     }
 
     public void SelectLevel(int level)
     {
-        if (!DataManager.Instance.listLevel.data[level - 1].isCompleted)
-        {
-            return;
-        }
         DataManager.Instance.data.currentMap = level;
 
         UEventData uEventData = new UEventData();
@@ -35,6 +35,7 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
 
     public void ActiveCurrentLevel()
     {
+        Debug.Log("a");
         for (int i = 0; i < DataManager.Instance.listLevel.data.Count; i++)
         {
             if (DataManager.Instance.listLevel.data[i].isCompleted)
@@ -43,8 +44,12 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
                 levelUnlocked[i].SetActive(true);
             }
         }
+    }
 
-        HightlightCurrentLevel();
+    public void UnlockNextLevel(IUEventData uEventData)
+    {
+        levelLocked[DataManager.Instance.data.currentMap].SetActive(false);
+        levelUnlocked[DataManager.Instance.data.currentMap].SetActive(true);
     }
 
     void HightlightCurrentLevel()
@@ -54,4 +59,6 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
             levelHightlighted[i].gameObject.SetActive(i == DataManager.Instance.data.currentMap - 1);
         }
     }
+
+
 }

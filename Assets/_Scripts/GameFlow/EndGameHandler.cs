@@ -1,3 +1,5 @@
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,7 +23,7 @@ public class EndGameHandler : MonoBehaviour
     [Header("Total")]
     public TextMeshProUGUI totalScoreValue;
 
-    void Start()
+    void OnEnable()
     {
         UpdateResult();
     }

@@ -21,15 +21,11 @@ public class LivesHandler : MonoBehaviour
 
         progressLivesUI.fillAmount = (float)currentHeart / (float)maxHeart;
 
-        Color defaultColor;
-        ColorUtility.TryParseHtmlString("#7A7A7A", out defaultColor);
-        heartUI.color = defaultColor;
+        heartUI.color = new Color32(122, 122, 122, 255);
 
         if (currentHeart >= maxHeart)
         {
-            Color fullHeartColor;
-            ColorUtility.TryParseHtmlString("#D0428D", out fullHeartColor);
-            heartUI.color = fullHeartColor;
+            heartUI.color = new Color32(208, 67, 141, 255);
         }
     }
 
