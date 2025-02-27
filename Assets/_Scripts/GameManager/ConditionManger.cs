@@ -4,18 +4,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Menu,
+    StartGame,
+    InGame,
+    PauseGame,
+    EndGame,
+    EndGameBoss,
+    GameOver,
+    SelectCharacter
+}
+
 public class ConditionManger : Singleton<ConditionManger>
 {
-    [Header("Condition")]
-    public bool inGame;
-    public bool endGame;
-    public bool endGameBoss;
-    public bool gameOver;
-    public bool selectCharactor;
-    public bool menuGame;
-    public bool startGame;
-    public bool adjustTouch;
-
+    public GameState currentState;
 
     [Header("UI")]
     public GameObject inGameUI;
@@ -28,152 +31,81 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject bossUI;
     public GameObject menuGameUI;
     public GameObject selectCharactorUI;
-    public GameObject adjustTouchUI;
 
     void Start()
     {
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGameBoss>(OnEndGameBoss);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnSelectCharactor);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<AdjustTouch>(OnMenuGame);
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
     }
 
-    void OnStartGame(IUEventData uEventData)
+
+    public void SetState(GameState newState)
     {
-        inGame = false;
-        endGame = false;
-        gameOver = false;
-        endGameBoss = false;
-        menuGame = false;
-        startGame = true;
-
-        attackUI.SetActive(true);
-        ActiveCurrentUI();
-    }
-
-    void OnInGame(IUEventData uEventData)
-    {
-        inGame = true;
-        endGame = false;
-        gameOver = false;
-        endGameBoss = false;
-        menuGame = false;
-        startGame = true;
-
-        attackUI.SetActive(true);
-        ActiveCurrentUI();
-    }
-
-    void OnEndGame(IUEventData uEventData)
-    {
-        inGame = false;
-        gameOver = false;
-        endGame = true;
-        endGameBoss = false;
-        menuGame = false;
-        startGame = false;
-
-        ActiveCurrentUI();
-    }
-
-    void OnEndGameBoss(IUEventData uEventData)
-    {
-        inGame = false;
-        gameOver = false;
-        endGame = false;
-        endGameBoss = true;
-        menuGame = false;
-        startGame = false;
-
-        ActiveCurrentUI();
-    }
-
-    void OnGameOver(IUEventData uEventData)
-    {
-        inGame = false;
-        endGame = false;
-        gameOver = true;
-        endGameBoss = false;
-        menuGame = false;
-        startGame = false;
-
-        ActiveCurrentUI();
-    }
-
-    void OnSelectCharactor(IUEventData uEventData)
-    {
-        inGame = false;
-        endGame = false;
-        gameOver = false;
-        endGameBoss = false;
-        selectCharactor = true;
-        menuGame = false;
-        startGame = false;
-
-        ActiveCurrentUI();
-    }
-
-    void OnMenuGame(IUEventData uEventData)
-    {
-        inGame = false;
-        endGame = false;
-        gameOver = false;
-        endGameBoss = false;
-        selectCharactor = false;
-        menuGame = true;
-        startGame = false;
-
-        ActiveCurrentUI();
-    }
-
-    void OnAdjustTouch(IUEventData uEventData)
-    {
-        inGame = true;
-        endGame = false;
-        gameOver = false;
-        endGameBoss = false;
-        selectCharactor = false;
-        menuGame = false;
-        startGame = false;
-        adjustTouch = true;
-
+        currentState = newState;
         ActiveCurrentUI();
     }
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(startGame);
-        endGameUI.SetActive(endGame);
-        endGameBossUI.SetActive(endGameBoss);
-        gameOverUI.SetActive(gameOver);
-        selectCharactorUI.SetActive(selectCharactor);
-        menuGameUI.SetActive(menuGame);
+        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame);
+        pauseGameUI.SetActive(currentState == GameState.PauseGame);
+        endGameUI.SetActive(currentState == GameState.EndGame);
+        endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
+        gameOverUI.SetActive(currentState == GameState.GameOver);
+        selectCharactorUI.SetActive(currentState == GameState.SelectCharacter);
+        menuGameUI.SetActive(currentState == GameState.Menu);
+        attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame);
 
+        miniBossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10);
+        bossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap == 10);
+    }
 
-        if (DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10)
-        {
-            miniBossUI.SetActive(inGame);
-        }
-        else
-        {
-            miniBossUI.SetActive(false);
-        }
+    void OnMenuGame(IUEventData uEvent)
+    {
+        SetState(GameState.Menu);
+    }
 
-        if(DataManager.Instance.data.currentMap == 10)
-        {
-            bossUI.SetActive(inGame);
-        }
+    void OnStartGame(IUEventData uEvent)
+    {
+        SetState(GameState.StartGame);
+    }
 
-        else
-        {
-            bossUI.SetActive(false);
-        }
+    void OnInGame(IUEventData uEvent)
+    {
+        SetState(GameState.InGame);
+    }
+
+    void OnPauseGame(IUEventData uEvent)
+    {
+        SetState(GameState.PauseGame);
+    }
+
+    void OnGameOver(IUEventData uEvent)
+    {
+        SetState(GameState.GameOver);
+    }
+
+    void OnEndGame(IUEventData uEvent)
+    {
+        SetState(GameState.EndGame);
+    }
+
+    void OnEndGameBoss(IUEventData uEvent)
+    {
+        SetState(GameState.EndGameBoss);
+    }
+
+    void OnSelectCharactor(IUEventData uEvent)
+    {
+        SetState(GameState.SelectCharacter);
     }
 }

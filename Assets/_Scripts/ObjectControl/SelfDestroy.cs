@@ -13,7 +13,7 @@ public class SelfDestroy : MonoBehaviour
 
     void Destroy()
     {
-        if (Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.inGame)
+        if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.currentState == GameState.InGame)
         {
             Destroy(this.gameObject);
         }

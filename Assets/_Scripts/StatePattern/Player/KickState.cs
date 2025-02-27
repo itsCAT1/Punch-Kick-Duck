@@ -21,7 +21,7 @@ public class KickState : FSMC_Behaviour
         Player.Instance.animator.Play("Kick");
         timeStart = Time.time;
 
-        if (!ConditionManger.Instance.inGame)
+        if (ConditionManger.Instance.currentState != GameState.InGame) 
         {
             interval = 1f;
         }
@@ -33,7 +33,8 @@ public class KickState : FSMC_Behaviour
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        if (timeChangeState && ConditionManger.Instance.inGame) Player.Instance.controller.UpdateAction();
+        if (timeChangeState && ConditionManger.Instance.currentState == GameState.InGame) 
+            Player.Instance.controller.UpdateAction();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

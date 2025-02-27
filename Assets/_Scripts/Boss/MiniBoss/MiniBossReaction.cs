@@ -32,7 +32,9 @@ public class MiniBossReaction : MonoBehaviour
     {
         miniBossAction.DisableAction();
         yield return new WaitForSeconds(3);
-        if (!ConditionManger.Instance.gameOver)
+        string statePlayer = Player.Instance.executer.GetCurrentState().Name.ToString();
+
+        if (statePlayer != "Dead")
         {
             miniBossAction.EnableAction();
         }

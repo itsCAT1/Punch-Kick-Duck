@@ -36,12 +36,12 @@ public class BottleHandler : ColliderHandler
         }
 
 
-        if (other.gameObject.CompareTag("Player") && ConditionManger.Instance.inGame)
+        if (other.gameObject.CompareTag("Player") && ConditionManger.Instance.currentState == GameState.InGame)
         {
             CanDealDamage();
         }
 
-        if (other.gameObject.CompareTag("Enemy") && ConditionManger.Instance.inGame)
+        if (other.gameObject.CompareTag("Enemy") && ConditionManger.Instance.currentState == GameState.InGame)
         {
             other.GetComponent<EnemyHealth>().TakeDamage();
 

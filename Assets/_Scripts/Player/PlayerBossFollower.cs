@@ -11,11 +11,6 @@ public class PlayerBossFollower : MonoBehaviour
     public bool canWait;
     public bool isWaiting;
 
-    private void Start()
-    {
-        
-    }
-
 
     public void FollowBoss()
     {

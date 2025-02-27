@@ -21,11 +21,13 @@ public class MiniBossHandler : MonoBehaviour
         UpdateTimer();
     }
 
+    
+
     public void UpdateTimer()
     {
-        timeCount.text = SpawningMiniBoss.Instance.timeCounter.ToString();
-
         float currentTime = SpawningMiniBoss.Instance.timeCounter;
+
+        timeCount.text = currentTime.ToString();
 
         var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
         float maxTime = dataPlayer.timeSpawnBoss;

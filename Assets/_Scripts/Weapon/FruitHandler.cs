@@ -41,12 +41,12 @@ public class FruitHandler : ColliderHandler
         }
 
 
-        if (other.gameObject.CompareTag("Player") && ConditionManger.Instance.inGame)
+        if (other.gameObject.CompareTag("Player") && ConditionManger.Instance.currentState == GameState.InGame)
         {
             CanDealDamage();
         }
 
-        if (other.gameObject.CompareTag("Boss") && ConditionManger.Instance.inGame)
+        if (other.gameObject.CompareTag("Boss") && ConditionManger.Instance.currentState == GameState.InGame)
         {
             Boss.Instance.health.TakeDamage();
             fruitMovement.forceSpeed = 0;

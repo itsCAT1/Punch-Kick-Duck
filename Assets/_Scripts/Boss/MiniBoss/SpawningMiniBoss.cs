@@ -49,7 +49,7 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         GetTimer();
         while (timeCounter > 0)
         {
-            //InGameManager.Instance.miniBoss.UpdateTimer();
+            InGameManager.Instance.miniBoss.UpdateTimer();
             yield return new WaitForSeconds(1);
             timeCounter--;
         }

@@ -23,7 +23,7 @@ public class EnemyAttacking : MonoBehaviour
         enemy.animator.Play("Attack");
     }
 
-    public void CheckPlayer()
+    public void ResolveAttack()
     {
         AttackType playerAttackType = Player.Instance.attackType.type;
         int enemyDirection = MathF.Sign(this.transform.rotation.y);
@@ -60,7 +60,7 @@ public class EnemyAttacking : MonoBehaviour
 
     IEnumerator RemoveAttacking()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
     }
 }

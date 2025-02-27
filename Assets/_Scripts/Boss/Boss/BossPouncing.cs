@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossPouncing : ObjectPushing
 {
-    public GameObject foodCart;
+    public Vector3 foodCart;
     public Vector3 targetPos;
     int direction;
 
@@ -19,7 +19,7 @@ public class BossPouncing : ObjectPushing
 
     public void SetTarget()
     {
-        if (this.transform.position.x > foodCart.transform.position.x)
+        if (this.transform.position.x > foodCart.x)
         {
             targetPos = new Vector3(265.7f, 108, 0);
         }

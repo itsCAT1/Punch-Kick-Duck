@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if(DataManager.Instance.data.currentMap == 10)
         {
-            RotateFowardBoss();
+            if(Boss.Instance != null) RotateFowardBoss();
             return;
         }
 
@@ -87,11 +87,11 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateAction()
     {
-        if(!ConditionManger.Instance.inGame) return;
+        if(ConditionManger.Instance.currentState != GameState.InGame) return;
 
         if (DataManager.Instance.data.currentMap == 10)
         {
-            Player.Instance.followBoss.FollowBoss();
+            if (Boss.Instance != null) Player.Instance.followBoss.FollowBoss();
         }
         else
         {
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         return;
     }
 
-    void RotateFowardBoss()
+    public void RotateFowardBoss()
     {
         var playerPos = Player.Instance.transform.position.x;
         var bossPos = Boss.Instance.transform.position.x;
@@ -117,7 +117,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerInRestart(IUEventData uEventData)
     {
-        ConditionManger.Instance.inGame = true;
         player.executer.SetCurrentState("Walk");
     }
 }

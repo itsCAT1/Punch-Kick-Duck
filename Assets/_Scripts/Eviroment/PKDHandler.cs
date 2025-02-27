@@ -9,6 +9,7 @@ public class PKDHandler : MonoBehaviour
     Rigidbody rigid;
     public float forcePush;
 
+    bool canPush = true;
 
     void Start()
     {
@@ -28,7 +29,8 @@ public class PKDHandler : MonoBehaviour
 
     void SelfDestroy()
     {
-        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 && ConditionManger.Instance.inGame)
+        if(Vector3.Distance(Camera.main.transform.position, Player.Instance.transform.position) >= 20 
+            && ConditionManger.Instance.currentState == GameState.InGame)
         {
             Destroy(this.gameObject);
         }
@@ -36,11 +38,10 @@ public class PKDHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-        if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck")) 
-            && !ConditionManger.Instance.inGame)
+        if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck"))
+            && canPush)
         {
+            canPush = false;
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
         }

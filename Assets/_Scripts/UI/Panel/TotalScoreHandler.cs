@@ -12,17 +12,6 @@ public class TotalScoreHandler : MonoBehaviour
 
     int totalScore;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateScore()
     {
         totalScore = 0;
@@ -31,9 +20,6 @@ public class TotalScoreHandler : MonoBehaviour
         for (int i = 0; i < data.Count; i++)
         {
             scoreUI[i].text = data[i].bestScore.ToString();
-
-            Debug.Log("level " + i + data[i].isCompleted);
-
 
             if (data[i].isCompleted)
             {
