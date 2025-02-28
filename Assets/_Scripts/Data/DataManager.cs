@@ -70,7 +70,8 @@ public class DataManager : Singleton<DataManager>
             {
                 currentMap = 1,
                 totalCoin = 0,
-                totalScore = 0
+                totalScore = 0,
+                showTutorial = true
             };
             SaveDataBase();
         }

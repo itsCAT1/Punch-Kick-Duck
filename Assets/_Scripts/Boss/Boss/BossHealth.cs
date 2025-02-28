@@ -8,7 +8,7 @@ public class BossHealth : Health
 {
     private void Start()
     {
-        
+        currentHealth = maxHealth;
     }
 
     protected override void Hurt()

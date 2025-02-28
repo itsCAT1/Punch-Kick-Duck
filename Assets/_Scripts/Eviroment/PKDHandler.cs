@@ -10,6 +10,7 @@ public class PKDHandler : MonoBehaviour
     public float forcePush;
 
     bool canPush = true;
+    public string type;
 
     void Start()
     {
@@ -38,7 +39,32 @@ public class PKDHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if((other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck"))
+        var player = other.gameObject;
+
+        if (DataManager.Instance.data.showTutorial)
+        {
+            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.hasPunched)
+            {
+                TutorialManager.Instance.hasPunched = false;
+                TutorialManager.Instance.hasKicked = true;
+                PerformPushing();
+            }
+            if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.hasKicked)
+            {
+                TutorialManager.Instance.hasKicked = false;
+                TutorialManager.Instance.hasDucked = true;
+                PerformPushing();
+            }
+            if (player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.hasDucked)
+            {
+                TutorialManager.Instance.hasDucked = false;
+                PerformPushing();
+            }
+
+            return;
+        }
+
+        if((player.CompareTag("Punch") || player.CompareTag("Kick") || player.CompareTag("Duck"))
             && canPush)
         {
             canPush = false;

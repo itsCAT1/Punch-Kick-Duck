@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,6 +90,7 @@ public class BossController : MonoBehaviour
 
     public void OnReset()
     {
+        this.transform.DOKill();
         this.transform.position = SpawningBoss.Instance.spawnPosition.position;
         this.transform.rotation = Quaternion.Euler(0, -90, 0);
 
@@ -97,5 +99,7 @@ public class BossController : MonoBehaviour
         isAttacking = true;
         isPounching = false;
         isUpdate = true;
+
+        Boss.Instance.health.currentHealth = Boss.Instance.health.maxHealth;
     }
 }

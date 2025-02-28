@@ -10,4 +10,5 @@ public class DataBase
     public int totalScore;
     public int totalCoin;
     public int currentSkin;
+    public bool showTutorial;
 }

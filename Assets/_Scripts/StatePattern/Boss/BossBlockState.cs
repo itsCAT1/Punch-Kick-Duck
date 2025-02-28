@@ -18,7 +18,6 @@ public class BossBlockState : FSMC_Behaviour
     {
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.onBlocking.BlockDamage();
-        Debug.Log("Block");
         Boss.Instance.onBlocking.EnemyIsRepelled();
         timeStart = Time.time;
     }

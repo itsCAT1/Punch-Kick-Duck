@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 1
-  maxHealth: 1
+  maxHealth: 20
 --- !u!114 &2978709084851520690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,8 +1167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 1
   duration: 1.5
-  foodCart: {x: 0, y: 0, z: 0}
-  targetPos: {x: 267.7, y: 108, z: 0}
+  foodCart: {x: 267.7, y: 108, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8283032431471029293
 MonoBehaviour:
   m_ObjectHideFlags: 0

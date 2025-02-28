@@ -43,18 +43,10 @@ public class TotalScoreDisplay : SlideHandler
 
     public void ShowTotalScorePanel()
     {
-        StartCoroutine(SlideTotalScorePanel());
-    }
-
-    IEnumerator SlideTotalScorePanel()
-    {
         RectTransform rectTransform = new RectTransform();
 
         Vector2 startPosition = new Vector2(0, -1050);
         Vector2 endPosition = new Vector2(0, 18);
         SlideUI(startPosition, endPosition, 0.25f);
-        yield return new WaitForSeconds(8);
-
-        this.gameObject.SetActive(false);
     }
 }
