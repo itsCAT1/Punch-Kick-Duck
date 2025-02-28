@@ -35,7 +35,6 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
 
     public void ActiveCurrentLevel()
     {
-        Debug.Log("a");
         for (int i = 0; i < DataManager.Instance.listLevel.data.Count; i++)
         {
             if (DataManager.Instance.listLevel.data[i].isCompleted)

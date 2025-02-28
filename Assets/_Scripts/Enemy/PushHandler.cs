@@ -16,4 +16,10 @@ public class PushHandler : MonoBehaviour
         float signX = Mathf.Sign(Player.Instance.transform.forward.x);
         Boss.Instance.receiver.PushBack(signX);
     }
+
+    public void DefeatBoss()
+    {
+        float signX = Mathf.Sign(Player.Instance.transform.forward.x);
+        Boss.Instance.receiver.PushDown(signX);
+    }
 }

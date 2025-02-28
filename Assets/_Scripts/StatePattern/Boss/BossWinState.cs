@@ -16,6 +16,8 @@ public class BossWinState : FSMC_Behaviour
     {
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Win");
+
+        Boss.Instance.throwing.OnReset();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

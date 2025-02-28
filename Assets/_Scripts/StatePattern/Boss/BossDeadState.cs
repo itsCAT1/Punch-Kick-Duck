@@ -21,17 +21,9 @@ public class BossDeadState : FSMC_Behaviour
         Boss.Instance.controller.isUpdate = false;
         Boss.Instance.animator.Play("Dead");
 
-        CameraManager.Instance.SmoothFollowBoss();
-
-        Player.Instance.executer.SetCurrentState("Win");
-
-        foreach (var fruit in Boss.Instance.throwing.fruitAvatar)
-        {
-            fruit.SetActive(false);
-        }
+        Boss.Instance.reaction.OnDead();
         
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<EndGameBoss>(uEventData);
+        
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

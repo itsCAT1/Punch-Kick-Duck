@@ -8,7 +8,7 @@ using System;
 public class BossAttackState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    public bool attackCooldown => Time.time - timeStart >= 1;
+    public bool attackCooldown => Time.time - timeStart >= 2;
     public bool timeChangeState => Time.time - timeStart >= 2;
 
     public bool canAttack => Boss.Instance.controller.attackCount > 0;
@@ -19,7 +19,11 @@ public class BossAttackState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
+        Boss.Instance.throwing.OnReset();
+
         PerformAttack();
+
+        timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
@@ -35,7 +39,7 @@ public class BossAttackState : FSMC_Behaviour
             Boss.Instance.controller.isAttacking = false;
             Boss.Instance.controller.isPounching = true;
             Boss.Instance.controller.isThrowing = false;
-            Boss.Instance.controller.throwCount = 10;
+            Boss.Instance.controller.throwCount = 5;
 
             if (timeChangeState) ChangeState();
         }

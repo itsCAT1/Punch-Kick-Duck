@@ -1029,6 +1029,7 @@ MonoBehaviour:
   onBlocking: {fileID: 8283032431471029293}
   receiver: {fileID: 2422969783424397747}
   coin: {fileID: 7050278522904309003}
+  reaction: {fileID: 163161467713936368}
   executer: {fileID: 4709691309806846001}
 --- !u!114 &4709691309806846001
 MonoBehaviour:
@@ -1055,8 +1056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4d73f569107384cbf53aefe5b0331b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 1
+  maxHealth: 1
 --- !u!114 &2978709084851520690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,9 +1084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUpdate: 1
-  attackCount: 1
+  attackCount: 2
   throwCount: 0
   distanceAttack: 3.5
+  distanceThrow: 12
   isAttacking: 1
   isThrowing: 0
   isPounching: 0
@@ -1165,7 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 1
   duration: 1.5
-  foodCart: {fileID: 0}
+  foodCart: {x: 0, y: 0, z: 0}
   targetPos: {x: 267.7, y: 108, z: 0}
 --- !u!114 &8283032431471029293
 MonoBehaviour:

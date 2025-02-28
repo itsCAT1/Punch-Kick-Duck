@@ -1,3 +1,5 @@
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +22,14 @@ public class BossThrowing : MonoBehaviour
     {
         fruitAvatar[fruitType].SetActive(false);
         Instantiate(fruitPrefab[fruitType], fruitPosition[fruitType].position, this.transform.rotation);
+    }
+
+    [ContextMenu ("reset")]
+    public void OnReset()
+    {
+        foreach(var item in fruitAvatar)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
 }

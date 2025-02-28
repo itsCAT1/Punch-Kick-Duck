@@ -30,6 +30,8 @@ public class Boss : Singleton<Boss>
     [HideInInspector]
     public DroppingCoin coin;
     [HideInInspector]
+    public BossReaction reaction;
+    [HideInInspector]
     public FSMC_Executer executer;
 
     void OnValidate()
@@ -46,6 +48,7 @@ public class Boss : Singleton<Boss>
         onBlocking = GetComponent<BossOnBlocking>();
         receiver = GetComponent<ForceReceiver>();
         coin = GetComponent<DroppingCoin>();
+        reaction = GetComponent<BossReaction>();
         executer = GetComponent<FSMC_Executer>();
     }
 }

@@ -22,10 +22,13 @@ public class BossWalkState : FSMC_Behaviour
     {
         if (ReachedTarget())
         {
+            Boss.Instance.pounce.RotateTowardPlayer();
+
             Boss.Instance.controller.isAttacking = false;
             Boss.Instance.controller.isPounching = false;
             Boss.Instance.controller.isThrowing = true;
-            Boss.Instance.executer.SetCurrentState("Throw");
+
+            Boss.Instance.controller.isUpdate = true;
             return;
         }
 

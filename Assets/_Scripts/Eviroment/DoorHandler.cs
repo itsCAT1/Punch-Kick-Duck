@@ -27,6 +27,7 @@ public class DoorHandler : MonoBehaviour
         if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick") || other.gameObject.CompareTag("Duck"))
         {
             Open();
+            DataInGame.Instance.inRoom = true;
 
             if (DataManager.Instance.data.currentMap == 10)
             {

@@ -17,7 +17,6 @@ public class DataManager : Singleton<DataManager>
     private void OnApplicationQuit()
     {
         SaveData();
-        
     }
 
     public int currentBestScore => listLevel.data[data.currentMap - 1].bestScore;
@@ -84,5 +83,14 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.DeleteAll();
 
         data = new DataBase();
+    }
+
+    [ContextMenu("Active All")]
+    public void Active()
+    {
+        foreach (var item in listLevel.data)
+        {
+            item.isCompleted = true;
+        }
     }
 }

@@ -15,55 +15,43 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Start()
     {
+        InitialGame();
+
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnRestartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
         UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
-
     }
 
-    void InstantFollowPlayer()
-    {
-        playerCamera.SetActive(true);
-        handler.InstantCamera();
-    }
 
-    void SmoothFollowPlayer()
+    public void InitialGame()
     {
-        playerCamera.SetActive(true);
-        handler.SmoothCamera();
-    }
-    public void SmoothFollowBoss()
-    {
-        playerCamera.SetActive(false);
-        seletctCamera.SetActive(false);
-        handler.SmoothCamera();
-    }
-
-    public void OnGameStart()
-    {
-        CinemachineVirtualCamera cam = playerCamera.GetComponent<CinemachineVirtualCamera>();
-        StartCoroutine(SmoothFOV(cam));
-        handler.SmoothCamera();
+        handler.SwitchCamera();
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
     }
 
     void OnMenuGame(IUEventData uEventData)
     {
-        InstantFollowPlayer();
         seletctCamera.SetActive(false);
-        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
+        playerCamera.SetActive(true);
+        InitialGame();
+    }
+
+    public void OnStartGame()
+    {
+        var virtualCam = playerCamera.GetComponent<CinemachineVirtualCamera>();
+        StartCoroutine(SmoothFOV(virtualCam));
     }
 
     void OnCharactorSelection(IUEventData uEventData)
     {
-        playerCamera.SetActive(false);
         seletctCamera.SetActive(true);
-        handler.InstantCamera();
+        handler.SwitchCamera();
     }
 
     void OnRestartGame(IUEventData uEventData)
     {
-        InstantFollowPlayer();
+        handler.SwitchCamera();
     }
 
     IEnumerator SmoothFOV(CinemachineVirtualCamera cam)
@@ -87,9 +75,9 @@ public class CameraManager : Singleton<CameraManager>
 
     IEnumerator MoveToBossAreaCoroutine()
     {
-        SmoothFollowBoss();
+        playerCamera.SetActive(false);
         yield return new WaitForSeconds(3);
-        SmoothFollowPlayer();
+        playerCamera.SetActive(true);
         yield return new WaitForSeconds(3);
         CombatManager.Instance.inBossArea = true;
     }

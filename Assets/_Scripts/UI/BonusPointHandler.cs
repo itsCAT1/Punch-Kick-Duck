@@ -33,11 +33,11 @@ public class BonusPointHandler : MonoBehaviour
 
             if (currentState == "Walk")
             {
-                DataInGame.Instance.beatingPoint += 0.003f;
+                DataInGame.Instance.beatingPoint += 0.002f;
             }
             else
             {
-                DataInGame.Instance.beatingPoint -= 0.003f;
+                DataInGame.Instance.beatingPoint -= 0.002f;
             }
 
             CheckPoint();

@@ -1,3 +1,5 @@
+using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,60 +8,21 @@ using UnityEngine.UI;
 
 public class EndGameBossHandler : MonoBehaviour
 {
-    [Header("Score")]
-    public TextMeshProUGUI newScoreValue;
-    public TextMeshProUGUI newBestValue;
-    public TextMeshProUGUI bestScoreValue;
-    public GameObject newScorePanel;
-    public GameObject newBestPanel;
+    public ScoreDisplay scorePanel;
+    public TotalScoreDisplay totalScorePanel;
 
-    [Header("Bonus")]
-    public TextMeshProUGUI heartBonusValue;
-
-    [Header("Total")]
-    public TextMeshProUGUI totalScoreValue;
-
-
-    void Start()
+    public void OnEnable()
     {
-        UpdateResult();
+        StartCoroutine(ShowEndGamePanels());
     }
 
-    void UpdateResult()
+    IEnumerator ShowEndGamePanels()
     {
-        int score = DataInGame.Instance.score;
-        int heartBonus = Player.Instance.health.currentHeart * 10;
+        scorePanel.gameObject.SetActive(true);
+        scorePanel.ShowScorePanel();
+        yield return new WaitForSeconds(5.5f);
 
-        if (Player.Instance.health.currentHealth == 2)
-        {
-            heartBonus = 0;
-        }
-
-        int newScore = score + heartBonus;
-
-        DataEndGame.Instance.UpdateData(newScore);
-
-        UpdateUI(score, heartBonus, newScore);
-
-    }
-
-    void UpdateUI(int score, int heartBonus, int newScore)
-    {
-        if (newScore > DataManager.Instance.currentBestScore)
-        {
-            newBestPanel.SetActive(true);
-            newScorePanel.SetActive(false);
-            newBestValue.text = newScore.ToString();
-        }
-        else
-        {
-            newBestPanel.SetActive(false);
-            newScorePanel.SetActive(true);
-            newScoreValue.text = newScore.ToString();
-        }
-
-        bestScoreValue.text = DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore.ToString();
-        heartBonusValue.text = heartBonus.ToString();
-        totalScoreValue.text = totalScoreValue.ToString();
+        totalScorePanel.gameObject.SetActive(true);
+        totalScorePanel.ShowTotalScorePanel();
     }
 }
