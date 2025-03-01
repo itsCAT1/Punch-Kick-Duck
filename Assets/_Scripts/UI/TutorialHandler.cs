@@ -6,15 +6,9 @@ public class TutorialHandler : MonoBehaviour
 {
     public GameObject tickUI;
 
-    void Start()
+    void OnEnable()
     {
         CheckState();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 

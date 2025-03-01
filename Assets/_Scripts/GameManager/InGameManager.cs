@@ -20,6 +20,8 @@ public class InGameManager : Singleton<InGameManager>
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetValue);
+
+        UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(OnTutorial);
     }
 
     public void ResetValue(IUEventData uEventData)
@@ -34,7 +36,10 @@ public class InGameManager : Singleton<InGameManager>
         DataInGame.Instance.score = 0;
     }
 
-
+    void OnTutorial(IUEventData uEventData)
+    {
+        ShowUI();
+    }
 
     public void ShowUI()
     {

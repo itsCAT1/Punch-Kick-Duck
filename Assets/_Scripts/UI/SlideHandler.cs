@@ -14,4 +14,15 @@ public class SlideHandler : MonoBehaviour
         rectTransform.anchoredPosition = startPosition;
         rectTransform.DOAnchorPos(endPosition, duration).SetEase(Ease.InOutQuad);
     }
+
+    public void SlideX(float startPosition, float endPosition, float duration)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+
+        Vector2 newPosition = rectTransform.anchoredPosition;
+        newPosition.x = startPosition;
+        rectTransform.anchoredPosition = newPosition;
+
+        rectTransform.DOAnchorPosX(endPosition, duration).SetEase(Ease.InOutQuad);
+    }
 }

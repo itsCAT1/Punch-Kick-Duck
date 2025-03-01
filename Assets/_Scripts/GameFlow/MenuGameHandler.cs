@@ -7,18 +7,6 @@ using DG.Tweening;
 
 public class MenuGameHandler : MonoBehaviour
 {
-    
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartGame()
     {
@@ -30,7 +18,5 @@ public class MenuGameHandler : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
-
-        InGameManager.Instance.ShowUI();
     }
 }

@@ -21,7 +21,6 @@ public class CameraSkinSelector : MonoBehaviour
     float minX;
     float maxX;
 
-
     private void Start()
     {
         if (skin.Length > 0)

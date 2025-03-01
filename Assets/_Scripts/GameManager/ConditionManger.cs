@@ -28,10 +28,12 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject attackUI;
     public GameObject gameOverUI;
     public GameObject pauseGameUI;
+    public GameObject buttonPauseUI;
     public GameObject miniBossUI;
     public GameObject bossUI;
     public GameObject menuGameUI;
     public GameObject selectCharactorUI;
+    public GameObject tutorialUI;
 
     void Start()
     {
@@ -58,7 +60,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
+        inGameUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
         pauseGameUI.SetActive(currentState == GameState.PauseGame);
         endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
@@ -66,6 +68,8 @@ public class ConditionManger : Singleton<ConditionManger>
         selectCharactorUI.SetActive(currentState == GameState.SelectCharacter);
         menuGameUI.SetActive(currentState == GameState.Menu);
         attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.Tutorial);
+        tutorialUI.SetActive(currentState == GameState.StartGame || currentState == GameState.Tutorial);
+        buttonPauseUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
 
         miniBossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10);
         bossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap == 10);

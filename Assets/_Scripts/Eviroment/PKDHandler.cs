@@ -45,22 +45,22 @@ public class PKDHandler : MonoBehaviour
         {
             forcePush = 500;
 
-            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.hasPunched)
+            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch)
             {
-                TutorialManager.Instance.hasPunched = false;
-                TutorialManager.Instance.hasKicked = true;
                 PerformPushing();
+                TutorialManager.Instance.ChangeState();
             }
-            if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.hasKicked)
+
+            else if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.currentState == TutorialState.Kick)
             {
-                TutorialManager.Instance.hasKicked = false;
-                TutorialManager.Instance.hasDucked = true;
                 PerformPushing();
+                TutorialManager.Instance.ChangeState();
             }
-            if (player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.hasDucked)
+
+            else if(player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.currentState == TutorialState.Duck)
             {
-                TutorialManager.Instance.hasDucked = false;
                 PerformPushing();
+                TutorialManager.Instance.ChangeState();
 
                 UEventData uEventData = new UEventData();
                 UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
