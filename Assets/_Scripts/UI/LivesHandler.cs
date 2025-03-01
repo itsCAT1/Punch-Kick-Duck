@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +10,10 @@ public class LivesHandler : MonoBehaviour
     public Image heartUI;
     public Image progressLivesUI;
 
-
     private void Start()
     {
-        UpdateLivesProgress();
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnUpdate);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnUpdate);
     }
 
     public void UpdateLivesProgress()
@@ -29,4 +31,8 @@ public class LivesHandler : MonoBehaviour
         }
     }
 
+    void OnUpdate(IUEventData uEventData)
+    {
+        UpdateLivesProgress();
+    }
 }

@@ -10,24 +10,31 @@ public class BonusPointHandler : MonoBehaviour
     public Image progressBar; 
     public TextMeshProUGUI beatingCounterUI; 
 
-    public bool stayLevel; 
+    public bool stayLevel;
+    bool inGame => ConditionManger.Instance.currentState == GameState.InGame;
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(StartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
     }
 
-    void StartGame(IUEventData uEventData)
+    void OnInGame(IUEventData uEventData)
     {
+        StopAllCoroutines();
         StartCoroutine(CountdownPoint());
+    }
+
+    void OnStartGame(IUEventData uEventData)
+    {
+        UpdateUI();
     }
 
     IEnumerator CountdownPoint()
     {
-        while (ConditionManger.Instance.currentState == GameState.InGame)
+        while (inGame)
         {
-            progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
-            beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
+            UpdateUI();
 
             string currentState = Player.Instance.executer.GetCurrentState().Name;
 
@@ -43,6 +50,12 @@ public class BonusPointHandler : MonoBehaviour
             CheckPoint();
             yield return null;
         }
+    }
+
+    void UpdateUI()
+    {
+        progressBar.fillAmount = DataInGame.Instance.beatingPoint / 10f;
+        beatingCounterUI.text = DataInGame.Instance.beatingCounter.ToString();
     }
 
     void CheckPoint()

@@ -87,17 +87,18 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateAction()
     {
-        if(ConditionManger.Instance.currentState != GameState.InGame) return;
-
-        if (DataManager.Instance.data.currentMap == 10)
+        if(ConditionManger.Instance.currentState == GameState.InGame || ConditionManger.Instance.currentState == GameState.Tutorial)
         {
-            if (Boss.Instance != null) Player.Instance.followBoss.FollowBoss();
+            if (DataManager.Instance.data.currentMap == 10)
+            {
+                if (Boss.Instance != null) Player.Instance.followBoss.FollowBoss();
+            }
+            else
+            {
+                Player.Instance.executer.SetCurrentState("Walk");
+            }
+            return;
         }
-        else
-        {
-            Player.Instance.executer.SetCurrentState("Walk");
-        }
-        return;
     }
 
     public void RotateFowardBoss()

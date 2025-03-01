@@ -151,7 +151,7 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
-    public class AdjustTouch : UnityEvent<IUEventData>, IUEvent
+    public class Tutorial : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
         {

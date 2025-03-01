@@ -13,7 +13,8 @@ public enum GameState
     EndGame,
     EndGameBoss,
     GameOver,
-    SelectCharacter
+    SelectCharacter,
+    Tutorial
 }
 
 public class ConditionManger : Singleton<ConditionManger>
@@ -42,6 +43,7 @@ public class ConditionManger : Singleton<ConditionManger>
         UEventDispatcherSingleton.Instance.AddEventListener<EndGameBoss>(OnEndGameBoss);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(OnGameOver);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnSelectCharactor);
+        UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(OnTutorial);
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
@@ -56,14 +58,14 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame);
+        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
         pauseGameUI.SetActive(currentState == GameState.PauseGame);
         endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
         gameOverUI.SetActive(currentState == GameState.GameOver);
         selectCharactorUI.SetActive(currentState == GameState.SelectCharacter);
         menuGameUI.SetActive(currentState == GameState.Menu);
-        attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame);
+        attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.Tutorial);
 
         miniBossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10);
         bossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap == 10);
@@ -107,5 +109,10 @@ public class ConditionManger : Singleton<ConditionManger>
     void OnSelectCharactor(IUEventData uEvent)
     {
         SetState(GameState.SelectCharacter);
+    }
+
+    void OnTutorial(IUEventData uEvent)
+    {
+        SetState(GameState.Tutorial);
     }
 }

@@ -43,6 +43,8 @@ public class PKDHandler : MonoBehaviour
 
         if (DataManager.Instance.data.showTutorial)
         {
+            forcePush = 500;
+
             if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.hasPunched)
             {
                 TutorialManager.Instance.hasPunched = false;
@@ -59,6 +61,9 @@ public class PKDHandler : MonoBehaviour
             {
                 TutorialManager.Instance.hasDucked = false;
                 PerformPushing();
+
+                UEventData uEventData = new UEventData();
+                UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
             }
 
             return;

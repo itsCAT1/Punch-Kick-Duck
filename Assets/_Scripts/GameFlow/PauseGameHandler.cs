@@ -49,6 +49,11 @@ public class PauseGameHandler : MonoBehaviour
             UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
         }
 
+        if (ConditionManger.Instance.currentState == GameState.Tutorial)
+        {
+            UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
+        }
+
         ConditionManger.Instance.attackUI.SetActive(true);
 
 
