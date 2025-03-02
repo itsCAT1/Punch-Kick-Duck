@@ -55,8 +55,14 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if(distance > currentRange + 0.2f) enemy.executer.SetCurrentState("Walk");
-
+            if (ConditionManger.Instance.currentState == GameState.InGame)
+            {
+                enemy.executer.SetCurrentState("Walk");
+            }
+            if (ConditionManger.Instance.currentState == GameState.Tutorial)
+            {
+                enemy.tutorial.UpdateEnemyState();
+            }
         }
     }
 

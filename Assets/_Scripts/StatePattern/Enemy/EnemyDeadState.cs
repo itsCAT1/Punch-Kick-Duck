@@ -20,9 +20,9 @@ public class EnemyDeadState : FSMC_Behaviour
 
         enemy.controller.canAttack = false;
         enemy.rigid.isKinematic = false;
-        enemy.coin.RandomDropCoin();
         enemy.GetComponent<EnemyBeaten>().EnemyThrownOut();
 
+        if(ConditionManger.Instance.currentState == GameState.InGame) enemy.coin.RandomDropCoin();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

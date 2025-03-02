@@ -115,15 +115,6 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
-    public class GoLevelBoss : UnityEvent<IUEventData>, IUEvent
-    {
-        public void InvokeNull()
-        {
-            this.Invoke(null);
-        }
-    }
-
-    [Serializable]
     public class EndGameBoss : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()

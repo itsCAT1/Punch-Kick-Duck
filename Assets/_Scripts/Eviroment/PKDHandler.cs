@@ -1,4 +1,4 @@
-using RMC.Core.UEvents;
+﻿using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +11,9 @@ public class PKDHandler : MonoBehaviour
 
     bool canPush = true;
     public string type;
+
+    float timeCount = 0;
+    public float maxTime = 0.5f;
 
     void Start()
     {
@@ -45,25 +48,35 @@ public class PKDHandler : MonoBehaviour
         {
             forcePush = 500;
 
-            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch)
+            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch && canPush)
             {
+                canPush = false;
                 PerformPushing();
                 TutorialManager.Instance.ChangeState();
             }
 
-            else if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.currentState == TutorialState.Kick)
+            else if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.currentState == TutorialState.Kick && canPush)
             {
+                canPush = false;
                 PerformPushing();
                 TutorialManager.Instance.ChangeState();
             }
 
-            else if(player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.currentState == TutorialState.Duck)
+            else if(player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.currentState == TutorialState.Duck && canPush)
             {
+                canPush = false;
                 PerformPushing();
                 TutorialManager.Instance.ChangeState();
 
                 UEventData uEventData = new UEventData();
-                UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
+
+                if(DataManager.Instance.data.currentMap == 10)
+                {
+                    DataManager.Instance.data.showTutorial = false;
+
+                    UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+                }
+                else UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
             }
 
             return;
@@ -75,6 +88,25 @@ public class PKDHandler : MonoBehaviour
             canPush = false;
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DisableCollision();
+        }
+    }
+
+    void DisableCollision()
+    {
+        timeCount += Time.deltaTime;
+        if (timeCount >= maxTime && this.transform.position.y <= Player.Instance.transform.position.y + 0.2)
+        {
+            rigid.velocity = Vector3.zero;
+            rigid.useGravity = false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 

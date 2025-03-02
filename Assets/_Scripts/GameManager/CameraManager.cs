@@ -20,7 +20,6 @@ public class CameraManager : Singleton<CameraManager>
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnRestartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
-        UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(GoBossArea);
     }
 
 
@@ -68,7 +67,7 @@ public class CameraManager : Singleton<CameraManager>
         cam.m_Lens.FieldOfView = 60;
     }
 
-    void GoBossArea(IUEventData uEventData)
+    public void GoBossArea()
     {
         StartCoroutine(MoveToBossAreaCoroutine());
     }

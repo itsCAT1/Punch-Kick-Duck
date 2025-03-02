@@ -23,6 +23,7 @@ MonoBehaviour:
   - rid: 2713678562450735109
   - rid: 2713678567071809537
   - rid: 2713678568512552973
+  - rid: 4991458484676460544
   AnyTransitions: []
   StartingState:
     rid: 2713678562450735105
@@ -132,5 +133,18 @@ MonoBehaviour:
         TransitionsTo: []
     - rid: 2713678568512552974
       type: {class: EnemyBlockState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 4991458484676460544
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 4991458484676460545
+        Position: {x: 787, y: 426}
+        _name: Tutorial
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 4991458484676460545
+      type: {class: EnemyTutorialState, ns: , asm: Assembly-CSharp}
       data:
         enabled: 1

@@ -18,7 +18,7 @@ public class TutorialManager : Singleton<TutorialManager>
     public TutorialState currentState;
 
     public GameObject tutorialUI;
-    public SlideAttackHint punchHint, kickHint, duckHint;
+    public AttackHintSlider punchHint, kickHint, duckHint;
 
     void Start()
     {

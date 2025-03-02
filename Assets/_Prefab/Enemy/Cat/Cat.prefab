@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: -2276527885443506907}
   - component: {fileID: 2937486125107915682}
   - component: {fileID: 7527170326432100045}
+  - component: {fileID: 5451113006067250611}
   m_Layer: 7
   m_Name: Cat
   m_TagString: Enemy
@@ -589,6 +590,7 @@ MonoBehaviour:
   apear: {fileID: 2937486125107915682}
   health: {fileID: 8652975809181785862}
   coin: {fileID: -2276527885443506907}
+  tutorial: {fileID: 5451113006067250611}
   executer: {fileID: 7527170326432100045}
 --- !u!114 &3485454884216409592
 MonoBehaviour:
@@ -785,6 +787,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 11400000, guid: 61b324a267c344b41b0c68d929baf200, type: 2}
+--- !u!114 &5451113006067250611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326386334186138647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49423d3e730e1bc4a8d45aacd2da0e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceReach: 10
+  canWait: 0
+  isWaiting: 0
 --- !u!1 &4663519807555698418
 GameObject:
   m_ObjectHideFlags: 0

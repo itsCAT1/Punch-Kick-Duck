@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public DroppingCoin coin;
     [HideInInspector]
+    public EnemyOnTutorial tutorial;
+    [HideInInspector]
     public FSMC_Executer executer;
 
     void OnValidate()
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour
         attack = GetComponent<EnemyAttacking>();
         apear = GetComponent<EnemyApear>();
         coin = GetComponent<DroppingCoin>();
+        tutorial = GetComponent<EnemyOnTutorial>();
 
         if (controller.haveBottle)
         {

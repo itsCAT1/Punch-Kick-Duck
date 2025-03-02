@@ -21,13 +21,14 @@ public class PunchState : FSMC_Behaviour
     {
         Player.Instance.rigid.velocity = Vector3.zero;
         OnPunching();
-        if (ConditionManger.Instance.currentState != GameState.InGame)
+
+        if (ConditionManger.Instance.currentState == GameState.InGame || ConditionManger.Instance.currentState == GameState.Tutorial)
         {
-            interval = 0.5f;
+            interval = 1;
         }
         else
         {
-            interval = 1f;
+            interval = 0.5f;
         }
     }
 

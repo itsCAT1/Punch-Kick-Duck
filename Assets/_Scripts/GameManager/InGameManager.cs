@@ -19,16 +19,10 @@ public class InGameManager : Singleton<InGameManager>
     {
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetValue);
-
-        UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(OnTutorial);
     }
 
     public void ResetValue(IUEventData uEventData)
     {
-        Player.Instance.health.currentHealth = Player.Instance.health.maxHealth;
-        Player.Instance.health.SetDataHeart();
-
         DataInGame.Instance.beatingPoint = 0;
         DataInGame.Instance.beatingCounter = 1;
         DataInGame.Instance.beatingStreak = 0;
@@ -36,14 +30,9 @@ public class InGameManager : Singleton<InGameManager>
         DataInGame.Instance.score = 0;
     }
 
-    void OnTutorial(IUEventData uEventData)
-    {
-        ShowUI();
-    }
-
     public void ShowUI()
     {
         canvasGroup.alpha = 0;
-        canvasGroup.DOFade(1, 1f);
+        canvasGroup.DOFade(1, 1);
     }
 }

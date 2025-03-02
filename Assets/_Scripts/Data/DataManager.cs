@@ -71,6 +71,7 @@ public class DataManager : Singleton<DataManager>
                 currentMap = 1,
                 totalCoin = 0,
                 totalScore = 0,
+                currentSkin = 1,
                 showTutorial = true
             };
             SaveDataBase();

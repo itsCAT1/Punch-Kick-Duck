@@ -7,15 +7,21 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] enemies;
-    public List<Transform> spawnPositions; 
-    bool canSpawn;
-
+    public List<Transform> spawnPositions;
+    public bool canSpawn;
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableSpawn);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(EnableSpawn);
+
+    }
+
+    private void OnEnable()
+    {
+        canSpawn = true;
     }
 
     void EnableSpawn(IUEventData uEventData)
@@ -28,14 +34,19 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && canSpawn)
         {
-            canSpawn = false;
-            foreach (var enemyPos in spawnPositions)
-            {
-                GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
+            Spawn();
+        }
+    }
 
-                var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity, SpawnManager.Instance.spawnParent);
-                SpawnManager.Instance.objectHaveSpawned.Add(enemyTemp);
-            }
+    void Spawn()
+    {
+        canSpawn = false;
+        foreach (var enemyPos in spawnPositions)
+        {
+            GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
+
+            var enemyTemp = Instantiate(enemyPrefab, enemyPos.position, Quaternion.identity, SpawnManager.Instance.spawnParent);
+            SpawnManager.Instance.objectHaveSpawned.Add(enemyTemp);
         }
     }
 

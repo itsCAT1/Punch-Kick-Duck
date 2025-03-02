@@ -14,7 +14,6 @@ public class DoorHandler : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(Close);
-        UEventDispatcherSingleton.Instance.AddEventListener<GoLevelBoss>(EnterBoss);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,8 +30,8 @@ public class DoorHandler : MonoBehaviour
 
             if (DataManager.Instance.data.currentMap == 10)
             {
-                UEventData uEventData = new UEventData();
-                UEventDispatcherSingleton.Instance.Invoke<GoLevelBoss>(uEventData);
+                CameraManager.Instance.GoBossArea();
+                StartCoroutine(EnterBoss());
             }
         }
     }
@@ -48,12 +47,7 @@ public class DoorHandler : MonoBehaviour
         GetComponent<Collider>().enabled = true;
     }
 
-    void EnterBoss(IUEventData uEventData)
-    {
-        StartCoroutine(GoInLevelBoss());
-    }
-
-    IEnumerator GoInLevelBoss()
+    IEnumerator EnterBoss()
     {
         yield return new WaitForSeconds(5);
         GetComponent<Collider>().enabled = false;

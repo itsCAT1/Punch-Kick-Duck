@@ -20,6 +20,12 @@ public class CombatManager : Singleton<CombatManager>
         {
             healthEnemy?.TakeDamage();
             DataPointManager.Instance.GainPoint();
+
+
+            if (ConditionManger.Instance.currentState == GameState.Tutorial)
+            {
+                TutorialHandler.Instance.UpdateHint(enemyAttackType);
+            }
         }
     }
 

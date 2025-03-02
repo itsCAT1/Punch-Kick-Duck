@@ -60,7 +60,12 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
+        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame);
+        if (DataManager.Instance.data.showTutorial)
+        {
+            inGameUI.SetActive(false);
+        }
+
         pauseGameUI.SetActive(currentState == GameState.PauseGame);
         endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);

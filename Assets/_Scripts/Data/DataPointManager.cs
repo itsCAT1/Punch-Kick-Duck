@@ -25,17 +25,26 @@ public class DataPointManager : Singleton<DataPointManager>
 
     public void GainPoint()
     {
+        UpdatePoint();
+
+        if (ConditionManger.Instance.currentState == GameState.Tutorial) return;
+
         Player.Instance.health.GainHeart();
         InGameManager.Instance.bonusPoint.GainPoint();
-        DataInGame.Instance.score += DataInGame.Instance.beatingCounter;
         DataInGame.Instance.beatingStreak++;
         UpdateBestStreak();
+    }
 
+    void UpdatePoint()
+    {
+        DataInGame.Instance.score += DataInGame.Instance.beatingCounter;
         InGameManager.Instance.score.UpdateScore();
     }
 
     public void LosePoint(IUEventData uEventData)
     {
+        if (ConditionManger.Instance.currentState == GameState.Tutorial) return;
+
         Player.Instance.health.currentHeart = 0;
         InGameManager.Instance.lives.UpdateLivesProgress();
         InGameManager.Instance.bonusPoint.LosePoint();

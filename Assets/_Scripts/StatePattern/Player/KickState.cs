@@ -21,13 +21,13 @@ public class KickState : FSMC_Behaviour
         Player.Instance.animator.Play("Kick");
         timeStart = Time.time;
 
-        if (ConditionManger.Instance.currentState != GameState.InGame) 
+        if (ConditionManger.Instance.currentState == GameState.InGame || ConditionManger.Instance.currentState == GameState.Tutorial) 
         {
-            interval = 0.5f;
+            interval = 1;
         }
         else
         {
-            interval = 1f;
+            interval = 0.5f;
         }
     }
 
