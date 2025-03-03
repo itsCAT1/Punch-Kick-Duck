@@ -21,6 +21,11 @@ public class InGameManager : Singleton<InGameManager>
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
     }
 
+    private void OnEnable()
+    {
+        ShowUI();
+    }
+
     public void ResetValue(IUEventData uEventData)
     {
         DataInGame.Instance.beatingPoint = 0;

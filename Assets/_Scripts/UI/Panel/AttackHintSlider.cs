@@ -21,6 +21,19 @@ public class AttackHintSlider : SlideHandler
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
 
+        int currentMap = DataManager.Instance.data.currentMap;
+
+        if (currentMap % 2 == 1 || currentMap == 10) 
+        {
+            startPositionX = 480;
+            endPositionX = -480;
+        }
+        else 
+        {
+            startPositionX = -2400;
+            endPositionX = -1440;
+        }
+
         Vector2 newPosition = rectTransform.anchoredPosition;
         newPosition.x = startPositionX;
         rectTransform.anchoredPosition = newPosition;

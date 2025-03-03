@@ -25,6 +25,7 @@ MonoBehaviour:
   - rid: 2713678331847114752
   - rid: 6375723103389483008
   - rid: 4071470142872354816
+  - rid: 4991458488528928768
   AnyTransitions:
   - rid: 2713678568512552961
   - rid: 2713678568512552962
@@ -149,6 +150,19 @@ MonoBehaviour:
         TransitionsTo: []
     - rid: 4071470142872354817
       type: {class: WaitToAttackState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 4991458488528928768
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 4991458488528928769
+        Position: {x: 638, y: -172}
+        _name: Block
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 4991458488528928769
+      type: {class: BlockState, ns: , asm: Assembly-CSharp}
       data:
         enabled: 1
     - rid: 6375723103389483008

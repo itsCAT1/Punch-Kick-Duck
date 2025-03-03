@@ -12,8 +12,7 @@ public class EnemyController : MonoBehaviour
     public LayerMask charactorLayer;
 
     [Header("Enemy Type")]
-    public bool haveBottle;
-    public bool haveCart;
+    public bool haveBottle, haveCart;
 
     [Header("Size Attack")]
     public float currentRange;
@@ -32,8 +31,7 @@ public class EnemyController : MonoBehaviour
 
     void UpdateAction()
     {
-        if (!canAttack) return;
-        if (enemy.executer.GetCurrentState() == null) return;
+        if (enemy.executer.GetCurrentState() == null || !canAttack) return;
 
         bool aimingRay = Physics.Raycast(rayDetect.transform.position, rayDetect.transform.forward, out RaycastHit Infor, currentRange, charactorLayer);
 

@@ -5,10 +5,7 @@ using UnityEngine;
 public class EnemyDetecter : MonoBehaviour
 {
     Enemy enemy;
-    public float sizeAttack;
-    public float sizeStand;
-    public float sizeThrow;
-    public float sizeHaveCart;
+    public float sizeAttack, sizeStand, sizeThrow, sizeHaveCart;
 
     private void Start()
     {

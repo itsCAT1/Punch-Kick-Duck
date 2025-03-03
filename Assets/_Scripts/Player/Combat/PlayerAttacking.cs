@@ -52,10 +52,6 @@ public class PlayerAttacking : MonoBehaviour
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(DisableAttackTemporary);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(DisableAttackTemporary);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(DisableAttack);
-
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableAttack);
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(EnableAttack);
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableAttack);
@@ -89,24 +85,6 @@ public class PlayerAttacking : MonoBehaviour
     }
 
     void EnableAttack(IUEventData uEventData)
-    {
-        canAttack = true;
-    }
-
-    void DisableAttack(IUEventData uEventData)
-    {
-        canAttack = false;
-    }
-
-    void DisableAttackTemporary(IUEventData uEventData)
-    {
-        canAttack = false;
-
-        CancelInvoke(nameof(Enable));
-        Invoke(nameof(Enable), 1f);
-    }
-
-    void Enable()
     {
         canAttack = true;
     }

@@ -9,7 +9,6 @@ public enum GameState
     Menu,
     StartGame,
     InGame,
-    PauseGame,
     EndGame,
     EndGameBoss,
     GameOver,
@@ -39,7 +38,6 @@ public class ConditionManger : Singleton<ConditionManger>
     {
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<PauseGame>(OnPauseGame);
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(OnEndGame);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGameBoss>(OnEndGameBoss);
@@ -60,13 +58,12 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame);
+        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame);
         if (DataManager.Instance.data.showTutorial)
         {
             inGameUI.SetActive(false);
         }
 
-        pauseGameUI.SetActive(currentState == GameState.PauseGame);
         endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
         gameOverUI.SetActive(currentState == GameState.GameOver);
@@ -74,7 +71,7 @@ public class ConditionManger : Singleton<ConditionManger>
         menuGameUI.SetActive(currentState == GameState.Menu);
         attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.Tutorial);
         tutorialUI.SetActive(currentState == GameState.StartGame || currentState == GameState.Tutorial);
-        buttonPauseUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.PauseGame || currentState == GameState.Tutorial);
+        buttonPauseUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.Tutorial);
 
         miniBossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10);
         bossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap == 10);
@@ -93,11 +90,6 @@ public class ConditionManger : Singleton<ConditionManger>
     void OnInGame(IUEventData uEvent)
     {
         SetState(GameState.InGame);
-    }
-
-    void OnPauseGame(IUEventData uEvent)
-    {
-        SetState(GameState.PauseGame);
     }
 
     void OnGameOver(IUEventData uEvent)

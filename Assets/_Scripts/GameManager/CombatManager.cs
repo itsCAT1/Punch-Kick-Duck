@@ -24,7 +24,7 @@ public class CombatManager : Singleton<CombatManager>
 
             if (ConditionManger.Instance.currentState == GameState.Tutorial)
             {
-                TutorialHandler.Instance.UpdateHint(enemyAttackType);
+                TutorialHandler.Instance.UpdateTutorial(enemyAttackType);
             }
         }
     }

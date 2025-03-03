@@ -48,7 +48,5 @@ public class PlayerDealDamage : MonoBehaviour
                 CombatManager.Instance.DealtDamageBoss();
             }
         }
-
-        
     }
 }

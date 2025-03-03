@@ -43,7 +43,7 @@ public class EnemyAttacking : MonoBehaviour
 
     void BlockDamage()
     {
-        Player.Instance.block.BlockDamage();
+        Player.Instance.executer.SetCurrentState("Block");
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerBlocking>(uEventData);

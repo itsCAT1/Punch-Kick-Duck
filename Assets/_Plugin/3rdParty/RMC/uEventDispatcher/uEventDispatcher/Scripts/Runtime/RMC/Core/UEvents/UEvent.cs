@@ -78,15 +78,6 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
-    public class PauseGame : UnityEvent<IUEventData>, IUEvent
-    {
-        public void InvokeNull()
-        {
-            this.Invoke(null);
-        }
-    }
-
-    [Serializable]
     public class RestartGame : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()

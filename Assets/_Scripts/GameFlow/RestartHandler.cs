@@ -19,7 +19,7 @@ public class RestartHandler : MonoBehaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<RestartGame>(uEventData);
-        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
 
+        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
     }
 }

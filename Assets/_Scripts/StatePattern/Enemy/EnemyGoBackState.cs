@@ -11,7 +11,8 @@ public class EnemyGoBackState : FSMC_Behaviour
     Enemy enemy;
 
     private float timeStart;
-    public bool timeChangeState => Time.time - timeStart >= 2;
+    private float interval;
+    public bool timeChangeState => Time.time - timeStart >= interval;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
 
@@ -24,6 +25,10 @@ public class EnemyGoBackState : FSMC_Behaviour
         enemy.rigid.isKinematic = false;
 
         enemy.GetComponent<EnemyGoingBack>().PerformGoingBack();
+
+        if (ConditionManger.Instance.currentState == GameState.InGame) interval = 2f;
+        if (ConditionManger.Instance.currentState == GameState.Tutorial) interval = 3f;
+
         timeStart = Time.time;
     }
 

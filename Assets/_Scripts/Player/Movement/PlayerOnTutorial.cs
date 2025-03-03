@@ -1,3 +1,5 @@
+﻿using RMC.Core.UEvents.UEventDispatcher;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,7 +9,17 @@ using UnityEngine;
 public class PlayerOnTutorial : MonoBehaviour
 {
     public float distanceReach;
+    public float duration;
+
+    public bool canWait;
+
     public bool isWaiting;
+    bool isChangingState = false;
+
+    private void Start()
+    {
+        UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(OnReset);
+    }
 
     public bool EnemyInRange()
     {
@@ -20,22 +32,28 @@ public class PlayerOnTutorial : MonoBehaviour
         {
             return true;
         }
-        else  return false;
+        else return false;
     }
 
     public void UpdatePlayerState()
     {
+        if (canWait)
+        {
+            Player.Instance.executer.SetCurrentState("Idle");
+            return;
+        }
+
         if (EnemyInRange())
         {
             if (!isWaiting)
             {
-                StartCoroutine(ChangeState());
+                if(!isChangingState) StartCoroutine(ChangeState());
+
                 return;
             }
 
             Player.Instance.executer.SetCurrentState("Walk");
         }
-
         else
         {
             Player.Instance.executer.SetCurrentState("Walk");
@@ -44,10 +62,22 @@ public class PlayerOnTutorial : MonoBehaviour
 
     IEnumerator ChangeState()
     {
+        isChangingState = true;
+        Player.Instance.attack.canAttack = false;
+
         Player.Instance.executer.SetCurrentState("Idle");
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(duration);
 
+        Player.Instance.attack.canAttack = true;
         isWaiting = true;
+        isChangingState = false; 
+    }
+
+    void OnReset(IUEventData uEventData)
+    {
+        canWait = false;
+        isWaiting = false;
+        isChangingState = false; 
     }
 }

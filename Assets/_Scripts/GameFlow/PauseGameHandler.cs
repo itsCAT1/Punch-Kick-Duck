@@ -13,9 +13,6 @@ public class PauseGameHandler : MonoBehaviour
 
     public void PauseGame()
     {
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<PauseGame>(uEventData);
-
         OpenPanel();
     }
 
@@ -36,26 +33,5 @@ public class PauseGameHandler : MonoBehaviour
     public void ContinueGame()
     {
         Time.timeScale = 1;
-
-        UEventData uEventData = new UEventData();
-
-        if (ConditionManger.Instance.currentState == GameState.InGame)
-        {
-            UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
-        }
-
-        if (ConditionManger.Instance.currentState == GameState.StartGame)
-        {
-            UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
-        }
-
-        if (ConditionManger.Instance.currentState == GameState.Tutorial)
-        {
-            UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
-        }
-
-        ConditionManger.Instance.attackUI.SetActive(true);
-
-
     }
 }

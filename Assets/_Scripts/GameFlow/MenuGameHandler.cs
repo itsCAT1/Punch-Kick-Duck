@@ -18,7 +18,5 @@ public class MenuGameHandler : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
-
-        InGameManager.Instance.ShowUI();
     }
 }

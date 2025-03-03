@@ -10,7 +10,7 @@ public class TutorialHandler : Singleton<TutorialHandler>
     public GameObject[] tickUI;
     public GameObject[] dashUI;
 
-
+    public TutorialSlider tutorialSlider;
     private void OnEnable()
     {
         HintOnStart();
@@ -24,18 +24,22 @@ public class TutorialHandler : Singleton<TutorialHandler>
         }
     }
 
-    public void UpdateHint(AttackType enemyAttackType)
+    public void UpdateTutorial(AttackType enemyAttackType)
     {
         if(enemyAttackType == AttackType.Kick)
         {
             tickUI[0].SetActive(true);
             dashUI[0].SetActive(false);
+            Player.Instance.tutorial.canWait = false;
+            Player.Instance.attack.canAttack = false;
         }
 
         else if (enemyAttackType == AttackType.Duck)
         {
             tickUI[1].SetActive(true);
             dashUI[1].SetActive(false);
+            Player.Instance.tutorial.canWait = false;
+            Player.Instance.attack.canAttack = false;
         }
 
         else if (enemyAttackType == AttackType.Punch)
@@ -43,15 +47,17 @@ public class TutorialHandler : Singleton<TutorialHandler>
             tickUI[2].SetActive(true);
             dashUI[2].SetActive(false);
 
-            OnCompletedTutorial();
+            OnBeatenEnemy();
         }
     }
 
-    void OnCompletedTutorial()
+    void OnBeatenEnemy()
     {
         DataManager.Instance.data.showTutorial = false;
+        Player.Instance.tutorial.canWait = true;
+        
+        ConditionManger.Instance.inGameUI.SetActive(true);
 
-        UEventData uEventData = new UEventData();
-        UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+        tutorialSlider.SlideNoteScore();
     }
 }
