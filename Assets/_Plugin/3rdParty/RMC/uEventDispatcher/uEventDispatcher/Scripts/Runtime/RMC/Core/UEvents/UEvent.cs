@@ -41,6 +41,15 @@ namespace RMC.Core.UEvents
     }
 
     [Serializable]
+    public class PlayerRevive : UnityEvent<IUEventData>, IUEvent
+    {
+        public void InvokeNull()
+        {
+            this.Invoke(null);
+        }
+    }
+
+    [Serializable]
     public class StartGame : UnityEvent<IUEventData>, IUEvent
     {
         public void InvokeNull()
@@ -76,6 +85,7 @@ namespace RMC.Core.UEvents
             this.Invoke(null);
         }
     }
+
 
     [Serializable]
     public class RestartGame : UnityEvent<IUEventData>, IUEvent

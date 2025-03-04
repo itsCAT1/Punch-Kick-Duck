@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using RMC.Core.UEvents.UEventDispatcher;
 using RMC.Core.UEvents;
 using System.Collections;
@@ -7,33 +7,41 @@ using UnityEngine;
 using System;
 using UnityEngine.UIElements;
 
-public class PlayerLevelMover : MonoBehaviour
+public class PlayerLevelMover : WaypointController
 {
-    public Vector3[] targetPos;
     public float duration;
-
-    public Transform[] pos;
 
     public void PlayerMoving()
     {
-        Player.Instance.transform.DOPath(targetPos, duration, PathType.CatmullRom, PathMode.Full3D, 10, Color.red);
-        StartCoroutine(StartRotate());
+        StartCoroutine(StartMove());
+
+        if(DataManager.Instance.data.currentMap < 9) StartCoroutine(StartRotate());
+    }
+
+    IEnumerator StartMove()
+    {
+        float timeCount = 0;
+        Player.Instance.rigid.useGravity = false;
+        Player.Instance.GetComponent<Collider>().enabled = false;
+
+        while (timeCount < duration)
+        {
+            PlayerPerformMoving();
+
+            timeCount += Time.deltaTime;
+            yield return null;
+        }
+
+        Player.Instance.rigid.useGravity = true;
+        Player.Instance.GetComponent<Collider>().enabled = true;
+
+        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y, 0);
     }
 
     IEnumerator StartRotate()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         Player.Instance.transform.rotation = Quaternion.Euler(0, -Player.Instance.transform.eulerAngles.y, 0);
-    }
-
-    [ContextMenu("Create Position")]
-    void CreatePosition()
-    {
-        targetPos = new Vector3[pos.Length];
-        for (int i = 0; i < pos.Length; i++)
-        {
-            targetPos[i] = pos[i].position;
-        }
     }
 
 }

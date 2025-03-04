@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class EndGameTrigger : MonoBehaviour
 {
-    PlayerLevelMover nextLevel;
+    PlayerLevelMover levelMover;
+
     private void Start()
     {
-        nextLevel = GetComponent<PlayerLevelMover>();
+        levelMover = GetComponent<PlayerLevelMover>();
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(ChangeStatePlayer);
     }
 
@@ -23,7 +24,7 @@ public class EndGameTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            nextLevel.PlayerMoving();
+            levelMover.PlayerMoving();
             LevelManager.Instance.StartTransition();
 
             UEventData uEventData = new UEventData();

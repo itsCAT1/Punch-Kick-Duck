@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         UpdateAction();
     }
 
-    void UpdateAction()
+    public void UpdateAction()
     {
         if (enemy.executer.GetCurrentState() == null || !canAttack) return;
 

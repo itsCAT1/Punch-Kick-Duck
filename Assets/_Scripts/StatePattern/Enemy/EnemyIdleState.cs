@@ -20,7 +20,7 @@ public class EnemyIdleState : FSMC_Behaviour
 
         enemy.rigid.velocity = Vector3.zero;
         enemy.controller.Standing();
-        
+        enemy.animator.Play("Idle");
         enemy.rigid.isKinematic = true;
     }
 

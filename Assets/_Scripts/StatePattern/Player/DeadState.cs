@@ -9,6 +9,10 @@ using RMC.Core.UEvents;
 [Serializable]
 public class DeadState : FSMC_Behaviour
 {
+    private float timeStart = 0;
+    public bool timeChangeState => Time.time - timeStart >= 0.5f;
+    bool isOver;
+
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
 
@@ -20,12 +24,19 @@ public class DeadState : FSMC_Behaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<PlayerDeath>(uEventData);
-        UEventDispatcherSingleton.Instance.Invoke<GameOver>(uEventData);
+
+        isOver = false;
+        timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        
+        if (timeChangeState && !isOver)
+        {
+            isOver = true;
+            UEventData uEventData = new UEventData();
+            UEventDispatcherSingleton.Instance.Invoke<GameOver>(uEventData);
+        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

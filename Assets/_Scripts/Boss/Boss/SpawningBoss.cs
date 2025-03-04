@@ -14,7 +14,7 @@ public class SpawningBoss : Singleton<SpawningBoss>
     {
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SpawnOnStart);
 
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(SpawnOnStart);
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(SpawnOnStart);
 
         UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SpawnOnStart);
     }

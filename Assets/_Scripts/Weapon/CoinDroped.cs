@@ -32,7 +32,7 @@ public class CoinDroped : ObjectPushing
         if (collision.gameObject.CompareTag("Player"))
         {
             DataManager.Instance.data.totalCoin++;
-            InGameManager.Instance.coin.UpdateScore();
+            InGameManager.Instance.coin.UpdateCoin();
             Destroy(this.gameObject);
         }
     }

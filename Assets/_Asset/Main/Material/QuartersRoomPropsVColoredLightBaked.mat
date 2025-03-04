@@ -2,25 +2,30 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: QuartersRoomPropsVColoredLightBaked
   m_Shader: {fileID: 4800000, guid: af9a7545022842b47a1e3d90f0c40181, type: 3}
-  m_ShaderKeywords:
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: {}
-    m_Floats: {}
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
     m_Colors:
-      _DiffuseBaseCol: {r: 0.6247775, g: 0.63255864, b: 0.6792453, a: 1}
-      _GradientSubColor: {r: -0.15, g: -0.2, b: -0.15, a: 0}
+    - _DiffuseBaseCol: {r: 0.6247775, g: 0.63255864, b: 0.6792453, a: 1}
+    - _GradientSubColor: {r: -0.15, g: -0.2, b: -0.15, a: 0}
   m_BuildTextureStacks: []

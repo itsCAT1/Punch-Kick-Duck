@@ -58,7 +58,7 @@ public class ConditionManger : Singleton<ConditionManger>
 
     void ActiveCurrentUI()
     {
-        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame);
+        inGameUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.GameOver);
         if (DataManager.Instance.data.showTutorial)
         {
             inGameUI.SetActive(false);
@@ -66,7 +66,6 @@ public class ConditionManger : Singleton<ConditionManger>
 
         endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
-        gameOverUI.SetActive(currentState == GameState.GameOver);
         selectCharactorUI.SetActive(currentState == GameState.SelectCharacter);
         menuGameUI.SetActive(currentState == GameState.Menu);
         attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.Tutorial);

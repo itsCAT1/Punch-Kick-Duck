@@ -21,7 +21,6 @@ public class PlayerHealth : Health
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(LoseHeart);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(LoseHeart);
         UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(SetDataTutorial);
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(SetDataInGame);
     }
@@ -38,7 +37,6 @@ public class PlayerHealth : Health
     public void SetDataInGame(IUEventData uEventData)
     {
         Player.Instance.health.currentHealth = Player.Instance.health.maxHealth;
-
         var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
         maxHeart = dataPlayer.maxHeart;
         currentHeart = maxHeart;

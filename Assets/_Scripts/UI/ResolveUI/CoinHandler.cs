@@ -10,10 +10,10 @@ public class CoinHandler : MonoBehaviour
 
     private void Start()
     {
-        UpdateScore();
+        UpdateCoin();
     }
 
-    public void UpdateScore()
+    public void UpdateCoin()
     {
         coinUI.text = DataManager.Instance.data.totalCoin.ToString();
     }

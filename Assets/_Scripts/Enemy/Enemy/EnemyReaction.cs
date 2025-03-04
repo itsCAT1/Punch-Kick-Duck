@@ -16,6 +16,8 @@ public class EnemyReaction : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopChasing);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerRevive>(ContinuesAttack);
+
     }
 
     void WaitingPlayer(IUEventData uEventData)
@@ -41,5 +43,10 @@ public class EnemyReaction : MonoBehaviour
 
         enemy.controller.canAttack = false;
         enemy.executer.SetCurrentState("Idle");
+    }
+
+    void ContinuesAttack(IUEventData uEventData)
+    {
+        enemy.controller.canAttack = true;
     }
 }

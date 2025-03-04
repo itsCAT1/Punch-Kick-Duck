@@ -19,6 +19,7 @@ public class EnemyWalkState : FSMC_Behaviour
         enemy = executer.GetComponent<Enemy>();
 
         enemy.rigid.isKinematic = false;
+        enemy.animator.Play("Walk");
         enemy.controller.Moving();
 
     }

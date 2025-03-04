@@ -4,32 +4,43 @@ using UnityEngine;
 using FSMC.Runtime;
 using System;
 using static UnityEngine.EventSystems.EventTrigger;
+using static Cinemachine.AxisState;
+using Unity.VisualScripting;
 
 [Serializable]
 public class EnemyWinState : FSMC_Behaviour
 {
     Enemy enemy;
 
+    private float timeStart;
+    public bool timeChangeState => Time.time - timeStart >= 0.5f;
+
+    bool playerInRange => Vector3.Distance(enemy.transform.position, Player.Instance.transform.position) <= 15;
+
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         enemy = executer.GetComponent<Enemy>();
 
-        enemy.rigid.isKinematic = true;
-        enemy.animator.Play("Win");
+        enemy.rigid.isKinematic = false;
+        enemy.controller.canAttack = false;
     }
 
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        if (timeChangeState)
+        {
+            enemy.controller.Standing();
+            enemy.animator.Play("Win");
+        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        enemy.rigid.velocity = Vector3.zero;
+        
     }
 }

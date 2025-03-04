@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 6375723103389483008
   - rid: 4071470142872354816
   - rid: 4991458488528928768
+  - rid: 4991458527119409152
   AnyTransitions:
   - rid: 2713678568512552961
   - rid: 2713678568512552962
@@ -59,7 +60,7 @@ MonoBehaviour:
       data:
         _behaviours:
         - rid: 2713678331847114753
-        Position: {x: 638, y: 400}
+        Position: {x: 638, y: 457}
         _name: EndGame
         TransitionsFrom: []
         TransitionsTo: []
@@ -144,7 +145,7 @@ MonoBehaviour:
       data:
         _behaviours:
         - rid: 4071470142872354817
-        Position: {x: 638, y: 481.3333}
+        Position: {x: 638, y: 545}
         _name: WaitToAttack
         TransitionsFrom: []
         TransitionsTo: []
@@ -163,6 +164,19 @@ MonoBehaviour:
         TransitionsTo: []
     - rid: 4991458488528928769
       type: {class: BlockState, ns: , asm: Assembly-CSharp}
+      data:
+        enabled: 1
+    - rid: 4991458527119409152
+      type: {class: FSMC_State, ns: FSMC.Runtime, asm: FSMC.Runtime}
+      data:
+        _behaviours:
+        - rid: 4991458527119409153
+        Position: {x: 638, y: 367}
+        _name: GetUp
+        TransitionsFrom: []
+        TransitionsTo: []
+    - rid: 4991458527119409153
+      type: {class: GetUpState, ns: , asm: Assembly-CSharp}
       data:
         enabled: 1
     - rid: 6375723103389483008
@@ -192,7 +206,7 @@ MonoBehaviour:
       data:
         _behaviours:
         - rid: 7177949605818007558
-        Position: {x: 638, y: 319}
+        Position: {x: 638, y: 281}
         _name: Walk
         TransitionsFrom: []
         TransitionsTo: []

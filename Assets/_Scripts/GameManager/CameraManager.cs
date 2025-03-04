@@ -18,8 +18,9 @@ public class CameraManager : Singleton<CameraManager>
         InitialGame();
 
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenuGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnRestartGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(InstantCamera);
         UEventDispatcherSingleton.Instance.AddEventListener<CharactorSelection>(OnCharactorSelection);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(InstantCamera);
     }
 
 
@@ -48,7 +49,8 @@ public class CameraManager : Singleton<CameraManager>
         handler.SwitchCamera();
     }
 
-    void OnRestartGame(IUEventData uEventData)
+
+    void InstantCamera(IUEventData uEventData)
     {
         handler.SwitchCamera();
     }

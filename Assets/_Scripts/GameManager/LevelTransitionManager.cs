@@ -14,7 +14,7 @@ public class LevelTransitionManager : Singleton<LevelTransitionManager>
 
     void ChangeLevel(IUEventData uEventData)
     {
-        if(DataManager.Instance.data.currentMap < 9)
+        if(DataManager.Instance.data.currentMap < 10)
         {
             DataManager.Instance.data.currentMap++;
         }

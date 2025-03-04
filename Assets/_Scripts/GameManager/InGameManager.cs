@@ -15,10 +15,20 @@ public class InGameManager : Singleton<InGameManager>
 
     public CanvasGroup canvasGroup;
 
+    public GameObject reviveUI;
+    public GameObject gameOverUI;
+    public bool canRevive;
+
     void Start()
     {
+        canRevive = true;
+
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
+
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetRevive);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(ResetRevive);
+        UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(SetRevive);
     }
 
     private void OnEnable()
@@ -33,6 +43,21 @@ public class InGameManager : Singleton<InGameManager>
         DataInGame.Instance.beatingStreak = 0;
         DataInGame.Instance.bestStreak = 0;
         DataInGame.Instance.score = 0;
+    }
+
+    void SetRevive(IUEventData uEventData)
+    {
+        if(DataManager.Instance.data.totalCoin >= 40 && canRevive)
+        {
+            canRevive = false;
+            reviveUI.SetActive(true);
+        }
+        else gameOverUI.SetActive(true);
+    }
+
+    void ResetRevive(IUEventData uEventData)
+    {
+        canRevive = true;
     }
 
     public void ShowUI()

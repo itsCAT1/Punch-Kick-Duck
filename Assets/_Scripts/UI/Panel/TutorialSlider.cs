@@ -9,19 +9,6 @@ public class TutorialSlider : SlideHandler
     public GameObject noteScore, noteBonusPoint, noteHeart;
     public HintSlider hintSlider;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            SlideNoteScore();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            noteScore.GetComponent<UIFadeIn>().FadeIn();
-        }
-    }
-
     public void SlideNoteScore()
     {
         StartCoroutine(StartSlideScore());
