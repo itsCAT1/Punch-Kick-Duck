@@ -19,6 +19,7 @@ public class EnemyGoingBack : MonoBehaviour
 
     public void PerformGoingBack()
     {
+        StopAllCoroutines();
         StartCoroutine(StartGoingBack());
     }
 
@@ -43,7 +44,6 @@ public class EnemyGoingBack : MonoBehaviour
 
                 enemy.rigid.velocity = new Vector3(-signY * speedMove, 0, 0);
 
-                enemy.controller.Standing();
                 enemy.animator.Play("GoBack");
             }
 
@@ -55,5 +55,7 @@ public class EnemyGoingBack : MonoBehaviour
 
             yield return null;
         }
+        enemy.controller.Standing();
+        enemy.animator.Play("Idle");
     }
 }

@@ -27,6 +27,9 @@ public class EnemyWinState : FSMC_Behaviour
 
         enemy.rigid.isKinematic = false;
         enemy.controller.canAttack = false;
+
+        enemy.GetComponent<EnemyGoingBack>().PerformGoingBack();
+        timeStart = Time.time;
     }
 
 
@@ -34,9 +37,10 @@ public class EnemyWinState : FSMC_Behaviour
     {
         if (timeChangeState)
         {
-            enemy.controller.Standing();
             enemy.animator.Play("Win");
         }
+
+
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

@@ -47,6 +47,7 @@ public class EnemyReaction : MonoBehaviour
 
     void ContinuesAttack(IUEventData uEventData)
     {
+        if (enemy.health.currentHealth == 0) return;
         enemy.controller.canAttack = true;
     }
 }

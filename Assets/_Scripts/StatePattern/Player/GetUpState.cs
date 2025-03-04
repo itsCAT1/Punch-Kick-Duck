@@ -31,16 +31,21 @@ public class GetUpState : FSMC_Behaviour
 
         if (timeChangeState)
         {
-            Player.Instance.attack.canAttack = true;
-
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
             UEventDispatcherSingleton.Instance.Invoke<PlayerRevive>(uEventData);
 
-            Player.Instance.health.currentHealth = 1;
-            Player.Instance.health.currentHeart = currentHeart;
+            SetPlayerAction();
         }
 
+    }
+
+    void SetPlayerAction()
+    {
+        Player.Instance.attack.canAttack = true;
+        Player.Instance.health.currentHealth = 1;
+        Player.Instance.health.currentHeart = currentHeart;
+        Player.Instance.executer.SetCurrentState("Idle");
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

@@ -38,6 +38,7 @@ public class MiniBossController : MonoBehaviour
 
     void Standing()
     {
+        animator.Play("Idle");
         animator.SetBool("Walking", false);
         attack.enabled = true;
         movement.enabled = false;
@@ -46,6 +47,7 @@ public class MiniBossController : MonoBehaviour
 
     void Moving()
     {
+        animator.Play("Walk");
         animator.SetBool("Walking", true);
         attack.enabled = false;
         movement.enabled = true;

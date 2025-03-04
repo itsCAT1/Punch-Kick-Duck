@@ -47,7 +47,8 @@ public class InGameManager : Singleton<InGameManager>
 
     void SetRevive(IUEventData uEventData)
     {
-        if(DataManager.Instance.data.totalCoin >= 40 && canRevive)
+        if(DataManager.Instance.data.totalCoin >= 40 && canRevive 
+            && DataManager.Instance.data.currentMap != 10)
         {
             canRevive = false;
             reviveUI.SetActive(true);

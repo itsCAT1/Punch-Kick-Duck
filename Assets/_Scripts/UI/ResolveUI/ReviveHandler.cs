@@ -43,7 +43,7 @@ public class ReviveHandler : MonoBehaviour
     IEnumerator CountdownTime()
     {
         float timeCount = 0;
-        float duration = 2;
+        float duration = 3;
 
         while (timeCount < duration)
         {

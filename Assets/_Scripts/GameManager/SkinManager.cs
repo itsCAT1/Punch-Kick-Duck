@@ -23,6 +23,8 @@ public class SkinManager : Singleton<SkinManager>
     public SkinOwnedList listSkinOwned;
     public SkinDataBase skin;
 
+    public CameraSkinHandler skinSelector;
+
 
     private void Start()
     {

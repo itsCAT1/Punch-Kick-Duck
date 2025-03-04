@@ -11,7 +11,7 @@ public class CameraManager : Singleton<CameraManager>
     public GameObject seletctCamera;
     public GameObject bossCamera;
     public CameraHandler handler;
-    public CameraSkinSelector skinSelector;
+    public CameraSkinHandler skinSelector;
 
     private void Start()
     {

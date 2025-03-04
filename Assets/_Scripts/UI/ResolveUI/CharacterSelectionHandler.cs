@@ -10,7 +10,6 @@ public class CharacterSelectionHandler : MonoBehaviour
     public GameObject[] play;
     public TextMeshProUGUI skinQuantity;
     public TextMeshProUGUI currentCoin;
-
     void Update()
     {
         UpdateUI();
@@ -44,7 +43,11 @@ public class CharacterSelectionHandler : MonoBehaviour
                 play[i].SetActive(i == skinIndex);
             }
         }
+    }
 
+    public void SelectSkin()
+    {
+        var skinIndex = CameraManager.Instance.skinSelector.currentIndex;
         DataManager.Instance.data.currentSkin = skinIndex;
     }
 

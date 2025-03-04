@@ -18,6 +18,7 @@ public class MiniBossReaction : MonoBehaviour
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(StopAttack);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopChasing);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerRevive>(ContinuesAttack);
     }
 
 
@@ -52,5 +53,11 @@ public class MiniBossReaction : MonoBehaviour
     {
         StopAllCoroutines();
         miniBossAction.DisableAction();
+    }
+
+    void ContinuesAttack(IUEventData uEventData)
+    {
+        StopAllCoroutines();
+        miniBossAction.EnableAction();
     }
 }

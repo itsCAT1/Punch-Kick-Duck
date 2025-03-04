@@ -17,10 +17,9 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
     {
         GetTimer();
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(StartCounting);
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetCounting);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetCounting);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetCounting);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(GameOver);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(DisableCount);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(DisableCount);
     }
 
     void GetTimer()
@@ -89,8 +88,9 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         ResumeCounting();
     }
 
-    void GameOver(IUEventData uEventData)
+    void DisableCount(IUEventData uEventData)
     {
         StopCounting();
     }
+
 }
