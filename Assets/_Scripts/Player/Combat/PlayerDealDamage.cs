@@ -56,9 +56,21 @@ public class PlayerDealDamage : MonoBehaviour
 
     public void CreateHitEffect()
     {
-        if (Player.Instance.attackType.type == AttackType.Punch) currentHitPosition = hitPosition[0];
-        else if (Player.Instance.attackType.type == AttackType.Kick) currentHitPosition = hitPosition[1];
-        else if (Player.Instance.attackType.type == AttackType.Duck) currentHitPosition = hitPosition[2];
+        if (Player.Instance.attackType.type == AttackType.Punch)
+        {
+            currentHitPosition = hitPosition[0];
+            AudioManager.Instance.soundPunch.Play();
+        }
+        else if (Player.Instance.attackType.type == AttackType.Kick)
+        {
+            currentHitPosition = hitPosition[1];
+            AudioManager.Instance.soundKick.Play();
+        }
+        else if (Player.Instance.attackType.type == AttackType.Duck)
+        {
+            currentHitPosition = hitPosition[2];
+            AudioManager.Instance.soundDuck.Play();
+        }
 
         Instantiate(hitVFXPrefab, currentHitPosition.position, Quaternion.identity);
     }

@@ -29,9 +29,4 @@ public class PauseGameHandler : MonoBehaviour
         buttonPause.interactable = true;
         animator.Play("Close");
     }
-
-    public void ContinueGame()
-    {
-        Time.timeScale = 1;
-    }
 }

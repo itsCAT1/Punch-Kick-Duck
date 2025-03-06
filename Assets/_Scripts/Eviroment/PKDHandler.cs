@@ -7,13 +7,14 @@ using UnityEngine;
 public class PKDHandler : MonoBehaviour
 {
     Rigidbody rigid;
-    public float forcePush;
 
-    bool canPush = true;
+    public float forcePush;
     public string type;
+    bool canPush = true;
 
     float timeCount = 0;
     public float maxTime = 0.5f;
+
 
     void Start()
     {
@@ -42,50 +43,71 @@ public class PKDHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var player = other.gameObject;
-
         if (DataManager.Instance.data.showTutorial)
         {
-            forcePush = 500;
-
-            if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch && canPush)
-            {
-                canPush = false;
-                PerformPushing();
-                TutorialManager.Instance.ChangeState();
-            }
-
-            else if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.currentState == TutorialState.Kick && canPush)
-            {
-                canPush = false;
-                PerformPushing();
-                TutorialManager.Instance.ChangeState();
-            }
-
-            else if(player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.currentState == TutorialState.Duck && canPush)
-            {
-                canPush = false;
-                PerformPushing();
-                TutorialManager.Instance.ChangeState();
-
-                UEventData uEventData = new UEventData();
-
-                if(DataManager.Instance.data.currentMap == 10)
-                {
-                    DataManager.Instance.data.showTutorial = false;
-
-                    UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
-                }
-                else UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
-            }
-
-            return;
+            ResolveTutorial(other);
         }
 
-        if((player.CompareTag("Punch") || player.CompareTag("Kick") || player.CompareTag("Duck"))
+        else
+        {
+            ResolveInGame(other);
+        }
+    }
+
+    void ResolveTutorial(Collider other)
+    {
+        var player = other.gameObject;
+
+        forcePush = 500;
+
+        if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch && canPush)
+        {
+            canPush = false;
+            PerformPushing();
+
+            Player.Instance.dealDamage.CreateHitEffect();
+            TutorialManager.Instance.ChangeState();
+        }
+
+        else if (player.CompareTag("Kick") && type == "Kick" && TutorialManager.Instance.currentState == TutorialState.Kick && canPush)
+        {
+            canPush = false;
+            PerformPushing();
+
+            Player.Instance.dealDamage.CreateHitEffect();
+            TutorialManager.Instance.ChangeState();
+        }
+
+        else if (player.CompareTag("Duck") && type == "Duck" && TutorialManager.Instance.currentState == TutorialState.Duck && canPush)
+        {
+            canPush = false;
+            PerformPushing();
+            Player.Instance.dealDamage.CreateHitEffect();
+            TutorialManager.Instance.ChangeState();
+
+            UEventData uEventData = new UEventData();
+
+            if (DataManager.Instance.data.currentMap == 10)
+            {
+                DataManager.Instance.data.showTutorial = false;
+
+                UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+            }
+
+            else UEventDispatcherSingleton.Instance.Invoke<Tutorial>(uEventData);
+        }
+    }
+
+    void ResolveInGame(Collider other)
+    {
+        var player = other.gameObject;
+
+        if ((player.CompareTag("Punch") || player.CompareTag("Kick") || player.CompareTag("Duck"))
             && canPush)
         {
             canPush = false;
+
+            Player.Instance.dealDamage.CreateHitEffect();
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
         }
@@ -110,8 +132,5 @@ public class PKDHandler : MonoBehaviour
         }
     }
 
-    void PushAll(IUEventData uEventData)
-    {
-        PerformPushing();
-    }
+    void PushAll(IUEventData uEventData) => PerformPushing();
 }
