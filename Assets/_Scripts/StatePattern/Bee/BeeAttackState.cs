@@ -7,8 +7,7 @@ using System;
 [Serializable]
 public class BeeAttackState : FSMC_Behaviour
 {
-    BeeController controller;
-    BeeAttack attack;
+    Bee bee;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -16,17 +15,17 @@ public class BeeAttackState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        controller = executer.GetComponent<BeeController>();
-        attack = executer.GetComponent<BeeController>().attack;
+        bee = executer.GetComponent<Bee>();
 
-        attack.currentIndex = 0;
-        attack.UpdatePosition();
-        controller.PerformRotate();
+        bee.attack.currentIndex = 0;
+        bee.attack.UpdatePosition();
+
+        bee.controller.PerformRotate();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        attack.PerformMoving();
+        bee.attack.PerformMoving();
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

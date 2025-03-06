@@ -8,9 +8,9 @@ public class ToggleGooglePlay : MonoBehaviour
     bool isExpanded = false;
     bool isAnimating = false;
 
-    public GameObject panelExpand;
     public float duration;
-
+    public GameObject panelExpand;
+    public AudioSource soundExpand, soundCollapse;
     void Start()
     {
         UpdatePanelState();
@@ -39,11 +39,13 @@ public class ToggleGooglePlay : MonoBehaviour
             if (isExpanded)
             {
                 UpdatePanelState();
+                soundExpand.Play();
                 animator.Play("Expand");
             }
             else
             {
                 animator.Play("Collapse");
+                soundCollapse.Play();
                 Invoke(nameof(UpdateAfterAnimation), duration);
             }
             isAnimating = true;

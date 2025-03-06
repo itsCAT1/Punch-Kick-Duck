@@ -43,6 +43,7 @@ public class DoorHandler : MonoBehaviour
 
     void Close(IUEventData uEventData)
     {
+        if (!gameObject.activeInHierarchy) return;
         animator.Play("CloseDoor");
         GetComponent<Collider>().enabled = true;
     }
@@ -50,6 +51,7 @@ public class DoorHandler : MonoBehaviour
     IEnumerator EnterBoss()
     {
         yield return new WaitForSeconds(5);
+
         GetComponent<Collider>().enabled = false;
     }
 }

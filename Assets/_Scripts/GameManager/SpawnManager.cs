@@ -14,9 +14,9 @@ public class SpawnManager : Singleton<SpawnManager>
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ClearEnemy);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ClearEnemy);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ClearEnemy);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ClearObject);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ClearObject);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ClearObject);
 
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(CheckState);
         UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(CheckState);
@@ -36,7 +36,7 @@ public class SpawnManager : Singleton<SpawnManager>
         }
     }
 
-    void ClearEnemy(IUEventData uEventData)
+    void ClearObject(IUEventData uEventData)
     {
         foreach (var enemy in objectHaveSpawned)
         {

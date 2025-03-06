@@ -11,7 +11,7 @@ public class EnemyThrowState : FSMC_Behaviour
 
     private float timeStart;
 
-    public bool attackCooldown => Time.time - timeStart >= 0.5f;
+    public bool attackCooldown => Time.time - timeStart >= 0.3f;
     public bool timeChangeState => Time.time - timeStart >= 1;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -23,6 +23,8 @@ public class EnemyThrowState : FSMC_Behaviour
 
         enemy.controller.canAttack = false;
         enemy.rigid.isKinematic = true;
+        enemy.thowBottle.PerformThrowBottle();
+        enemy.controller.haveBottle = false;
 
         enemy.controller.Standing();
         
@@ -37,11 +39,6 @@ public class EnemyThrowState : FSMC_Behaviour
         }
 
         AttackingEnemyManager.Instance.SetAttackingEnemy(enemy.gameObject);
-
-        if (attackCooldown)
-        {
-            enemy.thowBottle.PerformThrowBottle();
-        }
 
         if (timeChangeState)
         {

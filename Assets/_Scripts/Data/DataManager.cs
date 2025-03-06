@@ -76,6 +76,12 @@ public class DataManager : Singleton<DataManager>
             };
             SaveDataBase();
         }
+
+        if (!PlayerPrefs.HasKey(nameof(ListDataLevel)))
+        {
+            listLevel.data[0].isCompleted = true;
+            SaveDataProgress();
+        }
     }
 
 

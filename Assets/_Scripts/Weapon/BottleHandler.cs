@@ -15,6 +15,7 @@ public class BottleHandler : ColliderHandler
     {
         bottleMovement.forceSpeed = 15;
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
+        CreateHitEffect();
     }
 
     private void OnTriggerEnter(Collider other)

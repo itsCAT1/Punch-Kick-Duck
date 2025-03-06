@@ -21,7 +21,10 @@ public class BossThrowing : MonoBehaviour
     void CreateFruit()
     {
         fruitAvatar[fruitType].SetActive(false);
-        Instantiate(fruitPrefab[fruitType], fruitPosition[fruitType].position, this.transform.rotation);
+        var fruitTemp =  Instantiate(fruitPrefab[fruitType], fruitPosition[fruitType].position, this.transform.rotation, SpawnManager.Instance.spawnParent);
+        SpawnManager.Instance.objectHaveSpawned.Add(fruitTemp);
+
+        Boss.Instance.controller.throwCount--;
     }
 
     [ContextMenu ("reset")]

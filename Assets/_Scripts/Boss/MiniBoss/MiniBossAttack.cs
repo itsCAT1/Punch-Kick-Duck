@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class MiniBossAttack : MonoBehaviour
 {
-    Animator animator;
     PushHandler pushPlayer;
-
-    public float timeCoolDown = 1f;
-    float lastTimeAttack = 0;
+    public GameObject hitVFXPrefab;
+    public Transform hitPosition;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         pushPlayer = GetComponent<PushHandler>();
-    }
-
-    private void Update()
-    {
-        PerformAttack();
     }
 
     public void PerformAttack()
     {
-        if (Time.time - lastTimeAttack >= timeCoolDown)
-        {
-            animator.Play("Attack");
-            lastTimeAttack = Time.time;
-        }
+        MiniBoss.Instance.animator.Play("Attack");
     }
 
     public void DealDamage()
@@ -35,5 +23,11 @@ public class MiniBossAttack : MonoBehaviour
         Player.Instance.health.TakeDamage();
 
         pushPlayer.PerformPushPlayer();
+        CreateHitEffect();
+    }
+
+    public void CreateHitEffect()
+    {
+        Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
     }
 }

@@ -12,6 +12,7 @@ public class InGameManager : Singleton<InGameManager>
     public ScoreHandler score;
     public CoinHandler coin;
     public MiniBossHandler miniBoss;
+    public ReviveHandler revive;
 
     public CanvasGroup canvasGroup;
 
@@ -52,6 +53,7 @@ public class InGameManager : Singleton<InGameManager>
         {
             canRevive = false;
             reviveUI.SetActive(true);
+            revive.StartCountTime();
         }
         else gameOverUI.SetActive(true);
     }

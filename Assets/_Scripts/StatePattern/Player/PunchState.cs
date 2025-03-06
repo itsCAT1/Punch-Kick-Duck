@@ -8,10 +8,9 @@ using System;
 public class PunchState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    private bool resetState => Time.time - timeStart >= 0.8f;
+    private bool resetState => Time.time - timeStart >= 0.5f;
 
-    float interval;
-    public bool timeChangeState => Time.time - timeStart >= interval;
+    public bool timeChangeState => Time.time - timeStart >= 0.7f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -21,15 +20,6 @@ public class PunchState : FSMC_Behaviour
     {
         Player.Instance.rigid.velocity = Vector3.zero;
         OnPunching();
-
-        if (ConditionManger.Instance.currentState == GameState.InGame || ConditionManger.Instance.currentState == GameState.Tutorial)
-        {
-            interval = 1;
-        }
-        else
-        {
-            interval = 0.5f;
-        }
     }
 
     void OnPunching()

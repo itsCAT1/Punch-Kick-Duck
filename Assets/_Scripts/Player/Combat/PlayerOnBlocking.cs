@@ -13,6 +13,7 @@ public class PlayerOnBlocking : ObjectMoving
 
     public void BlockDamage()
     {
+        Player.Instance.dealDamage.CreateBlockEffect();
         if (Player.Instance.attackType.type == AttackType.Punch)
         {
             Player.Instance.animator.Play("BlockPunch");

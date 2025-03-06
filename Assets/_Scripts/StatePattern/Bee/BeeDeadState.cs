@@ -7,16 +7,17 @@ using System;
 [Serializable]
 public class BeeDeadState : FSMC_Behaviour
 {
-    BeeController controller;
+    Bee bee;
+
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
 
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        controller = executer.GetComponent<BeeController>();
+        bee = executer.GetComponent<Bee>();
 
-        controller.beeBeaten.BeeThrownOut();
+        bee.beaten.BeeThrownOut();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

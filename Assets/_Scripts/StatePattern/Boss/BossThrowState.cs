@@ -57,7 +57,6 @@ public class BossThrowState : FSMC_Behaviour
     {
         Boss.Instance.animator.Play("Throw");
         Boss.Instance.throwing.SetFruit();
-        Boss.Instance.controller.throwCount--;
         timeStart = Time.time;
     }
 

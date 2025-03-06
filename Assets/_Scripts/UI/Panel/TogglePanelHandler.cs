@@ -10,9 +10,9 @@ public class TogglePanelHandler : MonoBehaviour
     bool isExpanded = false;
     bool isAnimating = false;
 
-    public GameObject panelExpand;
-    public GameObject panelCollapse;
     public float duration;
+    public GameObject panelExpand, panelCollapse;
+    public AudioSource soundExpand, soundCollapse;
 
     void Start()
     {
@@ -44,11 +44,13 @@ public class TogglePanelHandler : MonoBehaviour
             if (isExpanded)
             {
                 UpdatePanelState();
+                soundExpand.Play();
                 animator.Play("Expand");
             }
             else
             {
                 animator.Play("Collapse");
+                soundCollapse.Play();
                 Invoke(nameof(UpdateAfterAnimation), duration);
             }
             isAnimating = true;

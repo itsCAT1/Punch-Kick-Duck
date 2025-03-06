@@ -19,6 +19,10 @@ public class EnemyController : MonoBehaviour
     public bool canAttack = true;
     float distance;
 
+    [Header("Hit Effect")]
+    public GameObject hitVFXPrefab;
+    public Transform hitPosition;
+
     private void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -124,6 +128,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Boss"))
         {
             enemy.health.TakeDamage();
+            Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
         }
     }
 }

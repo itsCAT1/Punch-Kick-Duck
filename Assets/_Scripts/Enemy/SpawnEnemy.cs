@@ -12,9 +12,8 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(EnableSpawn);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(EnableSpawn);
-
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(EnableSpawn);
+        UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(DisableSpawn);
     }
 
     private void OnEnable()
@@ -25,6 +24,10 @@ public class SpawnEnemy : MonoBehaviour
     void EnableSpawn(IUEventData uEventData)
     {
         canSpawn = true;
+    }
+    void DisableSpawn(IUEventData uEventData)
+    {
+        canSpawn = false;
     }
 
 

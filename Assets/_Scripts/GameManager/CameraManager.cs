@@ -27,7 +27,7 @@ public class CameraManager : Singleton<CameraManager>
     public void InitialGame()
     {
         handler.SwitchCamera();
-        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 45;
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 40;
     }
 
     void OnMenuGame(IUEventData uEventData)
@@ -62,7 +62,7 @@ public class CameraManager : Singleton<CameraManager>
 
         while (elapsed < duration)
         {
-            cam.m_Lens.FieldOfView = Mathf.Lerp(45, 60, elapsed / duration);
+            cam.m_Lens.FieldOfView = Mathf.Lerp(40, 60, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }

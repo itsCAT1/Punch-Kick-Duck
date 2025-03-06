@@ -15,8 +15,8 @@ public class EnemyHealth : Health
     protected override void Dead()
     {
         enemy.executer.SetCurrentState("Dead");
-
-        enemy.animator.Play("Die");
+        enemy.controller.canAttack = false;
+        
         GetComponent<Collider>().enabled = false;
         Destroy(gameObject, 2f);
     }

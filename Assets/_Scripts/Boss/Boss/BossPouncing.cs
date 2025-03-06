@@ -8,6 +8,7 @@ public class BossPouncing : ObjectPushing
     public Vector3 foodCart;
     public Vector3 targetPos;
     int direction;
+    public Transform hitPouching;
 
     public void PerformPounce()
     {
@@ -53,5 +54,23 @@ public class BossPouncing : ObjectPushing
             direction = 1;
         }
         this.transform.rotation = Quaternion.Euler(0, 90 * direction, 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && Boss.Instance.controller.isPounching)
+        {
+            CanDealDamage();
+            Instantiate(Boss.Instance.attack.hitVFXPrefab, hitPouching.transform.position, Quaternion.identity);
+        }
+    }
+    public void CanDealDamage()
+    {
+        if (Player.Instance.attackType.type == AttackType.Duck && CombatManager.Instance.playerIsAttacking) return;
+
+        else
+        {
+            Player.Instance.health.TakeDamage();
+        }
     }
 }

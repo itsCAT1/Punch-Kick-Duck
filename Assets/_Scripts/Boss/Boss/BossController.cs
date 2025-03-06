@@ -70,24 +70,6 @@ public class BossController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            CanDealDamage();
-        }
-    }
-
-    void CanDealDamage()
-    {
-        if (Player.Instance.attackType.type == AttackType.Duck && CombatManager.Instance.playerIsAttacking) return;
-
-        else
-        {
-            Player.Instance.health.TakeDamage();
-        }
-    }
-
     public void OnReset()
     {
         this.transform.DOKill();

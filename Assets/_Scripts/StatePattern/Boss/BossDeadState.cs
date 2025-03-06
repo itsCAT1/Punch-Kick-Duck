@@ -19,6 +19,7 @@ public class BossDeadState : FSMC_Behaviour
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         Boss.Instance.controller.isUpdate = false;
+        Boss.Instance.attack.canDealDamage = false;
         Boss.Instance.animator.Play("Dead");
 
         Boss.Instance.reaction.OnDead();

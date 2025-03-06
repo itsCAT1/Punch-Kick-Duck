@@ -2,32 +2,19 @@
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class test : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class test : MonoBehaviour
 {
-    public RectTransform rectTransform;
-    public Canvas canvas;
-    private Vector2 startMousePos;
-    private Vector2 startSize;
+    public float speed;
 
-    public void OnPointerDown(PointerEventData eventData)
+    Rigidbody Rigidbod;
+
+    private void Start()
     {
-        startMousePos = eventData.position;
+        Rigidbod = GetComponent<Rigidbody>();
     }
-
-    public void OnDrag(PointerEventData eventData)
+    private void Update()
     {
-        rectTransform.anchoredPosition += new Vector2(0, eventData.delta.y / canvas.scaleFactor);
-    }
-
-    [ContextMenu ("load")]
-    public void Load()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    [ContextMenu("loadsk")]
-    public void Loadsk()
-    {
-        SceneManager.LoadScene(1);
+        this.transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
+            Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0); 
     }
 }

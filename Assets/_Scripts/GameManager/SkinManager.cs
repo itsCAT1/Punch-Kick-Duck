@@ -24,7 +24,8 @@ public class SkinManager : Singleton<SkinManager>
     public SkinDataBase skin;
 
     public CameraSkinHandler skinSelector;
-
+    public AudioSource soundUnbox;
+    public AudioSource soundNotAlow;
 
     private void Start()
     {
@@ -63,8 +64,11 @@ public class SkinManager : Singleton<SkinManager>
             };
             listSkinOwned.list.Add(owned);
 
+            soundUnbox.Play();
             SaveDataSkin();
         }
+
+        else soundNotAlow.Play();
     }
 
     void SkinStartUp()

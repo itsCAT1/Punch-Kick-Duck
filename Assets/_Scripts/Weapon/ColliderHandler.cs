@@ -8,6 +8,8 @@ public class ColliderHandler : ObjectPushing
 
     public AttackType attackType;
 
+    public GameObject hitVFXPrefab;
+    public Transform hitPosition;
 
     private void Awake()
     {
@@ -23,13 +25,19 @@ public class ColliderHandler : ObjectPushing
     public void ObjectOnHit()
     {
         var currentPosition = this.transform.position;
-        var targetPos = new Vector3(currentPosition.x, currentPosition.y - 3, currentPosition.z - 5);
+        var targetPos = new Vector3(currentPosition.x, currentPosition.y - 4, currentPosition.z - 5);
         PerformJumping(targetPos);
+        CreateHitEffect();
         SelfDestroy();
     }
 
     public void SelfDestroy()
     {
         Destroy(gameObject, 2);
+    }
+
+    public void CreateHitEffect()
+    {
+        Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
     }
 }

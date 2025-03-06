@@ -11,6 +11,11 @@ public class EnemyAttacking : MonoBehaviour
     PushHandler pushPlayer;
     AttackType enemyType;
 
+    public GameObject hitVFXPrefab;
+    public Transform hitPosition;
+
+    public bool canDealDamage;
+
     void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -35,7 +40,7 @@ public class EnemyAttacking : MonoBehaviour
         }
         else
         {
-            DealDamage();
+            if(canDealDamage) DealDamage();
         }
 
         StartCoroutine(RemoveAttacking());
@@ -54,13 +59,13 @@ public class EnemyAttacking : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-
+        Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
         pushPlayer.PerformPushPlayer();
     }
 
     IEnumerator RemoveAttacking()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
     }
 }

@@ -3,7 +3,6 @@ using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class SelectLevelManager : Singleton<SelectLevelManager>
 {
@@ -11,7 +10,11 @@ public class SelectLevelManager : Singleton<SelectLevelManager>
     public GameObject[] levelLocked;
     public GameObject[] levelUnlocked;
 
-    
+
+    private void OnEnable()
+    {
+        HightlightCurrentLevel();
+    }
 
     void Start()
     {

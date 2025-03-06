@@ -15,14 +15,20 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
 
     void Start()
     {
-        GetTimer();
+        SetTimer();
+
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetTimer);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(SetTimer);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(SetTimer);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetTimer);
+
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(StartCounting);
-        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetCounting);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(DisableCount);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(DisableCount);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(StopCounting);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(StopCounting);
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopCounting);
     }
 
-    void GetTimer()
+    void SetTimer()
     {
         if(DataManager.Instance.data != null)
         {
@@ -38,14 +44,16 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
             return;
         }
 
-        StopCounting();
-        
+        if (countingCoroutine != null)
+        {
+            StopCoroutine(countingCoroutine);
+        }
+
         countingCoroutine = StartCoroutine(StartCountingTime());
     }
 
     IEnumerator StartCountingTime()
     {
-        GetTimer();
         while (timeCounter > 0)
         {
             InGameManager.Instance.miniBoss.UpdateTimer();
@@ -62,7 +70,7 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         SpawnManager.Instance.objectHaveSpawned.Add(bossTemp);
     }
 
-    void StopCounting()
+    void StopCounting(IUEventData uEventData)
     {
         if (countingCoroutine != null)
         {
@@ -70,27 +78,8 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
         }
     }
 
-    void ResumeCounting()
+    void SetTimer(IUEventData uEventData)
     {
-        countingCoroutine = StartCoroutine(StartCountingTime());
+        SetTimer();
     }
-
-
-    void ResetCounting(IUEventData uEventData)
-    {
-        StopCounting();
-
-        if (DataManager.Instance.data.currentMap == 1 || DataManager.Instance.data.currentMap == 10)
-        {
-            return;
-        }
-
-        ResumeCounting();
-    }
-
-    void DisableCount(IUEventData uEventData)
-    {
-        StopCounting();
-    }
-
 }

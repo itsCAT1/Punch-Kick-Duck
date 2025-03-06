@@ -17,7 +17,9 @@ public class EnemyDeadState : FSMC_Behaviour
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         enemy = executer.GetComponent<Enemy>();
+        enemy.animator.Play("Die");
 
+        enemy.attack.canDealDamage = false;
         enemy.controller.canAttack = false;
         enemy.rigid.isKinematic = false;
         enemy.GetComponent<EnemyBeaten>().EnemyThrownOut();

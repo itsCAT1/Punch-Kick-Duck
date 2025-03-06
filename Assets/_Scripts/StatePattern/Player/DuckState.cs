@@ -8,8 +8,7 @@ using System;
 public class DuckState : FSMC_Behaviour
 {
     private float timeStart = 0;
-    float interval;
-    public bool timeChangeState => Time.time - timeStart >= interval;
+    public bool timeChangeState => Time.time - timeStart >= 0.7f;
 
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
@@ -20,15 +19,6 @@ public class DuckState : FSMC_Behaviour
         Player.Instance.rigid.velocity = Vector3.zero;
         Player.Instance.animator.Play("Duck");
         timeStart = Time.time;
-
-        if (ConditionManger.Instance.currentState == GameState.InGame || ConditionManger.Instance.currentState == GameState.Tutorial)
-        {
-            interval = 1;
-        }
-        else
-        {
-            interval = 0.5f;
-        }
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

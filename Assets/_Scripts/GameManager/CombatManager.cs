@@ -19,8 +19,9 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
             healthEnemy?.TakeDamage();
-            DataPointManager.Instance.GainPoint();
+            Player.Instance.dealDamage.CreateHitEffect();
 
+            DataPointManager.Instance.GainPoint();
 
             if (ConditionManger.Instance.currentState == GameState.Tutorial)
             {
@@ -45,11 +46,12 @@ public class CombatManager : Singleton<CombatManager>
     void CanDealDamage()
     {
         string bossState = Boss.Instance.executer.GetCurrentState().Name;
-        if (bossState == "Attack")
+        if (bossState == "Attack" && bossState != "Pounce")
         {
             Boss.Instance.health.TakeDamage();
             Player.Instance.push.PerformPushBoss();
             DataPointManager.Instance.GainPoint();
+            Player.Instance.dealDamage.CreateHitEffect();
         }
     }
 }

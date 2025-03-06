@@ -10,6 +10,10 @@ public class PlayerDealDamage : MonoBehaviour
     public RaycastHit hitInfo;
 
     public float currentRange;
+    public GameObject hitVFXPrefab;
+    public GameObject blockVFXPrefab;
+    public Transform[] hitPosition;
+    Transform currentHitPosition;
 
 
     public bool aimingRay => Physics.Raycast(ray.transform.position, ray.transform.forward, out hitInfo, currentRange, hitLayer);
@@ -48,5 +52,23 @@ public class PlayerDealDamage : MonoBehaviour
                 CombatManager.Instance.DealtDamageBoss();
             }
         }
+    }
+
+    public void CreateHitEffect()
+    {
+        if (Player.Instance.attackType.type == AttackType.Punch) currentHitPosition = hitPosition[0];
+        else if (Player.Instance.attackType.type == AttackType.Kick) currentHitPosition = hitPosition[1];
+        else if (Player.Instance.attackType.type == AttackType.Duck) currentHitPosition = hitPosition[2];
+
+        Instantiate(hitVFXPrefab, currentHitPosition.position, Quaternion.identity);
+    }
+
+    public void CreateBlockEffect()
+    {
+        if (Player.Instance.attackType.type == AttackType.Punch) currentHitPosition = hitPosition[0];
+        else if (Player.Instance.attackType.type == AttackType.Kick) currentHitPosition = hitPosition[1];
+        else if (Player.Instance.attackType.type == AttackType.Duck) currentHitPosition = hitPosition[2];
+
+        Instantiate(blockVFXPrefab, currentHitPosition.position, Quaternion.identity);
     }
 }

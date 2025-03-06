@@ -5,11 +5,6 @@ using UnityEngine;
 public class FruitHandler : ColliderHandler
 {
     FruitMovement fruitMovement;
-    public LayerMask hitLayer;
-    public Transform ray;
-    public RaycastHit hitInfo;
-
-    public bool aimingRay => Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo, 3, hitLayer);
 
     void Start()
     {
@@ -20,6 +15,7 @@ public class FruitHandler : ColliderHandler
     {
         fruitMovement.forceSpeed = 25;
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
+        CreateHitEffect();
     }
 
     private void OnTriggerEnter(Collider other)

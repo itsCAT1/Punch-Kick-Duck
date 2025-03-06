@@ -185,10 +185,8 @@ MonoBehaviour:
   pushForce: 6
   duration: 1
   attackType: 2
-  hitLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  ray: {fileID: 0}
+  hitVFXPrefab: {fileID: 3900151339423720760, guid: 8fbb0b5734d000f48b36383401289f66, type: 3}
+  hitPosition: {fileID: 6591166776147283587}
 --- !u!114 &-7585826971164904366
 MonoBehaviour:
   m_ObjectHideFlags: 0

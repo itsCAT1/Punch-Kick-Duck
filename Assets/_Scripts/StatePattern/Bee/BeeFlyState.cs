@@ -7,8 +7,8 @@ using System;
 [Serializable]
 public class BeeFlyState : FSMC_Behaviour
 {
-    BeeController controller;
-    BeeMovement movement;
+    Bee bee;
+
     private float timeStart = 0;
     public bool timeChangeState => Time.time - timeStart >= 4.2f;
 
@@ -18,19 +18,19 @@ public class BeeFlyState : FSMC_Behaviour
     }
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        controller = executer.GetComponent<BeeController>();
-        movement = executer.GetComponent<BeeController>().movement;
+        bee = executer.GetComponent<Bee>();
 
-        movement.currentIndex = 0;
-        movement.UpdatePosition();
-        controller.PerformRotate();
+        bee.movement.currentIndex = 0;
+        bee.movement.UpdatePosition();
+        bee.controller.PerformRotate();
 
         timeStart = Time.time;
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-        movement.PerformMoving();
+        bee.movement.PerformMoving();
+
         if(timeChangeState)
         {
             executer.SetCurrentState("Attack");

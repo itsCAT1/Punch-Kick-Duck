@@ -1,5 +1,6 @@
 using DG.Tweening;
 using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +20,11 @@ public class MiniBossHandler : MonoBehaviour
     private void Start()
     {
         UpdateTimer();
-    }
 
-    
+        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(CloseWarning);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(CloseWarning);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(CloseWarning);
+    }
 
     public void UpdateTimer()
     {
@@ -64,5 +67,12 @@ public class MiniBossHandler : MonoBehaviour
     {
         canvasGroup.alpha = 1;
         canvasGroup.DOFade(0, 1f);
+    }
+
+    void CloseWarning(IUEventData uEventData)
+    {
+        warningLeft.SetActive(false);
+        warningRight.SetActive(false);
+        StopAllCoroutines();
     }
 }

@@ -9,7 +9,6 @@ public class EnemyThrowBottle : MonoBehaviour
     public GameObject bottleAvatar;
     public Transform bottlePosition;
     public GameObject bottlePrefab;
-    bool onAttack = false;
 
     private void Start()
     {
@@ -18,32 +17,21 @@ public class EnemyThrowBottle : MonoBehaviour
 
     public void PerformThrowBottle()
     {
-        if (!onAttack)
-        {
-            enemy.animator.Play("ThrowBottle");
-        }
+        enemy.animator.Play("ThrowBottle");
 
-        StartCoroutine(TimeToChangeAttack(2));
         StartCoroutine(RemoveAttacking());
     }
 
     public void CreateBottle()
     {
         bottleAvatar.SetActive(false);
-        Instantiate(bottlePrefab, bottlePosition.position, this.transform.rotation);
-    }
-
-    IEnumerator TimeToChangeAttack(float time)
-    {
-        onAttack = true;
-        yield return new WaitForSeconds(time);
-
-        enemy.controller.haveBottle = false;
+        var bottleTemp = Instantiate(bottlePrefab, bottlePosition.position, this.transform.rotation, SpawnManager.Instance.spawnParent);
+        SpawnManager.Instance.objectHaveSpawned.Add(bottleTemp);
     }
 
     IEnumerator RemoveAttacking()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
     }
 }

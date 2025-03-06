@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class MiniBossMovement : MonoBehaviour
 {
-    Rigidbody rigid;
     public float moveSpeed;
 
-    private void Start()
+    public void PerformMoving()
     {
-        rigid = GetComponent<Rigidbody>();
-    }
+        var direction = (Player.Instance.transform.position - this.transform.position).normalized;
+        this.transform.rotation = Quaternion.LookRotation(direction);
 
-    private void Update()
-    {
-        PerformMove();
-    }
-
-    public void PerformMove()
-    {
-        var direction = (Player.Instance.transform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
-
-        rigid.velocity = direction * moveSpeed;
+        MiniBoss.Instance.rigid.velocity = direction * moveSpeed;
     }
 }

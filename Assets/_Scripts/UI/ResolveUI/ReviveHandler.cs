@@ -11,9 +11,10 @@ public class ReviveHandler : MonoBehaviour
     public GameObject gameOverUI;
     public Image progressRevive;
 
+    Coroutine countTimeCoroutine;
+
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(StartCountTime);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerRevive>(StartRevive);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(StartRevive);
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(StartRevive);
@@ -27,6 +28,7 @@ public class ReviveHandler : MonoBehaviour
 
         Player.Instance.executer.SetCurrentState("GetUp");
         panelRevive.SetActive(false);
+        gameOverUI.SetActive(false);
     }
 
     public void Skip()
@@ -35,8 +37,9 @@ public class ReviveHandler : MonoBehaviour
         panelRevive.SetActive(false);
     }
 
-    public void StartCountTime(IUEventData uEventData)
+    public void StartCountTime()
     {
+        StopAllCoroutines();
         StartCoroutine(CountdownTime());
     }
 

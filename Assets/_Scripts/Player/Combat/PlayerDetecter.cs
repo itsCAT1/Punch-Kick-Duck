@@ -13,10 +13,6 @@ public class PlayerDetecter : MonoBehaviour
     public Transform ray;
     public RaycastHit hitInfo;
 
-    public float attackRange;
-
-    public Transform doorAreaBoss;
-
     private void Update()   
     {
         SetRangeAttack();
@@ -33,9 +29,19 @@ public class PlayerDetecter : MonoBehaviour
             return;
         }
 
-        if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("OpenableDoor"))
+        if (hitInfo.collider.CompareTag("Enemy"))
         {
-            Player.Instance.dealDamage.currentRange = attackRange;
+            Player.Instance.dealDamage.currentRange = 2.5f;
+        }
+
+        if (hitInfo.collider.CompareTag("Boss"))
+        {
+            Player.Instance.dealDamage.currentRange = 3.5f;
+        }
+
+        if (hitInfo.collider.CompareTag("OpenableDoor"))
+        {
+            Player.Instance.dealDamage.currentRange = 2;
         }
     }
 

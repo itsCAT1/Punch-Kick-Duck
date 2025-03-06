@@ -19,6 +19,7 @@ public class WaitToAttackState : FSMC_Behaviour
         Player.Instance.rigid.velocity = Vector3.zero;
         Player.Instance.animator.Play("Idle");
 
+        Player.Instance.attack.canAttack = false;
         Player.Instance.followBoss.isWaiting = true;
         Player.Instance.followBoss.canWait = true;
         DataInGame.Instance.inRoom = true;
@@ -30,6 +31,7 @@ public class WaitToAttackState : FSMC_Behaviour
     {
         if (timeChangeState)
         {
+            Player.Instance.attack.canAttack = true;
             Player.Instance.followBoss.canWait = false;
             Player.Instance.executer.SetCurrentState("Walk");
         }

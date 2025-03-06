@@ -6,17 +6,11 @@ using UnityEngine;
 
 public class MiniBossReaction : MonoBehaviour
 {
-    MiniBossActionManager miniBossAction;
-    Animator animator;
-
     void Start()
     {
-        miniBossAction = GetComponent<MiniBossActionManager>();
-        animator = GetComponent<Animator>();
-
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(WaitingPlayer);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(WaitingPlayer);
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(StopAttack);
+        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(PerformDance);
         UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(StopChasing);
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerRevive>(ContinuesAttack);
     }
@@ -25,39 +19,44 @@ public class MiniBossReaction : MonoBehaviour
     void WaitingPlayer(IUEventData uEventData)
     {
         StopAllCoroutines();
-        StartCoroutine(TimeWaiting());
+        StartCoroutine(StartWaitingCoroutine());
     }
 
 
-    public IEnumerator TimeWaiting()
+    public IEnumerator StartWaitingCoroutine()
     {
-        miniBossAction.DisableAction();
-        yield return new WaitForSeconds(3);
-        string statePlayer = Player.Instance.executer.GetCurrentState().Name.ToString();
+        MiniBoss.Instance.controller.canAttack = false;
+        MiniBoss.Instance.executer.SetCurrentState("Idle");
 
+        yield return new WaitForSeconds(3);
+
+        string statePlayer = Player.Instance.executer.GetCurrentState().Name.ToString();
         if (statePlayer != "Dead")
         {
-            miniBossAction.EnableAction();
+            MiniBoss.Instance.controller.canAttack = true;
         }
     }
 
 
-    void StopAttack(IUEventData uEventData)
+    void PerformDance(IUEventData uEventData)
     {
         StopAllCoroutines();
-        miniBossAction.DisableAction();
-        animator.Play("Win");
+
+        Debug.Log("win");
+        MiniBoss.Instance.controller.canAttack = false;
+        MiniBoss.Instance.executer.SetCurrentState("Win");
     }
 
     void StopChasing(IUEventData uEventData)
     {
         StopAllCoroutines();
-        miniBossAction.DisableAction();
+        MiniBoss.Instance.controller.canAttack = false;
+        MiniBoss.Instance.executer.SetCurrentState("Idle");
     }
 
     void ContinuesAttack(IUEventData uEventData)
     {
         StopAllCoroutines();
-        miniBossAction.EnableAction();
+        MiniBoss.Instance.controller.canAttack = true;
     }
 }

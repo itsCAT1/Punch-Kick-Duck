@@ -1,56 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MiniBossController : MonoBehaviour
 {
-    Animator animator;
-    Rigidbody rigid;
-    MiniBossAttack attack;
-    MiniBossMovement movement;
-
-    public float sizeDetect;
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        rigid = GetComponent<Rigidbody>();
-        attack = GetComponent<MiniBossAttack>();
-        movement = GetComponent<MiniBossMovement>();
-    }
+    public float attackRange;
+    public bool canAttack;
 
     void Update()
     {
-        DetectPlayer();
+        UpdateAction();
     }
 
-    void DetectPlayer()
+
+    void UpdateAction()
     {
-        if (Vector3.Distance(this.transform.position, Player.Instance.transform.position) > sizeDetect)
+        if (!canAttack || MiniBoss.Instance.executer.GetCurrentState() == null) return;
+
+        float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
+
+        if (distance < attackRange - 0.5f)
         {
-            Moving();
+            MiniBoss.Instance.executer.SetCurrentState("Attack");
         }
-        else
+        else if (distance > attackRange + 0.5f)
         {
-            Standing();
+            MiniBoss.Instance.executer.SetCurrentState("Walk");
         }
     }
 
-    void Standing()
-    {
-        animator.Play("Idle");
-        animator.SetBool("Walking", false);
-        attack.enabled = true;
-        movement.enabled = false;
-        this.rigid.isKinematic = true;
-    }
-
-    void Moving()
-    {
-        animator.Play("Walk");
-        animator.SetBool("Walking", true);
-        attack.enabled = false;
-        movement.enabled = true;
-        this.rigid.isKinematic = false;
-    }
 }

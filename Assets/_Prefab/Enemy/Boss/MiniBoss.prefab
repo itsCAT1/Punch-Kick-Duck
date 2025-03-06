@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139564325650908782}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftToe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7414437792433954382}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8063578242383629016}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4637485330032996607}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6405253454273368795}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3635923714134665030}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263568842965668151}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8886303756279711019}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2347847026293248169}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3311030653635265980}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771570027472516806}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,6 +351,37 @@ Transform:
   - {fileID: 3133498423129781209}
   m_Father: {fileID: 3311030653635265980}
   m_LocalEulerAnglesHint: {x: -0.025498101, y: 0.008921148, z: 87.41101}
+--- !u!1 &1070804193777101743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3195891355753061080}
+  m_Layer: 11
+  m_Name: HitPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3195891355753061080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070804193777101743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.5, z: 1.518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4301354688666635732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071551608593649324
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6455259729724540580}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1667224079263549047}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4452670656542101436}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3021778745151948073}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3133498423129781209}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5207169551033321249}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7866459520437754046}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4562898329471348816}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4476326577443508589}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293855541832929455}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7860773809970261770}
   - component: {fileID: 8733786398003592384}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: crow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703452109896091110}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8007147367876162042}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3047889284505413736}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361284156906500246}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191859362062101114}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +1016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6465646058264952610}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4728501720318306247}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3077025033481372323}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightUpArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2973895586940189729}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3149686678307315369}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4642158100953113235}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftUpleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333929774595712027}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744101741058328500}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2265550091160353749}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167660616750586948}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3013206663258688502}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3912268053849764501}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2261751164203919344}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113694881432967430}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightToe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1437,7 +1468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2618679956656842768}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3450697354898898218}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_L3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,7 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508141303758081835}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,37 +1554,6 @@ Transform:
   - {fileID: 4483708080987175237}
   m_Father: {fileID: 3149686678307315369}
   m_LocalEulerAnglesHint: {x: -0.4970593, y: -18.526001, z: 7.4096084}
---- !u!1 &4631886629643531172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1370124723017942513}
-  m_Layer: 10
-  m_Name: Raycaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1370124723017942513
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631886629643531172}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4301354688666635732}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4890153899191668938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743391731958204327}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1594,7 +1594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5674901881845839813}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftForearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1628,7 +1628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1214154738042364591}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightForearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1662,7 +1662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173554476731628581}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3778626267075314220}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1725,7 +1725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8097453419620763255}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,7 +1756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5429384900939468286}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightUpleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1788,7 +1788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5586501626315100060}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1819,7 +1819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5851931837700946429}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1843,7 +1843,7 @@ Transform:
   - {fileID: 5429384900939468286}
   - {fileID: 2261751164203919344}
   m_Father: {fileID: 4301354688666635732}
-  m_LocalEulerAnglesHint: {x: -6.7517533, y: -80, z: -164.71272}
+  m_LocalEulerAnglesHint: {x: 1.7417138, y: -80, z: -173.50482}
 --- !u!1 &6520980238718183957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4858850853311608986}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,7 +1885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8584572385301950092}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Beak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1917,7 +1917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4679763540149891949}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1949,7 +1949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6940199904746576847}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftUpArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1981,7 +1981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3160890245045693041}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_R3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144864888423637390}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,14 +2047,16 @@ GameObject:
   - component: {fileID: 2588613774296910283}
   - component: {fileID: 972212543663522686}
   - component: {fileID: 595021161442625674}
+  - component: {fileID: 4855924211276509362}
+  - component: {fileID: 6143591095577904064}
   - component: {fileID: 7155931911382524044}
   - component: {fileID: 6418912594223425998}
   - component: {fileID: 5367401812079090753}
-  - component: {fileID: 1722976571565218232}
   - component: {fileID: 1887489084932703399}
-  m_Layer: 10
+  - component: {fileID: 5333137328007036572}
+  m_Layer: 11
   m_Name: MiniBoss
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2074,7 +2076,7 @@ Transform:
   m_Children:
   - {fileID: 5851931837700946429}
   - {fileID: 7860773809970261770}
-  - {fileID: 1370124723017942513}
+  - {fileID: 3195891355753061080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &2588613774296910283
@@ -2146,6 +2148,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.6, z: 1.5}
   m_Center: {x: 0, y: 0.8, z: 0.5}
+--- !u!114 &4855924211276509362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813250660795675510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89237aa220ca56f43bbc8a0ef7e19441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 7155931911382524044}
+  attack: {fileID: 5367401812079090753}
+  movement: {fileID: 6418912594223425998}
+  reaction: {fileID: 1887489084932703399}
+  animator: {fileID: 2588613774296910283}
+  rigid: {fileID: 972212543663522686}
+  executer: {fileID: 6143591095577904064}
+--- !u!114 &6143591095577904064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813250660795675510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7f4d8633f97ce45bbc75a0d23f36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 11400000, guid: 7f58a18051784504ca42a7a142ea184f, type: 2}
 --- !u!114 &7155931911382524044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,7 +2192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9432be1772adb094cb4d4a7fc29e90ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeDetect: 5.5
+  attackRange: 6
+  canAttack: 1
 --- !u!114 &6418912594223425998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,19 +2219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f440cf7560cbeb54fb7ab240959a6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCoolDown: 3
---- !u!114 &1722976571565218232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7813250660795675510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebc32453f8b3a24ea32303205d94ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  hitVFXPrefab: {fileID: 3900151339423720760, guid: 8fbb0b5734d000f48b36383401289f66, type: 3}
+  hitPosition: {fileID: 3195891355753061080}
 --- !u!114 &1887489084932703399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,6 +2233,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fee68c261f6bc04abcec3d0f0433711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5333137328007036572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813250660795675510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddefd2a1bb2d6814585a7aec224fcb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7868762838856514499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 608326749059022259}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2249,7 +2285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6257414240684665052}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2280,7 +2316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5494234615940015874}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2312,7 +2348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5482697753283791647}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2344,7 +2380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5723698811739677899}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_RightPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2375,7 +2411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4483708080987175237}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2407,7 +2443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6724940129679467062}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2439,7 +2475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8768187729632575335}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,7 +2507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 229160541774413629}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_LeftMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2503,7 +2539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007235044913986533}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CAT_Feather_R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2535,7 +2571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5229698826952972699}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: collider04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,30 +4,55 @@ using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BeeController : MonoBehaviour
 {
-    public BeeAttack attack;
-    public BeeMovement movement;
-    public BeeBeaten beeBeaten;
-
     public float targetAngle;
     public float rotationDuration;
     public GameObject currentZone;
+    PushHandler pushHandler;
+
+    public bool canDealDamage;
     public bool isDead = false;
 
     FSMC_Executer executer;
+
+    public GameObject hitVFXPrefab;
+    public Transform hitPosition;
 
     public bool onLeft => transform.position.x < Player.Instance.transform.position.x;
 
     private void Start()
     {
+        pushHandler = GetComponent<PushHandler>();
+
         executer = GetComponent<FSMC_Executer>();
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(PerformLeave);
-        UEventDispatcherSingleton.Instance.AddEventListener<EndGame>(PerformLeave);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isDead) return;
+        if (Player.Instance.health.currentHealth <= 0) return;
+
+        if (other.gameObject.CompareTag("ZoneChangeDirection") && other.gameObject != currentZone)
+        {
+            PerformRotate();
+            currentZone = other.gameObject;
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if(canDealDamage) DealDamage();
+        }
+
+        if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick"))
+        {
+            canDealDamage = false;
+            TakeDamage();
+        }
+    }
     void UpdateAngle()
     {
         if (onLeft)
@@ -47,33 +72,23 @@ public class BeeController : MonoBehaviour
         transform.DORotate(new Vector3(0, targetAngle, 0), rotationDuration, RotateMode.Fast);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void DealDamage()
     {
-        if (isDead) return;
-        if (Player.Instance.health.currentHealth <= 0) return;
-
-        if (other.gameObject.CompareTag("ZoneChangeDirection") && other.gameObject != currentZone)
-        {
-            PerformRotate();
-            currentZone = other.gameObject;
-        }
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Player.Instance.health.TakeDamage();
-            executer.SetCurrentState("Fly");
-        }
-
-        if (other.gameObject.CompareTag("Punch") || other.gameObject.CompareTag("Kick"))
-        {
-            isDead = true;
-            executer.SetCurrentState("Dead");
-        }
+        Player.Instance.health.TakeDamage();
+        pushHandler.PerformPushPlayer();
+        executer.SetCurrentState("Fly");
+        CreateHitEffect();
     }
 
-    public void PerformLeave(IUEventData uEventData)
+    void TakeDamage()
     {
-        executer.SetCurrentState("Win");
-        Destroy(this.gameObject, 2);
+        isDead = true;
+        executer.SetCurrentState("Dead");
+        CreateHitEffect();
+    }
+
+    public void CreateHitEffect()
+    {
+        Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
     }
 }

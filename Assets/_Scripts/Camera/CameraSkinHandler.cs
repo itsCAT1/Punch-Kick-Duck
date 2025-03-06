@@ -9,6 +9,7 @@ public class CameraSkinHandler : MonoBehaviour
     [Header ("Skin Infor")]
     public Transform[] skin;
     public int currentIndex;
+    public AudioSource soundOnSelected;
 
     [Header ("Movement")]
     public float swipeSpeed = 10f;
@@ -110,10 +111,15 @@ public class CameraSkinHandler : MonoBehaviour
             }
         }
 
-        currentIndex = nearestIndex;
-        targetX = skin[currentIndex].position.x;
+        if (currentIndex != nearestIndex)
+        {
+            currentIndex = nearestIndex;
+            targetX = skin[currentIndex].position.x;
 
+            soundOnSelected.Play();
+        }
     }
+
 
     void StartSnap()
     {
