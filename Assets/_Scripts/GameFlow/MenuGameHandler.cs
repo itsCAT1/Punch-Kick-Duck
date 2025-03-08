@@ -27,4 +27,9 @@ public class MenuGameHandler : MonoBehaviour
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<StartGame>(uEventData);
     }
+
+    public void OpenOptions()
+    {
+        ConditionManger.Instance.SetState(GameState.Options);
+    }
 }

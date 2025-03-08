@@ -13,7 +13,8 @@ public enum GameState
     EndGameBoss,
     GameOver,
     SelectCharacter,
-    Tutorial
+    Tutorial,
+    Options
 }
 
 public class ConditionManger : Singleton<ConditionManger>
@@ -33,6 +34,7 @@ public class ConditionManger : Singleton<ConditionManger>
     public GameObject menuGameUI;
     public GameObject selectCharactorUI;
     public GameObject tutorialUI;
+    public GameObject optionsUI;
 
     void Start()
     {
@@ -70,6 +72,7 @@ public class ConditionManger : Singleton<ConditionManger>
         attackUI.SetActive(currentState == GameState.InGame || currentState == GameState.StartGame || currentState == GameState.Tutorial);
         tutorialUI.SetActive(currentState == GameState.StartGame || currentState == GameState.Tutorial);
         buttonPauseUI.SetActive(currentState == GameState.StartGame || currentState == GameState.InGame || currentState == GameState.Tutorial);
+        optionsUI.SetActive(currentState == GameState.Options);
 
         miniBossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap > 1 && DataManager.Instance.data.currentMap < 10);
         bossUI.SetActive(currentState == GameState.InGame && DataManager.Instance.data.currentMap == 10);

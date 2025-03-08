@@ -9,6 +9,7 @@ public class CameraManager : Singleton<CameraManager>
 {
     public GameObject playerCamera;
     public GameObject seletctCamera;
+    public GameObject adjustCamera;
     public GameObject bossCamera;
     public CameraHandler handler;
     public CameraSkinHandler skinSelector;
@@ -35,12 +36,7 @@ public class CameraManager : Singleton<CameraManager>
         seletctCamera.SetActive(false);
         playerCamera.SetActive(true);
         InitialGame();
-    }
-
-    public void OnStartGame()
-    {
-        var virtualCam = playerCamera.GetComponent<CinemachineVirtualCamera>();
-        StartCoroutine(SmoothFOV(virtualCam));
+        handler.CameraMenu();
     }
 
     void OnCharactorSelection(IUEventData uEventData)
@@ -49,24 +45,21 @@ public class CameraManager : Singleton<CameraManager>
         handler.SwitchCamera();
     }
 
+    public void OnAdjustTouch()
+    {
+        adjustCamera.SetActive(true);
+        handler.SwitchCamera();
+    }
+
+    public void OutAdjustTouch()
+    {
+        adjustCamera.SetActive(false);
+        handler.SwitchCamera();
+    }
 
     void InstantCamera(IUEventData uEventData)
     {
         handler.SwitchCamera();
-    }
-
-    IEnumerator SmoothFOV(CinemachineVirtualCamera cam)
-    {
-        float duration = 0.3f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            cam.m_Lens.FieldOfView = Mathf.Lerp(40, 60, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        cam.m_Lens.FieldOfView = 60;
     }
 
     public void GoBossArea()

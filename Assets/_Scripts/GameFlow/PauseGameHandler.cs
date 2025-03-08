@@ -9,7 +9,6 @@ public class PauseGameHandler : MonoBehaviour
 {
     public Animator animator;
     public Button buttonPause;
-    public GameObject panelPause;
 
     public void PauseGame()
     {
@@ -30,5 +29,10 @@ public class PauseGameHandler : MonoBehaviour
         buttonPause.interactable = true;
         animator.Play("Close");
         AudioManager.Instance.ContinueGame();
+    }
+
+    public void OpenOptions()
+    {
+        ConditionManger.Instance.SetState(GameState.Options);
     }
 }
