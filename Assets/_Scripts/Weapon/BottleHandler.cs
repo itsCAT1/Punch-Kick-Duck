@@ -6,6 +6,8 @@ public class BottleHandler : ColliderHandler
 {
     BottleMovement bottleMovement;
 
+    public AudioSource hitSound, reflectSound;
+
     void Start()
     {
         bottleMovement = GetComponent<BottleMovement>();
@@ -16,6 +18,7 @@ public class BottleHandler : ColliderHandler
         bottleMovement.forceSpeed = 15;
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
         CreateHitEffect();
+        reflectSound.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +51,7 @@ public class BottleHandler : ColliderHandler
 
             bottleMovement.forceSpeed = 0;
             ObjectOnHit();
+            hitSound.Play();
             DataPointManager.Instance.GainPoint();
         }
     }
@@ -61,6 +65,7 @@ public class BottleHandler : ColliderHandler
             bottleMovement.forceSpeed = 0;
             PlayerOnHit();
             ObjectOnHit();
+            hitSound.Play();
         }
     }
 }

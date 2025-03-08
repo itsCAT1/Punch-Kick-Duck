@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class BossReaction : MonoBehaviour
 {
+    public AudioSource soundRoar, soundYell, soundHitFloor;
+
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerDeath>(StopAttack);
@@ -39,7 +41,10 @@ public class BossReaction : MonoBehaviour
         {
             fruit.SetActive(false);
         }
+    }
 
-        
+    public void PlayHitFloor()
+    {
+        soundHitFloor.Play();
     }
 }

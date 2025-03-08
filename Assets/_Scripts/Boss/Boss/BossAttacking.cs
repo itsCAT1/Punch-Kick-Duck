@@ -15,6 +15,8 @@ public class BossAttacking : MonoBehaviour
     public Transform[] hitPosition;
     Transform currentHitPosition;
 
+    public AudioSource soundHit;
+
     void Start()
     {
         pushPlayer = GetComponent<PushHandler>();
@@ -62,5 +64,6 @@ public class BossAttacking : MonoBehaviour
         else if (Boss.Instance.attackType.type == AttackType.Duck) currentHitPosition = hitPosition[2];
 
         Instantiate(hitVFXPrefab, currentHitPosition.position, Quaternion.identity);
+        soundHit.Play();
     }
 }

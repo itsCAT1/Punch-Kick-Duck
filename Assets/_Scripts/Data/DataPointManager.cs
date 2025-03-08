@@ -46,7 +46,7 @@ public class DataPointManager : Singleton<DataPointManager>
         if (ConditionManger.Instance.currentState == GameState.Tutorial) return;
 
         Player.Instance.health.currentHeart = 0;
-        InGameManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.lives.ShowLives();
         InGameManager.Instance.bonusPoint.LosePoint();
         DataInGame.Instance.beatingStreak = 0;
     }

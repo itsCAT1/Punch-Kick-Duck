@@ -25,6 +25,7 @@ public class BossHurtState : FSMC_Behaviour
         }
         
         Boss.Instance.coin.RandomDropCoin();
+        Boss.Instance.reaction.soundYell.Play();
 
         timeStart = Time.time;
     }

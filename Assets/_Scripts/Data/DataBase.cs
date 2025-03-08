@@ -11,4 +11,8 @@ public class DataBase
     public int totalCoin;
     public int currentSkin;
     public bool showTutorial;
+    public float musicVolume;
+    public float soundVolume;
+    public float attackFadeValue;
+    public int screenBorder;
 }

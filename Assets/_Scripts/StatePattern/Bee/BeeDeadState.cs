@@ -16,6 +16,7 @@ public class BeeDeadState : FSMC_Behaviour
     public override void OnStateEnter(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         bee = executer.GetComponent<Bee>();
+        bee.controller.attackSound.Stop();
 
         bee.beaten.BeeThrownOut();
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class FruitHandler : ColliderHandler
 {
     FruitMovement fruitMovement;
+    public AudioSource hitSound, reflectSound;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class FruitHandler : ColliderHandler
         fruitMovement.forceSpeed = 25;
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
         CreateHitEffect();
+        reflectSound.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,6 +62,7 @@ public class FruitHandler : ColliderHandler
             fruitMovement.forceSpeed = 0;
             PlayerOnHit();
             ObjectOnHit();
+            hitSound.Play();
         }
     }
 }

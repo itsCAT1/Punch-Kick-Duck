@@ -59,17 +59,17 @@ public class PlayerDealDamage : MonoBehaviour
         if (Player.Instance.attackType.type == AttackType.Punch)
         {
             currentHitPosition = hitPosition[0];
-            AudioManager.Instance.soundPunch.Play();
+            AudioManager.Instance.playerPunch.Play();
         }
         else if (Player.Instance.attackType.type == AttackType.Kick)
         {
             currentHitPosition = hitPosition[1];
-            AudioManager.Instance.soundKick.Play();
+            AudioManager.Instance.playerKick.Play();
         }
         else if (Player.Instance.attackType.type == AttackType.Duck)
         {
             currentHitPosition = hitPosition[2];
-            AudioManager.Instance.soundDuck.Play();
+            AudioManager.Instance.playerDuck.Play();
         }
 
         Instantiate(hitVFXPrefab, currentHitPosition.position, Quaternion.identity);
@@ -82,5 +82,6 @@ public class PlayerDealDamage : MonoBehaviour
         else if (Player.Instance.attackType.type == AttackType.Duck) currentHitPosition = hitPosition[2];
 
         Instantiate(blockVFXPrefab, currentHitPosition.position, Quaternion.identity);
+        AudioManager.Instance.playerBlock.Play();
     }
 }

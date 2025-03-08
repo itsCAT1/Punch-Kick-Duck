@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class BeeMovement : WaypointController
 {
-    bool onLeft;
 
+    bool onLeft;
 
     public void UpdatePosition()
     {

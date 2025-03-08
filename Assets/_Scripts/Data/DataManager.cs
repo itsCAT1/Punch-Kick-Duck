@@ -72,6 +72,10 @@ public class DataManager : Singleton<DataManager>
                 totalCoin = 0,
                 totalScore = 0,
                 currentSkin = 1,
+                musicVolume = 1,
+                soundVolume = 1,
+                attackFadeValue = 0.5f,
+                screenBorder = 0,
                 showTutorial = true
             };
             SaveDataBase();

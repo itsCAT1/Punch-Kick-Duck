@@ -2,27 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioHandler : MonoBehaviour
 {
-    public void IncreaseAudio(string audioGroup)
+    public Image musicFill;
+    public Image soundFill;
+
+    private void OnEnable()
     {
-        AudioManager.Instance.audioMixer.GetFloat(audioGroup, out float dB);
+        UpdateFillProgress();
+    }
 
-        // Chuyển dB về volume (0 - 1)
-        float volume = Mathf.Pow(10, dB / 20);
+    void UpdateFillProgress()
+    {
+        musicFill.fillAmount = DataManager.Instance.data.musicVolume;
+        soundFill.fillAmount = DataManager.Instance.data.soundVolume;
+    }
 
-        // Tăng âm lượng
-        volume += 0.19f; // Điều chỉnh giá trị tăng
 
-        // Giới hạn volume từ 0.001 - 1
+    public void IncreaseMusicVolume()
+    {
+        float volume = DataManager.Instance.data.musicVolume;
+
+        volume += 0.199f;
+
         if (volume > 1)
         {
-            volume = 0.001f; // Reset nếu vượt quá 1
+            volume = 0.001f;
         }
 
-        // Chuyển volume về dB và đặt giá trị mới
-        float newDb = Mathf.Log10(volume) * 20;
-        AudioManager.Instance.audioMixer.SetFloat(audioGroup, newDb);
+        float db = Mathf.Log10(volume) * 20;
+        AudioManager.Instance.audioMixer.SetFloat("MusicVolume", db);
+
+        DataManager.Instance.data.musicVolume = volume;
+        UpdateFillProgress();
+    }
+
+    public void IncreaseSoundVolume()
+    {
+        float volume = DataManager.Instance.data.soundVolume;
+
+        volume += 0.199f;
+
+        if (volume > 1)
+        {
+            volume = 0.001f;
+        }
+
+        float db = Mathf.Log10(volume) * 20;
+        AudioManager.Instance.audioMixer.SetFloat("SoundVolume", db);
+
+        DataManager.Instance.data.soundVolume = volume;
+        UpdateFillProgress();
     }
 }

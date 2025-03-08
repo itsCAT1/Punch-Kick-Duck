@@ -64,7 +64,6 @@ public class ConditionManger : Singleton<ConditionManger>
             inGameUI.SetActive(false);
         }
 
-        endGameUI.SetActive(currentState == GameState.EndGame);
         endGameBossUI.SetActive(currentState == GameState.EndGameBoss);
         selectCharactorUI.SetActive(currentState == GameState.SelectCharacter);
         menuGameUI.SetActive(currentState == GameState.Menu);

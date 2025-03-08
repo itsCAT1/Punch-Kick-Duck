@@ -27,6 +27,8 @@ public class EndGameTrigger : MonoBehaviour
             levelMover.PlayerMoving();
             LevelManager.Instance.StartTransition();
 
+            ConditionManger.Instance.endGameUI.SetActive(true);
+
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<EndGame>(uEventData);
         }

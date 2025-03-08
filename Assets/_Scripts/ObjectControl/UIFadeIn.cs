@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIFadeIn : MonoBehaviour
 {
     CanvasGroup canvasGroup;
+    public float fadeValue;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class UIFadeIn : MonoBehaviour
     public void FadeIn()
     {
         canvasGroup.alpha = 0;
-        canvasGroup.DOFade(1, 1);
+        canvasGroup.DOFade(fadeValue, 1);
     }
 
     public void FlashFade()
@@ -31,7 +32,7 @@ public class UIFadeIn : MonoBehaviour
     IEnumerator StartFade()
     {
         canvasGroup.alpha = 0;
-        canvasGroup.DOFade(1, 1);
+        canvasGroup.DOFade(fadeValue, 1);
 
         yield return new WaitForSeconds(1);
 

@@ -7,6 +7,7 @@ public class MiniBossAttack : MonoBehaviour
     PushHandler pushPlayer;
     public GameObject hitVFXPrefab;
     public Transform hitPosition;
+    public AudioSource hitSound;
 
     void Start()
     {
@@ -29,5 +30,6 @@ public class MiniBossAttack : MonoBehaviour
     public void CreateHitEffect()
     {
         Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
+        hitSound.Play();
     }
 }

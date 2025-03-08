@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class QuitGameHandler : MonoBehaviour
 {
+    public GameObject panel;
+
     public void QuitGame()
     {
         StartCoroutine(StartQuit());
@@ -18,5 +20,7 @@ public class QuitGameHandler : MonoBehaviour
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<MenuGame>(uEventData);
+
+        panel.SetActive(false);
     }
 }

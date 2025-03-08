@@ -13,6 +13,7 @@ public class EnemyAttacking : MonoBehaviour
 
     public GameObject hitVFXPrefab;
     public Transform hitPosition;
+    public AudioSource hitSound;
 
     public bool canDealDamage;
 
@@ -59,7 +60,8 @@ public class EnemyAttacking : MonoBehaviour
     public void DealDamage()
     {
         Player.Instance.health.TakeDamage();
-        Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
+
+        CreateEffect();
         pushPlayer.PerformPushPlayer();
     }
 
@@ -67,5 +69,12 @@ public class EnemyAttacking : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         AttackingEnemyManager.Instance.ClearAttackingEnemy(this.gameObject);
+    }
+
+    void CreateEffect()
+    {
+        Instantiate(hitVFXPrefab, hitPosition.position, Quaternion.identity);
+
+        hitSound.Play();
     }
 }

@@ -21,7 +21,6 @@ public class EnemyWalkState : FSMC_Behaviour
         enemy.rigid.isKinematic = false;
         enemy.animator.Play("Walk");
         enemy.controller.Moving();
-
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

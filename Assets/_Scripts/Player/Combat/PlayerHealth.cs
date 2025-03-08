@@ -15,7 +15,6 @@ public class PlayerHealth : Health
         {
             TakeDamage();
         }
-
     }
 
     private void Start()
@@ -56,17 +55,19 @@ public class PlayerHealth : Health
     {
         if (ConditionManger.Instance.currentState == GameState.Tutorial) return;
 
-        if (currentHeart >= maxHeart)
+        if (currentHeart == maxHeart)
         {
             return;
         }
 
         currentHeart++;
-        InGameManager.Instance.lives.UpdateLivesProgress();
+
+        InGameManager.Instance.lives.ShowLives();
 
         if (currentHeart >= maxHeart)
         {
             currentHealth = 2;
+            AudioManager.Instance.heartReached.Play();
         }
     }
 
@@ -76,6 +77,6 @@ public class PlayerHealth : Health
 
         Player.Instance.health.currentHeart = 0;
 
-        InGameManager.Instance.lives.UpdateLivesProgress();
+        InGameManager.Instance.lives.ShowLives();
     }
 }

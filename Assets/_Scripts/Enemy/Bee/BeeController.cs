@@ -21,6 +21,7 @@ public class BeeController : MonoBehaviour
 
     public GameObject hitVFXPrefab;
     public Transform hitPosition;
+    public AudioSource hitSound, beatenSound, attackSound;
 
     public bool onLeft => transform.position.x < Player.Instance.transform.position.x;
 
@@ -78,6 +79,7 @@ public class BeeController : MonoBehaviour
         pushHandler.PerformPushPlayer();
         executer.SetCurrentState("Fly");
         CreateHitEffect();
+        hitSound.Play();
     }
 
     void TakeDamage()
@@ -85,6 +87,7 @@ public class BeeController : MonoBehaviour
         isDead = true;
         executer.SetCurrentState("Dead");
         CreateHitEffect();
+        beatenSound.Play();
     }
 
     public void CreateHitEffect()

@@ -7,6 +7,7 @@ public class MiniBossController : MonoBehaviour
 {
     public float attackRange;
     public bool canAttack;
+    public AudioSource roarSound;
 
     void Update()
     {

@@ -24,9 +24,6 @@ public class InGameManager : Singleton<InGameManager>
     {
         canRevive = true;
 
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
-
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetRevive);
         UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(ResetRevive);
         UEventDispatcherSingleton.Instance.AddEventListener<GameOver>(SetRevive);
@@ -35,15 +32,6 @@ public class InGameManager : Singleton<InGameManager>
     private void OnEnable()
     {
         ShowUI();
-    }
-
-    public void ResetValue(IUEventData uEventData)
-    {
-        DataInGame.Instance.beatingPoint = 0;
-        DataInGame.Instance.beatingCounter = 1;
-        DataInGame.Instance.beatingStreak = 0;
-        DataInGame.Instance.bestStreak = 0;
-        DataInGame.Instance.score = 0;
     }
 
     void SetRevive(IUEventData uEventData)

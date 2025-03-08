@@ -22,6 +22,8 @@ public class EndGameHandler : MonoBehaviour
 
     [Header("Total")]
     public TextMeshProUGUI totalScoreValue;
+    public AudioSource soundEndGame;
+
 
     void OnEnable()
     {
@@ -45,7 +47,7 @@ public class EndGameHandler : MonoBehaviour
         DataEndGame.Instance.UpdateData(newScore);
 
         UpdateUI(score, outrunScore, heartBonus, newScore);
-
+        soundEndGame.PlayDelayed(0.3f);
     }
 
     void UpdateUI(int score, int outrunScore, int heartBonus, int newScore)

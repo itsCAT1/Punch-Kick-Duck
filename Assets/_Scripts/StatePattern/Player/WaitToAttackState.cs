@@ -23,6 +23,7 @@ public class WaitToAttackState : FSMC_Behaviour
         Player.Instance.followBoss.isWaiting = true;
         Player.Instance.followBoss.canWait = true;
         DataInGame.Instance.inRoom = true;
+        Boss.Instance.reaction.soundRoar.PlayDelayed(1);
 
         timeStart = Time.time;
     }

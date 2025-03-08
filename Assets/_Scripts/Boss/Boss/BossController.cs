@@ -9,8 +9,7 @@ public class BossController : MonoBehaviour
     public int attackCount = 3;
     public int throwCount = 0;
 
-    public float distanceAttack;
-    public float distanceThrow;
+    public float distanceAttack, distanceThrow;
 
     public bool isAttacking = true;
     public bool isThrowing = false;

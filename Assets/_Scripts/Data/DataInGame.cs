@@ -20,10 +20,23 @@ public class DataInGame : Singleton<DataInGame>
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenu);
+
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
+
     }
 
     void OnMenu(IUEventData uEventData)
     {
         inRoom = false;
+    }
+
+    public void ResetValue(IUEventData uEventData)
+    {
+        beatingPoint = 0;
+        beatingCounter = 1;
+        beatingStreak = 0;
+        bestStreak = 0;
+        score = 0;
     }
 }

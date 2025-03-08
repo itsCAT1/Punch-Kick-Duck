@@ -61,7 +61,6 @@ public class BossPouncing : ObjectPushing
         if (other.gameObject.CompareTag("Player") && Boss.Instance.controller.isPounching)
         {
             CanDealDamage();
-            Instantiate(Boss.Instance.attack.hitVFXPrefab, hitPouching.transform.position, Quaternion.identity);
         }
     }
     public void CanDealDamage()
@@ -71,6 +70,8 @@ public class BossPouncing : ObjectPushing
         else
         {
             Player.Instance.health.TakeDamage();
+            Instantiate(Boss.Instance.attack.hitVFXPrefab, hitPouching.transform.position, Quaternion.identity);
+            Boss.Instance.attack.soundHit.Play();
         }
     }
 }

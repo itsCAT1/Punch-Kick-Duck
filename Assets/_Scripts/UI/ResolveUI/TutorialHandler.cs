@@ -30,7 +30,8 @@ public class TutorialHandler : Singleton<TutorialHandler>
         {
             tickUI[0].SetActive(true);
             dashUI[0].SetActive(false);
-            Player.Instance.tutorial.canWait = false;
+
+            Player.Instance.tutorial.isWaiting = false;
             Player.Instance.attack.canAttack = false;
         }
 
@@ -38,7 +39,8 @@ public class TutorialHandler : Singleton<TutorialHandler>
         {
             tickUI[1].SetActive(true);
             dashUI[1].SetActive(false);
-            Player.Instance.tutorial.canWait = false;
+
+            Player.Instance.tutorial.isWaiting = false;
             Player.Instance.attack.canAttack = false;
         }
 
@@ -54,9 +56,11 @@ public class TutorialHandler : Singleton<TutorialHandler>
     void OnBeatenEnemy()
     {
         DataManager.Instance.data.showTutorial = false;
+        Player.Instance.tutorial.isWaiting = false;
         Player.Instance.tutorial.canWait = true;
-        
+
         ConditionManger.Instance.inGameUI.SetActive(true);
+        InGameManager.Instance.lives.ShowLives();
 
         tutorialSlider.SlideNoteScore();
     }

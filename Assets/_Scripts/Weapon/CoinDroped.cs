@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinDroped : ObjectPushing
 {
     public Vector3 offset;
+    public GameObject collectEffect;
 
     void Start()
     {
@@ -27,12 +28,19 @@ public class CoinDroped : ObjectPushing
         PerformJumping(target);
     }
 
+    void CreateEffect()
+    {
+        Instantiate(collectEffect);
+        AudioManager.Instance.collectCoin.Play();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             DataManager.Instance.data.totalCoin++;
             InGameManager.Instance.coin.UpdateCoin();
+            CreateEffect();
             Destroy(this.gameObject);
         }
     }

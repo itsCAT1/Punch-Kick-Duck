@@ -14,7 +14,6 @@ public class test : MonoBehaviour
     }
     private void Update()
     {
-        this.transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
-            Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0); 
+        
     }
 }

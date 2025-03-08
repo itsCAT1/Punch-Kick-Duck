@@ -23,6 +23,7 @@ public class BeeFlyState : FSMC_Behaviour
         bee.movement.currentIndex = 0;
         bee.movement.UpdatePosition();
         bee.controller.PerformRotate();
+        bee.controller.attackSound.Stop();
 
         timeStart = Time.time;
     }

@@ -7,10 +7,12 @@ using UnityEngine;
 public class DoorHandler : MonoBehaviour
 {
     Animator animator;
+    public AudioSource soundEffect;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(Close);
         UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(Close);
@@ -32,6 +34,7 @@ public class DoorHandler : MonoBehaviour
             {
                 CameraManager.Instance.GoBossArea();
                 StartCoroutine(EnterBoss());
+                
             }
         }
     }
@@ -39,6 +42,7 @@ public class DoorHandler : MonoBehaviour
     void Open()
     {
         animator.Play("OpenDoor");
+        soundEffect.Play();
     }
 
     void Close(IUEventData uEventData)

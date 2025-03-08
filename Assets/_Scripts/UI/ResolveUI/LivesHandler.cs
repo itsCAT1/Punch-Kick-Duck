@@ -12,16 +12,13 @@ public class LivesHandler : MonoBehaviour
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnUpdate);
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnUpdate);
+        ShowLives();
+
+        UEventDispatcherSingleton.Instance.AddEventListener<InGame>(UpdateLives);
+        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(UpdateLives);
     }
 
-    private void OnEnable()
-    {
-        UpdateLivesProgress();
-    }
-
-    public void UpdateLivesProgress()
+    public void ShowLives()
     {
         int currentHeart = Player.Instance.health.currentHeart;
         int maxHeart = Player.Instance.health.maxHeart;
@@ -36,8 +33,8 @@ public class LivesHandler : MonoBehaviour
         }
     }
 
-    void OnUpdate(IUEventData uEventData)
+    void UpdateLives(IUEventData uEventData)
     {
-        UpdateLivesProgress();
+        ShowLives();
     }
 }

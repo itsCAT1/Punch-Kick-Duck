@@ -11,6 +11,7 @@ public class BonusPointHandler : MonoBehaviour
     public TextMeshProUGUI beatingCounterUI; 
 
     public bool stayLevel;
+
     bool inGame => ConditionManger.Instance.currentState == GameState.InGame;
 
     void Start()
@@ -74,7 +75,9 @@ public class BonusPointHandler : MonoBehaviour
         if (DataInGame.Instance.beatingPoint >= 10)
         {
             DataInGame.Instance.beatingCounter++; 
-            DataInGame.Instance.beatingPoint = 0; 
+            DataInGame.Instance.beatingPoint = 0;
+
+            AudioManager.Instance.bonusPointReached.Play();
         }
         stayLevel = true;
     }
