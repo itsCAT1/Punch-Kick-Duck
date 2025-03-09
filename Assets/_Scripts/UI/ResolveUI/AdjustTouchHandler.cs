@@ -65,4 +65,13 @@ public class AdjustTouchHandler : MonoBehaviour
         borderValue.text = CameraManager.Instance.handler.borderValue.ToString();
     }
 
+    public void ResetDefault()
+    {
+        fadeValue = 0.5f;
+        attackUI.alpha = fadeValue;
+        fadeScrollbar.value = fadeValue;
+
+        CameraManager.Instance.handler.borderValue = 0;
+        UpdateScreenBorder();
+    }
 }

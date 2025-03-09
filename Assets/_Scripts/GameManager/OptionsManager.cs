@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class OptionsManager : Singleton<OptionsManager>
 {
-    public GameObject panelOptions, panelAdjustTouch, panelAttack;
+    public GameObject panelOptions, panelAdjustTouch, panelAttack, panelPause;
 
     public AdjustTouchHandler adjustTouch;
     public AttackFadeIn attackFadeIn;
@@ -39,7 +39,9 @@ public class OptionsManager : Singleton<OptionsManager>
 
     public void BackToGame()
     {
-        if(!DataManager.Instance.data.showTutorial) ConditionManger.Instance.SetState(GameState.InGame);
+        panelPause.SetActive(true);
+
+        if (!DataManager.Instance.data.showTutorial) ConditionManger.Instance.SetState(GameState.InGame);
         else ConditionManger.Instance.SetState(GameState.Tutorial);
     }
 

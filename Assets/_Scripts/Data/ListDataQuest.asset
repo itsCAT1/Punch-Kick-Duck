@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335006740634b9046b9537e065dd6105, type: 3}
+  m_Name: ListDataQuest
+  m_EditorClassIdentifier: 
+  questData:
+  - id: 0
+    title: Co-Star!
+    description: Unbox a new character
+    targetValue: 0
+  - id: 1
+    title: Let's Get Serious
+    description: Complete combat tutorial
+    targetValue: 0
+  - id: 2
+    title: Thanks But No Thanks
+    description: Send a bottle back to a foe
+    targetValue: 0
+  - id: 3
+    title: Bee-gone!
+    description: Hit a bee!
+    targetValue: 0
+  - id: 4
+    title: Barely Made It
+    description: Reach the stairs with the bear on your tail
+    targetValue: 0
+  - id: 5
+    title: Build That Bonus
+    description: Increase bonus multiplier to 6x
+    targetValue: 0
+  - id: 6
+    title: Bigger Bonus Better!
+    description: Increase bonus multiplier to 9x
+    targetValue: 0
+  - id: 7
+    title: Vengeance!!
+    description: Defeat the Baron
+    targetValue: 0
+  - id: 8
+    title: Quite The Collector
+    description: Unbox 3 characters
+    targetValue: 3
+  - id: 9
+    title: Boldly Running Away
+    description: Outrun 20 foes on one level
+    targetValue: 20
+  - id: 10
+    title: Eat My Dust
+    description: Outrun 40 foes on one level
+    targetValue: 40
+  - id: 11
+    title: Respect!!
+    description: Get a total score of at least 2000
+    targetValue: 2000

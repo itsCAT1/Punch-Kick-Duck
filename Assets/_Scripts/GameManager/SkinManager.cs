@@ -23,7 +23,6 @@ public class SkinManager : Singleton<SkinManager>
     public SkinOwnedList listSkinOwned;
     public SkinDataBase skin;
 
-    public CameraSkinHandler skinSelector;
     public AudioSource soundUnbox;
     public AudioSource soundNotAlow;
 
@@ -66,6 +65,9 @@ public class SkinManager : Singleton<SkinManager>
 
             soundUnbox.Play();
             SaveDataSkin();
+
+            AchievementManager.Instance.UnlockAchievement(0);
+            AchievementManager.Instance.UnlockAchievement(1);
         }
 
         else soundNotAlow.Play();

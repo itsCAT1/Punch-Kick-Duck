@@ -77,6 +77,7 @@ public class TutorialSlider : SlideHandler
         hintSlider.CloseHint();
 
         yield return new WaitForSecondsRealtime(0.5f);
+        AchievementManager.Instance.UnlockAchievement(1);
 
         UEventData uEventData = new UEventData();
         UEventDispatcherSingleton.Instance.Invoke<RestartGame>(uEventData);

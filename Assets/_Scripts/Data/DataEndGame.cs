@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class DataEndGame : Singleton<DataEndGame>
 {
-    public int totalScore;
+    int totalScore;
 
     public void UpdateData(int newScore)
     {
+        int indexMap = DataManager.Instance.data.currentMap - 1;
+
         if (newScore > DataManager.Instance.currentBestScore)
         {
-            DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].bestScore = newScore;
+            DataManager.Instance.listLevel.data[indexMap].bestScore = newScore;
         }
 
         for(int i = 0; i < DataManager.Instance.listLevel.data.Count; i++)
@@ -19,6 +21,14 @@ public class DataEndGame : Singleton<DataEndGame>
         }
 
         DataManager.Instance.data.totalScore = totalScore;
-        DataManager.Instance.listLevel.data[DataManager.Instance.data.currentMap - 1].isCompleted = true;
+        DataManager.Instance.listLevel.data[indexMap].isCompleted = true;
+
+        UpdateDataGoogle(indexMap);
+    }
+
+    void UpdateDataGoogle(int index)
+    {
+        LeaderboardManager.Instance.UpdateDataLeaderboard(index);
+        AchievementManager.Instance.UnlockAchievement(11);
     }
 }

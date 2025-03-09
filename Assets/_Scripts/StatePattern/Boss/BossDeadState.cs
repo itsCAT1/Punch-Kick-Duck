@@ -23,8 +23,8 @@ public class BossDeadState : FSMC_Behaviour
         Boss.Instance.animator.Play("Dead");
 
         Boss.Instance.reaction.OnDead();
-        
-        
+
+        AchievementManager.Instance.UnlockAchievement(7);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

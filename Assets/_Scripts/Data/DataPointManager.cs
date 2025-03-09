@@ -57,5 +57,13 @@ public class DataPointManager : Singleton<DataPointManager>
         {
             DataInGame.Instance.bestStreak = DataInGame.Instance.beatingStreak;
         }
+
+        if (DataInGame.Instance.bestStreak > DataManager.Instance.data.bestStreak)
+        {
+            DataManager.Instance.data.bestStreak = DataInGame.Instance.bestStreak;
+
+            AchievementManager.Instance.UnlockAchievement(9);
+            AchievementManager.Instance.UnlockAchievement(10);
+        }
     }
 }

@@ -8,6 +8,7 @@ public class DataManager : Singleton<DataManager>
     public DataBase data;
     public ListDataLevel listLevel;
 
+
     private void OnEnable()
     {
         LoadData();
@@ -25,13 +26,13 @@ public class DataManager : Singleton<DataManager>
     public void SaveData()
     {
         SaveDataBase();
-        SaveDataProgress();
+        SaveDataLevel();
     }
     [ContextMenu("Load Data")]
     public void LoadData()
     {
         LoadDataBase();
-        LoadDataProgress();
+        LoadDataLevel();
     }
 
     public void SaveDataBase()
@@ -48,14 +49,14 @@ public class DataManager : Singleton<DataManager>
         data = JsonUtility.FromJson<DataBase>(dataValueString);
     }
 
-    public void SaveDataProgress()
+    public void SaveDataLevel()
     {
         var value = JsonUtility.ToJson(listLevel);
         PlayerPrefs.SetString(nameof(ListDataLevel), value);
         PlayerPrefs.Save();
     }
 
-    public void LoadDataProgress()
+    public void LoadDataLevel()
     {
         var value = JsonUtility.ToJson(listLevel);
         var dataValueString = PlayerPrefs.GetString(nameof(ListDataLevel), value);
@@ -69,7 +70,7 @@ public class DataManager : Singleton<DataManager>
             this.data = new DataBase
             {
                 currentMap = 1,
-                totalCoin = 0,
+                totalCoin = 10000,
                 totalScore = 0,
                 currentSkin = 1,
                 musicVolume = 1,
@@ -84,7 +85,7 @@ public class DataManager : Singleton<DataManager>
         if (!PlayerPrefs.HasKey(nameof(ListDataLevel)))
         {
             listLevel.data[0].isCompleted = true;
-            SaveDataProgress();
+            SaveDataLevel();
         }
     }
 
@@ -98,7 +99,7 @@ public class DataManager : Singleton<DataManager>
     }
 
     [ContextMenu("Active All")]
-    public void Active()
+    public void UnlockAllLevel()
     {
         foreach (var item in listLevel.data)
         {

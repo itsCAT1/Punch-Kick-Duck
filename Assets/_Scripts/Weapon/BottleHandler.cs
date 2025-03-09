@@ -19,6 +19,7 @@ public class BottleHandler : ColliderHandler
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
         CreateHitEffect();
         reflectSound.Play();
+        AchievementManager.Instance.UnlockAchievement(2);
     }
 
     private void OnTriggerEnter(Collider other)
