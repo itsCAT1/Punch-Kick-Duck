@@ -22,7 +22,11 @@ public class BlockState : FSMC_Behaviour
         Player.Instance.block.BlockDamage();
 
         if (ConditionManger.Instance.currentState == GameState.InGame) interval = 1.5f;
-        if (ConditionManger.Instance.currentState == GameState.Tutorial) interval = 3f;
+        if (ConditionManger.Instance.currentState == GameState.Tutorial)
+        {
+            DialogueHandler.Instance.ShowDialogOnDraw();
+            interval = 3f;
+        }
 
         timeStart = Time.time;
     }

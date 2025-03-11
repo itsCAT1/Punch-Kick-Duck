@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class test : MonoBehaviour
 {
-    public float speed;
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))

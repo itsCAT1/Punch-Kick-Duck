@@ -25,7 +25,11 @@ public class HurtState : FSMC_Behaviour
         UEventDispatcherSingleton.Instance.Invoke<PlayerHurt>(uEventData);
 
         if (ConditionManger.Instance.currentState == GameState.InGame) interval = 1.5f;
-        if (ConditionManger.Instance.currentState == GameState.Tutorial) interval = 3f;
+        if (ConditionManger.Instance.currentState == GameState.Tutorial)
+        {
+            DialogueHandler.Instance.ShowDialogOnHit();
+            interval = 3f;
+        }
 
         timeStart = Time.time;
     }

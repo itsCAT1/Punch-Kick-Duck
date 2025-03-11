@@ -65,6 +65,7 @@ public class PlayerOnTutorial : MonoBehaviour
         Player.Instance.attack.canAttack = false;
 
         Player.Instance.executer.SetCurrentState("Idle");
+        DialogueHandler.Instance.ShowDialogEnemy();
 
         yield return new WaitForSeconds(duration);
 

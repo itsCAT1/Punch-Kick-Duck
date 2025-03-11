@@ -74,7 +74,7 @@ public class EndGameHandler : MonoBehaviour
 
     public void OnPressButtonDown()
     {
-        Time.timeScale = 2;
+        Time.timeScale = 3;
     }
 
     public void OnPressButtonUp()

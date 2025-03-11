@@ -37,6 +37,7 @@ public class TutorialHandler : Singleton<TutorialHandler>
         {
             tickUI[0].SetActive(true);
             dashUI[0].SetActive(false);
+            DialogueHandler.Instance.ShowDialogEnemyBeaton();
 
             Player.Instance.tutorial.isWaiting = false;
             Player.Instance.attack.canAttack = false;
@@ -46,6 +47,7 @@ public class TutorialHandler : Singleton<TutorialHandler>
         {
             tickUI[1].SetActive(true);
             dashUI[1].SetActive(false);
+            DialogueHandler.Instance.ShowDialogEnemyBeaton();
 
             Player.Instance.tutorial.isWaiting = false;
             Player.Instance.attack.canAttack = false;
@@ -55,13 +57,21 @@ public class TutorialHandler : Singleton<TutorialHandler>
         {
             tickUI[2].SetActive(true);
             dashUI[2].SetActive(false);
+            DialogueHandler.Instance.ShowDialogEnemyBeaton();
 
-            OnBeatenEnemy();
+            OnClearEnemy();
         }
     }
 
-    void OnBeatenEnemy()
+    void OnClearEnemy()
     {
+        StartCoroutine(ShowPanelTutorial());
+    }
+
+    IEnumerator ShowPanelTutorial()
+    {
+        yield return new WaitForSeconds(2.5f);
+
         DataManager.Instance.data.showTutorial = false;
         Player.Instance.tutorial.isWaiting = false;
         Player.Instance.tutorial.canWait = true;

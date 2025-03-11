@@ -54,6 +54,7 @@ public class MiniBossHandler : MonoBehaviour
         Debug.Log("warning");
         if(dataPlayer.playerDirection < 0) warningRight.SetActive(true);
         else warningLeft.SetActive(true);
+        canvasGroup.alpha = 1;
 
         yield return new WaitForSeconds(2);
 
