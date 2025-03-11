@@ -48,7 +48,7 @@ public class SkinManager : Singleton<SkinManager>
         return skin.dataSkins.Find(skin => skin.id == index);
     }
 
-    public void PurchaseSkin(int index)
+    public void PurchaseSkinByCoin(int index)
     {
         var dataSkin = GetDataSkin(index);
 
@@ -56,21 +56,34 @@ public class SkinManager : Singleton<SkinManager>
         {
             DataManager.Instance.data.totalCoin -= dataSkin.coin;
 
-            var owned = new SkinOwned
-            {
-                indexSkin = index,
-                name = "Skin: " + index
-            };
-            listSkinOwned.list.Add(owned);
-
-            soundUnbox.Play();
-            SaveDataSkin();
-
-            AchievementManager.Instance.UnlockAchievement(0);
-            AchievementManager.Instance.UnlockAchievement(1);
+            SetSkin(index);
         }
 
         else soundNotAlow.Play();
+    }
+
+    public void PurchaseSkinByMoney(int index)
+    {
+        if (!CheckSkin(index))
+        {
+            SetSkin(index);
+        }
+    }
+
+    void SetSkin(int index)
+    {
+        var owned = new SkinOwned
+        {
+            indexSkin = index,
+            name = "Skin: " + index
+        };
+        listSkinOwned.list.Add(owned);
+
+        soundUnbox.Play();
+        SaveDataSkin();
+
+        AchievementManager.Instance.UnlockAchievement(0);
+        AchievementManager.Instance.UnlockAchievement(8);
     }
 
     void SkinStartUp()

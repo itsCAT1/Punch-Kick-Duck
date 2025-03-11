@@ -12,12 +12,12 @@ public class AttackHintSlider : SlideHandler
     public float endPositionX;
     public float duration;
 
-    private void OnEnable()
+    private void Start()
     {
-        SetInitPosition();
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetInitPosition);
     }
 
-    void SetInitPosition()
+    void SetInitPosition(IUEventData uEventData)
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
 

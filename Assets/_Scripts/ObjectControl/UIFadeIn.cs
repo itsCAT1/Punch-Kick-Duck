@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIFadeIn : MonoBehaviour
 {
-    CanvasGroup canvasGroup;
+    public CanvasGroup canvasGroup;
     public float fadeValue;
 
     private void Awake()

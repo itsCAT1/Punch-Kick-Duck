@@ -9,14 +9,6 @@ public class PlayerHealth : Health
     public int currentHeart;
     public int maxHeart;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage();
-        }
-    }
-
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(LoseHeart);

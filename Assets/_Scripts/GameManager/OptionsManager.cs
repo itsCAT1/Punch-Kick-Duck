@@ -41,6 +41,12 @@ public class OptionsManager : Singleton<OptionsManager>
     {
         panelPause.SetActive(true);
 
+        if(MenuGameManager.Instance.isStarting)
+        {
+            ConditionManger.Instance.SetState(GameState.StartGame);
+            return;
+        }
+
         if (!DataManager.Instance.data.showTutorial) ConditionManger.Instance.SetState(GameState.InGame);
         else ConditionManger.Instance.SetState(GameState.Tutorial);
     }

@@ -35,6 +35,7 @@ public class EndGameState : FSMC_Behaviour
             UEventData uEventData = new UEventData();
             UEventDispatcherSingleton.Instance.Invoke<LevelTransition>(uEventData);
             UEventDispatcherSingleton.Instance.Invoke<InGame>(uEventData);
+            Time.timeScale = 1;
         }
     }
 

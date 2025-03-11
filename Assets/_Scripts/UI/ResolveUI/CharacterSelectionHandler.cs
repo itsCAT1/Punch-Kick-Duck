@@ -4,18 +4,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelectionHandler : MonoBehaviour
+public class CharacterSelectionHandler : Singleton<CharacterSelectionHandler>
 {
     public GameObject[] box;
     public GameObject[] play;
     public TextMeshProUGUI skinQuantity;
     public TextMeshProUGUI currentCoin;
-    void Update()
+
+    private void OnEnable()
     {
         UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         skinQuantity.text = "COLLECTION:  " + SkinManager.Instance.listSkinOwned.list.Count.ToString() + " / 4";
         currentCoin.text = DataManager.Instance.data.totalCoin.ToString();

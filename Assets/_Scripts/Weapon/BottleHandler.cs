@@ -8,6 +8,8 @@ public class BottleHandler : ColliderHandler
 
     public AudioSource hitSound, reflectSound;
 
+    bool isReflecting = false;
+
     void Start()
     {
         bottleMovement = GetComponent<BottleMovement>();
@@ -19,7 +21,7 @@ public class BottleHandler : ColliderHandler
         this.transform.rotation = Quaternion.Euler(0, -this.transform.eulerAngles.y, 0);
         CreateHitEffect();
         reflectSound.Play();
-        AchievementManager.Instance.UnlockAchievement(2);
+        isReflecting = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,6 +56,8 @@ public class BottleHandler : ColliderHandler
             ObjectOnHit();
             hitSound.Play();
             DataPointManager.Instance.GainPoint();
+
+            if(isReflecting) AchievementManager.Instance.UnlockAchievement(2);
         }
     }
 

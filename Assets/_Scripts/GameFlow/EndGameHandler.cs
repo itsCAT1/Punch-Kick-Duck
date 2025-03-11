@@ -24,7 +24,6 @@ public class EndGameHandler : MonoBehaviour
     public TextMeshProUGUI totalScoreValue;
     public AudioSource soundEndGame;
 
-
     void OnEnable()
     {
         UpdateResult();
@@ -71,5 +70,15 @@ public class EndGameHandler : MonoBehaviour
         outrunBonusValue.text = DataInGame.Instance.bestStreak.ToString() + " x " + DataInGame.Instance.beatingCounter + " = " + outrunScore.ToString();
         heartBonusValue.text = heartBonus.ToString();
         totalScoreValue.text = DataManager.Instance.data.totalScore.ToString();
+    }
+
+    public void OnPressButtonDown()
+    {
+        Time.timeScale = 2;
+    }
+
+    public void OnPressButtonUp()
+    {
+        Time.timeScale = 1;
     }
 }

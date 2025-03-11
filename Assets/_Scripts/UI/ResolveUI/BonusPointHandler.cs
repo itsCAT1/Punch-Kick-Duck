@@ -49,7 +49,7 @@ public class BonusPointHandler : MonoBehaviour
             }
 
             CheckPoint();
-            yield return null;
+            yield return new WaitForSeconds(0.001f);
         }
     }
 
@@ -77,6 +77,7 @@ public class BonusPointHandler : MonoBehaviour
             DataInGame.Instance.beatingCounter++; 
             DataInGame.Instance.beatingPoint = 0;
 
+            SetAchievement();
             AudioManager.Instance.bonusPointReached.Play();
         }
         stayLevel = true;
@@ -95,5 +96,18 @@ public class BonusPointHandler : MonoBehaviour
         DataInGame.Instance.beatingPoint--;
 
         CheckPoint();
+    }
+
+    void SetAchievement()
+    {
+        if(DataInGame.Instance.beatingCounter >= 6)
+        {
+            AchievementManager.Instance.UnlockAchievement(5);
+        }
+
+        if (DataInGame.Instance.beatingCounter >= 9)
+        {
+            AchievementManager.Instance.UnlockAchievement(6);
+        }
     }
 }

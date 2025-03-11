@@ -11,6 +11,8 @@ public class TutorialHandler : Singleton<TutorialHandler>
     public GameObject[] dashUI;
 
     public TutorialSlider tutorialSlider;
+    public HintSlider hintSlider;
+
     private void OnEnable()
     {
         HintOnStart();
@@ -21,6 +23,11 @@ public class TutorialHandler : Singleton<TutorialHandler>
         foreach (var tick in tickUI)
         {
             tick.SetActive(false);
+        }
+
+        foreach (var dash in dashUI)
+        {
+            dash.SetActive(true);
         }
     }
 
@@ -62,6 +69,7 @@ public class TutorialHandler : Singleton<TutorialHandler>
         ConditionManger.Instance.inGameUI.SetActive(true);
         InGameManager.Instance.lives.ShowLives();
 
+        hintSlider.CloseHint();
         tutorialSlider.SlideNoteScore();
     }
 }

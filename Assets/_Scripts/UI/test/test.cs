@@ -8,6 +8,14 @@ public class test : MonoBehaviour
 
     private void Update()
     {
-        speed = Time.timeScale;
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Player.Instance.health.TakeDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            DataPointManager.Instance.GainPoint();
+        }
     }
 }

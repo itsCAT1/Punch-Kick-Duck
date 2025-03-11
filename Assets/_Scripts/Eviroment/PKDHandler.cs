@@ -58,7 +58,7 @@ public class PKDHandler : MonoBehaviour
     {
         var player = other.gameObject;
 
-        forcePush = 500;
+        forcePush = 300;
 
         if (player.CompareTag("Punch") && type == "Punch" && TutorialManager.Instance.currentState == TutorialState.Punch && canPush)
         {
@@ -106,6 +106,7 @@ public class PKDHandler : MonoBehaviour
             && canPush)
         {
             canPush = false;
+            MenuGameManager.Instance.isStarting = false;
 
             Player.Instance.dealDamage.CreateHitEffect();
             UEventData uEventData = new UEventData();

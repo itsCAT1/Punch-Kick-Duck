@@ -20,6 +20,14 @@ public class DataManager : Singleton<DataManager>
         SaveData();
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            SaveData();
+        }
+    }
+
     public int currentBestScore => listLevel.data[data.currentMap - 1].bestScore;
 
     [ContextMenu("Save Data")]

@@ -44,12 +44,14 @@ public class MiniBossHandler : MonoBehaviour
         {
             timeCount.enabled = false;
             iconBear.color = Color.white;
+            StopAllCoroutines();
             StartCoroutine(OnWarning(dataPlayer));
         }
     }
 
     IEnumerator OnWarning(DataPlayer dataPlayer)
     {
+        Debug.Log("warning");
         if(dataPlayer.playerDirection < 0) warningRight.SetActive(true);
         else warningLeft.SetActive(true);
 
@@ -73,6 +75,5 @@ public class MiniBossHandler : MonoBehaviour
     {
         warningLeft.SetActive(false);
         warningRight.SetActive(false);
-        StopAllCoroutines();
     }
 }

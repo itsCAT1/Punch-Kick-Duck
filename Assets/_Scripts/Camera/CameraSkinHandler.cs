@@ -116,6 +116,7 @@ public class CameraSkinHandler : MonoBehaviour
             currentIndex = nearestIndex;
             targetX = skin[currentIndex].position.x;
 
+            CharacterSelectionHandler.Instance.UpdateUI();
             soundOnSelected.Play();
         }
     }

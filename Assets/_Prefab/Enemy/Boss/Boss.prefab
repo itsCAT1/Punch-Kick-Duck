@@ -1345,8 +1345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4d73f569107384cbf53aefe5b0331b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 20
+  maxHealth: 20
 --- !u!114 &2978709084851520690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add46da759d8deb4aa2429b2d6c54413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 0.3
+  dropChance: 0.2
   coinPrefab: {fileID: 8638476980596849867, guid: 8df133da15ff89e48a973d8c6597fb06, type: 3}
 --- !u!1 &3903716418442029716
 GameObject:
