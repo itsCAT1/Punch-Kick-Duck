@@ -65,10 +65,9 @@ public class PlayerHealth : Health
 
     void LoseHeart(IUEventData uEventData)
     {
-        if (ConditionManger.Instance.currentState == GameState.Tutorial) return;
+        if (ConditionManger.Instance.currentState == GameState.Tutorial || Player.Instance.health.currentHealth == 2) return;
 
         Player.Instance.health.currentHeart = 0;
-
         InGameManager.Instance.lives.ShowLives();
     }
 }

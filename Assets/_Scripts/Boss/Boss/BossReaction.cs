@@ -25,8 +25,8 @@ public class BossReaction : MonoBehaviour
     {
         if (DataManager.Instance.data.currentMap == 10)
         {
-            Boss.Instance.executer.SetCurrentState("Idle");
             Boss.Instance.controller.OnReset();
+            Boss.Instance.executer.SetCurrentState("Idle");
         }
     }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [Serializable]
 public class SkinOwned
@@ -15,7 +16,7 @@ public class SkinOwned
 [Serializable]
 public class SkinOwnedList
 {
-    public List<SkinOwned> list;
+    public List<SkinOwned> skins;
 }
 
 public class SkinManager : Singleton<SkinManager>
@@ -23,6 +24,7 @@ public class SkinManager : Singleton<SkinManager>
     public SkinOwnedList listSkinOwned;
     public SkinDataBase skin;
 
+    public BoxHandler[] box;
     public AudioSource soundUnbox;
     public AudioSource soundNotAlow;
 
@@ -39,11 +41,11 @@ public class SkinManager : Singleton<SkinManager>
 
     public bool CheckSkin(int index)
     {
-        return listSkinOwned.list.Exists(skin => skin.indexSkin == index);
+        return listSkinOwned.skins.Exists(skin => skin.indexSkin == index);
     }
 
 
-    DataSkin GetDataSkin(int index)
+    public DataSkin GetDataSkin(int index)
     {
         return skin.dataSkins.Find(skin => skin.id == index);
     }
@@ -57,6 +59,8 @@ public class SkinManager : Singleton<SkinManager>
             DataManager.Instance.data.totalCoin -= dataSkin.coin;
 
             SetSkin(index);
+            box[index - 1].PlayUnbox();
+            CharacterSelectionHandler.Instance.DisableInteract();
         }
 
         else soundNotAlow.Play();
@@ -67,6 +71,8 @@ public class SkinManager : Singleton<SkinManager>
         if (!CheckSkin(index))
         {
             SetSkin(index);
+            box[index - 1].PlayUnbox();
+            CharacterSelectionHandler.Instance.DisableInteract();
         }
     }
 
@@ -77,7 +83,7 @@ public class SkinManager : Singleton<SkinManager>
             indexSkin = index,
             name = "Skin: " + index
         };
-        listSkinOwned.list.Add(owned);
+        listSkinOwned.skins.Add(owned);
 
         soundUnbox.Play();
         SaveDataSkin();
@@ -95,7 +101,7 @@ public class SkinManager : Singleton<SkinManager>
                 indexSkin = 1,
                 name = "Skin: " + 1
             };
-            listSkinOwned.list.Add(owned);
+            listSkinOwned.skins.Add(owned);
             SaveDataSkin();
         }
     }

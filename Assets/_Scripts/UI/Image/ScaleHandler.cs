@@ -22,14 +22,16 @@ public class ScaleHandler : MonoBehaviour
     }
 
     [ContextMenu("expand")]
-    public void ExpandObject()
+    public void ExpandObject(Vector3 dotScale)
     {
         this.transform.DOScale(scaleEnd, duration);
+        DialogueHandler.Instance.dotPos.transform.DOScale(dotScale, duration);
     }
 
     [ContextMenu("collapse")]
     public void CollapseObject()
     {
         this.transform.DOScale(scaleStart, duration);
+        DialogueHandler.Instance.dotPos.transform.DOScale(scaleStart, duration);
     }
 }

@@ -16,6 +16,6 @@ public class BossHandler : MonoBehaviour
     public void UpdateLives()
     {
         if(Boss.Instance != null) 
-            progressHeathUI.fillAmount = Boss.Instance.health.currentHealth / 20f;
+            progressHeathUI.fillAmount = Boss.Instance.health.currentHealth / 30f;
     }
 }

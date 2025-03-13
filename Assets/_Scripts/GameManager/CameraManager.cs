@@ -10,7 +10,6 @@ public class CameraManager : Singleton<CameraManager>
     public GameObject playerCamera;
     public GameObject seletctCamera;
     public GameObject adjustCamera;
-    public GameObject bossCamera;
     public CameraHandler handler;
     public CameraSkinHandler skinSelector;
 
@@ -69,6 +68,7 @@ public class CameraManager : Singleton<CameraManager>
 
     IEnumerator MoveToBossAreaCoroutine()
     {
+        handler.virtualCameraBoss.m_Follow = Boss.Instance.transform;
         playerCamera.SetActive(false);
         yield return new WaitForSeconds(3);
         playerCamera.SetActive(true);

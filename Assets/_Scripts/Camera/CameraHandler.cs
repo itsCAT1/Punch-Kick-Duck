@@ -48,7 +48,7 @@ public class CameraHandler : MonoBehaviour
         transposer.m_YDamping = 0;
         transposer.m_ZDamping = 0;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
 
         cinemachineBrain.m_DefaultBlend = smoothBlend;
         transposer.m_XDamping = 0;

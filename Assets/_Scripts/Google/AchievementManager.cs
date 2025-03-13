@@ -56,7 +56,7 @@ public class AchievementManager : Singleton<AchievementManager>
         switch (id)
         {
             case 8:
-                progressData.dataProgresses[id].currentValue = SkinManager.Instance.listSkinOwned.list.Count - 1;
+                progressData.dataProgresses[id].currentValue = SkinManager.Instance.listSkinOwned.skins.Count - 1;
                 break;
             case 9:
             case 10:

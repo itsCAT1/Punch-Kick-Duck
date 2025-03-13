@@ -18,6 +18,10 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Kick && enemyAttackType == AttackType.Duck) ||
             (playerAttackType == AttackType.Duck && enemyAttackType == AttackType.Punch))
         {
+
+            var currentState = Player.Instance.executer.GetCurrentState().Name.ToString();
+            if (currentState == "Hurt" || currentState == "Dead") return;
+
             healthEnemy?.TakeDamage();
             Player.Instance.dealDamage.CreateHitEffect();
 
@@ -39,6 +43,9 @@ public class CombatManager : Singleton<CombatManager>
             (playerAttackType == AttackType.Kick && bossAttackType == AttackType.Duck) ||
             (playerAttackType == AttackType.Duck && bossAttackType == AttackType.Punch))
         {
+            var currentState = Player.Instance.executer.GetCurrentState().Name.ToString();
+            if (currentState == "Hurt" || currentState == "Dead") return;
+
             CanDealDamage();
         }
     }

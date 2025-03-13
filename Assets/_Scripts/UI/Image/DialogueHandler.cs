@@ -1,7 +1,6 @@
-using RMC.Core.UEvents.UEventDispatcher;
 using RMC.Core.UEvents;
+using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueHandler : Singleton<DialogueHandler>
@@ -10,6 +9,8 @@ public class DialogueHandler : Singleton<DialogueHandler>
     public ScaleHandler[] dialogEnemy;
     public ScaleHandler[] dialogEnemyBeaton;
     public ScaleHandler dialogOnHit, dialogOnDraw;
+    public RectTransform dialogPos, dotPos;
+    Vector3 dotScale;
     public int enemyIndex;
 
     public void ShowDialogOnStart()
@@ -40,7 +41,7 @@ public class DialogueHandler : Singleton<DialogueHandler>
 
     IEnumerator ShowDialog(ScaleHandler dialog)
     {
-        dialog.ExpandObject();
+        dialog.ExpandObject(dotScale);
 
         yield return new WaitForSeconds(2);
 
@@ -49,12 +50,31 @@ public class DialogueHandler : Singleton<DialogueHandler>
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnReset);
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(OnReset);
+        InitPos();
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPosOnStart);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetPosOnStart);
     }
 
-    void OnReset(IUEventData uEventData)
+    void SetPosOnStart(IUEventData uEventData)
+    {
+        InitPos();
+    }
+
+    void InitPos()
     {
         enemyIndex = 0;
+
+        int currentMap = DataManager.Instance.data.currentMap;
+
+        if (currentMap % 2 == 1)
+        {
+            dialogPos.anchoredPosition = new Vector3(-300, 130, 0);
+            dotScale = new Vector3(1.5f, 1.5f, 1.5f);
+        }
+        else
+        {
+            dialogPos.anchoredPosition = new Vector3(300, 130, 0);
+            dotScale = new Vector3(-1.5f, 1.5f, 1.5f);
+        }
     }
 }

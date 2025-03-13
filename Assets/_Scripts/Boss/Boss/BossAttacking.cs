@@ -51,6 +51,9 @@ public class BossAttacking : MonoBehaviour
 
     public void DealDamage()
     {
+        var currentState = Boss.Instance.executer.GetCurrentState().Name.ToString();
+        if (currentState == "Hurt" || currentState == "Dead") return;
+
         Player.Instance.health.TakeDamage();
 
         CreateHitEffect();

@@ -15,5 +15,12 @@ public class test : MonoBehaviour
         {
             DataPointManager.Instance.GainPoint();
         }
+
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Boss.Instance.health.TakeDamage();
+            DataPointManager.Instance.GainPoint();
+        }
     }
 }

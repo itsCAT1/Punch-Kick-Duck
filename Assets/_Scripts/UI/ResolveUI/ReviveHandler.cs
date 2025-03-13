@@ -1,3 +1,4 @@
+using DG.Tweening;
 using RMC.Core.UEvents;
 using RMC.Core.UEvents.UEventDispatcher;
 using System.Collections;
@@ -7,17 +8,17 @@ using UnityEngine.UI;
 
 public class ReviveHandler : MonoBehaviour
 {
-    public GameObject panelRevive;
     public GameObject gameOverUI;
+    public GameObject skipUI;
     public Image progressRevive;
+    public AudioSource audioRevive;
 
     Coroutine countTimeCoroutine;
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<PlayerRevive>(StartRevive);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(StartRevive);
-        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(StartRevive);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(InitRevive);
+        UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(InitRevive);
     }
 
     public void Revive()
@@ -27,19 +28,23 @@ public class ReviveHandler : MonoBehaviour
         InGameManager.Instance.coin.UpdateCoin();
 
         Player.Instance.executer.SetCurrentState("GetUp");
-        panelRevive.SetActive(false);
-        gameOverUI.SetActive(false);
+        
+        StopAllCoroutines();
+        HideRevive();
+        skipUI.SetActive(false);
     }
 
     public void Skip()
     {
+        StopAllCoroutines();
+        
+        HideRevive();
         gameOverUI.SetActive(true);
-        panelRevive.SetActive(false);
+        skipUI.SetActive(false);
     }
 
     public void StartCountTime()
     {
-        StopAllCoroutines();
         StartCoroutine(CountdownTime());
     }
 
@@ -47,6 +52,7 @@ public class ReviveHandler : MonoBehaviour
     {
         float timeCount = 0;
         float duration = 3;
+        ShowRevive();
 
         while (timeCount < duration)
         {
@@ -56,12 +62,25 @@ public class ReviveHandler : MonoBehaviour
             yield return null;
         }
 
+        HideRevive();
         gameOverUI.SetActive(true);
-        panelRevive.SetActive(false);
+        skipUI.SetActive(false);
     }
 
-    public void StartRevive(IUEventData uEventData)
+    void InitRevive(IUEventData uEventData)
     {
-        StopAllCoroutines();
+        this.transform.localScale = Vector3.zero;
+        skipUI.SetActive(false);
+    }
+
+    public void ShowRevive()
+    {
+        this.transform.DOScale(1, 0.3f);
+        audioRevive.Play();
+    }
+
+    public void HideRevive()
+    {
+        this.transform.DOScale(0, 0.3f);
     }
 }

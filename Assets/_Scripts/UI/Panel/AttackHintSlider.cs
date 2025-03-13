@@ -14,21 +14,32 @@ public class AttackHintSlider : SlideHandler
 
     private void Start()
     {
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetInitPosition);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetPosOnStart);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelSelection>(SetPosOnStart);
     }
 
-    void SetInitPosition(IUEventData uEventData)
+    private void Awake()
+    {
+        InitPosition();
+    }
+
+    void SetPosOnStart(IUEventData uEventData)
+    {
+        InitPosition();
+    }
+
+    void InitPosition()
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
 
         int currentMap = DataManager.Instance.data.currentMap;
 
-        if (currentMap % 2 == 1 || currentMap == 10) 
+        if (currentMap % 2 == 1 || currentMap == 10)
         {
             startPositionX = 480;
             endPositionX = -480;
         }
-        else 
+        else
         {
             startPositionX = -2400;
             endPositionX = -1440;

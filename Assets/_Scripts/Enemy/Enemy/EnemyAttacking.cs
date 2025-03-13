@@ -59,6 +59,9 @@ public class EnemyAttacking : MonoBehaviour
 
     public void DealDamage()
     {
+        var currentState = enemy.executer.GetCurrentState().Name.ToString();
+        if (currentState == "Hurt" || currentState == "Dead") return;
+
         Player.Instance.health.TakeDamage();
 
         CreateEffect();

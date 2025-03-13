@@ -1,4 +1,5 @@
 using DG.Tweening;
+using RMC.Core.UEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public bool isUpdate = true;
-    public int attackCount = 3;
+    public int attackCount = 2;
     public int throwCount = 0;
 
     public float distanceAttack, distanceThrow;
@@ -18,12 +19,6 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         UpdateAction();
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Boss.Instance.health.TakeDamage();
-            DataPointManager.Instance.GainPoint();
-        }
     }
 
     public void UpdateAction()

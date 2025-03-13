@@ -16,7 +16,7 @@ public class InGameManager : Singleton<InGameManager>
 
     public CanvasGroup canvasGroup;
 
-    public GameObject reviveUI;
+    public GameObject skipUI;
     public GameObject gameOverUI;
     public bool canRevive;
 
@@ -40,7 +40,7 @@ public class InGameManager : Singleton<InGameManager>
             && DataManager.Instance.data.currentMap != 10)
         {
             canRevive = false;
-            reviveUI.SetActive(true);
+            skipUI.SetActive(true);
             revive.StartCountTime();
         }
         else gameOverUI.SetActive(true);

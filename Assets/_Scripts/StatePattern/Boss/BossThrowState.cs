@@ -40,7 +40,7 @@ public class BossThrowState : FSMC_Behaviour
             Boss.Instance.controller.isAttacking = true;
             Boss.Instance.controller.isPounching = false;
             Boss.Instance.controller.isThrowing = false;
-            Boss.Instance.controller.attackCount = 3;
+            Boss.Instance.controller.attackCount = 5;
 
             if (timeChangeState) ChangeState();
 

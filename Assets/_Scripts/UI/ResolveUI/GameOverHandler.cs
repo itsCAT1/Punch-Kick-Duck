@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameOverHandler : MonoBehaviour
 {
+    public GameObject gameOverUI;
 
     void Start()
     {
@@ -16,5 +17,13 @@ public class GameOverHandler : MonoBehaviour
     void ClosePanel(IUEventData uEventData)
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void SelectCharactor()
+    {
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<CharactorSelection>(uEventData);
+
+        gameOverUI.SetActive(false);
     }
 }

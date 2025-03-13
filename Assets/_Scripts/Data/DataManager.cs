@@ -78,7 +78,7 @@ public class DataManager : Singleton<DataManager>
             this.data = new DataBase
             {
                 currentMap = 1,
-                totalCoin = 10000,
+                totalCoin = 50,
                 totalScore = 0,
                 currentSkin = 1,
                 musicVolume = 1,

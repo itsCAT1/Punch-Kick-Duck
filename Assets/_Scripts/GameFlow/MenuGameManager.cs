@@ -46,4 +46,10 @@ public class MenuGameManager : Singleton<MenuGameManager>
     {
         isStarting = false;
     }
+
+    public void SelectCharactor()
+    {
+        UEventData uEventData = new UEventData();
+        UEventDispatcherSingleton.Instance.Invoke<CharactorSelection>(uEventData);
+    }
 }

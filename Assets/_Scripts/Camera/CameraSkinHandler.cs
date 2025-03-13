@@ -2,12 +2,14 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraSkinHandler : MonoBehaviour
+public class CameraSkinHandler : Singleton<CameraSkinHandler>
 {
     [Header ("Skin Infor")]
     public Transform[] skin;
+    public BoxHandler[] boxes;
     public int currentIndex;
     public AudioSource soundOnSelected;
 
@@ -99,7 +101,7 @@ public class CameraSkinHandler : MonoBehaviour
     void FindNearestItem()
     {
         float minDistance = 100;
-        int nearestIndex = 0;
+        int newIndex = 0;
 
         for (int i = 0; i < skin.Length; i++)
         {
@@ -107,17 +109,29 @@ public class CameraSkinHandler : MonoBehaviour
             if (distance < minDistance)
             {
                 minDistance = distance;
-                nearestIndex = i;
+                newIndex = i;
             }
         }
 
-        if (currentIndex != nearestIndex)
+        if (currentIndex != newIndex)
         {
-            currentIndex = nearestIndex;
+            if (currentIndex > 1 && !SkinManager.Instance.CheckSkin(currentIndex))
+            {
+                boxes[currentIndex].MoveBack();
+                Debug.Log("back" + currentIndex);
+            }
+
+            currentIndex = newIndex;
             targetX = skin[currentIndex].position.x;
 
             CharacterSelectionHandler.Instance.UpdateUI();
             soundOnSelected.Play();
+
+            if (currentIndex > 1 && !SkinManager.Instance.CheckSkin(currentIndex))
+            {
+                boxes[currentIndex].MoveFoward();
+                Debug.Log("foward" + currentIndex);
+            }
         }
     }
 
@@ -142,6 +156,7 @@ public class CameraSkinHandler : MonoBehaviour
             velocity = Vector3.zero;
         }
     }
+
 
     public void DisableMove()
     {
