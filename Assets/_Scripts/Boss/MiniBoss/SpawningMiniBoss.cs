@@ -7,7 +7,7 @@ using Lean.Common;
 
 public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
 {
-    public int timeCounter;
+    public float timeCounter;
     public GameObject miniBossPrefab;
     public Transform[] spawnPosition;
 
@@ -54,11 +54,15 @@ public class SpawningMiniBoss : Singleton<SpawningMiniBoss>
 
     IEnumerator StartCountingTime()
     {
+        var dataPlayer = Player.Instance.controller.GetDataPlayer(DataManager.Instance.data.currentMap);
+        timeCounter = dataPlayer.timeSpawnBoss;
+
         while (timeCounter > 0)
         {
             InGameManager.Instance.miniBoss.UpdateTimer();
-            yield return new WaitForSeconds(1);
-            timeCounter--;
+            timeCounter -= Time.deltaTime;
+            yield return null;
+            
         }
         InGameManager.Instance.miniBoss.UpdateTimer();
         Spawn();

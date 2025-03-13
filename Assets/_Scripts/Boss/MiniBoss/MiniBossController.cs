@@ -14,6 +14,10 @@ public class MiniBossController : MonoBehaviour
         UpdateAction();
     }
 
+    private void OnEnable()
+    {
+        roarSound.Play();
+    }
 
     void UpdateAction()
     {
@@ -29,6 +33,24 @@ public class MiniBossController : MonoBehaviour
         {
             MiniBoss.Instance.executer.SetCurrentState("Walk");
         }
+
+        UpdateIntensityCamera(distance);
     }
 
+    void UpdateIntensityCamera(float distance)
+    {
+        if (distance < 15)
+        {
+            CameraShake.Instance.shakeIntensity = 0.01f;
+        }
+        else
+        {
+            CameraShake.Instance.shakeIntensity = 0.005f;
+        }
+    }
+
+    public void ShakeCamera()
+    {
+        CameraShake.Instance.shakeTimer = CameraShake.Instance.shakeTime;
+    }
 }

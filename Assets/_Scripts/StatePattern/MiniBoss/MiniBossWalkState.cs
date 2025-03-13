@@ -8,8 +8,6 @@ using static UnityEngine.EventSystems.EventTrigger;
 [Serializable]
 public class MiniBossWalkState : FSMC_Behaviour
 {
-    bool isRoaring = false;
-
     bool playerInRange => Vector3.Distance(MiniBoss.Instance.transform.position, Player.Instance.transform.position) <= 10;
 
 
@@ -27,12 +25,6 @@ public class MiniBossWalkState : FSMC_Behaviour
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
         MiniBoss.Instance.movement.PerformMoving();
-
-        if(playerInRange && !isRoaring)
-        {
-            isRoaring = true;
-            MiniBoss.Instance.controller.roarSound.Play();
-        }
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)

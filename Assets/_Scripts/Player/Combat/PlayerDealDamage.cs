@@ -16,8 +16,12 @@ public class PlayerDealDamage : MonoBehaviour
     Transform currentHitPosition;
 
 
-    public bool aimingRay => Physics.Raycast(ray.transform.position, ray.transform.forward, out hitInfo, currentRange, hitLayer);
+    private void OnEnable()
+    {
+        this.transform.rotation = Quaternion.Euler(Vector3.zero);
+    }
 
+    public bool aimingRay => Physics.Raycast(ray.transform.position, ray.transform.forward, out hitInfo, currentRange, hitLayer);
 
     public void GetAttackType(AttackType type)
     {

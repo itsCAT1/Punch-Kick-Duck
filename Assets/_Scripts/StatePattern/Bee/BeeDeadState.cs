@@ -19,7 +19,7 @@ public class BeeDeadState : FSMC_Behaviour
         bee.controller.attackSound.Stop();
 
         bee.beaten.BeeThrownOut();
-        AchievementManager.Instance.UnlockAchievement(2);
+        AchievementManager.Instance.UnlockAchievement(3);
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)

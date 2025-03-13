@@ -23,6 +23,7 @@ public class BonusPointHandler : MonoBehaviour
     void OnInGame(IUEventData uEventData)
     {
         StopAllCoroutines();
+
         StartCoroutine(CountdownPoint());
     }
 

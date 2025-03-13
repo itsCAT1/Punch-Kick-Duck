@@ -22,7 +22,7 @@ public class DataInGame : Singleton<DataInGame>
         UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(OnMenu);
 
         UEventDispatcherSingleton.Instance.AddEventListener<RestartGame>(ResetValue);
-        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(ResetValue);
+        UEventDispatcherSingleton.Instance.AddEventListener<LevelTransition>(ResetValue);
 
     }
 

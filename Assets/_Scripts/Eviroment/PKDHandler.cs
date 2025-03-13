@@ -85,6 +85,7 @@ public class PKDHandler : MonoBehaviour
             Player.Instance.dealDamage.CreateHitEffect();
             TutorialManager.Instance.ChangeState();
             DialogueHandler.Instance.ShowDialogOnStart();
+            MenuGameManager.Instance.isStarting = false;
 
             UEventData uEventData = new UEventData();
             if (DataManager.Instance.data.currentMap == 10)

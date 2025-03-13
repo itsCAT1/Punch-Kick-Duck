@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class RestartHandler : MonoBehaviour
 {
-
     public void Restart()
     {
         StartCoroutine(StartRestart());
@@ -14,6 +13,8 @@ public class RestartHandler : MonoBehaviour
 
     IEnumerator StartRestart()
     {
+        DataManager.Instance.data.showTutorial = false;
+
         yield return new WaitForSeconds(0.2f);
         LoadSceneHandler.Instance.LoadScene();
 

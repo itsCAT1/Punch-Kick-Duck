@@ -10,7 +10,7 @@ public class EnemyAttackState : FSMC_Behaviour
     Enemy enemy;
 
     private float timeStart;
-    public bool attackCooldown => Time.time - timeStart >= 0.1f;
+    public bool attackCooldown => Time.time - timeStart >= 0.2f;
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
 

@@ -146,8 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf15bb8be95be7499035e8e31b9524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePush: 200
+  forcePush: 100
   type: Punch
+  maxTime: 0.5
 --- !u!1 &3943122432123588796
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf15bb8be95be7499035e8e31b9524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePush: 200
+  forcePush: 100
   type: Kick
+  maxTime: 0.5
 --- !u!1 &8716497428794805428
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,5 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf15bb8be95be7499035e8e31b9524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePush: 200
+  forcePush: 100
   type: Duck
+  maxTime: 0.5

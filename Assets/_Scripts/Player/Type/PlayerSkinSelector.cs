@@ -12,7 +12,6 @@ public class PlayerSkinSelector : MonoBehaviour
         SetSkin();
     }
 
-
     public void SetSkin()
     {
         var id = DataManager.Instance.data.currentSkin - 1;

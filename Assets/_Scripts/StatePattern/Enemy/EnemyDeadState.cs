@@ -10,6 +10,9 @@ public class EnemyDeadState : FSMC_Behaviour
 {
     Enemy enemy;
 
+    private float timeStart;
+    public bool removeAttackTime => Time.time - timeStart >= 0.1f;
+
     public override void StateInit(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
 
@@ -24,12 +27,12 @@ public class EnemyDeadState : FSMC_Behaviour
         enemy.rigid.isKinematic = false;
         enemy.GetComponent<EnemyBeaten>().EnemyThrownOut();
 
-        if(ConditionManger.Instance.currentState == GameState.InGame) enemy.coin.RandomDropCoin();
+        if (ConditionManger.Instance.currentState == GameState.InGame) enemy.coin.RandomDropCoin();
     }
 
     public override void OnStateUpdate(FSMC_Controller stateMachine, FSMC_Executer executer)
     {
-
+        if(removeAttackTime) AttackingEnemyManager.Instance.ClearAttackingEnemy(enemy.gameObject);
     }
 
     public override void OnStateExit(FSMC_Controller stateMachine, FSMC_Executer executer)
