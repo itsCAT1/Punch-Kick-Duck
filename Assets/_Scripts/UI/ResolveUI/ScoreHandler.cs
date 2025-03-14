@@ -15,11 +15,14 @@ public class ScoreHandler : MonoBehaviour
     {
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(UpdateOnStart);
     }
+    private void OnEnable()
+    {
+        UpdateScore();
+    }
 
     public void UpdateOnStart(IUEventData uEventData)
     {
-        levelUI.text = "LEVEL " + DataManager.Instance.data.currentMap.ToString();
-        scoreUI.text = DataInGame.Instance.score.ToString();
+        UpdateScore();
     }
 
     public void UpdateScore()

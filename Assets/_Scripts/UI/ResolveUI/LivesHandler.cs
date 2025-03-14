@@ -15,7 +15,11 @@ public class LivesHandler : MonoBehaviour
         ShowLives();
 
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(UpdateLives);
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(UpdateLives);
+    }
+
+    private void OnEnable()
+    {
+        ShowLives();
     }
 
     public void ShowLives()

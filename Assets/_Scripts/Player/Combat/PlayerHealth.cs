@@ -14,6 +14,7 @@ public class PlayerHealth : Health
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerBlocking>(LoseHeart);
         UEventDispatcherSingleton.Instance.AddEventListener<Tutorial>(SetDataTutorial);
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(SetDataInGame);
+        UEventDispatcherSingleton.Instance.AddEventListener<MenuGame>(SetDataInGame);
     }
 
     public void SetDataTutorial(IUEventData uEventData)

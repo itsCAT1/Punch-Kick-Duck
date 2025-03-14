@@ -6,18 +6,6 @@ using UnityEngine;
 
 public class DataPointManager : Singleton<DataPointManager>
 {
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            GainPoint();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Player.Instance.health.TakeDamage();
-        }
-    }
-
     private void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<PlayerHurt>(LosePoint);

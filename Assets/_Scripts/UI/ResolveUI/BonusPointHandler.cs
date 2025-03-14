@@ -17,7 +17,11 @@ public class BonusPointHandler : MonoBehaviour
     void Start()
     {
         UEventDispatcherSingleton.Instance.AddEventListener<InGame>(OnInGame);
-        UEventDispatcherSingleton.Instance.AddEventListener<StartGame>(OnStartGame);
+    }
+
+    private void OnEnable()
+    {
+        UpdateUI();
     }
 
     void OnInGame(IUEventData uEventData)
@@ -25,11 +29,6 @@ public class BonusPointHandler : MonoBehaviour
         StopAllCoroutines();
 
         StartCoroutine(CountdownPoint());
-    }
-
-    void OnStartGame(IUEventData uEventData)
-    {
-        UpdateUI();
     }
 
     IEnumerator CountdownPoint()
